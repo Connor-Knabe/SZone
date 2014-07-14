@@ -1,0 +1,467 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B32155671971D0D7001C6FFC /* CKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B32155661971D0D7001C6FFC /* CKViewController.m */; };
+		B321556A1971D3C8001C6FFC /* CKMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = B32155691971D3C8001C6FFC /* CKMainView.m */; };
+		B3C717101971D0860030332C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C7170F1971D0860030332C /* Foundation.framework */; };
+		B3C717121971D0860030332C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C717111971D0860030332C /* CoreGraphics.framework */; };
+		B3C717141971D0860030332C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C717131971D0860030332C /* UIKit.framework */; };
+		B3C7171A1971D0860030332C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B3C717181971D0860030332C /* InfoPlist.strings */; };
+		B3C7171C1971D0860030332C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C7171B1971D0860030332C /* main.m */; };
+		B3C717201971D0860030332C /* CKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C7171F1971D0860030332C /* CKAppDelegate.m */; };
+		B3C717221971D0860030332C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3C717211971D0860030332C /* Images.xcassets */; };
+		B3C717291971D0860030332C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C717281971D0860030332C /* XCTest.framework */; };
+		B3C7172A1971D0860030332C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C7170F1971D0860030332C /* Foundation.framework */; };
+		B3C7172B1971D0860030332C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C717131971D0860030332C /* UIKit.framework */; };
+		B3C717331971D0860030332C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B3C717311971D0860030332C /* InfoPlist.strings */; };
+		B3C717351971D0860030332C /* CKSmileSpotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C717341971D0860030332C /* CKSmileSpotTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B3C7172C1971D0860030332C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B3C717041971D0860030332C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3C7170B1971D0860030332C;
+			remoteInfo = CKSmileSpot;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B32155651971D0D7001C6FFC /* CKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKViewController.h; sourceTree = "<group>"; };
+		B32155661971D0D7001C6FFC /* CKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKViewController.m; sourceTree = "<group>"; };
+		B32155681971D3C8001C6FFC /* CKMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKMainView.h; sourceTree = "<group>"; };
+		B32155691971D3C8001C6FFC /* CKMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKMainView.m; sourceTree = "<group>"; };
+		B3C7170C1971D0860030332C /* CKSmileSpot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CKSmileSpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3C7170F1971D0860030332C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B3C717111971D0860030332C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B3C717131971D0860030332C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B3C717171971D0860030332C /* CKSmileSpot-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CKSmileSpot-Info.plist"; sourceTree = "<group>"; };
+		B3C717191971D0860030332C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B3C7171B1971D0860030332C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B3C7171D1971D0860030332C /* CKSmileSpot-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CKSmileSpot-Prefix.pch"; sourceTree = "<group>"; };
+		B3C7171E1971D0860030332C /* CKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CKAppDelegate.h; sourceTree = "<group>"; };
+		B3C7171F1971D0860030332C /* CKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CKAppDelegate.m; sourceTree = "<group>"; };
+		B3C717211971D0860030332C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B3C717271971D0860030332C /* CKSmileSpotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CKSmileSpotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3C717281971D0860030332C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		B3C717301971D0860030332C /* CKSmileSpotTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CKSmileSpotTests-Info.plist"; sourceTree = "<group>"; };
+		B3C717321971D0860030332C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B3C717341971D0860030332C /* CKSmileSpotTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CKSmileSpotTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B3C717091971D0860030332C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3C717121971D0860030332C /* CoreGraphics.framework in Frameworks */,
+				B3C717141971D0860030332C /* UIKit.framework in Frameworks */,
+				B3C717101971D0860030332C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3C717241971D0860030332C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3C717291971D0860030332C /* XCTest.framework in Frameworks */,
+				B3C7172B1971D0860030332C /* UIKit.framework in Frameworks */,
+				B3C7172A1971D0860030332C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B3C717031971D0860030332C = {
+			isa = PBXGroup;
+			children = (
+				B3C717151971D0860030332C /* CKSmileSpot */,
+				B3C7172E1971D0860030332C /* CKSmileSpotTests */,
+				B3C7170E1971D0860030332C /* Frameworks */,
+				B3C7170D1971D0860030332C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B3C7170D1971D0860030332C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B3C7170C1971D0860030332C /* CKSmileSpot.app */,
+				B3C717271971D0860030332C /* CKSmileSpotTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B3C7170E1971D0860030332C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B3C7170F1971D0860030332C /* Foundation.framework */,
+				B3C717111971D0860030332C /* CoreGraphics.framework */,
+				B3C717131971D0860030332C /* UIKit.framework */,
+				B3C717281971D0860030332C /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B3C717151971D0860030332C /* CKSmileSpot */ = {
+			isa = PBXGroup;
+			children = (
+				B3C7171E1971D0860030332C /* CKAppDelegate.h */,
+				B3C7171F1971D0860030332C /* CKAppDelegate.m */,
+				B3C717211971D0860030332C /* Images.xcassets */,
+				B3C717161971D0860030332C /* Supporting Files */,
+				B32155651971D0D7001C6FFC /* CKViewController.h */,
+				B32155661971D0D7001C6FFC /* CKViewController.m */,
+				B32155681971D3C8001C6FFC /* CKMainView.h */,
+				B32155691971D3C8001C6FFC /* CKMainView.m */,
+			);
+			path = CKSmileSpot;
+			sourceTree = "<group>";
+		};
+		B3C717161971D0860030332C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B3C717171971D0860030332C /* CKSmileSpot-Info.plist */,
+				B3C717181971D0860030332C /* InfoPlist.strings */,
+				B3C7171B1971D0860030332C /* main.m */,
+				B3C7171D1971D0860030332C /* CKSmileSpot-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B3C7172E1971D0860030332C /* CKSmileSpotTests */ = {
+			isa = PBXGroup;
+			children = (
+				B3C717341971D0860030332C /* CKSmileSpotTests.m */,
+				B3C7172F1971D0860030332C /* Supporting Files */,
+			);
+			path = CKSmileSpotTests;
+			sourceTree = "<group>";
+		};
+		B3C7172F1971D0860030332C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B3C717301971D0860030332C /* CKSmileSpotTests-Info.plist */,
+				B3C717311971D0860030332C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B3C7170B1971D0860030332C /* CKSmileSpot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3C717381971D0860030332C /* Build configuration list for PBXNativeTarget "CKSmileSpot" */;
+			buildPhases = (
+				B3C717081971D0860030332C /* Sources */,
+				B3C717091971D0860030332C /* Frameworks */,
+				B3C7170A1971D0860030332C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CKSmileSpot;
+			productName = CKSmileSpot;
+			productReference = B3C7170C1971D0860030332C /* CKSmileSpot.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B3C717261971D0860030332C /* CKSmileSpotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3C7173B1971D0860030332C /* Build configuration list for PBXNativeTarget "CKSmileSpotTests" */;
+			buildPhases = (
+				B3C717231971D0860030332C /* Sources */,
+				B3C717241971D0860030332C /* Frameworks */,
+				B3C717251971D0860030332C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B3C7172D1971D0860030332C /* PBXTargetDependency */,
+			);
+			name = CKSmileSpotTests;
+			productName = CKSmileSpotTests;
+			productReference = B3C717271971D0860030332C /* CKSmileSpotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B3C717041971D0860030332C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CK;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Connor;
+				TargetAttributes = {
+					B3C717261971D0860030332C = {
+						TestTargetID = B3C7170B1971D0860030332C;
+					};
+				};
+			};
+			buildConfigurationList = B3C717071971D0860030332C /* Build configuration list for PBXProject "CKSmileSpot" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B3C717031971D0860030332C;
+			productRefGroup = B3C7170D1971D0860030332C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B3C7170B1971D0860030332C /* CKSmileSpot */,
+				B3C717261971D0860030332C /* CKSmileSpotTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B3C7170A1971D0860030332C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3C7171A1971D0860030332C /* InfoPlist.strings in Resources */,
+				B3C717221971D0860030332C /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3C717251971D0860030332C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3C717331971D0860030332C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B3C717081971D0860030332C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3C717201971D0860030332C /* CKAppDelegate.m in Sources */,
+				B321556A1971D3C8001C6FFC /* CKMainView.m in Sources */,
+				B3C7171C1971D0860030332C /* main.m in Sources */,
+				B32155671971D0D7001C6FFC /* CKViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3C717231971D0860030332C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3C717351971D0860030332C /* CKSmileSpotTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B3C7172D1971D0860030332C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3C7170B1971D0860030332C /* CKSmileSpot */;
+			targetProxy = B3C7172C1971D0860030332C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B3C717181971D0860030332C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B3C717191971D0860030332C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B3C717311971D0860030332C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B3C717321971D0860030332C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B3C717361971D0860030332C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B3C717371971D0860030332C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B3C717391971D0860030332C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CKSmileSpot/CKSmileSpot-Prefix.pch";
+				INFOPLIST_FILE = "CKSmileSpot/CKSmileSpot-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B3C7173A1971D0860030332C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CKSmileSpot/CKSmileSpot-Prefix.pch";
+				INFOPLIST_FILE = "CKSmileSpot/CKSmileSpot-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B3C7173C1971D0860030332C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CKSmileSpot.app/CKSmileSpot";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CKSmileSpot/CKSmileSpot-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CKSmileSpotTests/CKSmileSpotTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		B3C7173D1971D0860030332C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CKSmileSpot.app/CKSmileSpot";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CKSmileSpot/CKSmileSpot-Prefix.pch";
+				INFOPLIST_FILE = "CKSmileSpotTests/CKSmileSpotTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B3C717071971D0860030332C /* Build configuration list for PBXProject "CKSmileSpot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3C717361971D0860030332C /* Debug */,
+				B3C717371971D0860030332C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B3C717381971D0860030332C /* Build configuration list for PBXNativeTarget "CKSmileSpot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3C717391971D0860030332C /* Debug */,
+				B3C7173A1971D0860030332C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B3C7173B1971D0860030332C /* Build configuration list for PBXNativeTarget "CKSmileSpotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3C7173C1971D0860030332C /* Debug */,
+				B3C7173D1971D0860030332C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B3C717041971D0860030332C /* Project object */;
+}
