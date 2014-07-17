@@ -20,7 +20,7 @@
 		B3C7172A1971D0860030332C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C7170F1971D0860030332C /* Foundation.framework */; };
 		B3C7172B1971D0860030332C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C717131971D0860030332C /* UIKit.framework */; };
 		B3C717331971D0860030332C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B3C717311971D0860030332C /* InfoPlist.strings */; };
-		B3C717351971D0860030332C /* CKSmileSpotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C717341971D0860030332C /* CKSmileSpotTests.m */; };
+		B3C717351971D0860030332C /* CKSmileZoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C717341971D0860030332C /* CKSmileZoneTests.m */; };
 		B3E2430F1977628200800F83 /* CKUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E2430E1977628200800F83 /* CKUserModel.m */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +54,7 @@
 		B3C717281971D0860030332C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B3C717301971D0860030332C /* CKSmileZoneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CKSmileZoneTests-Info.plist"; sourceTree = "<group>"; };
 		B3C717321971D0860030332C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B3C717341971D0860030332C /* CKSmileSpotTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CKSmileSpotTests.m; sourceTree = "<group>"; };
+		B3C717341971D0860030332C /* CKSmileZoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CKSmileZoneTests.m; sourceTree = "<group>"; };
 		B3E2430D1977628200800F83 /* CKUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKUserModel.h; sourceTree = "<group>"; };
 		B3E2430E1977628200800F83 /* CKUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKUserModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,7 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				B3C717151971D0860030332C /* CKSmileSpot */,
-				B3C7172E1971D0860030332C /* CKSmileSpotTests */,
+				B3C7172E1971D0860030332C /* CKSmileZoneTests */,
 				B3C7170E1971D0860030332C /* Frameworks */,
 				B3C7170D1971D0860030332C /* Products */,
 			);
@@ -141,12 +141,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B3C7172E1971D0860030332C /* CKSmileSpotTests */ = {
+		B3C7172E1971D0860030332C /* CKSmileZoneTests */ = {
 			isa = PBXGroup;
 			children = (
-				B3C717341971D0860030332C /* CKSmileSpotTests.m */,
+				B3C717341971D0860030332C /* CKSmileZoneTests.m */,
 				B3C7172F1971D0860030332C /* Supporting Files */,
 			);
+			name = CKSmileZoneTests;
 			path = CKSmileSpotTests;
 			sourceTree = "<group>";
 		};
@@ -267,7 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3C717351971D0860030332C /* CKSmileSpotTests.m in Sources */,
+				B3C717351971D0860030332C /* CKSmileZoneTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B3C7170B1971D0860030332C"
-               BuildableName = "CKSmileSpot.app"
+               BuildableName = "CKSmileZone.app"
                BlueprintName = "CKSmileZone"
                ReferencedContainer = "container:CKSmileZone.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B3C717261971D0860030332C"
-               BuildableName = "CKSmileSpotTests.xctest"
+               BuildableName = "CKSmileZoneTests.xctest"
                BlueprintName = "CKSmileZoneTests"
                ReferencedContainer = "container:CKSmileZone.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B3C7170B1971D0860030332C"
-            BuildableName = "CKSmileSpot.app"
+            BuildableName = "CKSmileZone.app"
             BlueprintName = "CKSmileZone"
             ReferencedContainer = "container:CKSmileZone.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B3C7170B1971D0860030332C"
-            BuildableName = "CKSmileSpot.app"
+            BuildableName = "CKSmileZone.app"
             BlueprintName = "CKSmileZone"
             ReferencedContainer = "container:CKSmileZone.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B3C7170B1971D0860030332C"
-            BuildableName = "CKSmileSpot.app"
+            BuildableName = "CKSmileZone.app"
             BlueprintName = "CKSmileZone"
             ReferencedContainer = "container:CKSmileZone.xcodeproj">
          </BuildableReference>
