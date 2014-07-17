@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B3C7170B1971D0860030332C"
                BuildableName = "CKSmileSpot.app"
-               BlueprintName = "CKSmileSpot"
-               ReferencedContainer = "container:CKSmileSpot.xcodeproj">
+               BlueprintName = "CKSmileZone"
+               ReferencedContainer = "container:CKSmileZone.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B3C717261971D0860030332C"
                BuildableName = "CKSmileSpotTests.xctest"
-               BlueprintName = "CKSmileSpotTests"
-               ReferencedContainer = "container:CKSmileSpot.xcodeproj">
+               BlueprintName = "CKSmileZoneTests"
+               ReferencedContainer = "container:CKSmileZone.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B3C7170B1971D0860030332C"
             BuildableName = "CKSmileSpot.app"
-            BlueprintName = "CKSmileSpot"
-            ReferencedContainer = "container:CKSmileSpot.xcodeproj">
+            BlueprintName = "CKSmileZone"
+            ReferencedContainer = "container:CKSmileZone.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B3C7170B1971D0860030332C"
             BuildableName = "CKSmileSpot.app"
-            BlueprintName = "CKSmileSpot"
-            ReferencedContainer = "container:CKSmileSpot.xcodeproj">
+            BlueprintName = "CKSmileZone"
+            ReferencedContainer = "container:CKSmileZone.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B3C7170B1971D0860030332C"
             BuildableName = "CKSmileSpot.app"
-            BlueprintName = "CKSmileSpot"
-            ReferencedContainer = "container:CKSmileSpot.xcodeproj">
+            BlueprintName = "CKSmileZone"
+            ReferencedContainer = "container:CKSmileZone.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
