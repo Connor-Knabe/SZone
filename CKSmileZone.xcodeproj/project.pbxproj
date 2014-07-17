@@ -401,14 +401,14 @@
 		B3C7173C1971D0860030332C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CKSmileSpot.app/CKSmileSpot";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CKSmileZone.app/CKSmileZone";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CKSmileSpot/CKSmileSpot-Prefix.pch";
+				GCC_PREFIX_HEADER = "CKSmileSpot/CKSmileZone-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -423,14 +423,14 @@
 		B3C7173D1971D0860030332C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CKSmileSpot.app/CKSmileSpot";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CKSmileZone.app/CKSmileZone";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CKSmileSpot/CKSmileSpot-Prefix.pch";
+				GCC_PREFIX_HEADER = "CKSmileSpot/CKSmileZone-Prefix.pch";
 				INFOPLIST_FILE = "CKSmileSpotTests/CKSmileZoneTests-Info.plist";
 				PRODUCT_NAME = CKSmileZoneTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
