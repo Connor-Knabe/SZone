@@ -15,7 +15,6 @@
 @end
 
 @implementation CKViewController
-
 - (id)init
 {
     self = [super init];
