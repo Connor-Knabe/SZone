@@ -7,28 +7,40 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "CKUserModel.h"
 
 @interface CKSmileSpotTests : XCTestCase
+
+@property (nonatomic) CKUserModel* userModel;
+@property (nonatomic) NSArray* userArray;
 
 @end
 
 @implementation CKSmileSpotTests
 
-- (void)setUp
-{
+-(void)setUp{
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.userModel = [[CKUserModel alloc]init];
+    
+    self.userArray = [self.userModel fillArray];
+
 }
 
-- (void)tearDown
-{
+-(void)tearDown{
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 
-- (void)testExample
-{
+-(void)testExample{
     XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
 }
+
+-(void)testThatUsernameCanBeAddedToArray{
+
+    XCTAssertNil(self.userArray);
+
+}
+
+
 
 @end
