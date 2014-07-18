@@ -36,9 +36,9 @@
 
 
 -(void)makeLabels{
-    self.welcome = [[UILabel alloc]initWithFrame:CGRectMake(40, 40, 40, 40)];
+    self.welcome = [[UILabel alloc]initWithFrame:CGRectMake(130, 130, 200, 200)];
     
-    
+    [self.welcome setText:@"Welcome:"];
     
     
     
