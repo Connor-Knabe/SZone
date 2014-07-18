@@ -24,9 +24,8 @@
         
         CGRect viewRect = CGRectMake(100, 100, 100, 100);
 
-        self.box = [[UIView alloc]init];
 
-        [self.box setBackgroundColor:[UIColor greenColor]];
+        //[self.box setBackgroundColor:[UIColor greenColor]];
         
         [self makeLabels];
         [self addSubviews];
@@ -36,13 +35,20 @@
 
 
 -(void)makeLabels{
-    self.welcome = [[UILabel alloc]initWithFrame:CGRectMake(130, 130, 200, 200)];
+    //self.welcome = [[UILabel alloc]initWithFrame:CGRectMake(130, 130, 200, 200)];
+    
+    self.welcome = [[UILabel alloc]init];
+
+    self.box = [[UIView alloc]init];
+
+    [self.welcome mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.box);
+    }];
     
     [self.welcome setText:@"Welcome:"];
 
-   
     
-    
+
 }
 
 -(void)addSubviews{
