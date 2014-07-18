@@ -7,6 +7,7 @@
 //
 
 #import "CKMainView.h"
+#import "Masonry.h"
 
 @interface CKMainView()
 
@@ -17,14 +18,13 @@
 
 @implementation CKMainView
 
-- (id)init
-{
+- (id)init{
     self = [super init];
     if (self) {
         
         CGRect viewRect = CGRectMake(100, 100, 100, 100);
 
-        self.box = [[UIView alloc]initWithFrame:viewRect];
+        self.box = [[UIView alloc]init];
 
         [self.box setBackgroundColor:[UIColor greenColor]];
         
@@ -39,7 +39,8 @@
     self.welcome = [[UILabel alloc]initWithFrame:CGRectMake(130, 130, 200, 200)];
     
     [self.welcome setText:@"Welcome:"];
-    
+
+   
     
     
 }
