@@ -11,6 +11,7 @@
 @interface CKMainView()
 
 @property (nonatomic) UIView* box;
+@property (nonatomic) UILabel* welcome;
 
 @end
 
@@ -27,11 +28,28 @@
 
         [self.box setBackgroundColor:[UIColor greenColor]];
         
-        [self addSubview:self.box];
-
-    
+        [self makeLabels];
+        [self addSubviews];
     }
     return self;
 }
+
+
+-(void)makeLabels{
+    self.welcome = [[UILabel alloc]initWithFrame:CGRectMake(40, 40, 40, 40)];
+    
+    
+    
+    
+    
+}
+
+-(void)addSubviews{
+    
+    [self addSubview:self.welcome];
+    [self addSubview:self.box];
+
+}
+
 
 @end
