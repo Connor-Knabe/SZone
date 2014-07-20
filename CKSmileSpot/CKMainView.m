@@ -24,19 +24,22 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+        self.welcome = [[UILabel alloc]init];
+        self.box = [[UIView alloc]init];
+        self.header1 = [[UIView alloc]init];
+
+        
         self.viewRect = CGRectMake(100, 100, 100, 100);
 
-        [self makeLabels];
         [self addSubviews];
+        [self makeLabels];
+
     }
     return self;
 }
 
 
 -(void)makeLabels{
-    self.welcome = [[UILabel alloc]init];
-    self.box = [[UIView alloc]init];
-    self.header1 = [[UIView alloc]init];
 
     [self.box setBackgroundColor:[UIColor greenColor]];
     [self.header1 setBackgroundColor:[UIColor blackColor]];
