@@ -30,7 +30,8 @@
     
     [self.navBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top).with.offset(20);
-        make.height.equalTo(@90);
+        make.left.equalTo(self.mas_left);
+        make.height.equalTo(@50);
         make.width.equalTo(self.mas_width);
     }];
     
