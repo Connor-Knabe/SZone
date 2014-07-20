@@ -133,6 +133,8 @@
 				B32155661971D0D7001C6FFC /* CKViewController.m */,
 				B32155681971D3C8001C6FFC /* CKMainView.h */,
 				B32155691971D3C8001C6FFC /* CKMainView.m */,
+				B39D5E6F197C38FD0095C987 /* CKTopNavigationBarView.h */,
+				B39D5E70197C38FD0095C987 /* CKTopNavigationBarView.m */,
 				B3E2430D1977628200800F83 /* CKUserModel.h */,
 				B3E2430E1977628200800F83 /* CKUserModel.m */,
 			);
@@ -147,8 +149,6 @@
 				B3C717181971D0860030332C /* InfoPlist.strings */,
 				B3C7171B1971D0860030332C /* main.m */,
 				B3C7171D1971D0860030332C /* CKSmileZone-Prefix.pch */,
-				B39D5E6F197C38FD0095C987 /* CKTopNavigationBarView.h */,
-				B39D5E70197C38FD0095C987 /* CKTopNavigationBarView.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

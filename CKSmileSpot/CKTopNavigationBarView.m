@@ -15,18 +15,30 @@
     if (self) {
         
         self.navBar = [[UIView alloc]init];
+        
+        [self addSubview:self.navBar];
+        
+        [self addMasonryConstraints];
+        
     
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
+
+-(void)addMasonryConstraints{
+    
+    [self.navBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_top);
+        make.height.equalTo(@90);
+    }];
+    
+    [self.navBar setBackgroundColor:[UIColor greenColor]];
+    
+    
 }
-*/
+
+
+
 
 @end

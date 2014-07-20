@@ -8,10 +8,14 @@
 
 #import "CKViewController.h"
 #import "CKMainView.h"
+#import "CKTopNavigationBarView.h"
+
 @interface CKViewController ()
 
 @property (nonatomic) CKMainView * mainView;
 @property (nonatomic) UIView *mainWindow;
+@property (nonatomic) CKTopNavigationBarView *topNavBar;
+
 @end
 
 @implementation CKViewController
@@ -30,18 +34,10 @@
 {
     [super viewDidLoad];
     
-    CGRect viewRect = CGRectMake(100, 0, 100, 100);
-    
-    self.mainWindow = [[UIView alloc]initWithFrame:viewRect];
-    
-    [self.mainWindow setBackgroundColor:[UIColor redColor]];
+    self.topNavBar = [[CKTopNavigationBarView alloc]initWithFrame:self.view.bounds];
     
     
-    self.mainView = [[CKMainView alloc]initWithFrame:self.view.bounds];
-    
-    
-    [self.view addSubview:self.mainWindow];
-    [self.view addSubview:self.mainView];
+    [self.view addSubview:self.topNavBar];
 
 
 }
