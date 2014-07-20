@@ -42,8 +42,13 @@
     self.box = [[UIView alloc]init];
 
     [self.welcome mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.box);
+        
+    
     }];
+    
+//    [self.welcome mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerX.equalTo(self.box);
+//    }];
     
     [self.welcome setText:@"Welcome:"];
 

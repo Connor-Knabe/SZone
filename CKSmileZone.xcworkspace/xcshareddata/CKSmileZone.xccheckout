@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E0BF59E7-28A1-4B25-A81B-C5067A8A6982</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CKSmileZone</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>08B5A358-91B6-4907-9C85-643B0FACF519</key>
+		<string>ssh://github.com/Masonry/Masonry.git</string>
+		<key>F902A407-6CA6-4D9B-9790-CE4B7160441D</key>
+		<string>ssh://github.com/Connor-Knabe/SmileZones.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CKSmileZone.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>08B5A358-91B6-4907-9C85-643B0FACF519</key>
+		<string>../Pods/Masonry</string>
+		<key>F902A407-6CA6-4D9B-9790-CE4B7160441D</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/Connor-Knabe/SmileZones.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F902A407-6CA6-4D9B-9790-CE4B7160441D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>08B5A358-91B6-4907-9C85-643B0FACF519</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Masonry</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F902A407-6CA6-4D9B-9790-CE4B7160441D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SmileZone</string>
+		</dict>
+	</array>
+</dict>
+</plist>

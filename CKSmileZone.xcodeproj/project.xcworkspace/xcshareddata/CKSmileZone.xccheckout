@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>14E5CA6C-61F5-4206-A704-E2C5DDF6338B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CKSmileZone</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F902A407-6CA6-4D9B-9790-CE4B7160441D</key>
+		<string>ssh://github.com/Connor-Knabe/SmileZones.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CKSmileZone.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F902A407-6CA6-4D9B-9790-CE4B7160441D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/Connor-Knabe/SmileZones.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F902A407-6CA6-4D9B-9790-CE4B7160441D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F902A407-6CA6-4D9B-9790-CE4B7160441D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SmileZone</string>
+		</dict>
+	</array>
+</dict>
+</plist>
