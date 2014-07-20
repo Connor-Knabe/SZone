@@ -31,22 +31,21 @@
         
         [self addMasonry];
         
-        [self setBackgroundColor:[UIColor blackColor]];
 
     }
     return self;
 }
 -(void)addMasonry{
     
-    
+ 
     
     [self.welcome setText:@"Welcome:"];
     
     [self.welcome mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_top);
+        make.top.equalTo(self.mas_top).with.offset(70);
         make.height.equalTo(@30);
-        make.width.equalTo(self.mas_width);
-        make.leading.equalTo(self.mas_left);
+        make.centerX.equalTo(self.mas_centerX);
+
     }];
     
 }

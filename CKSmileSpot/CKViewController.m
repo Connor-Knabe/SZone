@@ -16,6 +16,7 @@
 @property (nonatomic) CKMainView * mainView;
 @property (nonatomic) UIView *mainWindow;
 @property (nonatomic) CKTopNavigationBarView *topNavBar;
+@property (nonatomic) UILabel *welcomeLabel;
 
 @end
 
@@ -40,8 +41,9 @@
     
     self.topNavBar = [[CKTopNavigationBarView alloc]initWithFrame:self.view.bounds];
     self.mainView = [[CKMainView alloc]initWithFrame:self.view.bounds];
-    
-    
+    self.welcomeLabel = [[UILabel alloc]init];
+    [self.welcomeLabel setTextColor:[UIColor redColor]];
+
     [self addSubviews];
     [self addMasonry];
 
@@ -50,15 +52,13 @@
 
 
 -(void)addMasonry{
-    
-    [self.mainView mas_makeConstraints:^(MASConstraintMaker *make) {
+   
+    [self.welcomeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.topNavBar.mas_bottom);
         make.height.equalTo(@100);
-        make.left.equalTo(self.view.mas_left);
-        make.width.equalTo(self.view.mas_width);
     }];
     
-    [self.mainView setBackgroundColor:[UIColor blueColor]];
+    [self.welcomeLabel setText:@"HI"];
     
 }
 
@@ -67,7 +67,8 @@
     
     [self.view addSubview:self.topNavBar];
     [self.view addSubview:self.mainView];
-    
+    [self.view addSubview:self.welcomeLabel];
+
 }
 
 
