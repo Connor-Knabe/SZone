@@ -29,8 +29,9 @@
 -(void)addMasonryConstraints{
     
     [self.navBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_top);
+        make.top.equalTo(self.mas_top).with.offset(20);
         make.height.equalTo(@90);
+        make.width.equalTo(self.mas_width);
     }];
     
     [self.navBar setBackgroundColor:[UIColor greenColor]];

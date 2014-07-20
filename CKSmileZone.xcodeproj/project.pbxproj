@@ -11,6 +11,7 @@
 		B32155671971D0D7001C6FFC /* CKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B32155661971D0D7001C6FFC /* CKViewController.m */; };
 		B321556A1971D3C8001C6FFC /* CKMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = B32155691971D3C8001C6FFC /* CKMainView.m */; };
 		B39D5E71197C38FD0095C987 /* CKTopNavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D5E70197C38FD0095C987 /* CKTopNavigationBarView.m */; };
+		B39D5E74197C3DBC0095C987 /* CKTopNavBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D5E73197C3DBC0095C987 /* CKTopNavBarViewController.m */; };
 		B3C717101971D0860030332C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C7170F1971D0860030332C /* Foundation.framework */; };
 		B3C717121971D0860030332C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C717111971D0860030332C /* CoreGraphics.framework */; };
 		B3C717141971D0860030332C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C717131971D0860030332C /* UIKit.framework */; };
@@ -43,6 +44,8 @@
 		B32155691971D3C8001C6FFC /* CKMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKMainView.m; sourceTree = "<group>"; };
 		B39D5E6F197C38FD0095C987 /* CKTopNavigationBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKTopNavigationBarView.h; sourceTree = "<group>"; };
 		B39D5E70197C38FD0095C987 /* CKTopNavigationBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKTopNavigationBarView.m; sourceTree = "<group>"; };
+		B39D5E72197C3DBC0095C987 /* CKTopNavBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKTopNavBarViewController.h; sourceTree = "<group>"; };
+		B39D5E73197C3DBC0095C987 /* CKTopNavBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKTopNavBarViewController.m; sourceTree = "<group>"; };
 		B3C7170C1971D0860030332C /* CKSmileZone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CKSmileZone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3C7170F1971D0860030332C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B3C717111971D0860030332C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -137,6 +140,8 @@
 				B39D5E70197C38FD0095C987 /* CKTopNavigationBarView.m */,
 				B3E2430D1977628200800F83 /* CKUserModel.h */,
 				B3E2430E1977628200800F83 /* CKUserModel.m */,
+				B39D5E72197C3DBC0095C987 /* CKTopNavBarViewController.h */,
+				B39D5E73197C3DBC0095C987 /* CKTopNavBarViewController.m */,
 			);
 			name = CKSmileZone;
 			path = CKSmileSpot;
@@ -307,6 +312,7 @@
 				B3C717201971D0860030332C /* CKAppDelegate.m in Sources */,
 				B321556A1971D3C8001C6FFC /* CKMainView.m in Sources */,
 				B3E2430F1977628200800F83 /* CKUserModel.m in Sources */,
+				B39D5E74197C3DBC0095C987 /* CKTopNavBarViewController.m in Sources */,
 				B3C7171C1971D0860030332C /* main.m in Sources */,
 				B32155671971D0D7001C6FFC /* CKViewController.m in Sources */,
 			);

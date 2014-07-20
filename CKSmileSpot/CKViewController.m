@@ -9,6 +9,7 @@
 #import "CKViewController.h"
 #import "CKMainView.h"
 #import "CKTopNavigationBarView.h"
+#import "Masonry.h"
 
 @interface CKViewController ()
 
@@ -36,11 +37,22 @@
     
     self.topNavBar = [[CKTopNavigationBarView alloc]initWithFrame:self.view.bounds];
     
-    
     [self.view addSubview:self.topNavBar];
+    
+    [self addMasonry];
 
-
+    
 }
+
+
+-(void)addMasonry{
+    
+}
+
+
+
+
+
 
 - (void)didReceiveMemoryWarning
 {
