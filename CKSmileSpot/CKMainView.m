@@ -12,21 +12,20 @@
 @interface CKMainView()
 
 @property (nonatomic) UIView* box;
+@property (nonatomic) UIView* header1;
 @property (nonatomic) UILabel* welcome;
+@property (nonatomic) CGRect viewRect;
 
 @end
 
 @implementation CKMainView
 
-- (id)init{
-    self = [super init];
+- (id)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
     if (self) {
         
-        CGRect viewRect = CGRectMake(100, 100, 100, 100);
+        self.viewRect = CGRectMake(100, 100, 100, 100);
 
-
-        //[self.box setBackgroundColor:[UIColor greenColor]];
-        
         [self makeLabels];
         [self addSubviews];
     }
@@ -35,20 +34,26 @@
 
 
 -(void)makeLabels{
-    //self.welcome = [[UILabel alloc]initWithFrame:CGRectMake(130, 130, 200, 200)];
-    
     self.welcome = [[UILabel alloc]init];
-
     self.box = [[UIView alloc]init];
+    self.header1 = [[UIView alloc]init];
 
-    [self.welcome mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-    
+    [self.box setBackgroundColor:[UIColor greenColor]];
+    [self.header1 setBackgroundColor:[UIColor blackColor]];
+
+    [self.box mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@100);
+        make.width.equalTo(@100);
     }];
     
-//    [self.welcome mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.centerX.equalTo(self.box);
-//    }];
+    
+    [self.header1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@300);
+        make.width.equalTo(@200);
+        make.top.equalTo(self.box.mas_bottom);
+    }];
+    
+    //[self.box setBackgroundColor:[UIColor blackColor]];
     
     [self.welcome setText:@"Welcome:"];
 
@@ -60,6 +65,7 @@
     
     [self addSubview:self.welcome];
     [self addSubview:self.box];
+    [self addSubview:self.header1];
 
 }
 

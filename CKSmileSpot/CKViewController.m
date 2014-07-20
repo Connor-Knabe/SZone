@@ -19,8 +19,8 @@
 {
     self = [super init];
     if (self) {
-        //self.mainView = [[CKMainView alloc]init];
-        //[self.mainView setBackgroundColor:[UIColor blackColor]];
+
+    
     }
     return self;
 }
@@ -30,15 +30,14 @@
 {
     [super viewDidLoad];
     
-    CGRect viewRect = CGRectMake(0, 0, 100, 100);
+    CGRect viewRect = CGRectMake(100, 0, 100, 100);
     
     self.mainWindow = [[UIView alloc]initWithFrame:viewRect];
     
     [self.mainWindow setBackgroundColor:[UIColor redColor]];
     
-    viewRect = CGRectMake(0, 200, 100, 100);
     
-    self.mainView = [[CKMainView alloc]init];
+    self.mainView = [[CKMainView alloc]initWithFrame:self.view.bounds];
     
     
     [self.view addSubview:self.mainWindow];
@@ -53,15 +52,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
