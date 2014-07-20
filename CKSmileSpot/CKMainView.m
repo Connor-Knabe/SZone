@@ -25,40 +25,35 @@
     if (self) {
         
         self.welcome = [[UILabel alloc]init];
-        self.box = [[UIView alloc]init];
-        self.header1 = [[UIView alloc]init];
-
-        
-        self.viewRect = CGRectMake(100, 100, 100, 100);
 
         [self addSubviews];
         [self makeLabels];
+        
+        [self addMasonry];
+        
+        [self setBackgroundColor:[UIColor blackColor]];
 
     }
     return self;
+}
+-(void)addMasonry{
+    
+    
+    
+    [self.welcome setText:@"Welcome:"];
+    
+    [self.welcome mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_top);
+        make.height.equalTo(@30);
+        make.width.equalTo(self.mas_width);
+        make.leading.equalTo(self.mas_left);
+    }];
+    
 }
 
 
 -(void)makeLabels{
 
-    [self.box setBackgroundColor:[UIColor greenColor]];
-    [self.header1 setBackgroundColor:[UIColor blackColor]];
-
-    [self.box mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@100);
-        make.width.equalTo(@100);
-    }];
-    
-    
-    [self.header1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@300);
-        make.width.equalTo(@200);
-        make.top.equalTo(self.box.mas_bottom);
-    }];
-    
-    //[self.box setBackgroundColor:[UIColor blackColor]];
-    
-    [self.welcome setText:@"Welcome:"];
 
     
 
@@ -67,8 +62,6 @@
 -(void)addSubviews{
     
     [self addSubview:self.welcome];
-    [self addSubview:self.box];
-    [self addSubview:self.header1];
 
 }
 
