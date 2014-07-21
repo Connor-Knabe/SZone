@@ -10,7 +10,6 @@
 
 @interface CKUserModel()
 
-@property (nonatomic) NSArray *userArray;
 
 @end
 
@@ -21,19 +20,15 @@
     self = [super init];
     if (self) {
         
+        self.userArray = [[NSArray alloc]init];
+        
+        self.userArray = @[@"Connor", @"Brian", @"Kevin", @"Fillipe", @"Josh", @"Marty"];
+
+        
     }
     return self;
 }
 
--(NSArray*)fillArray{
-    
-    self.userArray = [[NSArray alloc]init];
-    
-    self.userArray = @[@"Connor", @"Brian", @"Kevin", @"Fillipe", @"Josh", @"Marty"];
-    
-    
-    return self.userArray;
-}
 
 
 

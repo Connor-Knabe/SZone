@@ -11,7 +11,7 @@
 
 @interface CKUserModel : NSObject
 
+@property (nonatomic) NSArray *userArray;
 
--(NSArray*)fillArray;
 
 @end

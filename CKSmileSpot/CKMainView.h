@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CKUserModel.h"
 
 @interface CKMainView : UIView
+
+- (id)initWithModel:(CKUserModel*)userModel;
 
 @end

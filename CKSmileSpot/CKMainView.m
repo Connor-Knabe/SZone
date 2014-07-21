@@ -15,32 +15,30 @@
 @property (nonatomic) UIView* header1;
 @property (nonatomic) UILabel* welcome;
 @property (nonatomic) CGRect viewRect;
+@property (nonatomic) CKUserModel *userModel;
+@property (nonatomic) NSArray *userArray;
 
 @end
 
 @implementation CKMainView
 
-- (id)init{
+- (id)initWithModel:(CKUserModel*)userModel {
     self = [super init];
     if (self) {
         
         self.welcome = [[UILabel alloc]init];
-
+        self.userModel = [[CKUserModel alloc]init];
+        
         [self addSubviews];
         [self makeLabels];
-        
         [self addMasonry];
-        
         
     }
     return self;
 }
+
 -(void)addMasonry{
     
-    
-    
-    
-    [self.welcome setText:@"Welcome:"];
     
     [self.welcome mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top);
@@ -53,11 +51,13 @@
 
 
 -(void)makeLabels{
-
-
     
+    
+    [self.welcome setText:[NSString stringWithFormat:@"Welcome %@",[self.userModel.userArray objectAtIndex:1]]];
 
 }
+
+
 
 -(void)addSubviews{
     
