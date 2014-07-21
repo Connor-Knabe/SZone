@@ -64,10 +64,10 @@
     
     
     [self.mainView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.topNavBar.mas_bottom);
         make.height.equalTo(@100);
-        make.top.equalTo(self.view.mas_top);
-        make.centerX.equalTo(self.view.mas_centerX);
         make.width.equalTo(self.view.mas_width);
+        make.centerX.equalTo(self.view.mas_centerX);
     }];
    
     [self.mainView setBackgroundColor:[UIColor grayColor]];
