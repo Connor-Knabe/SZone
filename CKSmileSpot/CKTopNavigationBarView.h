@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CKTopNavigationBarView : UIView
+@property (nonatomic) UIView* navBar;
 
 @end

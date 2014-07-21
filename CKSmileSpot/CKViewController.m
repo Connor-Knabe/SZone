@@ -27,8 +27,8 @@
 {
     self = [super init];
     if (self) {
-        self.topNavBar = [[CKTopNavigationBarView alloc]initWithFrame:self.view.bounds];
-        self.mainView = [[CKMainView alloc]initWithFrame:self.view.bounds];
+        self.topNavBar = [[CKTopNavigationBarView alloc]init];
+        self.mainView = [[CKMainView alloc]init];
         self.welcomeLabel = [[UILabel alloc]init];
         self.box = [[UIView alloc]init];
 
@@ -61,17 +61,24 @@
 
 -(void)addMasonry{
     
-    
+
+    [self.topNavBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_top).with.offset(20);
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.width.equalTo(self.view.mas_width);
+        make.height.equalTo(self.topNavBar.navBar.mas_height);
+    }];
+
     
     [self.mainView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.topNavBar.mas_bottom);
-        make.height.equalTo(@100);
+        make.height.equalTo(@200);
+        make.left.equalTo(self.view.mas_left);
         make.width.equalTo(self.view.mas_width);
-        make.centerX.equalTo(self.view.mas_centerX);
     }];
    
     [self.mainView setBackgroundColor:[UIColor grayColor]];
-    
+
     [self.welcomeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.view.mas_centerY);
         make.centerX.equalTo(self.view.mas_centerX);

@@ -20,8 +20,8 @@
 
 @implementation CKMainView
 
-- (id)initWithFrame:(CGRect)frame{
-    self = [super initWithFrame:frame];
+- (id)init{
+    self = [super init];
     if (self) {
         
         self.welcome = [[UILabel alloc]init];

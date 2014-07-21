@@ -3,7 +3,6 @@
 
 @interface CKTopNavigationBarView()
 
-@property (nonatomic) UIView* navBar;
 @property (nonatomic) UIButton* settingsButton;
 
 
@@ -11,9 +10,9 @@
 
 @implementation CKTopNavigationBarView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)init
 {
-    self = [super initWithFrame:frame];
+    self = [super init];
     if (self) {
         
         self.navBar = [[UIView alloc]init];
@@ -32,7 +31,7 @@
 -(void)addMasonryConstraints{
     
     [self.navBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_top).with.offset(20);
+        make.top.equalTo(self.mas_top);
         make.left.equalTo(self.mas_left);
         make.height.equalTo(@50);
         make.width.equalTo(self.mas_width);
