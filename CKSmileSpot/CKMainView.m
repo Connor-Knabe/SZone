@@ -31,18 +31,19 @@
         
         [self addMasonry];
         
-
+        
     }
     return self;
 }
 -(void)addMasonry{
     
- 
+    
+    
     
     [self.welcome setText:@"Welcome:"];
     
     [self.welcome mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_top).with.offset(70);
+        make.top.equalTo(self.mas_top);
         make.height.equalTo(@30);
         make.centerX.equalTo(self.mas_centerX);
 
