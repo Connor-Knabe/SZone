@@ -9,6 +9,7 @@
 #import "CKMainView.h"
 #import "Masonry.h"
 
+
 @interface CKMainView()
 
 @property (nonatomic) UIView* box;
@@ -33,6 +34,8 @@
         [self makeLabels];
         [self addMasonry];
         
+        
+        
     }
     return self;
 }
@@ -43,7 +46,7 @@
     [self.welcome mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top);
         make.height.equalTo(@30);
-        make.centerX.equalTo(self.mas_centerX);
+        make.centerX.equalTo(self.centerX);
 
     }];
     

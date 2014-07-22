@@ -1,10 +1,13 @@
 PODS:
   - Masonry (0.5.2)
+  - stubble (0.1.0)
 
 DEPENDENCIES:
   - Masonry
+  - stubble
 
 SPEC CHECKSUMS:
   Masonry: ec0189e1a07af00913e4a1a335ea76887adc86e1
+  stubble: 9146311d651c809cc0d7e797bbf541fbed8964a3
 
 COCOAPODS: 0.33.1

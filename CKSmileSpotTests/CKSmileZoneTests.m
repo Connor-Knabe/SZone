@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "CKUserModel.h"
 
+#import <stubble/Stubble.h>
 @interface CKSmileSpotTests : XCTestCase
 
 @property (nonatomic) CKUserModel* userModel;
@@ -22,7 +23,8 @@
     [super setUp];
     self.userModel = [[CKUserModel alloc]init];
     
-    self.userArray = [self.userModel fillArray];
+
+    //self.userArray = [self.userModel fillArray];
 
 }
 
@@ -35,6 +37,8 @@
 -(void)testThatUsernameCanBeAddedToArray{
     XCTAssertNotNil(self.userArray);
 
+    
+    
 }
 
 
