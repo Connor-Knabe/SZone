@@ -63,6 +63,9 @@
 
 - (void)openSettings {
     
+    
+    [self.rvcDelegate showSettings];
+    
     NSLog(@"SDF");
     
 }

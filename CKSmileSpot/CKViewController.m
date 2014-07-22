@@ -30,7 +30,8 @@
         self.userModel = [[CKUserModel alloc]init];
         self.mainView = [[CKMainView alloc]initWithModel:self.userModel];
         
-
+        self.topNavBar.rvcDelegate = self;
+        
     }
     return self;
 }
@@ -83,7 +84,7 @@
 
 - (void) showSettings {
     
-    NSlog(@"SETTINGS");
+    NSLog(@"SETTINGS");
 }
 
 
