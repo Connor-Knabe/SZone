@@ -29,6 +29,7 @@
         self.topNavBar = [[CKTopNavigationBarView alloc]init];
         self.userModel = [[CKUserModel alloc]init];
         self.mainView = [[CKMainView alloc]initWithModel:self.userModel];
+        
 
     }
     return self;
@@ -43,7 +44,7 @@
 }
 
 
--(void)viewWillLayoutSubviews{
+- (void)viewWillLayoutSubviews{
 
     [self addSubviews];
     [self addMasonry];
@@ -51,9 +52,8 @@
 }
 
 
--(void)addMasonry{
+- (void)addMasonry{
     
-
     [self.topNavBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.mas_top).with.offset(20);
         make.centerX.equalTo(self.view.mas_centerX);
@@ -74,13 +74,17 @@
 }
 
 
--(void)addSubviews{
+- (void)addSubviews{
     
     [self.view addSubview:self.topNavBar];
     [self.view addSubview:self.mainView];
 
 }
 
+- (void) showSettings {
+    
+    NSlog(@"SETTINGS");
+}
 
 
 

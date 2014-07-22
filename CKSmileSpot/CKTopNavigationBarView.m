@@ -15,9 +15,7 @@
     self = [super init];
     if (self) {
         
-        self.navBar = [[UIView alloc]init];
-        self.settingsButton = [[UIButton alloc]init];
-
+        [self initViews];
         
         [self addSubviews];
         [self addMasonryConstraints];
@@ -27,8 +25,16 @@
     return self;
 }
 
+- (void)initViews{
+    
+    self.navBar = [[UIView alloc]init];
+    self.settingsButton = [[UIButton alloc]init];
 
--(void)addMasonryConstraints{
+    [self.settingsButton addTarget:self action:@selector(openSettings) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+- (void)addMasonryConstraints{
     
     [self.navBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top);
@@ -50,12 +56,16 @@
     
 }
 
--(void)addSubviews{
+- (void)addSubviews{
     [self addSubview:self.navBar];
     [self addSubview:self.settingsButton];
 }
 
-
+- (void)openSettings {
+    
+    NSLog(@"SDF");
+    
+}
 
 
 @end

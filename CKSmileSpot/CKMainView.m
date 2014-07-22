@@ -34,13 +34,11 @@
         [self makeLabels];
         [self addMasonry];
         
-        
-        
     }
     return self;
 }
 
--(void)addMasonry{
+-(void)addMasonry {
     
     
     [self.welcome mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -55,8 +53,7 @@
 
 -(void)makeLabels{
     
-    
-    [self.welcome setText:[NSString stringWithFormat:@"Welcome %@",[self.userModel.userArray objectAtIndex:1]]];
+    [self.welcome setText:[NSString stringWithFormat:@"Welcome %@",[self.userModel.userArray objectAtIndex:0]]];
 
 }
 

@@ -1,1298 +1,592 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>03A227A75305418B8673C088</key>
-		<dict>
-			<key>fileRef</key>
-			<string>ED78EA9597D544D9855366AC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2A549D48734246D1B1B33DA1</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Pods-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>389F032531AE40D88705D25D</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-CKSmileZoneTests.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>836BAB415AA7488283D1A41C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>893A04E2C626405D9BDFE8D3</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>AD42F51D18D54D2AA4BB5CB4</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-CKSmileZoneTests.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Pods-CKSmileZoneTests.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B32155651971D0D7001C6FFC</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>CKViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B32155661971D0D7001C6FFC</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>CKViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B32155671971D0D7001C6FFC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B32155661971D0D7001C6FFC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B32155681971D3C8001C6FFC</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>CKMainView.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B32155691971D3C8001C6FFC</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>CKMainView.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B321556A1971D3C8001C6FFC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B32155691971D3C8001C6FFC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B39D5E6F197C38FD0095C987</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>CKTopNavigationBarView.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B39D5E70197C38FD0095C987</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>CKTopNavigationBarView.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B39D5E71197C38FD0095C987</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B39D5E70197C38FD0095C987</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B39D5E72197C3DBC0095C987</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>CKTopNavBarViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B39D5E73197C3DBC0095C987</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>CKTopNavBarViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B39D5E74197C3DBC0095C987</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B39D5E73197C3DBC0095C987</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B3C717031971D0860030332C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B3C717151971D0860030332C</string>
-				<string>B3C7172E1971D0860030332C</string>
-				<string>B3C7170E1971D0860030332C</string>
-				<string>B3C7170D1971D0860030332C</string>
-				<string>FD05234B2764476FB6DFDA69</string>
-				<string>AD42F51D18D54D2AA4BB5CB4</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3C717041971D0860030332C</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>CLASSPREFIX</key>
-				<string>CK</string>
-				<key>LastUpgradeCheck</key>
-				<string>0510</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Connor</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>B3C717261971D0860030332C</key>
-					<dict>
-						<key>TestTargetID</key>
-						<string>B3C7170B1971D0860030332C</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>B3C717071971D0860030332C</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>B3C717031971D0860030332C</string>
-			<key>productRefGroup</key>
-			<string>B3C7170D1971D0860030332C</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>B3C7170B1971D0860030332C</string>
-				<string>B3C717261971D0860030332C</string>
-			</array>
-		</dict>
-		<key>B3C717071971D0860030332C</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>B3C717361971D0860030332C</string>
-				<string>B3C717371971D0860030332C</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>B3C717081971D0860030332C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B39D5E71197C38FD0095C987</string>
-				<string>B3C717201971D0860030332C</string>
-				<string>B321556A1971D3C8001C6FFC</string>
-				<string>B3E2430F1977628200800F83</string>
-				<string>B39D5E74197C3DBC0095C987</string>
-				<string>B3C7171C1971D0860030332C</string>
-				<string>B32155671971D0D7001C6FFC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>B3C717091971D0860030332C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B3C717121971D0860030332C</string>
-				<string>B3C717141971D0860030332C</string>
-				<string>B3C717101971D0860030332C</string>
-				<string>03A227A75305418B8673C088</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>B3C7170A1971D0860030332C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B3C7171A1971D0860030332C</string>
-				<string>B3C717221971D0860030332C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>B3C7170B1971D0860030332C</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>B3C717381971D0860030332C</string>
-			<key>buildPhases</key>
-			<array>
-				<string>836BAB415AA7488283D1A41C</string>
-				<string>B3C717081971D0860030332C</string>
-				<string>B3C717091971D0860030332C</string>
-				<string>B3C7170A1971D0860030332C</string>
-				<string>2A549D48734246D1B1B33DA1</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>CKSmileZone</string>
-			<key>productName</key>
-			<string>CKSmileSpot</string>
-			<key>productReference</key>
-			<string>B3C7170C1971D0860030332C</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>B3C7170C1971D0860030332C</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>CKSmileZone.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>B3C7170D1971D0860030332C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B3C7170C1971D0860030332C</string>
-				<string>B3C717271971D0860030332C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3C7170E1971D0860030332C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B3C7170F1971D0860030332C</string>
-				<string>B3C717111971D0860030332C</string>
-				<string>B3C717131971D0860030332C</string>
-				<string>B3C717281971D0860030332C</string>
-				<string>ED78EA9597D544D9855366AC</string>
-				<string>389F032531AE40D88705D25D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3C7170F1971D0860030332C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>B3C717101971D0860030332C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B3C7170F1971D0860030332C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B3C717111971D0860030332C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreGraphics.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreGraphics.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>B3C717121971D0860030332C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B3C717111971D0860030332C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B3C717131971D0860030332C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>B3C717141971D0860030332C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B3C717131971D0860030332C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B3C717151971D0860030332C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B3C7171E1971D0860030332C</string>
-				<string>B3C7171F1971D0860030332C</string>
-				<string>B3C717211971D0860030332C</string>
-				<string>B3C717161971D0860030332C</string>
-				<string>B32155651971D0D7001C6FFC</string>
-				<string>B32155661971D0D7001C6FFC</string>
-				<string>B32155681971D3C8001C6FFC</string>
-				<string>B32155691971D3C8001C6FFC</string>
-				<string>B39D5E6F197C38FD0095C987</string>
-				<string>B39D5E70197C38FD0095C987</string>
-				<string>B3E2430D1977628200800F83</string>
-				<string>B3E2430E1977628200800F83</string>
-				<string>B39D5E72197C3DBC0095C987</string>
-				<string>B39D5E73197C3DBC0095C987</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>CKSmileZone</string>
-			<key>path</key>
-			<string>CKSmileSpot</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3C717161971D0860030332C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B3C717171971D0860030332C</string>
-				<string>B3C717181971D0860030332C</string>
-				<string>B3C7171B1971D0860030332C</string>
-				<string>B3C7171D1971D0860030332C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3C717171971D0860030332C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>CKSmileZone-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3C717181971D0860030332C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B3C717191971D0860030332C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3C717191971D0860030332C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3C7171A1971D0860030332C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B3C717181971D0860030332C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B3C7171B1971D0860030332C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>main.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3C7171C1971D0860030332C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B3C7171B1971D0860030332C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B3C7171D1971D0860030332C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>CKSmileZone-Prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3C7171E1971D0860030332C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>CKAppDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3C7171F1971D0860030332C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>CKAppDelegate.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3C717201971D0860030332C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B3C7171F1971D0860030332C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B3C717211971D0860030332C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Images.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3C717221971D0860030332C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B3C717211971D0860030332C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B3C717231971D0860030332C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B3C717351971D0860030332C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>B3C717241971D0860030332C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B3C717291971D0860030332C</string>
-				<string>B3C7172B1971D0860030332C</string>
-				<string>B3C7172A1971D0860030332C</string>
-				<string>D36A9C931E814A2BB17920BB</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>B3C717251971D0860030332C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B3C717331971D0860030332C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>B3C717261971D0860030332C</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>B3C7173B1971D0860030332C</string>
-			<key>buildPhases</key>
-			<array>
-				<string>893A04E2C626405D9BDFE8D3</string>
-				<string>B3C717231971D0860030332C</string>
-				<string>B3C717241971D0860030332C</string>
-				<string>B3C717251971D0860030332C</string>
-				<string>F7BCBA9A933F46FE9E9FAC0D</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>B3C7172D1971D0860030332C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>CKSmileZoneTests</string>
-			<key>productName</key>
-			<string>CKSmileSpotTests</string>
-			<key>productReference</key>
-			<string>B3C717271971D0860030332C</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>B3C717271971D0860030332C</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>CKSmileZoneTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>B3C717281971D0860030332C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>XCTest.framework</string>
-			<key>path</key>
-			<string>Library/Frameworks/XCTest.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>B3C717291971D0860030332C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B3C717281971D0860030332C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B3C7172A1971D0860030332C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B3C7170F1971D0860030332C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B3C7172B1971D0860030332C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B3C717131971D0860030332C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B3C7172C1971D0860030332C</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>B3C717041971D0860030332C</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>B3C7170B1971D0860030332C</string>
-			<key>remoteInfo</key>
-			<string>CKSmileSpot</string>
-		</dict>
-		<key>B3C7172D1971D0860030332C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>B3C7170B1971D0860030332C</string>
-			<key>targetProxy</key>
-			<string>B3C7172C1971D0860030332C</string>
-		</dict>
-		<key>B3C7172E1971D0860030332C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B3C717341971D0860030332C</string>
-				<string>B3C7172F1971D0860030332C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>CKSmileZoneTests</string>
-			<key>path</key>
-			<string>CKSmileSpotTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3C7172F1971D0860030332C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B3C717301971D0860030332C</string>
-				<string>B3C717311971D0860030332C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3C717301971D0860030332C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>CKSmileZoneTests-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3C717311971D0860030332C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B3C717321971D0860030332C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3C717321971D0860030332C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3C717331971D0860030332C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B3C717311971D0860030332C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B3C717341971D0860030332C</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>CKSmileZoneTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3C717351971D0860030332C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B3C717341971D0860030332C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B3C717361971D0860030332C</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>B3C717371971D0860030332C</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>B3C717381971D0860030332C</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>B3C717391971D0860030332C</string>
-				<string>B3C7173A1971D0860030332C</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>B3C717391971D0860030332C</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>FD05234B2764476FB6DFDA69</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>CKSmileSpot/CKSmileZone-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>CKSmileSpot/CKSmileZone-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>CKSmileZone</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>B3C7173A1971D0860030332C</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>FD05234B2764476FB6DFDA69</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>CKSmileSpot/CKSmileZone-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>CKSmileSpot/CKSmileZone-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>CKSmileZone</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>B3C7173B1971D0860030332C</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>B3C7173C1971D0860030332C</string>
-				<string>B3C7173D1971D0860030332C</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>B3C7173C1971D0860030332C</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>AD42F51D18D54D2AA4BB5CB4</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/CKSmileZone.app/CKSmileZone</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>CKSmileSpot/CKSmileZone-Prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>CKSmileSpotTests/CKSmileZoneTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>CKSmileZoneTests</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>B3C7173D1971D0860030332C</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>AD42F51D18D54D2AA4BB5CB4</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/CKSmileZone.app/CKSmileZone</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>CKSmileSpot/CKSmileZone-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>CKSmileSpotTests/CKSmileZoneTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>CKSmileZoneTests</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>B3E2430D1977628200800F83</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>CKUserModel.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3E2430E1977628200800F83</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>CKUserModel.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B3E2430F1977628200800F83</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B3E2430E1977628200800F83</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D36A9C931E814A2BB17920BB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>389F032531AE40D88705D25D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>ED78EA9597D544D9855366AC</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>F7BCBA9A933F46FE9E9FAC0D</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Pods-CKSmileZoneTests-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>FD05234B2764476FB6DFDA69</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Pods.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>B3C717041971D0860030332C</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03A227A75305418B8673C088 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED78EA9597D544D9855366AC /* libPods.a */; };
+		B32155671971D0D7001C6FFC /* CKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B32155661971D0D7001C6FFC /* CKViewController.m */; };
+		B321556A1971D3C8001C6FFC /* CKMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = B32155691971D3C8001C6FFC /* CKMainView.m */; };
+		B39D5E71197C38FD0095C987 /* CKTopNavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D5E70197C38FD0095C987 /* CKTopNavigationBarView.m */; };
+		B3ACD961197DF9ED00B1F260 /* CKScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3ACD960197DF9ED00B1F260 /* CKScoreViewController.m */; };
+		B3ACD964197DFA2B00B1F260 /* CKScoreTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3ACD963197DFA2B00B1F260 /* CKScoreTrackerViewController.m */; };
+		B3C717101971D0860030332C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C7170F1971D0860030332C /* Foundation.framework */; };
+		B3C717121971D0860030332C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C717111971D0860030332C /* CoreGraphics.framework */; };
+		B3C717141971D0860030332C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C717131971D0860030332C /* UIKit.framework */; };
+		B3C7171A1971D0860030332C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B3C717181971D0860030332C /* InfoPlist.strings */; };
+		B3C7171C1971D0860030332C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C7171B1971D0860030332C /* main.m */; };
+		B3C717201971D0860030332C /* CKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C7171F1971D0860030332C /* CKAppDelegate.m */; };
+		B3C717221971D0860030332C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3C717211971D0860030332C /* Images.xcassets */; };
+		B3C717291971D0860030332C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C717281971D0860030332C /* XCTest.framework */; };
+		B3C7172A1971D0860030332C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C7170F1971D0860030332C /* Foundation.framework */; };
+		B3C7172B1971D0860030332C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C717131971D0860030332C /* UIKit.framework */; };
+		B3C717331971D0860030332C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B3C717311971D0860030332C /* InfoPlist.strings */; };
+		B3C717351971D0860030332C /* CKSmileZoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C717341971D0860030332C /* CKSmileZoneTests.m */; };
+		B3E2430F1977628200800F83 /* CKUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E2430E1977628200800F83 /* CKUserModel.m */; };
+		D36A9C931E814A2BB17920BB /* libPods-CKSmileZoneTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 389F032531AE40D88705D25D /* libPods-CKSmileZoneTests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B3C7172C1971D0860030332C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B3C717041971D0860030332C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3C7170B1971D0860030332C;
+			remoteInfo = CKSmileSpot;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		389F032531AE40D88705D25D /* libPods-CKSmileZoneTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CKSmileZoneTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD42F51D18D54D2AA4BB5CB4 /* Pods-CKSmileZoneTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CKSmileZoneTests.xcconfig"; path = "Pods/Pods-CKSmileZoneTests.xcconfig"; sourceTree = "<group>"; };
+		B32155651971D0D7001C6FFC /* CKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKViewController.h; sourceTree = "<group>"; };
+		B32155661971D0D7001C6FFC /* CKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKViewController.m; sourceTree = "<group>"; };
+		B32155681971D3C8001C6FFC /* CKMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKMainView.h; sourceTree = "<group>"; };
+		B32155691971D3C8001C6FFC /* CKMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKMainView.m; sourceTree = "<group>"; };
+		B39D5E6F197C38FD0095C987 /* CKTopNavigationBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKTopNavigationBarView.h; sourceTree = "<group>"; };
+		B39D5E70197C38FD0095C987 /* CKTopNavigationBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKTopNavigationBarView.m; sourceTree = "<group>"; };
+		B3ACD95F197DF9ED00B1F260 /* CKScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKScoreViewController.h; sourceTree = "<group>"; };
+		B3ACD960197DF9ED00B1F260 /* CKScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKScoreViewController.m; sourceTree = "<group>"; };
+		B3ACD962197DFA2B00B1F260 /* CKScoreTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKScoreTrackerViewController.h; sourceTree = "<group>"; };
+		B3ACD963197DFA2B00B1F260 /* CKScoreTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKScoreTrackerViewController.m; sourceTree = "<group>"; };
+		B3C7170C1971D0860030332C /* CKSmileZone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CKSmileZone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3C7170F1971D0860030332C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B3C717111971D0860030332C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B3C717131971D0860030332C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B3C717171971D0860030332C /* CKSmileZone-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CKSmileZone-Info.plist"; sourceTree = "<group>"; };
+		B3C717191971D0860030332C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B3C7171B1971D0860030332C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B3C7171D1971D0860030332C /* CKSmileZone-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CKSmileZone-Prefix.pch"; sourceTree = "<group>"; };
+		B3C7171E1971D0860030332C /* CKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CKAppDelegate.h; sourceTree = "<group>"; };
+		B3C7171F1971D0860030332C /* CKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CKAppDelegate.m; sourceTree = "<group>"; };
+		B3C717211971D0860030332C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B3C717271971D0860030332C /* CKSmileZoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CKSmileZoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3C717281971D0860030332C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		B3C717301971D0860030332C /* CKSmileZoneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CKSmileZoneTests-Info.plist"; sourceTree = "<group>"; };
+		B3C717321971D0860030332C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B3C717341971D0860030332C /* CKSmileZoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CKSmileZoneTests.m; sourceTree = "<group>"; };
+		B3E2430D1977628200800F83 /* CKUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKUserModel.h; sourceTree = "<group>"; };
+		B3E2430E1977628200800F83 /* CKUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKUserModel.m; sourceTree = "<group>"; };
+		ED78EA9597D544D9855366AC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD05234B2764476FB6DFDA69 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B3C717091971D0860030332C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3C717121971D0860030332C /* CoreGraphics.framework in Frameworks */,
+				B3C717141971D0860030332C /* UIKit.framework in Frameworks */,
+				B3C717101971D0860030332C /* Foundation.framework in Frameworks */,
+				03A227A75305418B8673C088 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3C717241971D0860030332C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3C717291971D0860030332C /* XCTest.framework in Frameworks */,
+				B3C7172B1971D0860030332C /* UIKit.framework in Frameworks */,
+				B3C7172A1971D0860030332C /* Foundation.framework in Frameworks */,
+				D36A9C931E814A2BB17920BB /* libPods-CKSmileZoneTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B3ACD965197DFAC000B1F260 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B32155651971D0D7001C6FFC /* CKViewController.h */,
+				B32155661971D0D7001C6FFC /* CKViewController.m */,
+				B3ACD95F197DF9ED00B1F260 /* CKScoreViewController.h */,
+				B3ACD960197DF9ED00B1F260 /* CKScoreViewController.m */,
+				B3ACD962197DFA2B00B1F260 /* CKScoreTrackerViewController.h */,
+				B3ACD963197DFA2B00B1F260 /* CKScoreTrackerViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B3ACD966197DFADA00B1F260 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B32155681971D3C8001C6FFC /* CKMainView.h */,
+				B32155691971D3C8001C6FFC /* CKMainView.m */,
+				B39D5E6F197C38FD0095C987 /* CKTopNavigationBarView.h */,
+				B39D5E70197C38FD0095C987 /* CKTopNavigationBarView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B3C717031971D0860030332C = {
+			isa = PBXGroup;
+			children = (
+				B3C717151971D0860030332C /* CKSmileZone */,
+				B3C7172E1971D0860030332C /* CKSmileZoneTests */,
+				B3C7170E1971D0860030332C /* Frameworks */,
+				B3C7170D1971D0860030332C /* Products */,
+				FD05234B2764476FB6DFDA69 /* Pods.xcconfig */,
+				AD42F51D18D54D2AA4BB5CB4 /* Pods-CKSmileZoneTests.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		B3C7170D1971D0860030332C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B3C7170C1971D0860030332C /* CKSmileZone.app */,
+				B3C717271971D0860030332C /* CKSmileZoneTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B3C7170E1971D0860030332C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B3C7170F1971D0860030332C /* Foundation.framework */,
+				B3C717111971D0860030332C /* CoreGraphics.framework */,
+				B3C717131971D0860030332C /* UIKit.framework */,
+				B3C717281971D0860030332C /* XCTest.framework */,
+				ED78EA9597D544D9855366AC /* libPods.a */,
+				389F032531AE40D88705D25D /* libPods-CKSmileZoneTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B3C717151971D0860030332C /* CKSmileZone */ = {
+			isa = PBXGroup;
+			children = (
+				B3C7171E1971D0860030332C /* CKAppDelegate.h */,
+				B3C7171F1971D0860030332C /* CKAppDelegate.m */,
+				B3C717211971D0860030332C /* Images.xcassets */,
+				B3C717161971D0860030332C /* Supporting Files */,
+				B3E2430D1977628200800F83 /* CKUserModel.h */,
+				B3E2430E1977628200800F83 /* CKUserModel.m */,
+				B3ACD966197DFADA00B1F260 /* Views */,
+				B3ACD965197DFAC000B1F260 /* ViewControllers */,
+			);
+			name = CKSmileZone;
+			path = CKSmileSpot;
+			sourceTree = "<group>";
+		};
+		B3C717161971D0860030332C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B3C717171971D0860030332C /* CKSmileZone-Info.plist */,
+				B3C717181971D0860030332C /* InfoPlist.strings */,
+				B3C7171B1971D0860030332C /* main.m */,
+				B3C7171D1971D0860030332C /* CKSmileZone-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B3C7172E1971D0860030332C /* CKSmileZoneTests */ = {
+			isa = PBXGroup;
+			children = (
+				B3C717341971D0860030332C /* CKSmileZoneTests.m */,
+				B3C7172F1971D0860030332C /* Supporting Files */,
+			);
+			name = CKSmileZoneTests;
+			path = CKSmileSpotTests;
+			sourceTree = "<group>";
+		};
+		B3C7172F1971D0860030332C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B3C717301971D0860030332C /* CKSmileZoneTests-Info.plist */,
+				B3C717311971D0860030332C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B3C7170B1971D0860030332C /* CKSmileZone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3C717381971D0860030332C /* Build configuration list for PBXNativeTarget "CKSmileZone" */;
+			buildPhases = (
+				836BAB415AA7488283D1A41C /* Check Pods Manifest.lock */,
+				B3C717081971D0860030332C /* Sources */,
+				B3C717091971D0860030332C /* Frameworks */,
+				B3C7170A1971D0860030332C /* Resources */,
+				2A549D48734246D1B1B33DA1 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CKSmileZone;
+			productName = CKSmileSpot;
+			productReference = B3C7170C1971D0860030332C /* CKSmileZone.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B3C717261971D0860030332C /* CKSmileZoneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3C7173B1971D0860030332C /* Build configuration list for PBXNativeTarget "CKSmileZoneTests" */;
+			buildPhases = (
+				893A04E2C626405D9BDFE8D3 /* Check Pods Manifest.lock */,
+				B3C717231971D0860030332C /* Sources */,
+				B3C717241971D0860030332C /* Frameworks */,
+				B3C717251971D0860030332C /* Resources */,
+				F7BCBA9A933F46FE9E9FAC0D /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B3C7172D1971D0860030332C /* PBXTargetDependency */,
+			);
+			name = CKSmileZoneTests;
+			productName = CKSmileSpotTests;
+			productReference = B3C717271971D0860030332C /* CKSmileZoneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B3C717041971D0860030332C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CK;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Connor;
+				TargetAttributes = {
+					B3C717261971D0860030332C = {
+						TestTargetID = B3C7170B1971D0860030332C;
+					};
+				};
+			};
+			buildConfigurationList = B3C717071971D0860030332C /* Build configuration list for PBXProject "CKSmileZone" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B3C717031971D0860030332C;
+			productRefGroup = B3C7170D1971D0860030332C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B3C7170B1971D0860030332C /* CKSmileZone */,
+				B3C717261971D0860030332C /* CKSmileZoneTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B3C7170A1971D0860030332C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3C7171A1971D0860030332C /* InfoPlist.strings in Resources */,
+				B3C717221971D0860030332C /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3C717251971D0860030332C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3C717331971D0860030332C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2A549D48734246D1B1B33DA1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		836BAB415AA7488283D1A41C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		893A04E2C626405D9BDFE8D3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F7BCBA9A933F46FE9E9FAC0D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-CKSmileZoneTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B3C717081971D0860030332C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B39D5E71197C38FD0095C987 /* CKTopNavigationBarView.m in Sources */,
+				B3C717201971D0860030332C /* CKAppDelegate.m in Sources */,
+				B321556A1971D3C8001C6FFC /* CKMainView.m in Sources */,
+				B3ACD964197DFA2B00B1F260 /* CKScoreTrackerViewController.m in Sources */,
+				B3ACD961197DF9ED00B1F260 /* CKScoreViewController.m in Sources */,
+				B3E2430F1977628200800F83 /* CKUserModel.m in Sources */,
+				B3C7171C1971D0860030332C /* main.m in Sources */,
+				B32155671971D0D7001C6FFC /* CKViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3C717231971D0860030332C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3C717351971D0860030332C /* CKSmileZoneTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B3C7172D1971D0860030332C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3C7170B1971D0860030332C /* CKSmileZone */;
+			targetProxy = B3C7172C1971D0860030332C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B3C717181971D0860030332C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B3C717191971D0860030332C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B3C717311971D0860030332C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B3C717321971D0860030332C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B3C717361971D0860030332C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B3C717371971D0860030332C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B3C717391971D0860030332C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD05234B2764476FB6DFDA69 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CKSmileSpot/CKSmileZone-Prefix.pch";
+				INFOPLIST_FILE = "CKSmileSpot/CKSmileZone-Info.plist";
+				PRODUCT_NAME = CKSmileZone;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B3C7173A1971D0860030332C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD05234B2764476FB6DFDA69 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CKSmileSpot/CKSmileZone-Prefix.pch";
+				INFOPLIST_FILE = "CKSmileSpot/CKSmileZone-Info.plist";
+				PRODUCT_NAME = CKSmileZone;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B3C7173C1971D0860030332C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD42F51D18D54D2AA4BB5CB4 /* Pods-CKSmileZoneTests.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CKSmileZone.app/CKSmileZone";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CKSmileSpot/CKSmileZone-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CKSmileSpotTests/CKSmileZoneTests-Info.plist";
+				PRODUCT_NAME = CKSmileZoneTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		B3C7173D1971D0860030332C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD42F51D18D54D2AA4BB5CB4 /* Pods-CKSmileZoneTests.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CKSmileZone.app/CKSmileZone";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CKSmileSpot/CKSmileZone-Prefix.pch";
+				INFOPLIST_FILE = "CKSmileSpotTests/CKSmileZoneTests-Info.plist";
+				PRODUCT_NAME = CKSmileZoneTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B3C717071971D0860030332C /* Build configuration list for PBXProject "CKSmileZone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3C717361971D0860030332C /* Debug */,
+				B3C717371971D0860030332C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B3C717381971D0860030332C /* Build configuration list for PBXNativeTarget "CKSmileZone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3C717391971D0860030332C /* Debug */,
+				B3C7173A1971D0860030332C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B3C7173B1971D0860030332C /* Build configuration list for PBXNativeTarget "CKSmileZoneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3C7173C1971D0860030332C /* Debug */,
+				B3C7173D1971D0860030332C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B3C717041971D0860030332C /* Project object */;
+}
