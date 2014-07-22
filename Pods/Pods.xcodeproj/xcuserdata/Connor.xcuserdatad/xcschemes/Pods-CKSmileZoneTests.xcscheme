@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B215465ECA0540099A9818C4"
+               BlueprintIdentifier = "29A5901F516742C29F7D381B"
                BuildableName = "libPods-CKSmileZoneTests.a"
                BlueprintName = "Pods-CKSmileZoneTests"
                ReferencedContainer = "container:Pods.xcodeproj">

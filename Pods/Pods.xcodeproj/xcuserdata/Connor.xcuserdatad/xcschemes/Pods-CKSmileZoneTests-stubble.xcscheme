@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AEB05CE0E56C4F198507B72F"
+               BlueprintIdentifier = "FE4FCB222D274C058134411E"
                BuildableName = "libPods-CKSmileZoneTests-stubble.a"
                BlueprintName = "Pods-CKSmileZoneTests-stubble"
                ReferencedContainer = "container:Pods.xcodeproj">
