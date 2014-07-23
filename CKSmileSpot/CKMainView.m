@@ -1,11 +1,3 @@
-//
-//  CKMainView.m
-//  CKSmileSpot
-//
-//  Created by Administrator on 7/12/14.
-//  Copyright (c) 2014 Connor. All rights reserved.
-//
-
 #import "CKMainView.h"
 #import "Masonry.h"
 
@@ -41,8 +33,8 @@
 -(void)addMasonry {
     
     
-    [self.welcome mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_top);
+    [self.welcome makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.top);
         make.height.equalTo(@30);
         make.centerX.equalTo(self.centerX);
 

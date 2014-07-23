@@ -1,11 +1,3 @@
-//
-//  CKUserModel.m
-//  CKSmileZone
-//
-//  Created by Administrator on 7/16/14.
-//  Copyright (c) 2014 Connor. All rights reserved.
-//
-
 #import "CKUserModel.h"
 
 @interface CKUserModel()

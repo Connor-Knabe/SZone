@@ -12,7 +12,6 @@
 		B321556A1971D3C8001C6FFC /* CKMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = B32155691971D3C8001C6FFC /* CKMainView.m */; };
 		B39D5E71197C38FD0095C987 /* CKNavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D5E70197C38FD0095C987 /* CKNavigationBarView.m */; };
 		B3ACD961197DF9ED00B1F260 /* CKScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3ACD960197DF9ED00B1F260 /* CKScoreViewController.m */; };
-		B3ACD964197DFA2B00B1F260 /* CKScoreTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3ACD963197DFA2B00B1F260 /* CKScoreTrackerViewController.m */; };
 		B3C717101971D0860030332C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C7170F1971D0860030332C /* Foundation.framework */; };
 		B3C717121971D0860030332C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C717111971D0860030332C /* CoreGraphics.framework */; };
 		B3C717141971D0860030332C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C717131971D0860030332C /* UIKit.framework */; };
@@ -50,8 +49,6 @@
 		B39D5E70197C38FD0095C987 /* CKNavigationBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKNavigationBarView.m; sourceTree = "<group>"; };
 		B3ACD95F197DF9ED00B1F260 /* CKScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKScoreViewController.h; sourceTree = "<group>"; };
 		B3ACD960197DF9ED00B1F260 /* CKScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKScoreViewController.m; sourceTree = "<group>"; };
-		B3ACD962197DFA2B00B1F260 /* CKScoreTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKScoreTrackerViewController.h; sourceTree = "<group>"; };
-		B3ACD963197DFA2B00B1F260 /* CKScoreTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKScoreTrackerViewController.m; sourceTree = "<group>"; };
 		B3C7170C1971D0860030332C /* CKSmileZone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CKSmileZone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3C7170F1971D0860030332C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B3C717111971D0860030332C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -107,8 +104,6 @@
 				B32155661971D0D7001C6FFC /* CKViewController.m */,
 				B3ACD95F197DF9ED00B1F260 /* CKScoreViewController.h */,
 				B3ACD960197DF9ED00B1F260 /* CKScoreViewController.m */,
-				B3ACD962197DFA2B00B1F260 /* CKScoreTrackerViewController.h */,
-				B3ACD963197DFA2B00B1F260 /* CKScoreTrackerViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -370,7 +365,6 @@
 				B39D5E71197C38FD0095C987 /* CKNavigationBarView.m in Sources */,
 				B3C717201971D0860030332C /* CKAppDelegate.m in Sources */,
 				B321556A1971D3C8001C6FFC /* CKMainView.m in Sources */,
-				B3ACD964197DFA2B00B1F260 /* CKScoreTrackerViewController.m in Sources */,
 				B3ACD961197DF9ED00B1F260 /* CKScoreViewController.m in Sources */,
 				B3E2430F1977628200800F83 /* CKUserModel.m in Sources */,
 				B3C7171C1971D0860030332C /* main.m in Sources */,
