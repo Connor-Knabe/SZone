@@ -1,17 +1,16 @@
-#import "CKTopNavigationBarView.h"
+#import "CKNavigationBarView.h"
 #import "Masonry.h"
 
-@interface CKTopNavigationBarView()
+@interface CKNavigationBarView()
 
 @property (nonatomic) UIButton* settingsButton;
 
 
 @end
 
-@implementation CKTopNavigationBarView
+@implementation CKNavigationBarView
 
-- (id)init
-{
+- (id)init {
     self = [super init];
     if (self) {
         
@@ -25,7 +24,7 @@
     return self;
 }
 
-- (void)initViews{
+- (void)initViews {
     
     self.navBar = [[UIView alloc]init];
     self.settingsButton = [[UIButton alloc]init];
@@ -34,9 +33,9 @@
     
 }
 
-- (void)addMasonryConstraints{
+- (void)addMasonryConstraints {
     
-    [self.navBar mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.navBar makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top);
         make.left.equalTo(self.mas_left);
         make.height.equalTo(@50);

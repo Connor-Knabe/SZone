@@ -8,25 +8,24 @@
 
 #import "CKViewController.h"
 #import "CKMainView.h"
-#import "CKTopNavigationBarView.h"
+#import "CKNavigationBarView.h"
 #import "Masonry.h"
 #import "CKUserModel.h"
 @interface CKViewController ()
 
 @property (nonatomic) CKMainView * mainView;
 @property (nonatomic) UIView *mainWindow;
-@property (nonatomic) CKTopNavigationBarView *topNavBar;
+@property (nonatomic) CKNavigationBarView *topNavBar;
 @property (nonatomic) CKUserModel *userModel;
 
 
 @end
 
 @implementation CKViewController
-- (id)init
-{
+- (id)init {
     self = [super init];
     if (self) {
-        self.topNavBar = [[CKTopNavigationBarView alloc]init];
+        self.topNavBar = [[CKNavigationBarView alloc]init];
         self.userModel = [[CKUserModel alloc]init];
         self.mainView = [[CKMainView alloc]initWithModel:self.userModel];
         
@@ -37,15 +36,14 @@
 }
 
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     
 }
 
 
-- (void)viewWillLayoutSubviews{
+- (void)viewWillLayoutSubviews {
 
     [self addSubviews];
     [self addMasonry];
@@ -53,7 +51,7 @@
 }
 
 
-- (void)addMasonry{
+- (void)addMasonry {
     
     [self.topNavBar makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.top).with.offset(20);
@@ -75,7 +73,7 @@
 }
 
 
-- (void)addSubviews{
+- (void)addSubviews {
     
     [self.view addSubview:self.topNavBar];
     [self.view addSubview:self.mainView];

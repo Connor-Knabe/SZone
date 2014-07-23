@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CKViewController.h"
 
-@interface CKTopNavigationBarView : UIView
+@interface CKNavigationBarView : UIView
 @property (nonatomic) UIView* navBar;
 
 @property(nonatomic, weak) id <CKViewControllerDelegate> rvcDelegate;
