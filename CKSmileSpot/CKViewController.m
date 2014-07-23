@@ -55,19 +55,19 @@
 
 - (void)addMasonry{
     
-    [self.topNavBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top).with.offset(20);
-        make.centerX.equalTo(self.view.mas_centerX);
-        make.width.equalTo(self.view.mas_width);
-        make.height.equalTo(self.topNavBar.navBar.mas_height);
+    [self.topNavBar makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.top).with.offset(20);
+        make.centerX.equalTo(self.view.centerX);
+        make.width.equalTo(self.view.width);
+        make.height.equalTo(self.topNavBar.navBar.height);
     }];
 
     
-    [self.mainView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.topNavBar.mas_bottom);
+    [self.mainView makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.topNavBar.bottom);
         make.height.equalTo(@200);
-        make.left.equalTo(self.view.mas_left);
-        make.width.equalTo(self.view.mas_width);
+        make.left.equalTo(self.view.left);
+        make.width.equalTo(self.view.width);
     }];
    
     [self.mainView setBackgroundColor:[UIColor grayColor]];
