@@ -25,7 +25,9 @@
 
     self.testObject = [[CKNavigationBarViewController alloc]init];
  
-//    [self.testObject setDelegate:self.mockViewController];
+    [self.testObject setRvcDelegate:self.mock];
+    
+//    self.testObject.rvcDelegate = self.mock;
     
 }
 
