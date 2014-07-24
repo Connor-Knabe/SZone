@@ -13,10 +13,10 @@
 #import "CKUserModel.h"
 @interface CKViewController ()
 
-@property (nonatomic) CKMainView * mainView;
-@property (nonatomic) UIView *mainWindow;
-@property (nonatomic) CKNavigationBarView *topNavBar;
-@property (nonatomic) CKUserModel *userModel;
+@property (nonatomic) CKMainView* mainView;
+@property (nonatomic) UIView* mainWindow;
+@property (nonatomic) CKNavigationBarView* topNavBar;
+@property (nonatomic) CKUserModel* userModel;
 
 
 @end

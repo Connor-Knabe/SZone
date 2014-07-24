@@ -4,6 +4,7 @@
 @interface CKNavigationBarView()
 
 @property (nonatomic) UIButton* settingsButton;
+@property (nonatomic) UIView* navBar;
 
 
 @end

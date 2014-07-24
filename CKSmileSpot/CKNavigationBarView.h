@@ -10,7 +10,6 @@
 #import "CKViewController.h"
 
 @interface CKNavigationBarView : UIView
-@property (nonatomic) UIView* navBar;
 
 @property(nonatomic, weak) id <CKViewControllerDelegate> rvcDelegate;
 

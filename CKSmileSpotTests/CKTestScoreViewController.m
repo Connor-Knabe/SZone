@@ -1,22 +1,29 @@
-//
-//  CKTestScoreViewController.m
-//  CKSmileZone
-//
-//  Created by Administrator on 7/23/14.
-//  Copyright (c) 2014 Connor. All rights reserved.
-//
-
 #import <XCTest/XCTest.h>
+#import "CKViewController.h"
+#import "CKScoreViewController.h"
+#import <stubble/Stubble.h>
 
 @interface CKTestScoreViewController : XCTestCase
 
+@property (nonatomic) CKViewController* mockViewController;
+@property (nonatomic) CKScoreViewController* testObject;
+
 @end
+
 
 @implementation CKTestScoreViewController
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    self.mockViewController = mock([CKViewController class]);
+    self.testObject = [[CKScoreViewController alloc]init];
+    
+}
+
+- (void)testThatScoreViewControllerUpdatesScoreWhenButtonPressed{
+    
+    
 }
 
 
