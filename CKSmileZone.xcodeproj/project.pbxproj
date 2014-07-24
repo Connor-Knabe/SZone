@@ -24,6 +24,7 @@
 		B3C7172B1971D0860030332C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C717131971D0860030332C /* UIKit.framework */; };
 		B3C717331971D0860030332C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B3C717311971D0860030332C /* InfoPlist.strings */; };
 		B3C717351971D0860030332C /* CKSmileZoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C717341971D0860030332C /* CKSmileZoneTests.m */; };
+		B3D654931980859700BB61C6 /* CKTestScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D654921980859700BB61C6 /* CKTestScoreViewController.m */; };
 		B3E2430F1977628200800F83 /* CKUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E2430E1977628200800F83 /* CKUserModel.m */; };
 		D36A9C931E814A2BB17920BB /* libPods-CKSmileZoneTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 389F032531AE40D88705D25D /* libPods-CKSmileZoneTests.a */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,7 @@
 		B3C717301971D0860030332C /* CKSmileZoneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CKSmileZoneTests-Info.plist"; sourceTree = "<group>"; };
 		B3C717321971D0860030332C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B3C717341971D0860030332C /* CKSmileZoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CKSmileZoneTests.m; sourceTree = "<group>"; };
+		B3D654921980859700BB61C6 /* CKTestScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKTestScoreViewController.m; sourceTree = "<group>"; };
 		B3E2430D1977628200800F83 /* CKUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKUserModel.h; sourceTree = "<group>"; };
 		B3E2430E1977628200800F83 /* CKUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKUserModel.m; sourceTree = "<group>"; };
 		ED78EA9597D544D9855366AC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,6 +187,7 @@
 			children = (
 				B3C717341971D0860030332C /* CKSmileZoneTests.m */,
 				B3C7172F1971D0860030332C /* Supporting Files */,
+				B3D654921980859700BB61C6 /* CKTestScoreViewController.m */,
 			);
 			name = CKSmileZoneTests;
 			path = CKSmileSpotTests;
@@ -377,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3C717351971D0860030332C /* CKSmileZoneTests.m in Sources */,
+				B3D654931980859700BB61C6 /* CKTestScoreViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -36,9 +36,6 @@
 
 -(void)testThatUsernameCanBeAddedToArray{
     XCTAssertNotNil(self.userArray);
-
-    
-    
 }
 
 
