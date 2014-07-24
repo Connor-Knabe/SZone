@@ -1,34 +1,24 @@
-//
-//  CKTestNavigationBarViewController.m
-//  CKSmileZone
-//
-//  Created by Administrator on 7/23/14.
-//  Copyright (c) 2014 Connor. All rights reserved.
-//
-
 #import <XCTest/XCTest.h>
+#import "CKNavigationBarViewController.h"
+#import "CKViewController.h"
+#import <stubble/Stubble.h>
+
 
 @interface CKTestNavigationBarViewController : XCTestCase
+
+@property (nonatomic) CKViewController *mockViewController;
+@property (nonatomic) CKNavigationBarViewController *testObject;
 
 @end
 
 @implementation CKTestNavigationBarViewController
 
-- (void)setUp
-{
+- (void)setUp{
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
-
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    
+    self.mockViewController = mock([CKViewController class]);
+    self.testObject = [[CKNavigationBarViewController alloc]init];
+    
 }
 
 @end
