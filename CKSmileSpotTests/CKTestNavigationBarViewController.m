@@ -8,6 +8,7 @@
 
 @property (nonatomic) CKViewController *mockViewController;
 @property (nonatomic) CKNavigationBarViewController *testObject;
+@property (nonatomic) id<CKViewControllerDelegate> mock;
 
 @end
 
@@ -16,17 +17,26 @@
 - (void)setUp {
     [super setUp];
     
-    self.mockViewController = mock(@protocol(CKViewControllerDelegate));
+//    self.mockViewController = mock(@protocol(CKViewControllerDelegate));
 
-    
+//    id<CKViewControllerDelegate> mock = mock(@protocol(CKViewControllerDelegate));
+
+    self.mock = mock(@protocol(CKViewControllerDelegate));
+
     self.testObject = [[CKNavigationBarViewController alloc]init];
+ 
+//    [self.testObject setDelegate:self.mockViewController];
     
 }
 
 - (void)testThatNavigationBarControllerButtonCallsShowSettingsFromViewController {
     
+    
+//    id<CKViewControllerDelegate> mock = mock(@protocol(CKViewControllerDelegate));
+
+    
     [self.testObject openSettings];
-    verifyCalled([self.mockViewController showSettings]);
+    verifyCalled([self.mock showSettings]);
 
 }
 
