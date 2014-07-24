@@ -4,7 +4,6 @@
 @interface CKNavigationBarView()
 
 @property (nonatomic) UIButton* settingsButton;
-@property (nonatomic) UIView* navBar;
 
 
 @end
@@ -29,7 +28,7 @@
     
     self.navBar = [[UIView alloc]init];
     self.settingsButton = [[UIButton alloc]init];
-
+    [self.navBar setBackgroundColor:[UIColor blackColor]];
     [self.settingsButton addTarget:self action:@selector(openSettings) forControlEvents:UIControlEventTouchUpInside];
     
 }
@@ -37,10 +36,10 @@
 - (void)addMasonryConstraints {
     
     [self.navBar makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_top);
-        make.left.equalTo(self.mas_left);
+        make.top.equalTo(self.view.mas_top);
+        make.left.equalTo(self.view.mas_left);
         make.height.equalTo(@50);
-        make.width.equalTo(self.mas_width);
+        make.width.equalTo(self.view.mas_width);
     }];
     
     [self.settingsButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -57,8 +56,8 @@
 }
 
 - (void)addSubviews{
-    [self addSubview:self.navBar];
-    [self addSubview:self.settingsButton];
+    [self.view addSubview:self.navBar];
+    [self.view addSubview:self.settingsButton];
 }
 
 - (void)openSettings {

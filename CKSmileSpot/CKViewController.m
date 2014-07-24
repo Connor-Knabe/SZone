@@ -53,7 +53,7 @@
 
 - (void)addMasonry {
     
-    [self.topNavBar makeConstraints:^(MASConstraintMaker *make) {
+    [self.topNavBar.view makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.top).with.offset(20);
         make.centerX.equalTo(self.view.centerX);
         make.width.equalTo(self.view.width);
@@ -62,7 +62,7 @@
 
     
     [self.mainView makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.topNavBar.bottom);
+        make.top.equalTo(self.topNavBar.view.bottom);
         make.height.equalTo(@200);
         make.left.equalTo(self.view.left);
         make.width.equalTo(self.view.width);
@@ -75,7 +75,7 @@
 
 - (void)addSubviews {
     
-    [self.view addSubview:self.topNavBar];
+    [self.view addSubview:self.topNavBar.view];
     [self.view addSubview:self.mainView];
 
 }
