@@ -1,14 +1,14 @@
-#import "CKNavigationBarView.h"
+#import "CKNavigationBarViewController.h"
 #import "Masonry.h"
 
-@interface CKNavigationBarView()
+@interface CKNavigationBarViewController()
 
 @property (nonatomic) UIButton* settingsButton;
 
 
 @end
 
-@implementation CKNavigationBarView
+@implementation CKNavigationBarViewController
 
 - (id)init {
     self = [super init];
@@ -62,10 +62,9 @@
 
 - (void)openSettings {
     
-    
     [self.rvcDelegate showSettings];
     
-    NSLog(@"SDF");
+    NSLog(@"Opened settings from Nav Bar View");
     
 }
 

@@ -8,14 +8,14 @@
 
 #import "CKViewController.h"
 #import "CKMainView.h"
-#import "CKNavigationBarView.h"
+#import "CKNavigationBarViewController.h"
 #import "Masonry.h"
 #import "CKUserModel.h"
 @interface CKViewController ()
 
 @property (nonatomic) CKMainView* mainView;
 @property (nonatomic) UIView* mainWindow;
-@property (nonatomic) CKNavigationBarView* topNavBar;
+@property (nonatomic) CKNavigationBarViewController* topNavBar;
 @property (nonatomic) CKUserModel* userModel;
 
 
@@ -25,7 +25,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.topNavBar = [[CKNavigationBarView alloc]init];
+        self.topNavBar = [[CKNavigationBarViewController alloc]init];
         self.userModel = [[CKUserModel alloc]init];
         self.mainView = [[CKMainView alloc]initWithModel:self.userModel];
         
@@ -82,7 +82,7 @@
 
 - (void) showSettings {
     
-    NSLog(@"SETTINGS");
+    NSLog(@"Settings opened from View Controller");
 }
 
 

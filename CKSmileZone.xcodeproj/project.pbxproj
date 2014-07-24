@@ -10,7 +10,7 @@
 		03A227A75305418B8673C088 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED78EA9597D544D9855366AC /* libPods.a */; };
 		B32155671971D0D7001C6FFC /* CKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B32155661971D0D7001C6FFC /* CKViewController.m */; };
 		B321556A1971D3C8001C6FFC /* CKMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = B32155691971D3C8001C6FFC /* CKMainView.m */; };
-		B39D5E71197C38FD0095C987 /* CKNavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D5E70197C38FD0095C987 /* CKNavigationBarView.m */; };
+		B39D5E71197C38FD0095C987 /* CKNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D5E70197C38FD0095C987 /* CKNavigationBarViewController.m */; };
 		B3ACD961197DF9ED00B1F260 /* CKScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3ACD960197DF9ED00B1F260 /* CKScoreViewController.m */; };
 		B3C717101971D0860030332C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C7170F1971D0860030332C /* Foundation.framework */; };
 		B3C717121971D0860030332C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C717111971D0860030332C /* CoreGraphics.framework */; };
@@ -25,6 +25,7 @@
 		B3C717331971D0860030332C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B3C717311971D0860030332C /* InfoPlist.strings */; };
 		B3C717351971D0860030332C /* CKSmileZoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C717341971D0860030332C /* CKSmileZoneTests.m */; };
 		B3D654931980859700BB61C6 /* CKTestScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D654921980859700BB61C6 /* CKTestScoreViewController.m */; };
+		B3D6549619808BFD00BB61C6 /* CKTestNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D6549519808BFD00BB61C6 /* CKTestNavigationBarViewController.m */; };
 		B3E2430F1977628200800F83 /* CKUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E2430E1977628200800F83 /* CKUserModel.m */; };
 		D36A9C931E814A2BB17920BB /* libPods-CKSmileZoneTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 389F032531AE40D88705D25D /* libPods-CKSmileZoneTests.a */; };
 /* End PBXBuildFile section */
@@ -46,8 +47,8 @@
 		B32155661971D0D7001C6FFC /* CKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKViewController.m; sourceTree = "<group>"; };
 		B32155681971D3C8001C6FFC /* CKMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKMainView.h; sourceTree = "<group>"; };
 		B32155691971D3C8001C6FFC /* CKMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKMainView.m; sourceTree = "<group>"; };
-		B39D5E6F197C38FD0095C987 /* CKNavigationBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKNavigationBarView.h; sourceTree = "<group>"; };
-		B39D5E70197C38FD0095C987 /* CKNavigationBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKNavigationBarView.m; sourceTree = "<group>"; };
+		B39D5E6F197C38FD0095C987 /* CKNavigationBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKNavigationBarViewController.h; sourceTree = "<group>"; };
+		B39D5E70197C38FD0095C987 /* CKNavigationBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKNavigationBarViewController.m; sourceTree = "<group>"; };
 		B3ACD95F197DF9ED00B1F260 /* CKScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKScoreViewController.h; sourceTree = "<group>"; };
 		B3ACD960197DF9ED00B1F260 /* CKScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKScoreViewController.m; sourceTree = "<group>"; };
 		B3C7170C1971D0860030332C /* CKSmileZone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CKSmileZone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +68,7 @@
 		B3C717321971D0860030332C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B3C717341971D0860030332C /* CKSmileZoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CKSmileZoneTests.m; sourceTree = "<group>"; };
 		B3D654921980859700BB61C6 /* CKTestScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKTestScoreViewController.m; sourceTree = "<group>"; };
+		B3D6549519808BFD00BB61C6 /* CKTestNavigationBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKTestNavigationBarViewController.m; sourceTree = "<group>"; };
 		B3E2430D1977628200800F83 /* CKUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKUserModel.h; sourceTree = "<group>"; };
 		B3E2430E1977628200800F83 /* CKUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKUserModel.m; sourceTree = "<group>"; };
 		ED78EA9597D544D9855366AC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +104,8 @@
 		B3ACD965197DFAC000B1F260 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B39D5E6F197C38FD0095C987 /* CKNavigationBarViewController.h */,
+				B39D5E70197C38FD0095C987 /* CKNavigationBarViewController.m */,
 				B32155651971D0D7001C6FFC /* CKViewController.h */,
 				B32155661971D0D7001C6FFC /* CKViewController.m */,
 				B3ACD95F197DF9ED00B1F260 /* CKScoreViewController.h */,
@@ -115,8 +119,6 @@
 			children = (
 				B32155681971D3C8001C6FFC /* CKMainView.h */,
 				B32155691971D3C8001C6FFC /* CKMainView.m */,
-				B39D5E6F197C38FD0095C987 /* CKNavigationBarView.h */,
-				B39D5E70197C38FD0095C987 /* CKNavigationBarView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -188,6 +190,7 @@
 				B3C717341971D0860030332C /* CKSmileZoneTests.m */,
 				B3C7172F1971D0860030332C /* Supporting Files */,
 				B3D654921980859700BB61C6 /* CKTestScoreViewController.m */,
+				B3D6549519808BFD00BB61C6 /* CKTestNavigationBarViewController.m */,
 			);
 			name = CKSmileZoneTests;
 			path = CKSmileSpotTests;
@@ -365,7 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B39D5E71197C38FD0095C987 /* CKNavigationBarView.m in Sources */,
+				B39D5E71197C38FD0095C987 /* CKNavigationBarViewController.m in Sources */,
 				B3C717201971D0860030332C /* CKAppDelegate.m in Sources */,
 				B321556A1971D3C8001C6FFC /* CKMainView.m in Sources */,
 				B3ACD961197DF9ED00B1F260 /* CKScoreViewController.m in Sources */,
@@ -380,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3C717351971D0860030332C /* CKSmileZoneTests.m in Sources */,
+				B3D6549619808BFD00BB61C6 /* CKTestNavigationBarViewController.m in Sources */,
 				B3D654931980859700BB61C6 /* CKTestScoreViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
