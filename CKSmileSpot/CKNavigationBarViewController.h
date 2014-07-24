@@ -7,4 +7,6 @@
 
 @property (nonatomic) UIView* navBar;
 
+- (void)openSettings; /* remove this . just here for testing until better solution found */
+
 @end

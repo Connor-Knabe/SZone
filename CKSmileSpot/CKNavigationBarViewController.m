@@ -62,7 +62,7 @@
 
 - (void)openSettings {
     
-    [self.rvcDelegate showSettings];
+//    [self.rvcDelegate showSettings];
     
     NSLog(@"Opened settings from Nav Bar View");
     

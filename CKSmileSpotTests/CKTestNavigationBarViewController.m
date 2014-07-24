@@ -13,12 +13,18 @@
 
 @implementation CKTestNavigationBarViewController
 
-- (void)setUp{
+- (void)setUp {
     [super setUp];
     
     self.mockViewController = mock([CKViewController class]);
     self.testObject = [[CKNavigationBarViewController alloc]init];
     
+}
+
+- (void)testThatNavigationBarControllerButtonCallsShowSettingsFromViewController {
+    
+    [self.testObject openSettings];
+    verifyCalled([self.mockViewController showSettings]);
 }
 
 @end
