@@ -16,7 +16,9 @@
 - (void)setUp {
     [super setUp];
     
-    self.mockViewController = mock([CKViewController class]);
+    self.mockViewController = mock(@protocol(CKViewControllerDelegate));
+
+    
     self.testObject = [[CKNavigationBarViewController alloc]init];
     
 }
@@ -25,6 +27,7 @@
     
     [self.testObject openSettings];
     verifyCalled([self.mockViewController showSettings]);
+
 }
 
 @end
