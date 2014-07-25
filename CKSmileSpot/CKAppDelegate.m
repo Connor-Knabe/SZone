@@ -1,11 +1,3 @@
-//
-//  CKAppDelegate.m
-//  CKSmileSpot
-//
-//  Created by Administrator on 7/12/14.
-//  Copyright (c) 2014 Connor. All rights reserved.
-//
-
 #import "CKAppDelegate.h"
 #import "CKViewController.h"
 
