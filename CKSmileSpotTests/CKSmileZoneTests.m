@@ -13,7 +13,6 @@
 @interface CKSmileSpotTests : XCTestCase
 
 @property (nonatomic) CKUserModel* userModel;
-@property (nonatomic) NSArray* userArray;
 
 @end
 
@@ -24,8 +23,6 @@
     self.userModel = [[CKUserModel alloc]init];
     
 
-    //self.userArray = [self.userModel fillArray];
-
 }
 
 -(void)tearDown{
@@ -35,7 +32,7 @@
 
 
 -(void)testThatUsernameCanBeAddedToArray{
-    XCTAssertNotNil(self.userArray);
+    XCTAssertNotNil(self.userModel.userArray);
 }
 
 
