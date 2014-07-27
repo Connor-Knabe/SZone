@@ -28,18 +28,14 @@
         self.topNavBar = [[CKNavigationBarViewController alloc]init];
         self.userModel = [[CKUserModel alloc]init];
         self.mainView = [[CKMainView alloc]initWithModel:self.userModel];
-        
         self.topNavBar.rvcDelegate = self;
         
     }
     return self;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
 }
 
 

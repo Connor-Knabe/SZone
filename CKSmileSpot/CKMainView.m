@@ -1,7 +1,6 @@
 #import "CKMainView.h"
 #import "Masonry.h"
 
-
 @interface CKMainView()
 
 @property (nonatomic) UIView* box;
@@ -42,14 +41,11 @@
     
 }
 
-
 -(void)makeLabels{
     
     [self.welcome setText:[NSString stringWithFormat:@"Welcome %@",[self.userModel.userArray objectAtIndex:0]]];
 
 }
-
-
 
 -(void)addSubviews{
     
