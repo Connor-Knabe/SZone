@@ -2,6 +2,7 @@
 
 @interface CKUserModel()
 
+@property (nonatomic) NSArray *totalScore;
 
 @end
 
@@ -10,6 +11,9 @@
 -(instancetype)init{
     self = [super init];
     if (self) {
+        
+        self.totalScore = [[NSArray alloc]init];
+        
         self.userArray = [[NSArray alloc]init];
         self.userArray = @[@"Connor", @"Brian", @"Kevin", @"Fillipe", @"Josh", @"Marty"];
     }
