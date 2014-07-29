@@ -11,6 +11,7 @@
 		B32155671971D0D7001C6FFC /* CKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B32155661971D0D7001C6FFC /* CKViewController.m */; };
 		B321556A1971D3C8001C6FFC /* CKMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = B32155691971D3C8001C6FFC /* CKMainView.m */; };
 		B39D5E71197C38FD0095C987 /* CKNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B39D5E70197C38FD0095C987 /* CKNavigationBarViewController.m */; };
+		B3AC137F198727B80088B6C6 /* CKScoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B3AC137E198727B80088B6C6 /* CKScoreModel.m */; };
 		B3ACD961197DF9ED00B1F260 /* CKScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3ACD960197DF9ED00B1F260 /* CKScoreViewController.m */; };
 		B3C717101971D0860030332C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C7170F1971D0860030332C /* Foundation.framework */; };
 		B3C717121971D0860030332C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C717111971D0860030332C /* CoreGraphics.framework */; };
@@ -49,6 +50,8 @@
 		B32155691971D3C8001C6FFC /* CKMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKMainView.m; sourceTree = "<group>"; };
 		B39D5E6F197C38FD0095C987 /* CKNavigationBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKNavigationBarViewController.h; sourceTree = "<group>"; };
 		B39D5E70197C38FD0095C987 /* CKNavigationBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKNavigationBarViewController.m; sourceTree = "<group>"; };
+		B3AC137D198727B80088B6C6 /* CKScoreModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKScoreModel.h; sourceTree = "<group>"; };
+		B3AC137E198727B80088B6C6 /* CKScoreModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKScoreModel.m; sourceTree = "<group>"; };
 		B3ACD95F197DF9ED00B1F260 /* CKScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKScoreViewController.h; sourceTree = "<group>"; };
 		B3ACD960197DF9ED00B1F260 /* CKScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKScoreViewController.m; sourceTree = "<group>"; };
 		B3C7170C1971D0860030332C /* CKSmileZone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CKSmileZone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +104,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B3AC137C1987276F0088B6C6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B3E2430D1977628200800F83 /* CKUserModel.h */,
+				B3E2430E1977628200800F83 /* CKUserModel.m */,
+				B3AC137D198727B80088B6C6 /* CKScoreModel.h */,
+				B3AC137E198727B80088B6C6 /* CKScoreModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		B3ACD965197DFAC000B1F260 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,10 +178,9 @@
 				B3C7171F1971D0860030332C /* CKAppDelegate.m */,
 				B3C717211971D0860030332C /* Images.xcassets */,
 				B3C717161971D0860030332C /* Supporting Files */,
-				B3E2430D1977628200800F83 /* CKUserModel.h */,
-				B3E2430E1977628200800F83 /* CKUserModel.m */,
 				B3ACD966197DFADA00B1F260 /* Views */,
 				B3ACD965197DFAC000B1F260 /* ViewControllers */,
+				B3AC137C1987276F0088B6C6 /* Models */,
 			);
 			name = CKSmileZone;
 			path = CKSmileSpot;
@@ -372,6 +385,7 @@
 				B3C717201971D0860030332C /* CKAppDelegate.m in Sources */,
 				B321556A1971D3C8001C6FFC /* CKMainView.m in Sources */,
 				B3ACD961197DF9ED00B1F260 /* CKScoreViewController.m in Sources */,
+				B3AC137F198727B80088B6C6 /* CKScoreModel.m in Sources */,
 				B3E2430F1977628200800F83 /* CKUserModel.m in Sources */,
 				B3C7171C1971D0860030332C /* main.m in Sources */,
 				B32155671971D0D7001C6FFC /* CKViewController.m in Sources */,

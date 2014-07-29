@@ -5,46 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>E0BF59E7-28A1-4B25-A81B-C5067A8A6982</string>
+	<string>EF0563D1-87DB-467E-A216-776E568EA8CD</string>
 	<key>IDESourceControlProjectName</key>
 	<string>CKSmileZone</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>08B5A358-91B6-4907-9C85-643B0FACF519</key>
-		<string>ssh://github.com/Masonry/Masonry.git</string>
-		<key>F902A407-6CA6-4D9B-9790-CE4B7160441D</key>
-		<string>ssh://github.com/Connor-Knabe/SmileZones.git</string>
+		<key>BA775E0E-AB7C-4EA8-9DB4-97A12B2E86E9</key>
+		<string>ssh://github.com/Connor-Knabe/SmileZone.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>CKSmileZone.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>08B5A358-91B6-4907-9C85-643B0FACF519</key>
-		<string>../Pods/Masonry</string>
-		<key>F902A407-6CA6-4D9B-9790-CE4B7160441D</key>
+		<key>BA775E0E-AB7C-4EA8-9DB4-97A12B2E86E9</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/Connor-Knabe/SmileZones.git</string>
+	<string>ssh://github.com/Connor-Knabe/SmileZone.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>F902A407-6CA6-4D9B-9790-CE4B7160441D</string>
+	<string>BA775E0E-AB7C-4EA8-9DB4-97A12B2E86E9</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>08B5A358-91B6-4907-9C85-643B0FACF519</string>
-			<key>IDESourceControlWCCName</key>
-			<string>Masonry</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>F902A407-6CA6-4D9B-9790-CE4B7160441D</string>
+			<string>BA775E0E-AB7C-4EA8-9DB4-97A12B2E86E9</string>
 			<key>IDESourceControlWCCName</key>
 			<string>SmileZone</string>
 		</dict>
