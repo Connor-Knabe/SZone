@@ -2,7 +2,10 @@
 
 @interface CKScoreModel()
 
-@property (nonatomic) NSDictionary* scoreArray;
+@property (nonatomic) const NSInteger smilePoint;
+@property (nonatomic) const NSInteger hiPoint;
+@property (nonatomic) const NSInteger nodPoint;
+
 
 @end
 
@@ -13,7 +16,8 @@
 -(instancetype)init{
     self = [super init];
     if (self) {
-        self.scoreArray = [[NSDictionary alloc]init];
+        self.smilePoint = 5;
+        
         
     }
     return self;
@@ -21,7 +25,6 @@
 
 - (void)fillArray {
     
-    self.scoreArray = @{@"Smile": @5, @"Hi": @2, @"Nod": @3};
     
 }
 
