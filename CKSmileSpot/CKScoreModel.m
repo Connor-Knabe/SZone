@@ -16,9 +16,9 @@
 -(instancetype)init{
     self = [super init];
     if (self) {
-        self.smilePoint = 5;
-        
-        
+        self.smilePoint = 6;
+        self.hiPoint = 4;
+        self.nodPoint = 2;
     }
     return self;
 }
