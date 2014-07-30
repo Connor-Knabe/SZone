@@ -13,9 +13,8 @@
     if (self) {
         
         self.totalScore = [[NSArray alloc]init];
-        
-        self.userArray = [[NSArray alloc]init];
-        self.userArray = @[@"Connor", @"Brian", @"Kevin", @"Fillipe", @"Josh", @"Marty"];
+        self.userArray = [[NSMutableArray alloc]init];
+        [self.userArray addObject:@"Connor"];
     }
     return self;
 }

@@ -3,7 +3,7 @@
 
 @interface CKUserModel : NSObject
 
-@property (nonatomic) NSArray *userArray;
+@property (nonatomic) NSMutableArray *userArray;
 
 
 @end
