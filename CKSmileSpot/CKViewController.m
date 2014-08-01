@@ -70,18 +70,13 @@
 
 
 - (void)addSubviews {
-    
     [self.view addSubview:self.topNavBar.view];
     [self.view addSubview:self.mainView];
-
 }
 
 - (void) showSettings {
     
     NSLog(@"Settings opened from View Controller");
 }
-
-
-
 
 @end
