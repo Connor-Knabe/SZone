@@ -5,7 +5,6 @@
 
 @property (nonatomic) UIButton* settingsButton;
 
-
 @end
 
 @implementation CKNavigationBarViewController
