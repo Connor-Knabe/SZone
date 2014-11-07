@@ -6,6 +6,54 @@
 		<input type="text" name="name" placeholder="Enter your name" />	
 		<br>	
 	    <button type="submit">Submit</button>
+	    
+	    
+		<script>
+			/*var lat;
+			if (navigator.geolocation) {
+			    var location_timeout = setTimeout("geolocFail()", 10000);
+			
+			    navigator.geolocation.getCurrentPosition(function(position) {
+			        clearTimeout(location_timeout);
+			
+			        lat = position.coords.latitude;
+			        var lng = position.coords.longitude;
+			
+			        geocodeLatLng(lat, lng);
+		    }, function(error) {
+		        clearTimeout(location_timeout);
+		        geolocFail();
+		    });
+			} else {
+			    // Fallback for no geolocation
+			    geolocFail();
+			}*/
+			
+			
+			var latitude;
+			navigator.geolocation.getCurrentPosition(GetLocation);
+			function GetLocation(location) {
+			    //<input type="hidden" name="accuracy" value=location.coords.accuracy>
+			    //<input type="hidden" name="latitude" value=location.coords.latitude/>
+				console.log("YO");
+				latitude = location.coords.latitude;
+				console.log(latitude);
+				
+				var input = document.createElement("input");
+				
+				input.setAttribute("type", "hidden");
+				
+				input.setAttribute("name", "lat");
+				
+				input.setAttribute("value", "latitude");
+
+			}
+			console.log(latitude);
+			console.log(lat);
+			
+		</script>
+		<input type="hidden" name="latitude2" value="1" />
+	
 	</form>
 		
 </html>

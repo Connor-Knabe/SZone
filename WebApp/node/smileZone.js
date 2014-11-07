@@ -14,7 +14,17 @@ app.get('/', function(req,res){
 });
 
 app.post('/submit', function(req, res){
-	res.render('geo');
+	var latitude = req.body.latitude;
+
+	var longitude = req.body.longitude;
+	var name = req.body.name;
+	console.log(name);
+	console.log(latitude);
+	console.log(latitude2);
+
+	console.log(longitude);
+
+	res.render('index');
 
 });
 app.listen(80);
