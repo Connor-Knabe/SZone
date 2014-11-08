@@ -39,7 +39,6 @@ app.post('/submit', function(req, res){
 			var parsedData = JSON.parse(body);
 			console.log(parsedData);
 		}
-
 	});
 
 
