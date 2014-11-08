@@ -6,13 +6,44 @@
 		
 		    function a(){
 		
-		    if (navigator.geolocation)
-		     {
+		    if (navigator.geolocation) {
 		        navigator.geolocation.getCurrentPosition(     
 		        function coords(position) {
 		            longitude = position.coords.longitude;          
 		            latitude = position.coords.latitude;
-		            alert("Lat Long is : " + longitude +"," + latitude);
+		            
+			        var f = document.createElement("form");
+					f.setAttribute('method',"post");
+					f.setAttribute('action',"/submit");
+					
+					var i = document.createElement("input"); 
+					i.setAttribute('type',"text");
+					i.setAttribute('name',"username");
+					i.setAttribute('placeholder',"Enter your name");
+	
+					
+					var lat = document.createElement("input");
+					lat.setAttribute("type", "hidden");
+					lat.setAttribute("name", "lat");				
+					lat.setAttribute("value", latitude);
+	
+					var lng = document.createElement("input");
+					lng.setAttribute("type", "hidden");
+					lng.setAttribute("name", "lng");				
+					lng.setAttribute("value", longitude);
+					
+					var s = document.createElement("input"); 													s.setAttribute('type',"submit");
+					s.setAttribute('value',"Submit");
+					
+	
+					f.appendChild(lat);
+					f.appendChild(lng);
+					f.appendChild(i);
+					f.appendChild(s);
+					
+					
+					document.getElementsByTagName('body')[0].appendChild(f);
+		            //alert("Lat Long is : " + longitude +"," + latitude);
 		        }, function (error) {
 		            alert("Error: " + error.code);
 		        },
@@ -21,28 +52,21 @@
 		            timeout : 10000,                
 		            maximumAge : 1000           
 		        });
-		
-		       }
-		       else
-		       {
+		        
+		       
+
+		       } else {
 		        alert ("GEOLOCATION NOT SUPPORTED....");
 		       }
 		    }	
+
 	
 	    </script>
     </head>
     <body onLoad="a();">
         TESTING GEOLOCATION
         
-        <form action = "/submit" method = "post">
-			Welcome to SmileZone
-			<br>
-			<input type="text" name="name" placeholder="Enter your name" />
-			<br>
-		    <button type="submit">Submit</button>
-
-
-		</form>
+        
 
     </body>
     

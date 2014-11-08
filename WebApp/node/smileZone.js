@@ -23,11 +23,11 @@ app.post('/submit', function(req, res){
 	var longitude = req.body.longitude;
 	var name = req.body.name;
 	var ip = req.connection.remoteAddress;
-
+	console.log(latitude);
 	console.log(req.body);
 	console.log(ip);
 
-	var options = {
+	/*var options = {
 	  protocol: "http",
 	  host: 'ipinfo.io',
 	  pathname: '/'+ip+'/json',
@@ -39,7 +39,7 @@ app.post('/submit', function(req, res){
 			var parsedData = JSON.parse(body);
 			console.log(parsedData);
 		}
-	});
+	});*/
 
 
 
