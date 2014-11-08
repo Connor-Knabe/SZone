@@ -27,10 +27,6 @@ app.post('/submit', function(req, res){
 	console.log(req.body);
 	console.log(ip);
 
-
-
-
-
 	var options = {
 	  host: 'ipinfo.io',
 	  port: 80,
@@ -41,7 +37,6 @@ app.post('/submit', function(req, res){
 	var ipinfoUrl = url.format(options);
 	request(ipinfoUrl, function(error, response, body){
 		if (!error && response.statusCode == 200) {
-			//Sends the parsed data from rotten tomatoes to ejs template
 			var parsedData = JSON.parse(body);
 			console.log(parsedData);
 		}
