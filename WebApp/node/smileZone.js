@@ -14,14 +14,12 @@ app.get('/', function(req,res){
 });
 
 app.post('/submit', function(req, res){
-	var latitude = req.body.latitude;
+	var latitude = req.body.lat;
 
 	var longitude = req.body.longitude;
 	var name = req.body.name;
-	console.log(name);
+	console.log(req.body);
 	console.log(latitude);
-	console.log(latitude2);
-
 	console.log(longitude);
 
 	res.render('index');
