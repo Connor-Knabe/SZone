@@ -28,10 +28,9 @@ app.post('/submit', function(req, res){
 	console.log(ip);
 
 	var options = {
+	  protocol: "http",
 	  host: 'ipinfo.io',
-	  port: 80,
-	  path: '/'+ip+'/json',
-	  method: 'POST'
+	  pathname: '/'+ip+'/json',
 	};
 
 	var ipinfoUrl = url.format(options);
