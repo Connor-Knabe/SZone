@@ -14,3 +14,20 @@ var server = http.createServer(app);
 var configDB = require('./config/database.js');
 mongoose.connect(configDB.url); 
 
+require('./config/passport')(passport); 
+
+app.configure(function() {
+
+	app.use(express.cookieParser());
+	app.use(express.bodyParser()); 
+	app.use(express.static(path.join(__dirname, 'public')));
+	app.set('views', __dirname + '/views');
+	app.engine('html', require('ejs').renderFile); //use ejs 
+	
+	app.use(express.session({ secret: 'smilezone' })); //add this
+	app.use(express.bodyParser({uploadDir:'/images'}));
+	app.use(passport.initialize());
+	app.use(passport.session()); 
+	app.use(flash()); 
+
+});
