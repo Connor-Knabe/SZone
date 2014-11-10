@@ -8,3 +8,9 @@ var path = require('path');
 var fs = require('fs');
 var http = require('http');
 var server = http.createServer(app);
+
+
+
+var configDB = require('./config/database.js');
+mongoose.connect(configDB.url); 
+
