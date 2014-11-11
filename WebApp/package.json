@@ -1,5 +1,5 @@
 {
-  "name": "Smile Zone",
+  "name": "SmileZone",
   "description": "App that tracks your smiles :)",
   "version": "0.0.1",
   "main": "server.js",

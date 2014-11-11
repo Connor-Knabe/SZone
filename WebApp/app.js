@@ -22,7 +22,7 @@ app.configure(function() {
 	app.use(express.bodyParser()); 
 	app.use(express.static(path.join(__dirname, 'public')));
 	app.set('views', __dirname + '/views');
-	app.engine('html', require('ejs').renderFile); //use ejs 
+	app.set('view engine', 'ejs');
 	
 	app.use(express.session({ secret: 'smilezone' })); //add this
 	app.use(express.bodyParser({uploadDir:'/images'}));
@@ -32,6 +32,6 @@ app.configure(function() {
 
 });
 
-require('./app/routes.js')(app,passport,server);
+require('./controller/routes.js')(app,passport,server);
 
 server.listen(port);
