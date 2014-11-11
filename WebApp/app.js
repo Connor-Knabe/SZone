@@ -21,9 +21,13 @@ app.configure(function() {
     app.use(express.urlencoded());
     
  	app.use(express.cookieParser());
-	app.use(express.static(path.join(__dirname, 'public')));
+	app.use(express.static(__dirname + '/views'));
+	//app.use("/css", express.static(__dirname + 'css'));
+
+	app.engine('html', require('ejs').renderFile); //renders .ejs as html	
 	app.set('views', __dirname + '/views');
-	app.set('view engine', 'ejs');
+	//app.use("/css",express.static(__dirname + "/views/css"));
+	
 	
 	app.use(express.session({ secret: 'smilezone' })); //add this
 	app.use(passport.initialize());
