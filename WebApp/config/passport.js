@@ -1,7 +1,8 @@
 // local authentication
 // For more details go to https://github.com/jaredhanson/passport-local
 var LocalStrategy    = require('passport-local').Strategy;
-var User = require('../models/user');
+
+var User       = require('../models/user');
 
 module.exports = function(passport) {
 
@@ -37,15 +38,12 @@ module.exports = function(passport) {
         });
 
     }));
-
      passport.use('signup', new LocalStrategy({
         usernameField : 'email',
         passReqToCallback : true 
     },
     function(req, email, password, done) {
-
         process.nextTick(function() {
-       
             if (!req.user) {
                 User.findOne({ 'user.email' :  email }, function(err, user) {
             	    if (err){ return done(err);}
@@ -64,7 +62,6 @@ module.exports = function(passport) {
                             return done(null, newUser);
                         });
                     }
-
                 });
             } else {
                 var user            = req.user;
@@ -73,16 +70,12 @@ module.exports = function(passport) {
                 user.user.password = user.generateHash(password);
 			user.user.name	= ''
 			user.user.address	= ''
-
                 user.save(function(err) {
                     if (err)
                         throw err;
                     return done(null, user);
                 });
-
             }
-
         });
-
-
     }));
+}
