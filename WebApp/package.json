@@ -10,6 +10,7 @@
     "passport" : "0.2.0", 	
     "passport-local" : "0.1.6",	
     "bcrypt-nodejs" : "latest",
-    "now":  ">=0.0.1"
+    "now":  ">=0.0.1",
+	"body-parser": "1.9.2"
   }
 }
