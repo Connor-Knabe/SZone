@@ -31,3 +31,7 @@ app.configure(function() {
 	app.use(flash()); 
 
 });
+
+require('./app/routes.js')(app,passport,server);
+
+server.listen(port);
