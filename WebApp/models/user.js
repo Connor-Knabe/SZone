@@ -7,7 +7,6 @@ var userSchema = mongoose.Schema({
 	    email        : String,
 	    password     : String,
 		name	     : String,
-		address      : String
     }
 });
 
@@ -23,7 +22,7 @@ userSchema.methods.updateUser = function(request, response){
 
 	this.user.name = request.body.name;
 	this.user.address = request.body.address;
-	 this.user.save();
+	this.user.save();
 	response.redirect('/user');
 };
 

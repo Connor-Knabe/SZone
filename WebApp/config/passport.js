@@ -1,8 +1,7 @@
 // local authentication
 // For more details go to https://github.com/jaredhanson/passport-local
-var LocalStrategy    = require('passport-local').Strategy;
-
-var User       = require('../models/user');
+var LocalStrategy = require('passport-local').Strategy;
+var User = require('../models/user');
 
 module.exports = function(passport) {
 
@@ -50,12 +49,12 @@ module.exports = function(passport) {
                     if (user) {
                         return done(null, false, req.flash('signuperror', 'User already exists'));
                     } else {
-                        var newUser            = new User();
-			newUser.user.username    = req.body.username;
-                        newUser.user.email    = email;
+                        var newUser = new User();
+						newUser.user.username = req.body.username;
+                        newUser.user.email = email;
                         newUser.user.password = newUser.generateHash(password);
-			newUser.user.name	= ''
-			newUser.user.address	= ''
+						newUser.user.name = ''
+						newUser.user.address = ''
                         newUser.save(function(err) {
                             if (err)
                                 throw err;
@@ -64,12 +63,12 @@ module.exports = function(passport) {
                     }
                 });
             } else {
-                var user            = req.user;
-		user.user.username    = req.body.username;
-                user.user.email    = email;
+                var user = req.user;
+				user.user.username = req.body.username;
+                user.user.email = email;
                 user.user.password = user.generateHash(password);
-			user.user.name	= ''
-			user.user.address	= ''
+				user.user.name	= ''
+				user.user.address	= ''
                 user.save(function(err) {
                     if (err)
                         throw err;

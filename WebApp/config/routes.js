@@ -19,5 +19,6 @@ module.exports = function(app,passport,server) {
 		failureRedirect : '/signup', 
 		failureFlash : true 
 	}));
+	
 
 }
