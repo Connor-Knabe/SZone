@@ -31,6 +31,6 @@ app.configure(function() {
 
 });
 
-require('./controller/routes.js')(app,passport,server);
+require('./config/routes.js')(app,passport,server);
 
 server.listen(port);
