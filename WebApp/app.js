@@ -49,17 +49,6 @@ userSchema.pre('save', function(next) {
 	});
 });
 
-//Seed a user
-var User = mongoose.model('User', userSchema);
-var usr = new User({ username: 'bob@email.com', email:'bob@example', password: 'secret' });
-
-usr.save(function(err) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log('user: ' + usr.username + "saved.");
-	}
-});
 
 
 // Passport session setup.
@@ -135,7 +124,7 @@ app.get('/', function(req, res) {
 app.get('/signup', function(req, res) {
 	res.render('index.ejs', {action:"signup"});
 });
-app.get('/login', function(req, res){
+app.get('/login',ensureAuthenticated, function(req, res){
 	res.render('index.ejs', { action:"login"});
 });
 
@@ -148,21 +137,36 @@ res.redirect('/');
 //   This is an alternative implementation that uses a custom callback to
 //   acheive the same functionality.
 app.post('/login', function(req, res, next) {
-passport.authenticate('local', function(err, user, info) {
-	if (err) { return next(err) }
-	if (!user) {
-	return res.redirect('/login')
-	}
-	req.logIn(user, function(err) {
-	if (err) { return next(err); }
-	return res.redirect('/');
-	});
-})(req, res, next);
+	passport.authenticate('local', function(err, user, info) {
+		if (err) { return next(err) }
+		if (!user) {
+		return res.redirect('/login')
+		}
+		req.logIn(user, function(err) {
+		if (err) { return next(err); }
+		return res.redirect('/');
+		});
+	})(req, res, next);
 });
 
 app.get('/logout', function(req, res){
-req.logout();
-res.redirect('/');
+	req.logout();
+	res.redirect('/');
+});
+
+app.post('/signup', function(req, res) {
+	//Seed a user
+	var User = mongoose.model('User', userSchema);
+	var usr = new User({ username: 'connorknabe@gmail.com', email:'bob@example', password: 'secret' });
+
+	usr.save(function(err) {
+		if(err) {
+			console.log(err);
+		} else {
+			console.log('user: ' + usr.username + "saved.");
+		}
+	});
+
 });
 
 
@@ -174,7 +178,7 @@ res.redirect('/');
 //   login page.
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
-  res.redirect('/login')
+  res.redirect('/')
 }
 
 //require('./config/routes.js')(app,passport,server);
