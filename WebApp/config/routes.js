@@ -6,7 +6,7 @@ module.exports = function(app,passport,server) {
 		console.log("index");
 	});
 	app.get('/signup', function(req, res) {
-		res.render('index.ejs',{action:signup});
+		res.render('index.ejs',{action:"signup"});
 		console.log("signup");
 	});
 	app.get('login', function(req, res) {

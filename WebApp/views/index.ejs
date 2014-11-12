@@ -104,11 +104,16 @@
         <div class="login-section">
             <div class="container">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Login to Smile Zone</h2>
 
+                    <% if (action="signup"){
 
-
-
+                    %>
+                        <h2>Signup for Smile Zone</h2>
+                    <%
+                    } else {
+                    %>
+                        <h2>Login to Smile Zone</h2>
+                    <%}%>
                     <form role="form">
                         <div class="form-group col-md-6">
                             <label for="exampleInputEmail1">Email address</label>
@@ -120,7 +125,7 @@
                         </div>
                         <div class="form-group col-md-12 btn_pad">
                             <button type="submit" class="btn btn-default ">Login</button>
-                            or <a href="/signup"> Sign up</a>
+                            or <a href="/signup#login"> Sign up</a>
                         </div>
                     </form>
 
