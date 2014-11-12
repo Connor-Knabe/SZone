@@ -1,16 +1,36 @@
 var express  = require('express');
 var app      = express();
 var port     = process.env.PORT || 80;
-var mongoose = require('mongoose');
-var passport = require('passport');
 var path = require('path');
-var fs = require('fs');
 var http = require('http');
 var server = http.createServer(app);
 var bodyParser = require('body-parser');
 
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var bcrypt = require('bcrypt');
+var SALT_WORK_FACTOR = 10;
+var mongodb = require('mongodb')
+var mongoose = require('mongoose');
 
-var configDB = require('./config/database.js');
+app.get('/', function(req, res) {
+	res.render('index.ejs', {action:"index"});
+});
+app.get('/signup', function(req, res) {
+	res.render('index.ejs', {action:"signup"});
+});
+app.get('login', function(req, res) {
+	res.render('index.ejs', {action:login});
+};
+
+
+
+
+
+
+
+
+/*var configDB = require('./config/database.js');
 mongoose.connect(configDB.url); 
 
 require('./config/passport')(passport); 
@@ -29,8 +49,8 @@ app.configure(function() {
 	app.use(passport.initialize());
 	app.use(passport.session()); 
 
-});
+});*/
 
-require('./config/routes.js')(app,passport,server);
+//require('./config/routes.js')(app,passport,server);
 
 server.listen(port);
