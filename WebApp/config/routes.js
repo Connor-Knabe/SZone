@@ -13,4 +13,11 @@ module.exports = function(app,passport,server) {
 		res.render('index.ejs',{action:login});
 	});
 
+
+	app.post('/signup', passport.authenticate('signup', {
+		successRedirect : '/about',
+		failureRedirect : '/signup', 
+		failureFlash : true 
+	}));
+
 }
