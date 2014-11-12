@@ -114,8 +114,7 @@
                     <% } %>
 
                     <% if (action == "signup"){ %>
-                        <form role="form">
-
+                        <form action="/signup" method="post" role="form">
                             <div class="form-group col-md-12">
                                 <div class="form-group col-md-6">
                                     <label for="firstName">First Name</label>
@@ -145,17 +144,11 @@
                                 <button type="submit" class="btn btn-default ">Sign up</button>
 
                             </div>
-
-
-
-
                         </form>
-
-
 
                     <% } else { %>
                         login
-                        <form role="form">
+                        <form action="/login" method="post" role="form">
                             <div class="form-group col-md-6">
                                 <label for="exampleInputEmail1">Email address</label>
                                 <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
