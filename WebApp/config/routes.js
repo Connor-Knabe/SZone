@@ -13,5 +13,4 @@ module.exports = function(app,passport,server) {
 		res.render('index.ejs',{action:login});
 	});
 
-
 }
