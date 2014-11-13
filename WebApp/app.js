@@ -16,7 +16,7 @@ var mongoose = require('mongoose');
 
 
 
-mongoose.connect('localhost', 'test');
+mongoose.connect('localhost', 'test2');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback() {
@@ -162,14 +162,18 @@ app.post('/signup', function(req, res) {
 		res.render('index.ejs', {action:"signup", error:"password"});
 	}
 
+	console.log("Firstname:"+ req.body.firstname);
+	console.log("lastname:"+ req.body.lastname);
+	console.log("email:"+ req.body.email);
+	console.log("password:"+ req.body.password1);
 	var usr = new User({ firstName:req.body.firstname, lastName:req.body.lastname, email: req.body.email, password: req.body.password1 });
 
 	usr.save(function(err) {
 		if(err) {
 			res.render('index.ejs', {action:"signup", error:"duplicate"});
-			res.redirect('/signup#login')
 			console.log(err);
 		} else {
+			res.render('index.ejs', {action:"loggedin", error"none"})
 			console.log('user: ' + usr.email + "saved.");
 		}
 	});
