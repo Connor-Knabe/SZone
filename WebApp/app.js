@@ -26,7 +26,8 @@ db.once('open', function callback() {
 //User Schema
 
 var userSchema = mongoose.Schema({
-	username: { type: String, required: true, unique: true },
+	firstname: { type: String, required: true, unique: true },
+	lastname: { type: String, required: true, unique: true },
 	email: { type: String, required: true, unique: true },
 	password: { type: String, required: true }
 });
@@ -101,7 +102,6 @@ app.configure(function() {
     app.set('view engine', 'ejs');
 
 	app.use(express.session({ secret: 'asmilezone' })); //add this
-	  app.use(express.session({ secret: 'keyboard cat' })); // CHANGE THIS SECRET!
 	// Remember Me middleware
 	app.use( function (req, res, next) {
 		if ( req.method == 'POST' && req.url == '/login' ) {
@@ -157,13 +157,13 @@ app.get('/logout', function(req, res){
 app.post('/signup', function(req, res) {
 	//Seed a user
 	var User = mongoose.model('User', userSchema);
-	var usr = new User({ username: 'connorknabe@gmail.com', email:'bob@example', password: 'secret' });
+	var usr = new User({ firstname:"Connor", lastname:"Knabe", email: 'c@c.com', password: 'secret' });
 
 	usr.save(function(err) {
 		if(err) {
 			console.log(err);
 		} else {
-			console.log('user: ' + usr.username + "saved.");
+			console.log('user: ' + usr.email + "saved.");
 		}
 	});
 
