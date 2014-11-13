@@ -148,9 +148,10 @@
                                     <input type="password" class="form-control" name="password2" placeholder="Password">
                                 </div>
 
-                                <% if (error) { %>
+                                <% if (error == "duplicate") { %>
                                     An error has occured user already exists.
-
+                                <% } else if (error == "password") { %>
+                                    Your passwords do not match!
                                 <% } %>
 
                                 <button type="submit" class="btn btn-default ">Sign up</button>

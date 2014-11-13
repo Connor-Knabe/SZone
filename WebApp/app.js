@@ -122,7 +122,7 @@ app.get('/', function(req, res) {
 	res.render('index.ejs', {action:"index"});
 });
 app.get('/signup', function(req, res) {
-	res.render('index.ejs', {action:"signup", error:false});
+	res.render('index.ejs', {action:"signup", error:"none"});
 });
 app.get('/login',ensureAuthenticated, function(req, res){
 	res.render('index.ejs', { action:"login"});
@@ -157,15 +157,17 @@ app.get('/logout', function(req, res){
 app.post('/signup', function(req, res) {
 	//Seed a user
 	var User = mongoose.model('User', userSchema);
-	var usr = new User({ firstName:"Connor", lastName:"Knabe", email: 'c@c.com', password: 'secret' });
-	console.log(req.body.firstname);
-	console.log(req.body.password1);
-	console.log(req.body.password2);
-	console.log(req.body.email);
+
+	if(req.body.password1 != req.body.password2){
+		res.render('index.ejs', {action:"signup", error:"password"});
+	}
+
+	var usr = new User({ firstName:req.body.firstname, lastName:req.body.lastname, email: req.body.email, password: req.body.password1 });
 
 	usr.save(function(err) {
 		if(err) {
-			res.render('index.ejs', {action:"signup", error:true});
+			res.render('index.ejs', {action:"signup", error:"duplicate"});
+			res.redirect('/signup#login')
 			console.log(err);
 		} else {
 			console.log('user: ' + usr.email + "saved.");
