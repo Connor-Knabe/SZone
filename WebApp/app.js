@@ -26,8 +26,8 @@ db.once('open', function callback() {
 //User Schema
 
 var userSchema = mongoose.Schema({
-	firstname: { type: String, required: true, unique: true },
-	lastname: { type: String, required: true, unique: true },
+	firstName: { type: String, required: true, unique: true },
+	lastName: { type: String, required: true, unique: true },
 	email: { type: String, required: true, unique: true },
 	password: { type: String, required: true }
 });
@@ -122,7 +122,7 @@ app.get('/', function(req, res) {
 	res.render('index.ejs', {action:"index"});
 });
 app.get('/signup', function(req, res) {
-	res.render('index.ejs', {action:"signup"});
+	res.render('index.ejs', {action:"signup", error:false});
 });
 app.get('/login',ensureAuthenticated, function(req, res){
 	res.render('index.ejs', { action:"login"});
@@ -157,10 +157,15 @@ app.get('/logout', function(req, res){
 app.post('/signup', function(req, res) {
 	//Seed a user
 	var User = mongoose.model('User', userSchema);
-	var usr = new User({ firstname:"Connor", lastname:"Knabe", email: 'c@c.com', password: 'secret' });
+	var usr = new User({ firstName:"Connor", lastName:"Knabe", email: 'c@c.com', password: 'secret' });
+	console.log(req.body.firstname);
+	console.log(req.body.password1);
+	console.log(req.body.password2);
+	console.log(req.body.email);
 
 	usr.save(function(err) {
 		if(err) {
+			res.render('index.ejs', {action:"signup", error:true});
 			console.log(err);
 		} else {
 			console.log('user: ' + usr.email + "saved.");

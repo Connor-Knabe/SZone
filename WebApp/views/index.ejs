@@ -124,11 +124,11 @@
                             <div class="form-group col-md-12">
                                 <div class="form-group col-md-6">
                                     <label for="firstName">First Name</label>
-                                    <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                                    <input type="text" class="form-control" name="firstname" placeholder="First Name">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="lastName">Last name</label>
-                                    <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+                                    <input type="text" class="form-control" name="lastname" placeholder="Last Name">
                                 </div>
 
 
@@ -137,16 +137,22 @@
                             <div class="form-group col-md-12">
                                 <div class="form-group col-md-6">
                                     <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                    <input type="email" class="form-control" name="email" placeholder="Enter email">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control" id="password1" placeholder="Password">
+                                    <input type="password" class="form-control" name="password1" placeholder="Password">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="exampleInputPassword1">Password again</label>
-                                    <input type="password" class="form-control" id="password2" placeholder="Password">
+                                    <input type="password" class="form-control" name="password2" placeholder="Password">
                                 </div>
+
+                                <% if (error) { %>
+                                    An error has occured user already exists.
+
+                                <% } %>
+
                                 <button type="submit" class="btn btn-default ">Sign up</button>
 
                             </div>
