@@ -75,10 +75,10 @@ passport.deserializeUser(function(email, done) {
 //   credentials (in this case, a username and password), and invoke a callback
 //   with a user object.  In the real world, this would query a database;
 //   however, in this example we are using a baked-in set of users.
-passport.use(new LocalStrategy(function(username, password, done) {
-  	User.findOne({ username: username }, function(err, user) {
+passport.use(new LocalStrategy(function(email, password, done) {
+  	User.findOne({ email: email }, function(err, user) {
     	if (err) { return done(err); }
-    	if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
+    	if (!user) { return done(null, false, { message: 'Unknown user ' + email }); }
     	user.comparePassword(password, function(err, isMatch) {
 	  		if (err) return done(err);
 	      	if(isMatch) {
@@ -140,11 +140,14 @@ app.post('/login', function(req, res, next) {
 	passport.authenticate('local', function(err, user, info) {
 		if (err) { return next(err) }
 		if (!user) {
-		return res.redirect('/login')
+			console.log("NOT USER");
+			return res.redirect('/login')
 		}
 		req.logIn(user, function(err) {
-		if (err) { return next(err); }
-		return res.redirect('/');
+			console.log("B4 logged in error");
+			if (err) { return next(err); }
+			console.log("LOGGEDIN");
+			return res.redirect('/');
 		});
 	})(req, res, next);
 });
@@ -173,7 +176,7 @@ app.post('/signup', function(req, res) {
 			res.render('index.ejs', {action:"signup", error:"duplicate"});
 			console.log(err);
 		} else {
-			res.render('index.ejs', {action:"loggedin", error"none"})
+			res.render('index.ejs', {action:"loggedin", error:"none"})
 			console.log('user: ' + usr.email + "saved.");
 		}
 	});
