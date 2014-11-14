@@ -150,8 +150,16 @@ app.post('/login',
 	passport.authenticate('local', {
 		failureRedirect: '/login',
       	failureFlash: 'Invalid email or password.'
-    }), users.session
+    }), session
 );
+
+function session (req, res) {
+ 	var redirectTo = req.session.returnTo ? req.session.returnTo : '/';
+ 	delete req.session.returnTo;
+ 	res.redirect(redirectTo);
+};
+
+
 
 app.get('/logout', function(req, res){
 	req.logout();
