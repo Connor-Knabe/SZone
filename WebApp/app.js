@@ -127,7 +127,11 @@ app.configure(function() {
 
 app.get('/', function(req, res) {
 	console.log("prof"+ req.user);
-	res.render('index.ejs', {action:"index"});
+	if (req.user){
+		res.render('index.ejs', {action:"index", user:req.user});
+	} else {
+		res.render('index.ejs', {action:"index", user:null});
+	}
 });
 app.get('/signup', function(req, res) {
 	res.render('index.ejs', {action:"signup", error:"none"});
