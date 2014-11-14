@@ -14,8 +14,6 @@ var mongodb = require('mongodb')
 var mongoose = require('mongoose');
 
 
-
-
 mongoose.connect('localhost', 'test2');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -31,7 +29,13 @@ var userSchema = mongoose.Schema({
 	email: { type: String, required: true, unique: true },
 	password: { type: String, required: true }
 });
-
+// Password verification
+userSchema.methods.comparePassword = function(candidatePassword, cb) {
+	bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+		if(err) return cb(err);
+		cb(null, isMatch);
+	});
+};
 var User = mongoose.model('User', userSchema);
 
 passport.serializeUser(function(user, done) {
@@ -128,13 +132,18 @@ app.get('/signup', function(req, res) {
 	res.render('index.ejs', {action:"signup", error:"none"});
 });
 app.get('/login',ensureAuthenticated, function(req, res){
-	res.render('index.ejs', { action:"login"});
+	res.render('index.ejs', { action:"loggedin"});
 });
 
 app.get('/logout', function(req, res){
-req.logout();
-res.redirect('/');
+	req.logout();
+	res.redirect('/');
 });
+
+app.get('/home', function(req, res){
+	res.render('index.ejs', { action:"loggedin"});
+});
+
 
 // POST /login
 //   This is an alternative implementation that uses a custom callback to
@@ -146,9 +155,9 @@ app.post('/login',
 );
 
 function session (req, res) {
- 	var redirectTo = req.session.returnTo ? req.session.returnTo : '/';
- 	delete req.session.returnTo;
- 	res.redirect(redirectTo);
+ 	//var redirectTo = req.session.returnTo ? req.session.returnTo : '/';
+ 	//delete req.session.returnTo;
+ 	res.redirect('/home');
 };
 
 
