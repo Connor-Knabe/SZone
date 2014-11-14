@@ -32,6 +32,9 @@ var userSchema = mongoose.Schema({
 	password: { type: String, required: true }
 });
 
+var User = mongoose.model('User', userSchema);
+
+
 
 // Bcrypt middleware
 userSchema.pre('save', function(next) {
@@ -148,8 +151,7 @@ res.redirect('/');
 //   acheive the same functionality.
 app.post('/login',
 	passport.authenticate('local', {
-		failureRedirect: '/login',
-      	failureFlash: 'Invalid email or password.'
+		failureRedirect: '/#login',
     }), session
 );
 
@@ -168,7 +170,6 @@ app.get('/logout', function(req, res){
 
 app.post('/signup', function(req, res) {
 	//Seed a user
-	var User = mongoose.model('User', userSchema);
 
 	if(req.body.password1 != req.body.password2){
 		res.render('index.ejs', {action:"signup", error:"password"});
