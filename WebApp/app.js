@@ -85,7 +85,7 @@ passport.use(new LocalStrategy({ usernameField: 'email', passwordField: 'passwor
 			console.log("Into passport");
 			console.log(email);
 	    	if (err) { return done(err); }
-	    	if (!user) { return done(null, false); }
+	    	if (!user) { return done(null, false, { message: 'Unknown user ' + email }); }
 	    	user.comparePassword(password, function(err, isMatch) {
 		  		if (err) return done(err);
 		      	if(isMatch) {
@@ -127,10 +127,11 @@ app.configure(function() {
 
 app.get('/', function(req, res) {
 	console.log("prof"+ req.user);
+	console.log("/"+ req.session.messages);
 	if (req.user){
 		res.render('loggedin.ejs', {user:req.user});
 	} else {
-		res.render('index.ejs', {action:"index", user:null});
+		res.render('index.ejs', {action:"index", user:null, message: req.session.messages });
 	}
 });
 app.get('/signup', function(req, res) {
@@ -150,11 +151,26 @@ app.get('/logout', function(req, res){
 // POST /login
 //   This is an alternative implementation that uses a custom callback to
 //   acheive the same functionality.
-app.post('/login',
-	passport.authenticate('local', {
+app.post('/login', function(req, res, next) {
+	/*passport.authenticate('local', {
 		failureRedirect: '/#login',
-    }), session
-);
+    }), session*/
+
+	passport.authenticate('local', function(err, user, info) {
+		if (err) { return next(err) }
+			if (!user) {
+				req.session.messages =  [info.message];
+				console.log("NOT USERR!");
+				console.log(req.session.messages);
+				return res.redirect('/')
+			}
+			req.logIn(user, function(err) {
+				if (err) { return next(err); }
+					return res.redirect('/#login');
+				});
+			})(req, res, next);
+
+});
 
 function session (req, res) {
  	//var redirectTo = req.session.returnTo ? req.session.returnTo : '/';
