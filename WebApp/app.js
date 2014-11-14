@@ -85,7 +85,7 @@ passport.use(new LocalStrategy({ usernameField: 'email', passwordField: 'passwor
 			console.log("Into passport");
 			console.log(email);
 	    	if (err) { return done(err); }
-	    	if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
+	    	if (!user) { return done(null, false); }
 	    	user.comparePassword(password, function(err, isMatch) {
 		  		if (err) return done(err);
 		      	if(isMatch) {
@@ -145,9 +145,6 @@ app.get('/logout', function(req, res){
 	res.redirect('/');
 });
 
-app.get('/home', function(req, res){
-	res.render('index.ejs', { action:"loggedin"});
-});
 
 
 // POST /login
@@ -162,7 +159,7 @@ app.post('/login',
 function session (req, res) {
  	//var redirectTo = req.session.returnTo ? req.session.returnTo : '/';
  	//delete req.session.returnTo;
- 	res.redirect('/home');
+ 	res.redirect('/');
 };
 
 
