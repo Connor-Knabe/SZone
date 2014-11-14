@@ -126,6 +126,7 @@ app.configure(function() {
 });
 
 app.get('/', function(req, res) {
+	console.log("prof"+ req.user);
 	res.render('index.ejs', {action:"index"});
 });
 app.get('/signup', function(req, res) {
