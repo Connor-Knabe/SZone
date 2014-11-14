@@ -87,8 +87,8 @@ passport.deserializeUser(function(email, done) {
 passport.use(new LocalStrategy(function(username, password, done) {
   	User.findOne({ username: username }, function(err, user) {
 		console.log("Into passport");
-    	if (err) { return done(err); }
-    	if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
+    	if (err) { console.log("fail"); }
+    	if (!user) { console.log("cannot find user"); }
     	user.comparePassword(password, function(err, isMatch) {
 	  		if (err) return done(err);
 	      	if(isMatch) {
