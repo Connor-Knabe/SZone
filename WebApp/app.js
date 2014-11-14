@@ -128,7 +128,7 @@ app.configure(function() {
 app.get('/', function(req, res) {
 	console.log("prof"+ req.user);
 	if (req.user){
-		res.render('index.ejs', {action:"index", user:req.user});
+		res.render('loggedin.ejs', {user:req.user});
 	} else {
 		res.render('index.ejs', {action:"index", user:null});
 	}
