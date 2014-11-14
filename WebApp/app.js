@@ -69,13 +69,13 @@ userSchema.methods.comparePassword = function(candidatePassword, cb) {
 //
 //   Both serializer and deserializer edited for Remember Me functionality
 passport.serializeUser(function(user, done) {
-  done(null, user.email);
+  done(null, user.id);
 });
 
-passport.deserializeUser(function(email, done) {
-  User.findOne( { email: email } , function (err, user) {
-    done(err, user);
-  });
+passport.deserializeUser(function(id, done) {
+ 	User.findById(id, function (err, user) {
+		done(err, user);
+	});
 });
 
 
@@ -87,8 +87,9 @@ passport.deserializeUser(function(email, done) {
 passport.use(new LocalStrategy(function(username, password, done) {
   	User.findOne({ username: username }, function(err, user) {
 		console.log("Into passport");
-    	if (err) { console.log("fail"); }
-    	if (!user) { console.log("cannot find user"); }
+		console.log(user);
+    	if (err) { return done(err); }
+    	if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
     	user.comparePassword(password, function(err, isMatch) {
 	  		if (err) return done(err);
 	      	if(isMatch) {
