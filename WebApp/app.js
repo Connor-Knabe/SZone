@@ -36,9 +36,7 @@ var userSchema = mongoose.Schema({
 // Bcrypt middleware
 userSchema.pre('save', function(next) {
 	var user = this;
-
 	if(!user.isModified('password')) return next();
-
 	bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
 		if(err) return next(err);
 
@@ -49,6 +47,18 @@ userSchema.pre('save', function(next) {
 		});
 	});
 });
+
+
+// Password verification
+userSchema.methods.comparePassword = function(candidatePassword, cb) {
+	console.log("Compare pass");
+	bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+		if(err) return cb(err);
+		cb(null, isMatch);
+	});
+};
+
+
 
 
 
@@ -75,10 +85,10 @@ passport.deserializeUser(function(email, done) {
 //   credentials (in this case, a username and password), and invoke a callback
 //   with a user object.  In the real world, this would query a database;
 //   however, in this example we are using a baked-in set of users.
-passport.use(new LocalStrategy(function(email, password, done) {
-  	User.findOne({ email: email }, function(err, user) {
+passport.use(new LocalStrategy(function(username, password, done) {
+  	User.findOne({ username: username }, function(err, user) {
     	if (err) { return done(err); }
-    	if (!user) { return done(null, false, { message: 'Unknown user ' + email }); }
+    	if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
     	user.comparePassword(password, function(err, isMatch) {
 	  		if (err) return done(err);
 	      	if(isMatch) {
@@ -136,21 +146,12 @@ res.redirect('/');
 // POST /login
 //   This is an alternative implementation that uses a custom callback to
 //   acheive the same functionality.
-app.post('/login', function(req, res, next) {
-	passport.authenticate('local', function(err, user, info) {
-		if (err) { return next(err) }
-		if (!user) {
-			console.log("NOT USER");
-			return res.redirect('/login')
-		}
-		req.logIn(user, function(err) {
-			console.log("B4 logged in error");
-			if (err) { return next(err); }
-			console.log("LOGGEDIN");
-			return res.redirect('/');
-		});
-	})(req, res, next);
-});
+app.post('/login',
+	passport.authenticate('local', {
+		failureRedirect: '/login',
+      	failureFlash: 'Invalid email or password.'
+    }), users.session
+);
 
 app.get('/logout', function(req, res){
 	req.logout();
