@@ -59,9 +59,11 @@
                     <li>
                         <a class="page-scroll" href="#about">About</a>
                     </li>
+                    <% if(action!="loggedin") { %>
                     <li>
                         <a class="page-scroll" href="http://obiwan.me/#login">login</a>
                     </li>
+                    <%}%>
                     <li>
                         <a class="page-scroll" href="#map">map</a>
                     </li>
@@ -121,7 +123,7 @@
                     %>
                         <h2>    Signup for Smile Zone</h2>
 
-                    <% } else {
+                    <% } else if(action=="loggedin") {} else {
                     %>
                         <h2>Login to Smile Zone</h2>
                     <% } %>
@@ -166,7 +168,9 @@
                             </div>
                         </form>
 
-                    <% } else { %>
+                    <% } else if (action=="loggedin") {
+
+                    } else {%>
                         login
                         <form action="/login" method="post" role="form">
                             <div class="form-group col-md-6">
