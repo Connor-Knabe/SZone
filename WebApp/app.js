@@ -51,7 +51,6 @@ userSchema.pre('save', function(next) {
 	});
 });
 
-
 // Password verification
 userSchema.methods.comparePassword = function(candidatePassword, cb) {
 	console.log("Compare pass");
@@ -60,9 +59,6 @@ userSchema.methods.comparePassword = function(candidatePassword, cb) {
 		cb(null, isMatch);
 	});
 };
-
-
-
 
 
 // Passport session setup.
@@ -90,6 +86,7 @@ passport.deserializeUser(function(email, done) {
 //   however, in this example we are using a baked-in set of users.
 passport.use(new LocalStrategy(function(username, password, done) {
   	User.findOne({ username: username }, function(err, user) {
+		console.log("Into passport");
     	if (err) { return done(err); }
     	if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
     	user.comparePassword(password, function(err, isMatch) {
