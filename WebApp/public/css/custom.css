@@ -1,3 +1,15 @@
 .btn_pad {
 	padding-top: 19pt;
 }
+
+#info_box {
+    width: 230px;
+    float: left;
+    margin-right: 10px;
+    background: #efefef;
+}
+
+#info_box #content {
+    width: 210px;
+    margin: 7px 10px;
+}

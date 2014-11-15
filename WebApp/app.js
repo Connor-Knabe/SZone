@@ -160,7 +160,7 @@ app.post('/login', function(req, res, next) {
 			}
 			req.logIn(user, function(err) {
 				if (err) { return next(err); }
-					return res.redirect('/#login');
+					return res.redirect('/#profile');
 				});
 			})(req, res, next);
 
@@ -188,14 +188,17 @@ app.post('/signup', function(req, res) {
 	console.log("lastname:"+ req.body.lastname);
 	console.log("email:"+ req.body.email);
 	console.log("password:"+ req.body.password1);
-	var usr = new User({ firstName:req.body.firstname, lastName:req.body.lastname, email: req.body.email, password: req.body.password1 });
+	var usr = new User({ firstName:req.body.firstname,
+		lastName:req.body.lastname,
+		email: req.body.email,
+		password: req.body.password1 });
 
 	usr.save(function(err) {
 		if(err) {
 			res.render('index.ejs', {action:"signup", error:"duplicate"});
 			console.log(err);
 		} else {
-			res.render('index.ejs', {action:"loggedin", error:"none"})
+			res.render('loggedin.ejs', {user:req.user});
 			console.log('user: ' + usr.email + "saved.");
 		}
 	});
