@@ -152,17 +152,11 @@ app.get('/logout', function(req, res){
 //   This is an alternative implementation that uses a custom callback to
 //   acheive the same functionality.
 app.post('/login', function(req, res, next) {
-	/*passport.authenticate('local', {
-		failureRedirect: '/#login',
-    }), session*/
-
 	passport.authenticate('local', function(err, user, info) {
 		if (err) { return next(err) }
 			if (!user) {
 				req.session.messages =  [info.message];
-				console.log("NOT USERR!");
-				console.log(req.session.messages);
-				return res.redirect('/')
+				return res.redirect('/#login')
 			}
 			req.logIn(user, function(err) {
 				if (err) { return next(err); }
@@ -173,9 +167,7 @@ app.post('/login', function(req, res, next) {
 });
 
 function session (req, res) {
- 	//var redirectTo = req.session.returnTo ? req.session.returnTo : '/';
- 	//delete req.session.returnTo;
- 	res.redirect('/');
+	res.redirect('/');
 };
 
 
