@@ -140,11 +140,12 @@ app.get('/', function(req, res) {
 });
 
 app.post('/addPoint', function(req, rest) {
-var point = {
-	date: 'Today',
-	pointAmt: '1',
-	loc:'Gps cords go here'
-};
+	var point = {
+		date: 'Today',
+		pointAmt: '1',
+		loc:'Gps cords go here'
+	};
+	console.log(req.user);
 
 	Points.findOneAndUpdate(
 		{email:req.user.email},
@@ -202,10 +203,17 @@ app.get('/logout', function(req, res){
 app.post('/signup', function(req, res) {
 	//Seed a user
 
+	var currentdate = new Date();
+	var datetime = currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/"
+                + currentdate.getFullYear() + " @ "
+                + currentdate.getHours() + ":"
+                + currentdate.getMinutes() + ":"
+                + currentdate.getSeconds();
+
 	if(req.body.password1 != req.body.password2){
 		res.render('index.ejs', {action:"signup", error:"password"});
 	}
-
 	var usr = new User({ firstName:req.body.firstname,
 		lastName:req.body.lastname,
 		email: req.body.email,
@@ -213,16 +221,18 @@ app.post('/signup', function(req, res) {
 
 	var pts = new Points({
 		email: req.body.email,
-		points: 0 });
+		points: [{date: "Today", pointAmt: Number, loc:String}]
+	});
+
+	console.log("POINTS " + pts);
+	console.log("Email" + req.body.email);
 
 	usr.save(function(err) {
 		if(err) {
-
 			if (err.message=='Validation failed'){
 				res.render('index.ejs', {action:"signup", error:"blank"});
 			} else {
 				res.render('index.ejs', {action:"signup", error:"duplicate"});
-
 			}
 			console.log(err);
 		} else {
