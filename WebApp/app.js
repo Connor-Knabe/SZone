@@ -217,7 +217,13 @@ app.post('/signup', function(req, res) {
 
 	usr.save(function(err) {
 		if(err) {
-			res.render('index.ejs', {action:"signup", error:"duplicate"});
+
+			if (err.message=='Validation failed'){
+				res.render('index.ejs', {action:"signup", error:"blank"});
+			} else {
+				res.render('index.ejs', {action:"signup", error:"duplicate"});
+
+			}
 			console.log(err);
 		} else {
 			console.log("else");
