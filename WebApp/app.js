@@ -27,12 +27,14 @@ var userSchema = mongoose.Schema({
 	firstName: { type: String, required: true, unique: true },
 	lastName: { type: String, required: true, unique: true },
 	email: { type: String, required: true, unique: true },
+	dateRegistered: { type: Date, default: Date.now }
 	password: { type: String, required: true }
 });
 
 var pointsSchema = mongoose.Schema({
 	email: { type: String, required: true, unique: true },
-	points: [{date: String, pointAmt: Number, loc:String}]
+    points: [Schema.Types.Mixed]
+	//points: [{date: {type: String, required: true}, pointAmt: {type: Number, required: true}, loc:{type: String, required: true}}]
 });
 
 var Points = mongoose.model('Points', userSchema);
@@ -221,13 +223,13 @@ app.post('/signup', function(req, res) {
 
 	var pts = new Points({
 		email: req.body.email,
-		points: [{date: "Today", pointAmt: '0', loc:'Gps'}]
+		points: [{date:'Today', point:'1'}]
 	});
+
+	console.log("User " + usr);
 
 	console.log("POINTS " + pts);
 	console.log("list arry " + pts.points);
-	console.log("into array " + pts.points[0]);
-	console.log("date " + pts.points[0].date);
 
 	console.log("Email" + req.body.email);
 
