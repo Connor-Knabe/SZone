@@ -34,6 +34,10 @@ var pointsSchema = mongoose.Schema({
 	email: { type: String, required: true, unique: true },
 	points: { type: Number, required: true }
 });
+
+var Points = mongoose.model('Points', userSchema);
+
+
 // Password verification
 userSchema.methods.comparePassword = function(candidatePassword, cb) {
 	bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
@@ -189,6 +193,10 @@ app.post('/signup', function(req, res) {
 		email: req.body.email,
 		password: req.body.password1 });
 
+	var pts = new Points({
+		email: req.body.email,
+		points: 0 });
+
 	usr.save(function(err) {
 		if(err) {
 			res.render('index.ejs', {action:"signup", error:"duplicate"});
@@ -200,7 +208,6 @@ app.post('/signup', function(req, res) {
 	});
 
 });
-
 
 
 // Simple route middleware to ensure user is authenticated.
