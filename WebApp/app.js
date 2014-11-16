@@ -140,9 +140,20 @@ app.get('/', function(req, res) {
 });
 
 app.post('/addPoint', function(req, rest) {
+var point = {
+	date: 'Today',
+	pointAmt: '1',
+	loc:'Gps cords go here'
+};
 
-
-
+	Points.findOneAndUpdate(
+		{email:req.user.email},
+		{$push: {points:point}},
+	    {safe: true, upsert: true},
+    	function(err, model) {
+        	console.log(err);
+		}
+	)
 });
 
 app.get('/signup', function(req, res) {
