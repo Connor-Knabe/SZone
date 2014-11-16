@@ -27,17 +27,17 @@ var userSchema = mongoose.Schema({
 	firstName: { type: String, required: true, unique: true },
 	lastName: { type: String, required: true, unique: true },
 	email: { type: String, required: true, unique: true },
-	dateRegistered: { type: Date, default: Date.now }
+	dateRegistered: { type: Date, default: Date.now },
 	password: { type: String, required: true }
 });
 
 var pointsSchema = mongoose.Schema({
 	email: { type: String, required: true, unique: true },
-    points: [Schema.Types.Mixed]
+    points: [mongoose.Schema.Types.Mixed]
 	//points: [{date: {type: String, required: true}, pointAmt: {type: Number, required: true}, loc:{type: String, required: true}}]
 });
 
-var Points = mongoose.model('Points', userSchema);
+var Points = mongoose.model('Points', pointsSchema);
 
 
 // Password verification
@@ -223,7 +223,7 @@ app.post('/signup', function(req, res) {
 
 	var pts = new Points({
 		email: req.body.email,
-		points: [{date:'Today', point:'1'}]
+		points: [{date:Date.now, totalPoints:'0'}]
 	});
 
 	console.log("User " + usr);
