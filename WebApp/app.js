@@ -221,10 +221,14 @@ app.post('/signup', function(req, res) {
 
 	var pts = new Points({
 		email: req.body.email,
-		points: [{date: "Today", pointAmt: Number, loc:String}]
+		points: [{date: "Today", pointAmt: '0', loc:'Gps'}]
 	});
 
 	console.log("POINTS " + pts);
+	console.log("list arry " + pts.points);
+	console.log("into array " + pts.points[0]);
+	console.log("date " + pts.points[0].date);
+
 	console.log("Email" + req.body.email);
 
 	usr.save(function(err) {
