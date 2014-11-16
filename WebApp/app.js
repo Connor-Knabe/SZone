@@ -133,7 +133,7 @@ app.configure(function() {
 
 app.get('/', function(req, res) {
 	if (req.user){
-		res.render('loggedin.ejs', {user:req.user});
+		res.render('loggedin.ejs', {user:req.user.firstName});
 	} else {
 		res.render('index.ejs', {action:"index", user:null, message: req.session.messages });
 	}
@@ -220,7 +220,8 @@ app.post('/signup', function(req, res) {
 			res.render('index.ejs', {action:"signup", error:"duplicate"});
 			console.log(err);
 		} else {
-			res.render('loggedin.ejs', {user:req.user});
+			console.log("else");
+			res.render('loggedin.ejs', {user:req.body.firstname});
 			console.log('user: ' + usr.email + "saved.");
 		}
 	});
