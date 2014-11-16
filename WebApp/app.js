@@ -29,6 +29,11 @@ var userSchema = mongoose.Schema({
 	email: { type: String, required: true, unique: true },
 	password: { type: String, required: true }
 });
+
+var pointsSchema = mongoose.Schema({
+	email: { type: String, required: true, unique: true },
+	points: { type: Number, required: true }
+});
 // Password verification
 userSchema.methods.comparePassword = function(candidatePassword, cb) {
 	bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
@@ -66,7 +71,6 @@ userSchema.pre('save', function(next) {
 
 // Password verification
 userSchema.methods.comparePassword = function(candidatePassword, cb) {
-	console.log("Compare pass");
 	bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
 		if(err) return cb(err);
 		cb(null, isMatch);
@@ -82,8 +86,6 @@ userSchema.methods.comparePassword = function(candidatePassword, cb) {
 passport.use(new LocalStrategy({ usernameField: 'email', passwordField: 'password' },
 	function(email, password, done) {
 	  	User.findOne({ email: email }, function(err, user) {
-			console.log("Into passport");
-			console.log(email);
 	    	if (err) { return done(err); }
 	    	if (!user) { return done(null, false, { message: 'Unknown user ' + email }); }
 	    	user.comparePassword(password, function(err, isMatch) {
@@ -126,8 +128,6 @@ app.configure(function() {
 });
 
 app.get('/', function(req, res) {
-	console.log("prof"+ req.user);
-	console.log("/"+ req.session.messages);
 	if (req.user){
 		res.render('loggedin.ejs', {user:req.user});
 	} else {
@@ -184,10 +184,6 @@ app.post('/signup', function(req, res) {
 		res.render('index.ejs', {action:"signup", error:"password"});
 	}
 
-	console.log("Firstname:"+ req.body.firstname);
-	console.log("lastname:"+ req.body.lastname);
-	console.log("email:"+ req.body.email);
-	console.log("password:"+ req.body.password1);
 	var usr = new User({ firstName:req.body.firstname,
 		lastName:req.body.lastname,
 		email: req.body.email,
