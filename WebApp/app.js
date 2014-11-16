@@ -32,7 +32,7 @@ var userSchema = mongoose.Schema({
 
 var pointsSchema = mongoose.Schema({
 	email: { type: String, required: true, unique: true },
-	points: { type: Number, required: true }
+	points: [{date: String, pointAmt: Number, loc:String}]
 });
 
 var Points = mongoose.model('Points', userSchema);
@@ -138,6 +138,13 @@ app.get('/', function(req, res) {
 		res.render('index.ejs', {action:"index", user:null, message: req.session.messages });
 	}
 });
+
+app.post('/addPoint', function(req, rest) {
+
+
+
+});
+
 app.get('/signup', function(req, res) {
 	res.render('index.ejs', {action:"signup", error:"none"});
 });
