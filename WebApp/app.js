@@ -266,9 +266,9 @@ app.post('/signup', function(req, res) {
 			pts.save(function(err) {
 				console.log("points error: " +err);
 				console.log("points saved: " + pts);
+				res.render('loggedin.ejs', {user:req.body.firstname});
+				console.log('user: ' + usr.email + "saved.");
 			});
-			res.render('loggedin.ejs', {user:req.body.firstname});
-			console.log('user: ' + usr.email + "saved.");
 		}
 	});
 
