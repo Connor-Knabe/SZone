@@ -135,7 +135,7 @@ app.configure(function() {
 
 app.get('/', function(req, res) {
 	if (req.user){
-		res.render('loggedin.ejs', {user:req.user.firstName});
+		res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email});
 	} else {
 		res.render('index.ejs', {action:"index", user:null, message: req.session.messages });
 	}
@@ -143,20 +143,24 @@ app.get('/', function(req, res) {
 
 app.post('/addPoint', function(req, rest) {
 	var point = {
-		date: 'Today',
+		date: 'Today1',
 		pointAmt: '1',
 		loc:'Gps cords go here'
 	};
-	console.log(req.user);
+	console.log("Full user" + req.user);
+	console.log("EMAIL" + req.user.email);
 
 	Points.findOneAndUpdate(
 		{email:req.user.email},
 		{$push: {points:point}},
+		//{email:'conn@con.com'},
 	    {safe: true, upsert: true},
     	function(err, model) {
-        	console.log(err);
+			console.log("failed");
+        	console.log(err + model);
 		}
 	)
+
 });
 
 app.get('/signup', function(req, res) {
@@ -205,14 +209,6 @@ app.get('/logout', function(req, res){
 app.post('/signup', function(req, res) {
 	//Seed a user
 
-	var currentdate = new Date();
-	var datetime = currentdate.getDate() + "/"
-                + (currentdate.getMonth()+1)  + "/"
-                + currentdate.getFullYear() + " @ "
-                + currentdate.getHours() + ":"
-                + currentdate.getMinutes() + ":"
-                + currentdate.getSeconds();
-
 	if(req.body.password1 != req.body.password2){
 		res.render('index.ejs', {action:"signup", error:"password"});
 	}
@@ -223,13 +219,13 @@ app.post('/signup', function(req, res) {
 
 	var pts = new Points({
 		email: req.body.email,
-		points: [{date:Date.now, totalPoints:'0'}]
+		points: [{date:Date.now, pointAmt:'0', loc:""}, {date:Date.now, pointAmt:'1', loc:"asf"}]
 	});
 
 	console.log("User " + usr);
 
 	console.log("POINTS " + pts);
-	console.log("list arry " + pts.points);
+	console.log("first point " + pts.points[0].pointAmt);
 
 	console.log("Email" + req.body.email);
 
