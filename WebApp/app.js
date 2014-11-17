@@ -133,20 +133,11 @@ app.get('/', function(req, res) {
 	if (req.user){
 		console.log(req.user);
 
-		var pointsArr;
-		var totalPoints = 0;
-		var query = Points.where({email:req.user.email});
-		//If user is logged in check to see how many points they have
-		query.findOne(function(err, points) {
-				if(err) return handleErr(err);
-				if(points){
-					pointsArr = points.points;
-					for (var i = 0; i < pointsArr.length; i++) {
-						totalPoints += parseInt(pointsArr[i].pointAmt);
-					}
-					res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints});
-				}
-		});
+		var totalPoints = totalPts(req);
+		console.log("Total points are "+totalPoints);
+		res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints});
+
+
 
 	} else {
 		res.render('index.ejs', {action:"index", user:null, message: req.session.messages });
@@ -285,6 +276,24 @@ function ensureAuthenticated(req, res, next) {
   res.redirect('/')
 }
 
-//require('./config/routes.js')(app,passport,server);
+function totalPts(req){
+
+	var pointsArr;
+	var totalPoints = 0;
+	var query = Points.where({email:req.user.email});
+	//If user is logged in check to see how many points they have
+	query.findOne(function(err, points) {
+			if(err) return handleErr(err);
+			if(points){
+				pointsArr = points.points;
+				for (var i = 0; i < pointsArr.length; i++) {
+					totalPoints += parseInt(pointsArr[i].pointAmt);
+				}
+			}
+			return totalPoints;
+		});
+
+}
+
 
 server.listen(port);
