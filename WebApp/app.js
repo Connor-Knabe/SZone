@@ -133,7 +133,7 @@ app.get('/', function(req, res) {
 	if (req.user){
 		console.log(req.user);
 
-		var totalPoints = totalPts(req);
+		var totalPoints = totalPts(req, req.user.email);
 		console.log("Total points are "+totalPoints);
 		res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints});
 
@@ -182,7 +182,8 @@ app.post('/addPoint', function(req, res) {
 app.get('/signup', function(req, res) {
 	if (req.user){
 
-		var totalPoints = totalPts(req);
+		var totalPoints = totalPts(req,req.user.email);
+		console.log("Total pts in /signup get"+totalPoints);
 		res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints});
 	} else {
 		res.render('index.ejs', {action:"signup", error:"none"});
@@ -259,7 +260,10 @@ app.post('/signup', function(req, res) {
 			pts.save(function(err) {
 				console.log("points error: " +err);
 				console.log("points saved: " + pts);
-				res.render('loggedin.ejs', {user:req.body.firstname});
+				var totalPoints = totalPts(req,req.body.email);
+				console.log("Total points are "+totalPoints);
+
+				res.render('loggedin.ejs', {user:req.body.firstname,totalPoints:totalPoints});
 				console.log('user: ' + usr.email + "saved.");
 			});
 		}
@@ -278,11 +282,10 @@ function ensureAuthenticated(req, res, next) {
   res.redirect('/')
 }
 
-function totalPts(req){
-
+function totalPts(req,email1){
 	var pointsArr;
 	var totalPoints = 0;
-	var query = Points.where({email:req.user.email});
+	var query = Points.where({email:email1});
 	//If user is logged in check to see how many points they have
 	query.findOne(function(err, points) {
 			if(err) return handleErr(err);
