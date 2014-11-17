@@ -133,9 +133,23 @@ app.get('/', function(req, res) {
 	if (req.user){
 		console.log(req.user);
 
-		var totalPoints = totalPts(req, req.user.email);
-		console.log("Total points are "+totalPoints);
-		res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints});
+		
+		var pointsArr;
+		var totalPoints = 0;
+		var query = Points.where({email:email1});
+		//If user is logged in check to see how many points they have
+		query.findOne(function(err, points) {
+				if(err) console.log("ERR for total points " + err);
+				if(err) return handleErr(err);
+				if(points){
+					pointsArr = points.points;
+					for (var i = 0; i < pointsArr.length; i++) {
+						totalPoints += parseInt(pointsArr[i].pointAmt);
+					}
+					res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints});
+				}
+		});
+	
 
 
 
@@ -181,10 +195,23 @@ app.post('/addPoint', function(req, res) {
 
 app.get('/signup', function(req, res) {
 	if (req.user){
+		var pointsArr;
+		var totalPoints = 0;
+		var query = Points.where({email:email1});
+		//If user is logged in check to see how many points they have
+		query.findOne(function(err, points) {
+				if(err) console.log("ERR for total points " + err);
+				if(err) return handleErr(err);
+				if(points){
+					pointsArr = points.points;
+					for (var i = 0; i < pointsArr.length; i++) {
+						totalPoints += parseInt(pointsArr[i].pointAmt);
+					}
+					res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints});
 
-		var totalPoints = totalPts(req,req.user.email);
-		console.log("Total pts in /signup get"+totalPoints);
-		res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints});
+				}
+		});
+	
 	} else {
 		res.render('index.ejs', {action:"signup", error:"none"});
 	}
@@ -262,8 +289,22 @@ app.post('/signup', function(req, res) {
 				console.log("points saved: " + pts);
 				var totalPoints = totalPts(req,req.body.email);
 				console.log("Total points are "+totalPoints);
+				var pointsArr;
+				var totalPoints = 0;
+				var query = Points.where({email:email1});
+				//If user is logged in check to see how many points they have
+				query.findOne(function(err, points) {
+						if(err) console.log("ERR for total points " + err);
+						if(err) return handleErr(err);
+						if(points){
+							pointsArr = points.points;
+							for (var i = 0; i < pointsArr.length; i++) {
+								totalPoints += parseInt(pointsArr[i].pointAmt);
+							}
+							res.render('loggedin.ejs', {user:req.body.firstname,totalPoints:totalPoints});
 
-				res.render('loggedin.ejs', {user:req.body.firstname,totalPoints:totalPoints});
+						}
+				});
 				console.log('user: ' + usr.email + "saved.");
 			});
 		}
@@ -282,22 +323,24 @@ function ensureAuthenticated(req, res, next) {
   res.redirect('/')
 }
 
+
 function totalPts(req,email1){
 	var pointsArr;
 	var totalPoints = 0;
 	var query = Points.where({email:email1});
 	//If user is logged in check to see how many points they have
 	query.findOne(function(err, points) {
+			if(err) console.log("ERR for total points " + err);
 			if(err) return handleErr(err);
 			if(points){
 				pointsArr = points.points;
 				for (var i = 0; i < pointsArr.length; i++) {
 					totalPoints += parseInt(pointsArr[i].pointAmt);
 				}
+				console.log("Total pts" + totalPoints);
+				console.log("TOTAL POINTS "+totalPoints);
 			}
-			return totalPoints;
-		});
-
+	});
 }
 
 
