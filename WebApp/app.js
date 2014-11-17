@@ -14,7 +14,7 @@ var mongodb = require('mongodb')
 var mongoose = require('mongoose');
 
 
-mongoose.connect('localhost', 'Szone');
+mongoose.connect('localhost', 'SmileZone');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback() {
@@ -255,6 +255,7 @@ app.post('/signup', function(req, res) {
 
 	usr.save(function(err) {
 		if(err) {
+			console.log("error from signup" + err);
 			if (err.message=='Validation failed'){
 				res.render('index.ejs', {action:"signup", error:"blank"});
 			} else {
