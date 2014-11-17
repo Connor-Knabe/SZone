@@ -286,12 +286,9 @@ app.post('/signup', function(req, res) {
 		} else {
 			pts.save(function(err) {
 				console.log("points error: " +err);
-				console.log("points saved: " + pts);
-				var totalPoints = totalPts(req,req.body.email);
-				console.log("Total points are "+totalPoints);
 				var pointsArr;
 				var totalPoints = 0;
-				var query = Points.where({email:req.user.email});
+				var query = Points.where({email:req.body.email});
 				//If user is logged in check to see how many points they have
 				query.findOne(function(err, points) {
 						if(err) console.log("ERR for total points " + err);
