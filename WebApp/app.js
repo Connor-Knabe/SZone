@@ -14,7 +14,7 @@ var mongodb = require('mongodb')
 var mongoose = require('mongoose');
 
 
-mongoose.connect('localhost', 'test2');
+mongoose.connect('localhost', 'Szone');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback() {
@@ -235,7 +235,11 @@ app.post('/signup', function(req, res) {
 			}
 			console.log(err);
 		} else {
-			console.log("else");
+			pts.save(function(err) {
+				console.log("points error: " +err);
+				console.log("points saved: " + pts);
+			});
+
 			res.render('loggedin.ejs', {user:req.body.firstname});
 			console.log('user: ' + usr.email + "saved.");
 		}
