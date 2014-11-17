@@ -24,11 +24,11 @@ db.once('open', function callback() {
 //User Schema
 
 var userSchema = mongoose.Schema({
-	firstName: { type: String, required: true, unique: true },
-	lastName: { type: String, required: true, unique: true },
+	firstName: { type: String, required: true, unique: false },
+	lastName: { type: String, required: true, unique: false },
 	email: { type: String, required: true, unique: true },
 	dateRegistered: { type: Date, default: Date.now },
-	password: { type: String, required: true }
+	password: { type: String, required: true, unique:false }
 });
 
 var pointsSchema = mongoose.Schema({
@@ -154,6 +154,7 @@ app.get('/', function(req, res) {
 });
 
 app.post('/addPoint', function(req, res) {
+	console.log("Longitude = "+req.body.lng);
 	var pointVal = 10;
 	if (req.body.pointValue=="1"){
 		pointVal = '1';
@@ -252,13 +253,6 @@ app.post('/signup', function(req, res) {
 		points: [{date:Date.now, pointAmt:'0', loc:""}, {date:'L', pointAmt:'1', loc:"asf"}]
 	});
 
-	console.log("User " + usr);
-
-	console.log("POINTS " + pts);
-	console.log("first point " + pts.points[0].pointAmt);
-
-	console.log("Email" + req.body.email);
-
 	usr.save(function(err) {
 		if(err) {
 			if (err.message=='Validation failed'){
@@ -272,7 +266,6 @@ app.post('/signup', function(req, res) {
 				console.log("points error: " +err);
 				console.log("points saved: " + pts);
 			});
-
 			res.render('loggedin.ejs', {user:req.body.firstname});
 			console.log('user: ' + usr.email + "saved.");
 		}

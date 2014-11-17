@@ -8,7 +8,7 @@ var request = require('request');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + '/views/old');
 app.set('view engine', 'ejs');
 
 app.get('/', function(req,res){
@@ -47,4 +47,4 @@ app.post('/submit', function(req, res){
 });
 
 
-app.listen(80);
+app.listen(1337);
