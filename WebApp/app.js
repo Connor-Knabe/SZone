@@ -136,7 +136,7 @@ app.get('/', function(req, res) {
 		
 		var pointsArr;
 		var totalPoints = 0;
-		var query = Points.where({email:email1});
+		var query = Points.where({email:req.user.email});
 		//If user is logged in check to see how many points they have
 		query.findOne(function(err, points) {
 				if(err) console.log("ERR for total points " + err);
@@ -197,7 +197,7 @@ app.get('/signup', function(req, res) {
 	if (req.user){
 		var pointsArr;
 		var totalPoints = 0;
-		var query = Points.where({email:email1});
+		var query = Points.where({email:req.user.email});
 		//If user is logged in check to see how many points they have
 		query.findOne(function(err, points) {
 				if(err) console.log("ERR for total points " + err);
@@ -291,7 +291,7 @@ app.post('/signup', function(req, res) {
 				console.log("Total points are "+totalPoints);
 				var pointsArr;
 				var totalPoints = 0;
-				var query = Points.where({email:email1});
+				var query = Points.where({email:req.user.email});
 				//If user is logged in check to see how many points they have
 				query.findOne(function(err, points) {
 						if(err) console.log("ERR for total points " + err);
@@ -324,24 +324,6 @@ function ensureAuthenticated(req, res, next) {
 }
 
 
-function totalPts(req,email1){
-	var pointsArr;
-	var totalPoints = 0;
-	var query = Points.where({email:email1});
-	//If user is logged in check to see how many points they have
-	query.findOne(function(err, points) {
-			if(err) console.log("ERR for total points " + err);
-			if(err) return handleErr(err);
-			if(points){
-				pointsArr = points.points;
-				for (var i = 0; i < pointsArr.length; i++) {
-					totalPoints += parseInt(pointsArr[i].pointAmt);
-				}
-				console.log("Total pts" + totalPoints);
-				console.log("TOTAL POINTS "+totalPoints);
-			}
-	});
-}
 
 
 server.listen(port);
