@@ -131,6 +131,19 @@ app.configure(function() {
 
 app.get('/', function(req, res) {
 	if (req.user){
+		console.log(req.user);
+
+		var points
+		var query = Points.where({email:req.user.email});
+		query.findOne(function(err, points) {
+				if(err) return handleErr(err);
+				if(points){
+
+					console.log("ZEE points" +points);
+				}
+
+		});
+
 		res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email});
 	} else {
 		res.render('index.ejs', {action:"index", user:null, message: req.session.messages });
@@ -140,8 +153,8 @@ app.get('/', function(req, res) {
 app.post('/addPoint', function(req, res) {
 	var point = {
 		date: 'Today1',
-		pointAmt: '1',
-		loc:'Gps cords go here'
+		loc:'Gps cords go here',
+		pointAmt: '1'
 	};
 	console.log("Full user" + req.user);
 	console.log("EMAIL" + req.user.email);
