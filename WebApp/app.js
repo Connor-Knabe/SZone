@@ -120,11 +120,7 @@ app.configure(function() {
 	// Remember Me middleware
 	app.use( function (req, res, next) {
 		if ( req.method == 'POST' && req.url == '/login' ) {
-			if ( req.body.rememberme ) {
 			    req.session.cookie.maxAge = 2592000000; // 30*24*60*60*1000 Rememeber 'me' for 30 days
-		    } else {
-				req.session.cookie.expires = false;
-			}
 		}
 		next();
 	});
@@ -212,14 +208,15 @@ app.post('/signup', function(req, res) {
 	if(req.body.password1 != req.body.password2){
 		res.render('index.ejs', {action:"signup", error:"password"});
 	}
-	var usr = new User({ firstName:req.body.firstname,
+	var usr = new User({
+		firstName:req.body.firstname,
 		lastName:req.body.lastname,
 		email: req.body.email,
 		password: req.body.password1 });
 
 	var pts = new Points({
 		email: req.body.email,
-		points: [{date:Date.now, pointAmt:'0', loc:""}, {date:Date.now, pointAmt:'1', loc:"asf"}]
+		points: [{date:Date.now, pointAmt:'0', loc:""}, {date:'L', pointAmt:'1', loc:"asf"}]
 	});
 
 	console.log("User " + usr);
