@@ -181,7 +181,9 @@ app.post('/addPoint', function(req, res) {
 
 app.get('/signup', function(req, res) {
 	if (req.user){
-		res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email});
+
+		var totalPoints = totalPts(req);
+		res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints});
 	} else {
 		res.render('index.ejs', {action:"signup", error:"none"});
 	}
