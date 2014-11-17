@@ -136,6 +136,7 @@ app.get('/', function(req, res) {
 		var pointsArr;
 		var totalPoints = 0;
 		var query = Points.where({email:req.user.email});
+		//If user is logged in check to see how many points they have
 		query.findOne(function(err, points) {
 				if(err) return handleErr(err);
 				if(points){
@@ -144,7 +145,6 @@ app.get('/', function(req, res) {
 						totalPoints += parseInt(pointsArr[i].pointAmt);
 					}
 					res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints});
-
 				}
 		});
 
@@ -154,10 +154,24 @@ app.get('/', function(req, res) {
 });
 
 app.post('/addPoint', function(req, res) {
+	var pointVal = 10;
+	if (req.body.pointValue="1"){
+		pointVal = '1';
+		console.log("one point");
+	} else if (req.body.pointValue="2") {
+		pointVal = '2';
+		console.log("two point");
+
+	} else if (req.body.pointValue="3") {
+		pointVal = '3';
+		console.log("threes point");
+
+	}
+
 	var point = {
 		date: 'Today1',
 		loc:'Gps cords go here',
-		pointAmt: '1'
+		pointAmt: pointVal
 	};
 	console.log("Full user" + req.user);
 	console.log("EMAIL" + req.user.email);
