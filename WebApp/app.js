@@ -155,17 +155,16 @@ app.get('/', function(req, res) {
 
 app.post('/addPoint', function(req, res) {
 	var pointVal = 10;
-	if (req.body.pointValue="1"){
+	if (req.body.pointValue=="1"){
 		pointVal = '1';
 		console.log("one point");
-	} else if (req.body.pointValue="2") {
+	} else if (req.body.pointValue=="2") {
 		pointVal = '2';
 		console.log("two point");
 
-	} else if (req.body.pointValue="3") {
+	} else if (req.body.pointValue=="3") {
 		pointVal = '3';
 		console.log("threes point");
-
 	}
 
 	var point = {
@@ -182,9 +181,7 @@ app.post('/addPoint', function(req, res) {
 		//{email:'conn@con.com'},
 	    {safe: true, upsert: true},
     	function(err, model) {
-			console.log("failed");
-        	console.log(err + model);
-			res.redirect('/');
+			res.redirect('/#profile');
 		}
 	)
 
