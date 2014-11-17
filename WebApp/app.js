@@ -137,7 +137,7 @@ app.get('/', function(req, res) {
 	}
 });
 
-app.post('/addPoint', function(req, rest) {
+app.post('/addPoint', function(req, res) {
 	var point = {
 		date: 'Today1',
 		pointAmt: '1',
@@ -154,13 +154,19 @@ app.post('/addPoint', function(req, rest) {
     	function(err, model) {
 			console.log("failed");
         	console.log(err + model);
+			res.redirect('/');
 		}
 	)
 
 });
 
 app.get('/signup', function(req, res) {
-	res.render('index.ejs', {action:"signup", error:"none"});
+	if (req.user){
+		res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email});
+	} else {
+		res.render('index.ejs', {action:"signup", error:"none"});
+	}
+
 });
 app.get('/login',ensureAuthenticated, function(req, res){
 	res.render('index.ejs', { action:"loggedin"});
