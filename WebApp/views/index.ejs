@@ -82,13 +82,8 @@
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">Smile Zone</h1>
 
-                        <% if (action == "loggedin") { %>
-                            <p class="intro-text">Welcome! Your loggedin!</p>
-
-                        <% } else { %>
                             <p class="intro-text">Welcome! Please login to get started!</p>
 
-                        <% } %>
 
                         <a href="#about" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
@@ -186,7 +181,7 @@
                             <div class="form-group col-md-12 btn_pad">
                                 <% if (message) { %>
                                     <p><%= message %></p>
-                                    
+
                                 <% } %>
                                 <button type="submit" class="btn btn-default ">Login</button>
                                 or <a href="/signup#login"> Sign up</a>
