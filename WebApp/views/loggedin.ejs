@@ -20,7 +20,6 @@
     <link href="/css/custom.css" rel="stylesheet">
 
 
-
     <!-- Custom Fonts -->
     <link href="/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
@@ -34,52 +33,54 @@
     <![endif]-->
 
     <script type="text/javascript">
-		    var latitude;
-		    var longitude;
-		
-		    function form_send(){
-		
-		    if (navigator.geolocation) {
-		        navigator.geolocation.getCurrentPosition(     
-		        function coords(position) {
-		            longitude = position.coords.longitude;          
-		            latitude = position.coords.latitude;
-		            console.log("Longitude"+longitude);
-					console.log("Latitude"+latitude);
+    var latitude;
+    var longitude;
 
-		   			/*f=document.getElementById('the_form');
-
-					var lng = document.createElement("input");
-					lng.setAttribute("type", "hidden");
-					lng.setAttribute("name", "lng");				
-					lng.setAttribute("value", longitude);
-					f.appendChild(lng);
-
-			if(f){
-			     f.submit();
-		     }*/
-			   
-	 		console.log("Longitude"+longitude);
-			console.log("Latitude"+latitude);
-		        }, function (error) {
-		            alert("Error: " + error.code);
-		        },
-		        {
-		            enableHighAccuracy : true,     
-		            timeout : 10000,                
-		            maximumAge : 1000           
-		        });
-		        
-		       
-
-		       } else {
-		        alert ("GEOLOCATION NOT SUPPORTED....");
-		       }
-		    }	
+    function form_send(){
 
 
-	    </script>
 
+
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                function coords(position) {
+                    longitude = position.coords.longitude;
+                    latitude = position.coords.latitude;
+                    console.log("Longitude"+longitude);
+                    console.log("Latitude"+latitude);
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/addPoint",
+                        data: { name: "John", location: "Boston" }
+                    })
+                    .done(function( msg ) {
+                        alert( "Data Saved: " + msg );
+                        //get value
+                    });
+
+
+                    console.log("Longitude"+longitude);
+                    console.log("Latitude"+latitude);
+                }, function (error) {
+                    alert("Error: " + error.code);
+                },
+                {
+                    enableHighAccuracy : true,
+                    timeout : 10000,
+                    maximumAge : 1000
+                });
+
+
+
+            } else {
+                alert ("GEOLOCATION NOT SUPPORTED....");
+            }
+        }
+
+
+        </script>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -191,13 +192,14 @@
                 <h2>Why should you smile?</h2>
                 <h3>Videos:</h3>
                 <h4>The hidden power of smiling</h4>
-                <p> 
+                <p>
                     Ron Gutman reviews a raft of studies about smiling, and reveals some surprising results. Did you know your smile can be a predictor of how long you'll live — and that a simple smile has a measurable effect on your overall well-being? Prepare to flex a few facial muscles as you learn more about this evolutionarily contagious behavior.
                 </p>
                 <iframe width="560" height="315" src="//www.youtube.com/embed/U9cGdRNMdQQ" frameborder="0" allowfullscreen></iframe>
                 <br>
                 <br>
                 <h4>Smiling Can Save Your Life</h4>
+
 
                 <iframe width="560" height="315" src="//www.youtube.com/embed/1plLYlt9zPM" frameborder="0" allowfullscreen></iframe>
 

@@ -13,7 +13,6 @@ var SALT_WORK_FACTOR = 10;
 var mongodb = require('mongodb')
 var mongoose = require('mongoose');
 
-
 mongoose.connect('localhost', 'SmileZone');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -133,7 +132,7 @@ app.get('/', function(req, res) {
 	if (req.user){
 		console.log(req.user);
 
-		
+
 		var pointsArr;
 		var totalPoints = 0;
 		var query = Points.where({email:req.user.email});
@@ -149,7 +148,7 @@ app.get('/', function(req, res) {
 					res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints});
 				}
 		});
-	
+
 
 
 
@@ -208,10 +207,9 @@ app.get('/signup', function(req, res) {
 						totalPoints += parseInt(pointsArr[i].pointAmt);
 					}
 					res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints});
-
 				}
 		});
-	
+
 	} else {
 		res.render('index.ejs', {action:"signup", error:"none"});
 	}
@@ -319,8 +317,5 @@ function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/')
 }
-
-
-
 
 server.listen(port);
