@@ -53,16 +53,13 @@
                     $.ajax({
                         type: "POST",
                         url: "/addPoint",
-                        data: { name: "John", location: "Boston" }
+                        data: { longitude: longitude, latitude: latitude }
                     })
                     .done(function( msg ) {
                         alert( "Data Saved: " + msg );
                         //get value
                     });
 
-
-                    console.log("Longitude"+longitude);
-                    console.log("Latitude"+latitude);
                 }, function (error) {
                     alert("Error: " + error.code);
                 },

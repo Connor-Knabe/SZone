@@ -158,7 +158,7 @@ app.get('/', function(req, res) {
 });
 
 app.post('/addPoint', function(req, res) {
-	console.log("Longitude = "+req.body.lng);
+	console.log("Longitude = "+req.body.longitude);
 	var pointVal = 10;
 	if (req.body.pointValue=="1"){
 		pointVal = '1';
