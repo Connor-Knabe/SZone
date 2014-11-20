@@ -35,15 +35,23 @@
     <script type="text/javascript">
         var latitude;
         var longitude;
+        var totalPoints = <%= totalPoints%>
+
         document.addEventListener('DOMContentLoaded', init, false);
         function init(){
             function pt1 () {
+                totalPoints += 1;
+                $( "#points" ).html(totalPoints);
                 form_send(1);
             }
             function pt2 () {
+                totalPoints += 2;
+                $( "#points" ).html(totalPoints);
                 form_send(2);
             }
             function pt3 () {
+                totalPoints += 3;
+                $( "#points" ).html(totalPoints);
                 form_send(3);
             }
             var btn1 = document.getElementById('pt1');
@@ -67,10 +75,10 @@
                     $.ajax({
                         type: "POST",
                         url: "/addPoint",
-                        data: { long: longitude, lat: latitude, pointValue:pointAmt }
+                        data: { long: longitude, lat: latitude, pointValue:pointAmt, total:totalPoints }
                     })
                     .done(function( msg ) {
-                        alert("DONE");
+                        //alert("DONE");
                     });
 
                 }, function (error) {
@@ -159,7 +167,7 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <h1>Log a smile below:</h1>
                     <div class="col-lg-8 col-lg-offset-2">
-                        <h3>Total Points:<%=totalPoints%> </h3>
+                        <h3>Total Points:<div id="points"><%=totalPoints%></div> </h3>
 
 
                         	<button type="submit" id="pt1" class="btn btn-default ">Add 1 point</button>
