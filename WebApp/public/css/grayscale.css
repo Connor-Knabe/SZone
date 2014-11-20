@@ -300,13 +300,22 @@ a:focus {
     background-color: transparent;
 }
 
+
+
+.btn-default:focus{
+    color: #219ab3;
+}
 .btn-default:hover,
-.btn-default:focus {
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
     border: 1px solid #219ab3;
     outline: 0;
     color: #000;
     background-color: #219ab3;
 }
+
+
 
 ul.banner-social-buttons {
     margin-top: 0;

@@ -12,7 +12,7 @@
     <title>Smile Zone</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="/css/grayscale.css" rel="stylesheet">
@@ -33,15 +33,33 @@
     <![endif]-->
 
     <script type="text/javascript">
+
+
+        document.addEventListener('DOMContentLoaded', init, false);
+        function init(){
+            function message () {
+                alert("Hello!");
+            }
+
+
+
+            var button = document.getElementById('test');
+            button.addEventListener('click', message, true);
+
+
+
+        };
+
+
+
+
     var latitude;
     var longitude;
 
+
+
+
     function form_send(){
-
-
-
-
-
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 function coords(position) {
@@ -56,8 +74,7 @@
                         data: { long: longitude, lat: latitude }
                     })
                     .done(function( msg ) {
-                        alert( "Data Saved: " + msg );
-                        //get value
+                        //alert("DONE");
                     });
 
                 }, function (error) {
@@ -149,12 +166,16 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <h3>Total Points:<%=totalPoints%> </h3>
 
+                        <div id="contact_form">
 
 
-                        <form action="/addPoint" method="post" role="form" id='the_form'>
-                        	<button type="submit" onclick='form_send()' class="btn btn-default ">Add 1 point</button>
-                        	<input type="hidden" name="pointValue" value="1">
-                        </form>
+
+                            <form action="" method="get" role="form">
+                            	<button type="submit" id="test" class="btn btn-default ">Add 1 point</button>
+                            	<input type="hidden" name="pointValue" id="pointValue" value="1">
+                            </form>
+                        </div>
+
                         <br>
                         <form action="/addPoint" method="post" role="form">
                         	<button type="submit" class="btn btn-default ">Add 2 point</button>
