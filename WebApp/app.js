@@ -159,7 +159,7 @@ app.get('/', function(req, res) {
 
 app.post('/addPoint', function(req, res) {
 	console.log("Longitude = "+req.body.longitude);
-	console.log("All body = "+req.body);
+	console.log("latitude = "+req.body.latitude);
 
 	var pointVal = 10;
 	if (req.body.pointValue=="1"){
@@ -176,11 +176,9 @@ app.post('/addPoint', function(req, res) {
 
 	var point = {
 		date: 'Today1',
-		loc:'Gps cords go here',
+		loc:req.body.longitude+','+req.body.latitude,
 		pointAmt: pointVal
 	};
-	console.log("Full user" + req.user);
-	console.log("EMAIL" + req.user.email);
 
 	Points.findOneAndUpdate(
 		{email:req.user.email},
@@ -302,7 +300,6 @@ app.post('/signup', function(req, res) {
 
 						}
 				});
-				console.log('user: ' + usr.email + "saved.");
 			});
 		}
 	});
