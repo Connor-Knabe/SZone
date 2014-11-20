@@ -130,7 +130,6 @@ app.configure(function() {
 
 app.get('/', function(req, res) {
 	if (req.user){
-		console.log(req.user);
 
 
 		var pointsArr;
@@ -158,8 +157,8 @@ app.get('/', function(req, res) {
 });
 
 app.post('/addPoint', function(req, res) {
-	console.log("Longitude = "+req.body.longitude);
-	console.log("latitude = "+req.body.latitude);
+	console.log("Longitude = "+req.body.long);
+	console.log("latitude = "+req.body.lat);
 
 	var pointVal = 10;
 	if (req.body.pointValue=="1"){

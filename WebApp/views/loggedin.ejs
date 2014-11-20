@@ -53,7 +53,7 @@
                     $.ajax({
                         type: "POST",
                         url: "/addPoint",
-                        data: { longitude: longitude, latitude: latitude }
+                        data: { long: longitude, lat: latitude }
                     })
                     .done(function( msg ) {
                         alert( "Data Saved: " + msg );
