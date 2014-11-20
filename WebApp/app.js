@@ -130,8 +130,6 @@ app.configure(function() {
 
 app.get('/', function(req, res) {
 	if (req.user){
-
-
 		var pointsArr;
 		var totalPoints = 0;
 		var query = Points.where({email:req.user.email});
@@ -147,10 +145,6 @@ app.get('/', function(req, res) {
 					res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints});
 				}
 		});
-
-
-
-
 	} else {
 		res.render('index.ejs', {action:"index", user:null, message: req.session.messages });
 	}
@@ -159,8 +153,9 @@ app.get('/', function(req, res) {
 app.post('/addPoint', function(req, res) {
 	console.log("Longitude = "+req.body.long);
 	console.log("latitude = "+req.body.lat);
+	console.log("point val = "+req.body.pointValue);
 
-	var pointVal = 10;
+	var pointVal = 0;
 	if (req.body.pointValue=="1"){
 		pointVal = '1';
 		console.log("one point");

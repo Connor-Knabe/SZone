@@ -33,33 +33,29 @@
     <![endif]-->
 
     <script type="text/javascript">
-
-
+        var latitude;
+        var longitude;
         document.addEventListener('DOMContentLoaded', init, false);
         function init(){
-            function message () {
-                alert("Hello!");
+            function pt1 () {
+                form_send(1);
             }
-
-
-
-            var button = document.getElementById('test');
-            button.addEventListener('click', message, true);
-
-
+            function pt2 () {
+                form_send(2);
+            }
+            function pt3 () {
+                form_send(3);
+            }
+            var btn1 = document.getElementById('pt1');
+            btn1.addEventListener('click', pt1, true);
+            var btn2 = document.getElementById('pt2');
+            btn2.addEventListener('click', pt2, true);
+            var btn3 = document.getElementById('pt3');
+            btn3.addEventListener('click', pt3, true);
 
         };
 
-
-
-
-    var latitude;
-    var longitude;
-
-
-
-
-    function form_send(){
+    function form_send(pointAmt){
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 function coords(position) {
@@ -71,10 +67,10 @@
                     $.ajax({
                         type: "POST",
                         url: "/addPoint",
-                        data: { long: longitude, lat: latitude }
+                        data: { long: longitude, lat: latitude, pointValue:pointAmt }
                     })
                     .done(function( msg ) {
-                        //alert("DONE");
+                        alert("DONE");
                     });
 
                 }, function (error) {
@@ -162,32 +158,21 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h1>Log a smile below:</h1>
-                <p>
                     <div class="col-lg-8 col-lg-offset-2">
                         <h3>Total Points:<%=totalPoints%> </h3>
 
-                        <div id="contact_form">
 
+                        	<button type="submit" id="pt1" class="btn btn-default ">Add 1 point</button>
+                            <br>
+                            <br>
 
+                        	<button type="submit" id="pt2" class="btn btn-default ">Add 2 point</button>
+                            <br>
+                            <br>
 
-                            <form action="" method="get" role="form">
-                            	<button type="submit" id="test" class="btn btn-default ">Add 1 point</button>
-                            	<input type="hidden" name="pointValue" id="pointValue" value="1">
-                            </form>
-                        </div>
-
-                        <br>
-                        <form action="/addPoint" method="post" role="form">
-                        	<button type="submit" class="btn btn-default ">Add 2 point</button>
-                        	<input type="hidden" name="pointValue" value="2">
-                        </form>
-                        <br>
-                        <form action="/addPoint" method="post" role="form">
-                        	<button type="submit" class="btn btn-default ">Add 3 point</button>
-                        	<input type="hidden" name="pointValue" value="3">
-                        </form>
+                        	<button type="submit" id="pt3" class="btn btn-default ">Add 3 point</button>
                     </div>
-                </p>
+
             </div>
         </div>
     </section>
