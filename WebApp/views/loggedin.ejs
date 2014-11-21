@@ -104,8 +104,11 @@
                     .done(function( msg ) {
                      //   alert("DONE");
 						//$("#map").append("<div id="map-canvas"></div>");
-						$("#maparea").html("<p>test</p>");
+						//$("#maparea").html("<div id=\"map-canvas\"></div>");
+						
+						$("<div></div>").attr('id','map-canvas').appendTo('#maparea');
 						alert("done");
+
                     });
 
                 }, function (error) {
