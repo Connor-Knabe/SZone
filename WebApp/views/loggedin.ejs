@@ -75,7 +75,7 @@
             }
             function pt3 () {
                 totalPoints += 3;
-                $( "#points" ).html(totalPoints);
+                $("#points").html(totalPoints);
                 form_send(3);
             }
             var btn1 = document.getElementById('pt1');
@@ -102,7 +102,10 @@
                         data: { long: longitude, lat: latitude, pointValue:pointAmt, total:totalPoints }
                     })
                     .done(function( msg ) {
-                        //alert("DONE");
+                     //   alert("DONE");
+						//$("#map").append("<div id="map-canvas"></div>");
+						$("$map").html("test");
+						alert("done");
                     });
 
                 }, function (error) {
@@ -252,7 +255,10 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Map section</h2>
                 <p>The map section is below.</p>
-				<div id="map-canvas"></div>
+				<div id="map">
+				
+				
+				</div>
 			</div>
         </div>
     <!-- Footer -->
