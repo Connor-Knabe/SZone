@@ -61,6 +61,7 @@
                 add_marker(latitude,longitude);
             }
             function pt5 () {
+                console.log("Pt");
                 totalPoints += 5;
                 $( "#points" ).html(totalPoints);
                 form_send(5);
@@ -81,6 +82,8 @@
         };
 
         function form_send(pointAmt){
+
+            console.log("form");
 
             $.ajax({
                 type: "POST",
