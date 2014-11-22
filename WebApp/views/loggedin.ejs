@@ -72,7 +72,7 @@
             btn5.addEventListener('click', pt5, true);
 
             get_gps();
-
+            load_map();
 
         };
 
@@ -107,6 +107,22 @@
                 } else {
                     alert ("GEOLOCATION NOT SUPPORTED....");
                 }
+        }
+
+        function load_map(){
+            var mapOptions = {
+                center: { lat: 38.9371942, lng: -92.3184657},
+                zoom: 8
+            };
+            var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+            var myLatlng = new google.maps.LatLng(38.9371942,-92.3184657);
+
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title:"Hello World!"
+            });
         }
 
 
@@ -251,6 +267,8 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Map section</h2>
                 <p>The map section is here.</p>
+                <div id="map-canvas"></div>
+                
             </div>
         </div>
     </section>
