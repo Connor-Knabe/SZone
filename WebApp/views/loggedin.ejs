@@ -46,21 +46,25 @@
                 totalPoints += 1;
                 $( "#points" ).html(totalPoints);
                 form_send(1);
+                add_marker(latitude,longitude);
             }
             function pt2 () {
                 totalPoints += 2;
                 $( "#points" ).html(totalPoints);
                 form_send(2);
+                add_marker(latitude,longitude);
             }
             function pt3 () {
                 totalPoints += 3;
                 $( "#points" ).html(totalPoints);
                 form_send(3);
+                add_marker(latitude,longitude);
             }
             function pt5 () {
                 totalPoints += 5;
                 $( "#points" ).html(totalPoints);
                 form_send(5);
+                add_marker(latitude,longitude);
             }
             var btn1 = document.getElementById('pt1');
             btn1.addEventListener('click', pt1, true);
@@ -116,13 +120,18 @@
             };
             var map = new google.maps.Map(document.getElementById('map'),
             mapOptions);
-            var myLatlng = new google.maps.LatLng(38.9371942,-92.3184657);
 
+        }
+
+        function add_marker(lat, long){
+            var myLatlng = new google.maps.LatLng(lat,long);
             var marker = new google.maps.Marker({
                 position: myLatlng,
                 map: map,
-                title:"Hello World!"
+                title:"Your smile location"
             });
+            console.log("set map");
+            marker.setMap(map);
         }
 
 
@@ -223,11 +232,10 @@
                 <h2>Map section</h2>
                 <p>The map section is here.</p>
                 <div id="map"></div>
-
             </div>
         </div>
     </section>
-    
+
 
     <!-- Instructions Section -->
     <section id="instructions" class="container content-section text-center">
