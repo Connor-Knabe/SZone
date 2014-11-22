@@ -27,8 +27,8 @@
 
 
     <script type="text/javascript">
-        var latitude;
-        var longitude;
+        var latitude = 0;
+        var longitude = 0;
         var totalPoints = <%= totalPoints%>
 
         document.addEventListener('DOMContentLoaded', init, false);
@@ -62,40 +62,42 @@
             var btn5 = document.getElementById('pt5');
             btn5.addEventListener('click', pt5, true);
 
+            get_gps();
+
+
         };
 
-    function form_send(pointAmt){
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                function coords(position) {
-                    longitude = position.coords.longitude;
-                    latitude = position.coords.latitude;
-                    console.log("Longitude"+longitude);
-                    console.log("Latitude"+latitude);
+        function form_send(pointAmt){
 
-                    $.ajax({
-                        type: "POST",
-                        url: "/addPoint",
-                        data: { long: longitude, lat: latitude, pointValue:pointAmt, total:totalPoints }
-                    })
-                    .done(function( msg ) {
-                        //alert("DONE");
+            $.ajax({
+                type: "POST",
+                url: "/addPoint",
+                data: { long: longitude, lat: latitude, pointValue:pointAmt, total:totalPoints }
+            })
+            .done(function( msg ) {
+                //alert("DONE");
+            });
+        }
+
+        function get_gps(){
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function coords(position) {
+                        longitude = position.coords.longitude;
+                        latitude = position.coords.latitude;
+                    }, function (error) {
+                        alert("Error: " + error.code);
+                    },
+                    {
+                        enableHighAccuracy : true,
+                        timeout : 10000,
+                        maximumAge : 1000
                     });
 
-                }, function (error) {
-                    alert("Error: " + error.code);
-                },
-                {
-                    enableHighAccuracy : true,
-                    timeout : 10000,
-                    maximumAge : 1000
-                });
 
-
-
-            } else {
-                alert ("GEOLOCATION NOT SUPPORTED....");
-            }
+                } else {
+                    alert ("GEOLOCATION NOT SUPPORTED....");
+                }
         }
 
 
