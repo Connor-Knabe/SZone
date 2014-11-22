@@ -33,7 +33,7 @@ $('.navbar-collapse ul li a').click(function() {
 // When the window has finished loading create our google map below
 google.maps.event.addDomListener(window, 'load', init);
 
-function init() {
+/*function init() {
     // Basic options for a simple Google Map
     // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
     var mapOptions = {
@@ -175,4 +175,4 @@ function init() {
         map: map,
         icon: image
     });
-}
+}*/
