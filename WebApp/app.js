@@ -149,6 +149,12 @@ app.get('/', function(req, res) {
 		res.render('index.ejs', {action:"index", user:null, message: req.session.messages });
 	}
 });
+app.get('/map', function(req, res) {
+	res.render('map.ejs', {action:"index", user:null, message: req.session.messages });
+
+
+});
+
 
 app.post('/addPoint', function(req, res) {
 	console.log("Longitude = "+req.body.long);
