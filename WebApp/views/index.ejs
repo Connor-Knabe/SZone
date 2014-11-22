@@ -26,12 +26,6 @@
     <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
 </head>
 
@@ -57,15 +51,15 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="#login">login</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#instructions">How to play?</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#smile">Why Smile?</a>
                     </li>
 
-                    <li>
-                        <a class="page-scroll" href="#login">login</a>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -93,12 +87,112 @@
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="container content-section text-center">
+    <!-- login Section -->
+    <section id="login" class="content-section text-center">
+        <div class="login-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+
+                    <% if (action=="login") { %>
+                        LOGGED IN
+                        <% } %>
+
+                        <% if (action=="signup"){
+                            %>
+                            <h2>    Signup for Smile Zone</h2>
+
+                            <% } else if(action=="loggedin") {} else {
+                                %>
+                                <h2>Login to Smile Zone</h2>
+                                <% } %>
+
+                                <% if (action == "signup"){ %>
+                                    <form action="/signup" method="post" role="form">
+                                        <div class="form-group col-md-12">
+                                            <div class="form-group col-md-6">
+                                                <label for="firstName">First Name</label>
+                                                <input type="text" class="form-control" name="firstname" placeholder="First Name">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="lastName">Last name</label>
+                                                <input type="text" class="form-control" name="lastname" placeholder="Last Name">
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            <div class="form-group col-md-6">
+                                                <label for="exampleInputEmail1">Email address</label>
+                                                <input type="email" class="form-control" name="email" placeholder="Enter email">
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label for="exampleInputPassword1">Password</label>
+                                                <input type="password" class="form-control" name="password1" placeholder="Password">
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label for="exampleInputPassword1">Password again</label>
+                                                <input type="password" class="form-control" name="password2" placeholder="Password">
+                                            </div>
+
+                                            <% if (error == "blank") { %>
+                                                Please enter a first and last name
+                                                <% } else if (error == "duplicate") { %>
+                                                    An error has occured user already exists.
+                                                    <% } else if (error == "password") { %>
+                                                        Your passwords do not match!
+                                                        <% } %>
+
+                                                        <button type="submit" class="btn btn-default ">Sign up</button>
+
+                                                    </div>
+                                                </form>
+
+                                                <% } else if (action=="loggedin") {
+
+                                                } else {%>
+                                                    login
+                                                    <form action="/login" method="post" role="form">
+                                                        <div class="form-group col-md-6">
+                                                            <label for="exampleInputEmail1">Email address</label>
+                                                            <input type="email" class="form-control" name="email" placeholder="Enter email">
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label for="exampleInputPassword1">Password</label>
+                                                            <input type="password" class="form-control" name="password" placeholder="Password">
+                                                        </div>
+                                                        <div class="form-group col-md-12 btn_pad">
+                                                            <% if (message) { %>
+                                                                <p><%= message %></p>
+
+                                                                <% } %>
+                                                                <button type="submit" class="btn btn-default ">Login</button>
+                                                                or <a href="/signup#login"> Sign up</a>
+                                                            </div>
+
+                                                        </form>
+                                                        <% } %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+
+
+
+    <!-- Instructions Section -->
+    <section id="instructions" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>About Smile Zone</h2>
-                <p>An app that tracks your smiles and gives you points!</p>
+                <h2>How Smile Zone works?</h2>
+                <p>This website is all about getting people to smile more.  Smiles help bring happiness to people's lives.</p>
+                <p>To play all you have to do is smile at random strangers.  If a stranger smiles back at you then you can log points.  Depending on their reaction you get different point amounts.</p>
+                <h4>Rules</h4>
+
+                <p>To get one point the stranger must acknowledge that you have smiled at them.</p>
+                <p>To get two points the stranger nods back at you.</p>
+                <p>To get three points the stranger has to smile back.</p>
+                <p>To get five points the stranger has to say something verbally such as "Hello".</p>
+
             </div>
         </div>
     </section>
@@ -124,99 +218,6 @@
 
 
 
-        </div>
-    </section>
-
-
-
-
-    <!-- login Section -->
-    <section id="login" class="content-section text-center">
-        <div class="login-section">
-            <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-
-                	<% if (action=="login") { %>
-                		LOGGED IN
-                	<% } %>
-
-                    <% if (action=="signup"){
-                    %>
-                        <h2>    Signup for Smile Zone</h2>
-
-                    <% } else if(action=="loggedin") {} else {
-                    %>
-                        <h2>Login to Smile Zone</h2>
-                    <% } %>
-
-                    <% if (action == "signup"){ %>
-                        <form action="/signup" method="post" role="form">
-                            <div class="form-group col-md-12">
-                                <div class="form-group col-md-6">
-                                    <label for="firstName">First Name</label>
-                                    <input type="text" class="form-control" name="firstname" placeholder="First Name">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="lastName">Last name</label>
-                                    <input type="text" class="form-control" name="lastname" placeholder="Last Name">
-                                </div>
-
-
-                            </div>
-
-                            <div class="form-group col-md-12">
-                                <div class="form-group col-md-6">
-                                    <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" name="email" placeholder="Enter email">
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control" name="password1" placeholder="Password">
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label for="exampleInputPassword1">Password again</label>
-                                    <input type="password" class="form-control" name="password2" placeholder="Password">
-                                </div>
-
-                                <% if (error == "blank") { %>
-                                    Please enter a first and last name
-                                <% } else if (error == "duplicate") { %>
-                                    An error has occured user already exists.
-                                <% } else if (error == "password") { %>
-                                    Your passwords do not match!
-                                <% } %>
-
-                                <button type="submit" class="btn btn-default ">Sign up</button>
-
-                            </div>
-                        </form>
-
-                    <% } else if (action=="loggedin") {
-
-                    } else {%>
-                        login
-                        <form action="/login" method="post" role="form">
-                            <div class="form-group col-md-6">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" name="email" placeholder="Enter email">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" name="password" placeholder="Password">
-                            </div>
-                            <div class="form-group col-md-12 btn_pad">
-                                <% if (message) { %>
-                                    <p><%= message %></p>
-
-                                <% } %>
-                                <button type="submit" class="btn btn-default ">Login</button>
-                                or <a href="/signup#login"> Sign up</a>
-                            </div>
-
-                        </form>
-                    <% } %>
-                </div>
-            </div>
         </div>
     </section>
 
