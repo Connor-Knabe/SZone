@@ -39,7 +39,7 @@
         var latitude = 0;
         var longitude = 0;
         var totalPoints = <%= totalPoints%>
-
+        var map;
         document.addEventListener('DOMContentLoaded', init, false);
         function init(){
             function pt1 () {
@@ -116,14 +116,16 @@
         function load_map(){
             var mapOptions = {
                 center: { lat: 38.9371942, lng: -92.3184657},
-                zoom: 8
+                zoom: 2
             };
-            var map = new google.maps.Map(document.getElementById('map'),
+            map = new google.maps.Map(document.getElementById('map'),
             mapOptions);
 
         }
 
         function add_marker(lat, long){
+
+
             var myLatlng = new google.maps.LatLng(lat,long);
             var marker = new google.maps.Marker({
                 position: myLatlng,
