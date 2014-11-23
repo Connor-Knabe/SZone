@@ -142,6 +142,7 @@ app.get('/', function(req, res) {
 					for (var i = 0; i < pointsArr.length; i++) {
 						totalPoints += parseInt(pointsArr[i].pointAmt);
 					}
+					console.log("totaal points"+totalPoints);
 					res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints});
 				}
 		});
@@ -162,23 +163,12 @@ app.post('/addPoint', function(req, res) {
 	console.log("point val = "+req.body.pointValue);
 	console.log("total val = "+req.body.total);
 
-	var pointVal = 0;
-	if (req.body.pointValue=="1"){
-		pointVal = '1';
-		console.log("one point");
-	} else if (req.body.pointValue=="2") {
-		pointVal = '2';
-		console.log("two point");
-
-	} else if (req.body.pointValue=="3") {
-		pointVal = '3';
-		console.log("threes point");
-	}
+	
 
 	var point = {
 		date: 'Today1',
 		loc:req.body.longitude+','+req.body.latitude,
-		pointAmt: pointVal
+		pointAmt: req.body.pointValue
 	};
 
 	Points.findOneAndUpdate(

@@ -42,62 +42,20 @@
         var map;
         document.addEventListener('DOMContentLoaded', init, false);
             function init(){
-                function pt1 () {
-                    totalPoints += 1;
-                    $( "#points" ).html(totalPoints);
-                    form_send(1);
-                    add_marker(latitude,longitude);
-                }
-                function pt2 () {
-                    totalPoints += 2;
-                    $( "#points" ).html(totalPoints);
-                    form_send(2);
-                    add_marker(latitude,longitude);
-                }
-                function pt3 () {
-                    totalPoints += 3;
-                    $( "#points" ).html(totalPoints);
-                    form_send(3);
-                    add_marker(latitude,longitude);
-                }
-                function pt5 () {
-                    console.log("Pt");
-                    totalPoints += 5;
-                    $( "#points" ).html(totalPoints);
-                    form_send(5);
-                    add_marker(latitude,longitude);
-                }
 
-                $("#pt1").click(function(){
-                    alert('clicked!');
-                });
 
-                alert("ye");
-
-                //var btn1 = document.getElementById('pt1');
-                //btn1.addEventListener('click', pt1, true);
+/*                var btn1 = document.getElementById('pt1');
+                btn1.addEventListener('click', pt1, true);
                 var btn2 = document.getElementById('pt2');
                 btn2.addEventListener('click', pt2, true);
                 var btn3 = document.getElementById('pt3');
                 btn3.addEventListener('click', pt3, true);
-                //var btn5 = document.getElementById('pt5');
-                //btn5.addEventListener('click', pt5, true);
-
+                var btn5 = document.getElementById('pt5');
+                btn5.addEventListener('click', pt5, true);
+*/
                 get_gps();
                 load_map();
-                function form_send(pointAmt){
 
-                    console.log("form");
-
-                    $.ajax({
-                        type: "POST",
-                        url: "/addPoint",
-                        data: { long: longitude, lat: latitude, pointValue:pointAmt, total:totalPoints }
-                    })
-                    .done(function( msg ) {
-                        //alert("DONE");
-                    });
-                }
 
                 function get_gps(){
                     if (navigator.geolocation) {
@@ -142,8 +100,46 @@
                     console.log("set map");
                     marker.setMap(map);
                 }
-
     };
+            function pt1 () {
+                totalPoints += 1;
+                $( "#points" ).html(totalPoints);
+                form_send(1);
+                add_marker(latitude,longitude);
+            }
+            function pt2 () {
+                totalPoints += 2;
+                $( "#points" ).html(totalPoints);
+                form_send(2);
+                add_marker(latitude,longitude);
+            }
+            function pt3 () {
+                totalPoints += 3;
+                $( "#points" ).html(totalPoints);
+                form_send(3);
+                add_marker(latitude,longitude);
+            }
+            function pt5 () {
+                alert("Pt");
+                totalPoints += 5;
+                $( "#points" ).html(totalPoints);
+                form_send(5);
+                add_marker(latitude,longitude);
+            }
+
+            function form_send(pointAmt){
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "/addPoint",
+                    data: { long: longitude, lat: latitude, pointValue:pointAmt, total:totalPoints }
+                })
+                .done(function( msg ) {
+                    alert("DONE");
+                });
+            }
+
         </script>
 </head>
 
@@ -227,7 +223,7 @@
                             <br>
                             <br>
                             <div class="info">Verbal Greeting</div>
-                            <button type="submit" id="pt5" class="btn btn-default ">Add 5 points</button>
+                            <button type="submit" id="pt5" onClick="pt5()" class="btn btn-default ">Add 5 points</button>
                     </div>
 
             </div>
