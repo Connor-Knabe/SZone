@@ -203,23 +203,24 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h1>Log a smile below:</h1>
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <h3>Total Points:<div id="points"><%=totalPoints%></div></h3>
-                        <div class="info">Acknowledgement</div>
-                        	<button type="submit" id="pt1" class="btn btn-default ">Add 1 point</button>
-                            <br>
-                            <br>
-                            <div class="info">Head nod</div>
-                        	<button type="submit" id="pt2" class="btn btn-default ">Add 2 points</button>
-                            <br>
-                            <br>
-                            <div class="info">Smile back</div>
-                        	<button type="submit" id="pt3" class="btn btn-default ">Add 3 points</button>
-                            <br>
-                            <br>
-                            <div class="info">Verbal Greeting</div>
-                            <button type="submit" id="pt5"  class="btn btn-default ">Add 5 points</button>
-                    </div>
+                <h3>Total Points:<div id="points"><%=totalPoints%></div></h3>
+
+
+                <table class="table borderless">
+
+                    <tr>
+                        <td>Acknowledgement</td>
+                        <td>Head nod</td>
+                        <td>Smile back</td>
+                        <td>Verbal Greeting</td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" id="pt1" class="btn btn-default ">Add 1 point</button></td>
+                        <td><button type="submit" id="pt2" class="btn btn-default ">Add 2 points</button></td>
+                        <td><button type="submit" id="pt3" class="btn btn-default ">Add 3 points</button></td>
+                        <td><button type="submit" id="pt5"  class="btn btn-default ">Add 5 points</button></td>
+                    </tr>
+                </table>
             </div>
         </div>
     </section>
