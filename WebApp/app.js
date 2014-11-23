@@ -33,7 +33,6 @@ var userSchema = mongoose.Schema({
 var pointsSchema = mongoose.Schema({
 	email: { type: String, required: true, unique: true },
     points: [mongoose.Schema.Types.Mixed]
-	//points: [{date: {type: String, required: true}, pointAmt: {type: Number, required: true}, loc:{type: String, required: true}}]
 });
 
 var Points = mongoose.model('Points', pointsSchema);
@@ -83,11 +82,6 @@ userSchema.methods.comparePassword = function(candidatePassword, cb) {
 };
 
 
-// Use the LocalStrategy within Passport.
-//   Strategies in passport require a `verify` function, which accept
-//   credentials (in this case, a username and password), and invoke a callback
-//   with a user object.  In the real world, this would query a database;
-//   however, in this example we are using a baked-in set of users.
 passport.use(new LocalStrategy({ usernameField: 'email', passwordField: 'password' },
 	function(email, password, done) {
 	  	User.findOne({ email: email }, function(err, user) {
@@ -142,7 +136,6 @@ app.get('/', function(req, res) {
 					for (var i = 0; i < pointsArr.length; i++) {
 						totalPoints += parseInt(pointsArr[i].pointAmt);
 					}
-					console.log("totaal points"+totalPoints);
 					res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints});
 				}
 		});
@@ -163,7 +156,7 @@ app.post('/addPoint', function(req, res) {
 	console.log("point val = "+req.body.pointValue);
 	console.log("total val = "+req.body.total);
 
-	
+
 
 	var point = {
 		date: 'Today1',
