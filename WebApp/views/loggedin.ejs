@@ -42,31 +42,31 @@
         var map;
         document.addEventListener('DOMContentLoaded', init, false);
             function init(){
-
                 get_gps();
                 load_map();
                 load_binds();
-
-
-    };
+            }
             function pt1 () {
                 totalPoints += 1;
                 $( "#points" ).html(totalPoints);
                 form_send(1);
                 add_marker(latitude,longitude);
             }
+
             function pt2 () {
                 totalPoints += 2;
                 $( "#points" ).html(totalPoints);
                 form_send(2);
                 add_marker(latitude,longitude);
             }
+
             function pt3 () {
                 totalPoints += 3;
                 $( "#points" ).html(totalPoints);
                 form_send(3);
                 add_marker(latitude,longitude);
             }
+
             function pt5 () {
                 totalPoints += 5;
                 $( "#points" ).html(totalPoints);
@@ -75,8 +75,6 @@
             }
 
             function form_send(pointAmt){
-
-
                 $.ajax({
                     type: "POST",
                     url: "/addPoint",
@@ -165,6 +163,9 @@
                         <a class="page-scroll" href="#profile">Profile</a>
                     </li>
                     <li>
+                        <a class="page-scroll" href="#map1">map</a>
+                    </li>
+                    <li>
                         <a class="page-scroll" href="#instructions">How to play?</a>
                     </li>
                     <li>
@@ -172,9 +173,6 @@
                     </li>
                     <li>
                         <a class="page-scroll" href="http://obiwan.me/logout">logout</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#map1">map</a>
                     </li>
                 </ul>
             </div>
@@ -222,15 +220,16 @@
                             <div class="info">Verbal Greeting</div>
                             <button type="submit" id="pt5"  class="btn btn-default ">Add 5 points</button>
                     </div>
-
             </div>
         </div>
     </section>
 
     <!-- map Section -->
-    <section id="map1" class="container content-section text-center">
+    <section id="map1" class="container text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
+                <br>
+                <br>
                 <h2>Map</h2>
                 <div id="map"></div>
             </div>
@@ -256,7 +255,6 @@
         </div>
     </section>
 
-
     <!-- Smiles Section -->
     <section id="smile" class="container content-section text-center">
         <div class="row">
@@ -271,14 +269,8 @@
                 <br>
                 <br>
                 <h4>Smiling Can Save Your Life</h4>
-
-
                 <iframe width="560" height="315" src="//www.youtube.com/embed/1plLYlt9zPM" frameborder="0" allowfullscreen></iframe>
-
             </div>
-
-
-
         </div>
     </section>
 
