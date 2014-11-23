@@ -43,18 +43,16 @@
         document.addEventListener('DOMContentLoaded', init, false);
             function init(){
 
-
-/*                var btn1 = document.getElementById('pt1');
-                btn1.addEventListener('click', pt1, true);
-                var btn2 = document.getElementById('pt2');
-                btn2.addEventListener('click', pt2, true);
-                var btn3 = document.getElementById('pt3');
-                btn3.addEventListener('click', pt3, true);
-                var btn5 = document.getElementById('pt5');
-                btn5.addEventListener('click', pt5, true);
-*/
                 get_gps();
                 load_map();
+                $( "#pt5" ).unbind( "click", pt5 );
+                $('#pt5').bind('click', pt5);
+                $( "#pt3" ).unbind( "click", pt3 );
+                $('#pt3').bind('click', pt3);
+                $( "#pt2" ).unbind( "click", pt2 );
+                $('#pt2').bind('click', pt2);
+                $( "#pt1" ).unbind( "click", pt1 );
+                $('#pt1').bind('click', pt1);
 
 
                 function get_gps(){
@@ -86,19 +84,6 @@
                     map = new google.maps.Map(document.getElementById('map'),
                     mapOptions);
 
-                }
-
-                function add_marker(lat, long){
-
-
-                    var myLatlng = new google.maps.LatLng(lat,long);
-                    var marker = new google.maps.Marker({
-                        position: myLatlng,
-                        map: map,
-                        title:"Your smile location"
-                    });
-                    console.log("set map");
-                    marker.setMap(map);
                 }
     };
             function pt1 () {
@@ -138,6 +123,17 @@
                 .done(function( msg ) {
                     alert("DONE");
                 });
+            }
+
+            function add_marker(lat, long){
+                var myLatlng = new google.maps.LatLng(lat,long);
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map,
+                    title:"Your smile location"
+                });
+                alert("set map");
+                marker.setMap(map);
             }
 
         </script>
@@ -223,7 +219,7 @@
                             <br>
                             <br>
                             <div class="info">Verbal Greeting</div>
-                            <button type="submit" id="pt5" onClick="pt5()" class="btn btn-default ">Add 5 points</button>
+                            <button type="submit" id="pt5"  class="btn btn-default ">Add 5 points</button>
                     </div>
 
             </div>
