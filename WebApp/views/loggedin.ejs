@@ -45,46 +45,9 @@
 
                 get_gps();
                 load_map();
-                $( "#pt5" ).unbind( "click", pt5 );
-                $('#pt5').bind('click', pt5);
-                $( "#pt3" ).unbind( "click", pt3 );
-                $('#pt3').bind('click', pt3);
-                $( "#pt2" ).unbind( "click", pt2 );
-                $('#pt2').bind('click', pt2);
-                $( "#pt1" ).unbind( "click", pt1 );
-                $('#pt1').bind('click', pt1);
+                load_binds();
 
 
-                function get_gps(){
-                    if (navigator.geolocation) {
-                        navigator.geolocation.getCurrentPosition(
-                            function coords(position) {
-                                longitude = position.coords.longitude;
-                                latitude = position.coords.latitude;
-                            }, function (error) {
-                                alert("Error: " + error.code);
-                            },
-                            {
-                                enableHighAccuracy : true,
-                                timeout : 10000,
-                                maximumAge : 1000
-                            });
-
-
-                        } else {
-                            alert ("GEOLOCATION NOT SUPPORTED....");
-                        }
-                }
-
-                function load_map(){
-                    var mapOptions = {
-                        center: { lat: 38.9371942, lng: -92.3184657},
-                        zoom: 8
-                    };
-                    map = new google.maps.Map(document.getElementById('map'),
-                    mapOptions);
-
-                }
     };
             function pt1 () {
                 totalPoints += 1;
@@ -105,7 +68,6 @@
                 add_marker(latitude,longitude);
             }
             function pt5 () {
-                alert("Pt");
                 totalPoints += 5;
                 $( "#points" ).html(totalPoints);
                 form_send(5);
@@ -121,8 +83,19 @@
                     data: { long: longitude, lat: latitude, pointValue:pointAmt, total:totalPoints }
                 })
                 .done(function( msg ) {
-                    alert("DONE");
+
                 });
+            }
+
+            function load_binds(){
+                $( "#pt5" ).unbind( "click", pt5 );
+                $('#pt5').bind('click', pt5);
+                $( "#pt3" ).unbind( "click", pt3 );
+                $('#pt3').bind('click', pt3);
+                $( "#pt2" ).unbind( "click", pt2 );
+                $('#pt2').bind('click', pt2);
+                $( "#pt1" ).unbind( "click", pt1 );
+                $('#pt1').bind('click', pt1);
             }
 
             function add_marker(lat, long){
@@ -132,10 +105,38 @@
                     map: map,
                     title:"Your smile location"
                 });
-                alert("set map");
                 marker.setMap(map);
             }
 
+            function get_gps(){
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        function coords(position) {
+                            longitude = position.coords.longitude;
+                            latitude = position.coords.latitude;
+                        }, function (error) {
+                            alert("Error: " + error.code);
+                        },
+                        {
+                            enableHighAccuracy : true,
+                            timeout : 10000,
+                            maximumAge : 1000
+                        });
+
+
+                    } else {
+                        alert ("GEOLOCATION NOT SUPPORTED....");
+                    }
+                }
+
+                function load_map(){
+                    var mapOptions = {
+                        center: { lat: 38.9371942, lng: -92.3184657},
+                        zoom: 8
+                    };
+                    map = new google.maps.Map(document.getElementById('map'),
+                    mapOptions);
+                }
         </script>
 </head>
 
