@@ -19,30 +19,4 @@
 	padding:5px;
 }
 
-.containerDiv {
-  width: 100%; display:table
-}
-.rowDivHeader {
-    display:table-row
-}
-.rowDiv {
-    display:table-row
-}
-.cellDivHeader {
-    display: table-cell;
-    width:12%;
-    padding: 1px;
-    text-align: center; 
-}
-.cellDiv {
-    display: table-cell;
-    width:10%;
-    padding-right: 4px;
-    text-align: center;
-    border-bottom: none;
-}
 
-
-.borderless tbody tr td, .borderless thead tr th {
-    border: none;
-}

@@ -289,9 +289,9 @@ a:focus {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 400;
-    -webkit-transition: all .3s ease-in-out;
+    /*-webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;*/
 }
 
 .btn-default {
@@ -299,9 +299,16 @@ a:focus {
     color: #219ab3;
     background-color: transparent;
 }
+.btn-default:active,
+.btn-default.active{
+    border: 1px solid #219ab3;
+    outline: 0;
+    color: #000;
+    background-color: #219ab3;
 
+}
 
-
+/*
 .btn-default:focus{
     color: #219ab3;
 }
@@ -313,9 +320,7 @@ a:focus {
     outline: 0;
     color: #000;
     background-color: #219ab3;
-}
-
-
+}*/
 
 ul.banner-social-buttons {
     margin-top: 0;
