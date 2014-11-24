@@ -123,6 +123,8 @@ app.configure(function() {
 });
 
 app.get('/', function(req, res) {
+	
+	console.log("user"+req.user);
 	if (req.user){
 		var pointsArr;
 		var totalPoints = 0;
