@@ -317,10 +317,8 @@ a:focus {
     outline: 0;
     color: #000;
     background-color: #219ab3;
-
 }
 
-/*
 .btn-default:focus{
     color: #219ab3;
 }
@@ -332,7 +330,7 @@ a:focus {
     outline: 0;
     color: #000;
     background-color: #219ab3;
-}*/
+}
 
 ul.banner-social-buttons {
     margin-top: 0;
