@@ -107,7 +107,7 @@ app.configure(function() {
 	app.use(express.static(__dirname + '/public'));
 	app.set('views', __dirname + '/views');
     app.set('view engine', 'ejs');
-	app.use(express.session({ secret: 'asmilezone' }));
+	app.use(express.session({ secret: sessionSecret.secret }));
 	// Remember Me middleware
 	app.use( function (req, res, next) {
 		if ( req.method == 'POST' && req.url == '/login' ) {
