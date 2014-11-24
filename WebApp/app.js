@@ -5,6 +5,7 @@ var path = require('path');
 var http = require('http');
 var server = http.createServer(app);
 var bodyParser = require('body-parser');
+var sessionSecret = require('./sessionSecret.js');
 
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
@@ -100,16 +101,13 @@ passport.use(new LocalStrategy({ usernameField: 'email', passwordField: 'passwor
 
 
 app.configure(function() {
-
     app.use(express.json());
     app.use(express.urlencoded());
  	app.use(express.cookieParser());
 	app.use(express.static(__dirname + '/public'));
-
 	app.set('views', __dirname + '/views');
     app.set('view engine', 'ejs');
-
-	app.use(express.session({ secret: 'asmilezone' })); //add this
+	app.use(express.session({ secret: 'asmilezone' }));
 	// Remember Me middleware
 	app.use( function (req, res, next) {
 		if ( req.method == 'POST' && req.url == '/login' ) {
@@ -123,7 +121,6 @@ app.configure(function() {
 });
 
 app.get('/', function(req, res) {
-	
 	console.log("user"+req.user);
 	if (req.user){
 		var pointsArr;
@@ -147,18 +144,13 @@ app.get('/', function(req, res) {
 });
 app.get('/map', function(req, res) {
 	res.render('map.ejs', {action:"index", user:null, message: req.session.messages });
-
-
 });
-
 
 app.post('/addPoint', function(req, res) {
 	console.log("Longitude = "+req.body.long);
 	console.log("latitude = "+req.body.lat);
 	console.log("point val = "+req.body.pointValue);
 	console.log("total val = "+req.body.total);
-
-
 
 	var point = {
 		date: 'Today1',
@@ -169,13 +161,11 @@ app.post('/addPoint', function(req, res) {
 	Points.findOneAndUpdate(
 		{email:req.user.email},
 		{$push: {points:point}},
-		//{email:'conn@con.com'},
 	    {safe: true, upsert: true},
     	function(err, model) {
 			res.redirect('/#profile');
 		}
 	)
-
 });
 
 app.get('/signup', function(req, res) {
@@ -199,7 +189,6 @@ app.get('/signup', function(req, res) {
 	} else {
 		res.render('index.ejs', {action:"signup", error:"none"});
 	}
-
 });
 app.get('/login',ensureAuthenticated, function(req, res){
 	res.render('index.ejs', { action:"loggedin"});
@@ -209,9 +198,6 @@ app.get('/logout', function(req, res){
 	req.logout();
 	res.redirect('/');
 });
-
-
-
 // POST /login
 //   This is an alternative implementation that uses a custom callback to
 //   acheive the same functionality.
@@ -230,7 +216,7 @@ app.post('/login', function(req, res, next) {
 
 });
 
-function session (req, res) {
+function session(req, res) {
 	res.redirect('/');
 };
 
@@ -295,5 +281,4 @@ function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/')
 }
-
 server.listen(port);
