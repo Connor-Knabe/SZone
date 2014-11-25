@@ -86,15 +86,30 @@
             }
 
             function load_binds(){
-                $( "#pt5" ).unbind( "click", pt5 );
-                $('#pt5').bind('click', pt5);
-                $( "#pt3" ).unbind( "click", pt3 );
-                $('#pt3').bind('click', pt3);
-                $( "#pt2" ).unbind( "click", pt2 );
-                $('#pt2').bind('click', pt2);
                 $( "#pt1" ).unbind( "click", pt1 );
                 $('#pt1').bind('click', pt1);
+                $( "#pt2" ).unbind( "click", pt2 );
+                $('#pt2').bind('click', pt2);
+                $( "#pt3" ).unbind( "click", pt3 );
+                $('#pt3').bind('click', pt3);
+                $( "#pt5" ).unbind( "click", pt5 );
+                $('#pt5').bind('click', pt5);
 
+                $('#pt1').bind('touchstart', function(){
+                    $(this).addClass('hlite');
+                }).bind('touchend', function(){
+                    $(this).removeClass('hlite');
+                });
+                $('#pt2').bind('touchstart', function(){
+                    $(this).addClass('hlite');
+                }).bind('touchend', function(){
+                    $(this).removeClass('hlite');
+                });
+                $('#pt3').bind('touchstart', function(){
+                    $(this).addClass('hlite');
+                }).bind('touchend', function(){
+                    $(this).removeClass('hlite');
+                });
                 $('#pt5').bind('touchstart', function(){
                     $(this).addClass('hlite');
                 }).bind('touchend', function(){
@@ -215,7 +230,7 @@
                     <br>
                     Eye Contact
                     <br>
-                    <button type="submit" id="pt1" class="btn btn-default ">Add 1 point</button>
+                    <button type="submit" id="pt1" class="btn1 btn2">Add 1 point</button>
                 </div>
 
 
@@ -223,7 +238,7 @@
                     <br>
                     Head nod
                     <br>
-                    <button type="submit" id="pt2" class="btn btn-default ">Add 2 points</button>
+                    <button type="submit" id="pt2" class="btn1 btn2">Add 2 points</button>
                 </div>
                 <div class="col-xs-6 info">
                     <br>
@@ -231,7 +246,7 @@
                     <br>
                     Back
                     <br>
-                    <button type="submit" id="pt3" class="btn btn-default ">Add 3 points</button>
+                    <button type="submit" id="pt3" class="btn1 btn2 ">Add 3 points</button>
                 </div>
                 <div class="col-xs-6 info">
                     <br>
@@ -239,7 +254,7 @@
                     <br>
                     Greeting
                     <br>
-                    <button type="submit" id="pt5"  class="btn1 ">Add 5 points</button>
+                    <button type="submit" id="pt5"  class="btn1 btn2 ">Add 5 points</button>
                 </div>
 
             </div>
