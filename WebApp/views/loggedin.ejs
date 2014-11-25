@@ -46,33 +46,7 @@
                 load_map();
                 load_binds();
             }
-            function pt1 () {
-                totalPoints += 1;
-                $( "#points" ).html(totalPoints);
-                form_send(1);
-                add_marker(latitude,longitude);
-            }
 
-            function pt2 () {
-                totalPoints += 2;
-                $( "#points" ).html(totalPoints);
-                form_send(2);
-                add_marker(latitude,longitude);
-            }
-
-            function pt3 () {
-                totalPoints += 3;
-                $( "#points" ).html(totalPoints);
-                form_send(3);
-                add_marker(latitude,longitude);
-            }
-
-            function pt5 () {
-                totalPoints += 5;
-                $( "#points" ).html(totalPoints);
-                form_send(5);
-                add_marker(latitude,longitude);
-            }
 
             function form_send(pointAmt){
                 $.ajax({
@@ -85,37 +59,7 @@
                 });
             }
 
-            function load_binds(){
-                $( "#pt1" ).unbind( "click", pt1 );
-                $('#pt1').bind('click', pt1);
-                $( "#pt2" ).unbind( "click", pt2 );
-                $('#pt2').bind('click', pt2);
-                $( "#pt3" ).unbind( "click", pt3 );
-                $('#pt3').bind('click', pt3);
-                $( "#pt5" ).unbind( "click", pt5 );
-                $('#pt5').bind('click', pt5);
 
-                $('#pt1').bind('touchstart', function(){
-                    $(this).addClass('btn2');
-                }).bind('touchend', function(){
-                    $(this).removeClass('btn2');
-                });
-                $('#pt2').bind('touchstart', function(){
-                    $(this).addClass('btn2');
-                }).bind('touchend', function(){
-                    $(this).removeClass('btn2');
-                });
-                $('#pt3').bind('touchstart', function(){
-                    $(this).addClass('btn2');
-                }).bind('touchend', function(){
-                    $(this).removeClass('btn2');
-                });
-                $('#pt5').bind('touchstart', function(){
-                    $(this).addClass('btn2');
-                }).bind('touchend', function(){
-                    $(this).removeClass('btn2');
-                });
-            }
 
             function add_marker(lat, long){
                 var myLatlng = new google.maps.LatLng(lat,long);
@@ -335,6 +279,8 @@
 
     <!-- Validate forms -->
     <script src="/js/jqBootstrapValidation.js"></script>
+
+    <script src="/js/custom/buttons.js"></script>
 
 
 
