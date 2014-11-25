@@ -94,6 +94,12 @@
                 $('#pt2').bind('click', pt2);
                 $( "#pt1" ).unbind( "click", pt1 );
                 $('#pt1').bind('click', pt1);
+
+                $('#pt5').bind('touchstart', function(){
+                    $(this).addClass('hlite');
+                }).bind('touchend', function(){
+                    $(this).removeClass('hlite');
+                });
             }
 
             function add_marker(lat, long){
