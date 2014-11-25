@@ -9,6 +9,7 @@ function add_marker(lat, long){
     google.maps.event.addListener(marker, 'click', toggleBounce);
 
     marker.setMap(map);
+    map.setCenter(myLatlng);
 }
 
 function get_gps(){
