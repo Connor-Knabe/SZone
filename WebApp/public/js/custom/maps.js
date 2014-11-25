@@ -3,8 +3,11 @@ function add_marker(lat, long){
     var marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
+        animation: google.maps.Animation.DROP,
         title:"Your smile location"
     });
+    google.maps.event.addListener(marker, 'click', toggleBounce);
+
     marker.setMap(map);
 }
 
@@ -34,4 +37,13 @@ function load_map(){
     };
     map = new google.maps.Map(document.getElementById('map'),
     mapOptions);
+}
+
+function toggleBounce() {
+
+    if (marker.getAnimation() != null) {
+    	marker.setAnimation(null);
+  	} else {
+    	marker.setAnimation(google.maps.Animation.BOUNCE);
+  	}
 }
