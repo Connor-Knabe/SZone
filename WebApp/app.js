@@ -14,6 +14,10 @@ var SALT_WORK_FACTOR = 10;
 var mongodb = require('mongodb')
 var mongoose = require('mongoose');
 
+
+//Models
+var model = require('./app/models.js');
+
 mongoose.connect('localhost', 'SmileZone');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -21,32 +25,19 @@ db.once('open', function callback() {
 	console.log('Connected to DB');
 })
 
-//User Schema
 
-var userSchema = mongoose.Schema({
-	firstName: { type: String, required: true, unique: false },
-	lastName: { type: String, required: true, unique: false },
-	email: { type: String, required: true, unique: true },
-	dateRegistered: { type: Date, default: Date.now },
-	password: { type: String, required: true, unique:false }
-});
 
-var pointsSchema = mongoose.Schema({
-	email: { type: String, required: true, unique: true },
-    points: [mongoose.Schema.Types.Mixed]
-});
-
-var Points = mongoose.model('Points', pointsSchema);
+var Points = mongoose.model('Points', model.pointsSchema);
 
 
 // Password verification
-userSchema.methods.comparePassword = function(candidatePassword, cb) {
+model.userSchema.methods.comparePassword = function(candidatePassword, cb) {
 	bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
 		if(err) return cb(err);
 		cb(null, isMatch);
 	});
 };
-var User = mongoose.model('User', userSchema);
+var User = mongoose.model('User', model.userSchema);
 
 passport.serializeUser(function(user, done) {
 	done(null, user.email);
@@ -60,7 +51,7 @@ passport.deserializeUser(function(email, done) {
 
 
 // Bcrypt middleware
-userSchema.pre('save', function(next) {
+model.userSchema.pre('save', function(next) {
 	var user = this;
 	if(!user.isModified('password')) return next();
 	bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
@@ -75,7 +66,7 @@ userSchema.pre('save', function(next) {
 });
 
 // Password verification
-userSchema.methods.comparePassword = function(candidatePassword, cb) {
+model.userSchema.methods.comparePassword = function(candidatePassword, cb) {
 	bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
 		if(err) return cb(err);
 		cb(null, isMatch);
