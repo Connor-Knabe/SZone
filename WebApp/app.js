@@ -10,12 +10,15 @@ var sessionSecret = require('./sessionSecret.js');
 var mongodb = require('mongodb')
 var mongoose = require('mongoose');
 
+var passport = require('passport');
+
+
 
 //Models
 var model = require('./mvc/models.js');
 
 //Controllers
-require('./mvc/controllers.js');
+require('./mvc/controllers/passport.js');
 
 
 

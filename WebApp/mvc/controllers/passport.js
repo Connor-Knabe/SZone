@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 
 
 //Models
-var model = require('./models.js');
+var model = require('../models.js');
 
 // Password verification
 model.userSchema.methods.comparePassword = function(candidatePassword, cb) {
@@ -26,6 +26,8 @@ passport.deserializeUser(function(email, done) {
 		done(err, user);
 	});
 });
+
+console.log("test");
 
 
 // Bcrypt middleware
