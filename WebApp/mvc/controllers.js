@@ -5,6 +5,8 @@ var SALT_WORK_FACTOR = 10;
 var mongoose = require('mongoose');
 
 
+//Models
+var model = require('./models.js');
 
 // Password verification
 model.userSchema.methods.comparePassword = function(candidatePassword, cb) {
