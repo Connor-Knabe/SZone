@@ -9,18 +9,13 @@ var sessionSecret = require('./sessionSecret.js');
 
 var mongodb = require('mongodb')
 var mongoose = require('mongoose');
-
 var passport = require('passport');
-
-
 
 //Models
 var model = require('./mvc/models.js');
 
 //Include passport
-require('./mvc/controllers/passport.js');
-
-
+require('./mvc/controllers/passport.js')(app, passport);
 
 mongoose.connect('localhost', 'SmileZone');
 var db = mongoose.connection;
@@ -29,11 +24,7 @@ db.once('open', function callback() {
 	console.log('Connected to DB');
 })
 
-
-
 var Points = mongoose.model('Points', model.pointsSchema);
-
-
 
 app.configure(function() {
     app.use(express.json());
@@ -55,8 +46,6 @@ app.configure(function() {
 
 });
 
-
-require('./mvc/controllers/routes.js')(app);
-
+require('./mvc/controllers/routes.js')(app, passport, Points);
 
 server.listen(port);
