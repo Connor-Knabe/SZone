@@ -18,15 +18,22 @@ function get_gps(){
             function coords(position) {
                 longitude = position.coords.longitude;
                 latitude = position.coords.latitude;
+				load_map();
+
             }, function (error) {
                 alert("Error you need to enable GPS: " + error.code);
-                
                 
                  $.ajax({
                     type: "POST",
                     url: "/ip",
                 })
-                .done(function( msg ) {
+                .done(function( data ) {
+	               alert("DONE");
+	               // var ret = JSON.parse(data);
+				   load_map();
+
+					//alert("Msg"+ret.msg);
+	                //alert("Totalpts"+ <%= totalPoints%>)
 					$( "#ip" ).append( '<p id="red"> You have not allowed GPS tracking, using your IP address instead(less accurate). </p>');
                 });
                 

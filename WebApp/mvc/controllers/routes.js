@@ -18,7 +18,7 @@ module.exports = function (app, passport, Points) {
 						for (var i = 0; i < pointsArr.length; i++) {
 							totalPoints += parseInt(pointsArr[i].pointAmt);
 						}
-						res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints,ipinfo:"0"});
+						renderLoggedin(res,req);
 					}
 			});
 		} else {
@@ -46,6 +46,8 @@ module.exports = function (app, passport, Points) {
 	});
 
 	app.post('/ip', function(req,res) {
+		console.log("POST IP");	
+	
 		var ip = req.connection.remoteAddress;
 		request('http://www.ipinfo.io/'+ip, function (error, response, body) {
 			if (!error && response.statusCode == 200) {
@@ -58,13 +60,19 @@ module.exports = function (app, passport, Points) {
 				console.log("lat split"+ latLongArr[0]);
 				console.log("long split"+ latLongArr[1]);
 
+			   /* res.writeHead(200, { 'Content-Type': 'text/plain' });
+			    req.on('data', function (chunk) {
+			        console.log('GOT DATA!');
+			    });
+			    res.end('callback(\'{\"msg\": \"OK\"}\')');*/
+
 
 			if (req.user){
-				res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints, ipinfo:latLongArr});
+				renderLoggedin(res,req);
 			} else {
 				res.render('index.ejs', {action:"index", user:null, message: req.session.messages });
 			}
-			//
+			
 
 			}
 		});
@@ -85,7 +93,7 @@ module.exports = function (app, passport, Points) {
 						for (var i = 0; i < pointsArr.length; i++) {
 							totalPoints += parseInt(pointsArr[i].pointAmt);
 						}
-						res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints, ipinfo:"0"});
+						renderLoggedin(res,req);
 					}
 			});
 
@@ -168,8 +176,7 @@ module.exports = function (app, passport, Points) {
 								for (var i = 0; i < pointsArr.length; i++) {
 									totalPoints += parseInt(pointsArr[i].pointAmt);
 								}
-								res.render('loggedin.ejs', {user:req.body.firstname,totalPoints:totalPoints, ipinfo:"0"});
-
+								renderLoggedin(res,req);
 							}
 					});
 				});
@@ -182,6 +189,11 @@ module.exports = function (app, passport, Points) {
 	function ensureAuthenticated(req, res, next) {
 	  if (req.isAuthenticated()) { return next(); }
 	  res.redirect('/')
+	}
+	
+	function renderLoggedin(res,req){
+		res.render('loggedin.ejs', {user:req.body.firstname,totalPoints:totalPoints, ipinfo:"0"});
+		
 	}
 
 }
