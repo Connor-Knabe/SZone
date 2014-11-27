@@ -63,7 +63,8 @@ module.exports = function (app, passport, Points) {
 
 				
 				res.type('json');
-				res.send({ some: JSON.stringify({response:latLongArr}) });
+				//res.send({ some: JSON.stringify({response:latLongArr}) });
+				res.send({response:latLongArr});
 
 			/*if (req.user){
 				res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:"1", ipinfo:latLongArr});
