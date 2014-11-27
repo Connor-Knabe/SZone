@@ -1,4 +1,5 @@
 var request = require('request');
+var util = require('util')
 
 var totalPoints = 0;
 
