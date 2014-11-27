@@ -28,14 +28,11 @@ function get_gps(){
                     url: "/ip",
                 })
                 .done(function( data ) {
-	               alert("DONE");
-	               alert("blaa"+data);
-	               alert("Blah"+JSON.stringify(data));
-	               var res = JSON.parse(data);
-	               alert("BLa"+res);
-	              // var res = JSON.parse(data.some);
-	               //alert("Res"+res);
-				   load_map();
+	                console.log("data"+data.ip_info);
+					longitude = data.ip_info[0];
+					latitude = data.ip_info[1];
+					console.log("long"+longitude+"lat"+latitude);
+				    load_map();
 
 					//alert("Msg"+ret.msg);
 	                //alert("Totalpts"+ <%= totalPoints%>)
