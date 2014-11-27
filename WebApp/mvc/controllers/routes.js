@@ -1,10 +1,12 @@
 var request = require('request');
 
+var totalPoints = 0;
+
+
 module.exports = function (app, passport, Points) {
 	app.get('/', function(req, res) {
 		if (req.user){
 			var pointsArr;
-			var totalPoints = 0;
 			var query = Points.where({email:req.user.email});
 			//If user is logged in check to see how many points they have
 			query.findOne(function(err, points) {
@@ -155,7 +157,6 @@ module.exports = function (app, passport, Points) {
 				pts.save(function(err) {
 					console.log("points error: " +err);
 					var pointsArr;
-					var totalPoints = 0;
 					var query = Points.where({email:req.body.email});
 					//If user is logged in check to see how many points they have
 					query.findOne(function(err, points) {
