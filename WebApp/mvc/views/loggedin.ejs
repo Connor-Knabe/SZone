@@ -24,9 +24,7 @@
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
     <!-- CSS For google maps -->
-    <style type="text/css">
-    html, body, #map_canvas { height: 100%; margin: 0; padding: 0;}
-    </style>
+
     <script type="text/javascript"
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_pbaf11tD5KFZ454nhaR7jC99sC4_JMM">
     </script>
@@ -36,7 +34,7 @@
         var latitude = 0;
         var longitude = 0;
         var totalPoints = <%= totalPoints%>
-        var ip = <%= ipinfo %> 
+        var ip = <%= ipinfo %>
         var map;
         document.addEventListener('DOMContentLoaded', init, false);
             function init(){

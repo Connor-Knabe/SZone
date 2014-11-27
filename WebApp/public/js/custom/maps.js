@@ -21,6 +21,15 @@ function get_gps(){
             }, function (error) {
                 alert("Error you need to enable GPS: " + error.code);
                 
+                
+                 $.ajax({
+                    type: "POST",
+                    url: "/ip",
+                })
+                .done(function( msg ) {
+
+                });
+                
             },
             {
                 enableHighAccuracy : true,
