@@ -15,7 +15,7 @@ module.exports = function (app, passport, Points) {
 						for (var i = 0; i < pointsArr.length; i++) {
 							totalPoints += parseInt(pointsArr[i].pointAmt);
 						}
-						res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints});
+						res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints,ipinfo:"0"});
 					}
 			});
 		} else {
@@ -43,9 +43,18 @@ module.exports = function (app, passport, Points) {
 	});
 
 	app.get('/ip', function(req,res) {
+		var ip = req.connection.remoteAddress;
+		request('http://www.ipinfo.io/'+ip, function (error, response, body) {
+			if (!error && response.statusCode == 200) {
+				console.log(body) // Print the google web page.
 
-		
-		console.log("IP"+req.connection.remoteAddress);
+				var jsonIp = JSON.parse(body);
+				console.log("location"+ jsonIp.loc);
+
+				res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints, ipinfo:body});
+
+			}
+		});
 
 	});
 
