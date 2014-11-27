@@ -33,7 +33,7 @@ app.configure(function() {
     app.use(express.urlencoded());
  	app.use(express.cookieParser());
 	app.use(express.static(__dirname + '/public'));
-	app.set('views', __dirname + '/views');
+	app.set('views', __dirname + '/mvc/views');
     app.set('view engine', 'ejs');
 	app.use(express.session({ secret: sessionSecret.secret }));
 	// Remember Me middleware
