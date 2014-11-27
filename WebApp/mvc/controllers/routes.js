@@ -2,7 +2,6 @@ module.exports = function (app, passport, Points) {
 	
 	
 	app.get('/', function(req, res) {
-		console.log("user"+req.user);
 		if (req.user){
 			var pointsArr;
 			var totalPoints = 0;
@@ -27,12 +26,7 @@ module.exports = function (app, passport, Points) {
 		res.render('map.ejs', {action:"index", user:null, message: req.session.messages });
 	});
 	
-	app.post('/addPoint', function(req, res) {
-		console.log("Longitude = "+req.body.long);
-		console.log("latitude = "+req.body.lat);
-		console.log("point val = "+req.body.pointValue);
-		console.log("total val = "+req.body.total);
-	
+	app.post('/addPoint', function(req, res) {	
 		var point = {
 			date: 'Today1',
 			loc:req.body.longitude+','+req.body.latitude,
