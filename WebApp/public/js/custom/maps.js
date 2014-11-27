@@ -29,7 +29,7 @@ function get_gps(){
                 })
                 .done(function( data ) {
 	               alert("DONE");
-	               // var ret = JSON.parse(data);
+	               alert("Blah"+data.some);
 				   load_map();
 
 					//alert("Msg"+ret.msg);
