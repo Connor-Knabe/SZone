@@ -12,7 +12,9 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 
 //Models
-var model = require('./mvc/models.js');
+var userModel = require('./mvc/models/user.js');
+var pointModel = require('./mvc/models/point.js');
+
 
 //Include passport
 require('./mvc/controllers/passport.js')(app, passport);
@@ -24,7 +26,7 @@ db.once('open', function callback() {
 	console.log('Connected to DB');
 })
 
-var Points = mongoose.model('Points', model.pointsSchema);
+var Points = mongoose.model('Points', pointModel.pointsSchema);
 
 app.configure(function() {
     app.use(express.json());

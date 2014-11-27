@@ -7,8 +7,3 @@ exports.userSchema = mongoose.Schema({
 	dateRegistered: { type: Date, default: Date.now },
 	password: { type: String, required: true, unique:false }
 });
-
-exports.pointsSchema = mongoose.Schema({
-	email: { type: String, required: true, unique: true },
-    points: [mongoose.Schema.Types.Mixed]
-});
