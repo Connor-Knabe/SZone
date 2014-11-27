@@ -19,10 +19,7 @@ function get_gps(){
                 longitude = position.coords.longitude;
                 latitude = position.coords.latitude;
 				load_map(latitude,longitude);
-				alert("YES");
-
             }, function (error) {
-                alert("Error you need to enable GPS: " + error.code);
                 
                  $.ajax({
                     type: "POST",
@@ -50,7 +47,6 @@ function get_gps(){
 }
 
 function load_map(latitude, longitude){
-	alert("loadMap");
     var mapOptions = {
         center: { lat: latitude, lng: longitude},
         zoom: 8
