@@ -19,7 +19,7 @@ function get_gps(){
                 longitude = position.coords.longitude;
                 latitude = position.coords.latitude;
             }, function (error) {
-                alert("Error: " + error.code);
+                alert("Error you need to enable GPS: " + error.code);
             },
             {
                 enableHighAccuracy : true,
@@ -33,7 +33,7 @@ function get_gps(){
 
 function load_map(){
     var mapOptions = {
-        center: { lat: 38.9371942, lng: -92.3184657},
+        center: { lat: latitude, lng: longitude},
         zoom: 8
     };
     map = new google.maps.Map(document.getElementById('map'),
