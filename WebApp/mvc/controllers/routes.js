@@ -42,7 +42,7 @@ module.exports = function (app, passport, Points) {
 		)
 	});
 
-	app.get('/ip', function(req,res) {
+	app.post('/ip', function(req,res) {
 		var ip = req.connection.remoteAddress;
 		request('http://www.ipinfo.io/'+ip, function (error, response, body) {
 			if (!error && response.statusCode == 200) {
@@ -56,7 +56,12 @@ module.exports = function (app, passport, Points) {
 				console.log("long split"+ latLongArr[1]);
 
 
-			//	res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints, ipinfo:body});
+			if (req.user){
+				res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints, ipinfo:latLongArr});
+			} else {
+				res.render('index.ejs', {action:"index", user:null, message: req.session.messages });
+			}
+			//
 
 			}
 		});
@@ -77,7 +82,7 @@ module.exports = function (app, passport, Points) {
 						for (var i = 0; i < pointsArr.length; i++) {
 							totalPoints += parseInt(pointsArr[i].pointAmt);
 						}
-						res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints});
+						res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints, ipinfo:"0"});
 					}
 			});
 
@@ -161,7 +166,7 @@ module.exports = function (app, passport, Points) {
 								for (var i = 0; i < pointsArr.length; i++) {
 									totalPoints += parseInt(pointsArr[i].pointAmt);
 								}
-								res.render('loggedin.ejs', {user:req.body.firstname,totalPoints:totalPoints});
+								res.render('loggedin.ejs', {user:req.body.firstname,totalPoints:totalPoints, ipinfo:"0"});
 
 							}
 					});
