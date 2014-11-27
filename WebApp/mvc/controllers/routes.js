@@ -51,10 +51,12 @@ module.exports = function (app, passport, Points) {
 				var jsonIp = JSON.parse(body);
 				console.log("location"+ jsonIp.loc);
 
-				var array = string.split(',')
-				
+				var latLongArr = jsonIp.loc.split(',')
+				console.log("lat split"+ latLongArr[0]);
+				console.log("long split"+ latLongArr[1]);
 
-				res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints, ipinfo:body});
+
+			//	res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints, ipinfo:body});
 
 			}
 		});
