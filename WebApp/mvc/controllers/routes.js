@@ -51,6 +51,9 @@ module.exports = function (app, passport, Points) {
 				var jsonIp = JSON.parse(body);
 				console.log("location"+ jsonIp.loc);
 
+				var array = string.split(',')
+				
+
 				res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints, ipinfo:body});
 
 			}

@@ -20,6 +20,7 @@ function get_gps(){
                 latitude = position.coords.latitude;
             }, function (error) {
                 alert("Error you need to enable GPS: " + error.code);
+                
             },
             {
                 enableHighAccuracy : true,
