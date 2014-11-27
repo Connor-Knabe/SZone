@@ -4,7 +4,7 @@ var port = process.env.PORT || 80;
 var path = require('path');
 var http = require('http');
 var server = http.createServer(app);
-var bodyParser = require('body-parser');
+//var bodyParser = require('body-parser');
 var sessionSecret = require('./sessionSecret.js');
 
 var mongodb = require('mongodb')

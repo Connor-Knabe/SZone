@@ -1,6 +1,6 @@
+var request = require('request');
+
 module.exports = function (app, passport, Points) {
-	
-	
 	app.get('/', function(req, res) {
 		if (req.user){
 			var pointsArr;
@@ -25,14 +25,13 @@ module.exports = function (app, passport, Points) {
 	app.get('/map', function(req, res) {
 		res.render('map.ejs', {action:"index", user:null, message: req.session.messages });
 	});
-	
-	app.post('/addPoint', function(req, res) {	
+
+	app.post('/addPoint', function(req, res) {
 		var point = {
 			date: 'Today1',
 			loc:req.body.longitude+','+req.body.latitude,
 			pointAmt: req.body.pointValue
 		};
-	
 		Points.findOneAndUpdate(
 			{email:req.user.email},
 			{$push: {points:point}},
@@ -42,7 +41,14 @@ module.exports = function (app, passport, Points) {
 			}
 		)
 	});
-	
+
+	app.get('/ip', function(req,res) {
+
+		
+		console.log("IP"+req.connection.remoteAddress);
+
+	});
+
 	app.get('/signup', function(req, res) {
 		if (req.user){
 			var pointsArr;
@@ -60,7 +66,7 @@ module.exports = function (app, passport, Points) {
 						res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints});
 					}
 			});
-	
+
 		} else {
 			res.render('index.ejs', {action:"signup", error:"none"});
 		}
@@ -68,7 +74,7 @@ module.exports = function (app, passport, Points) {
 	app.get('/login',ensureAuthenticated, function(req, res){
 		res.render('index.ejs', { action:"loggedin"});
 	});
-	
+
 	app.get('/logout', function(req, res){
 		req.logout();
 		res.redirect('/');
@@ -88,21 +94,21 @@ module.exports = function (app, passport, Points) {
 						return res.redirect('/#profile');
 					});
 				})(req, res, next);
-	
+
 	});
-	
+
 	function session(req, res) {
 		res.redirect('/');
 	};
-	
+
 	app.get('/logout', function(req, res){
 		req.logout();
 		res.redirect('/');
 	});
-	
+
 	app.post('/signup', function(req, res) {
 		//Seed a user
-	
+
 		if(req.body.password1 != req.body.password2){
 			res.render('index.ejs', {action:"signup", error:"password"});
 		}
@@ -111,12 +117,12 @@ module.exports = function (app, passport, Points) {
 			lastName:req.body.lastname,
 			email: req.body.email,
 			password: req.body.password1 });
-	
+
 		var pts = new Points({
 			email: req.body.email,
 			points: [{date:Date.now, pointAmt:'0', loc:""}, {date:'L', pointAmt:'1', loc:"asf"}]
 		});
-	
+
 		usr.save(function(err) {
 			if(err) {
 				console.log("error from signup" + err);
@@ -142,19 +148,19 @@ module.exports = function (app, passport, Points) {
 									totalPoints += parseInt(pointsArr[i].pointAmt);
 								}
 								res.render('loggedin.ejs', {user:req.body.firstname,totalPoints:totalPoints});
-	
+
 							}
 					});
 				});
 			}
 		});
-	
+
 	});
-	
-	
+
+
 	function ensureAuthenticated(req, res, next) {
 	  if (req.isAuthenticated()) { return next(); }
 	  res.redirect('/')
 	}
-	
+
 }
