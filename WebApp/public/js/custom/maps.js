@@ -18,7 +18,8 @@ function get_gps(){
             function coords(position) {
                 longitude = position.coords.longitude;
                 latitude = position.coords.latitude;
-				load_map();
+				load_map(latitude,longitude);
+				alert("YES");
 
             }, function (error) {
                 alert("Error you need to enable GPS: " + error.code);
@@ -29,13 +30,11 @@ function get_gps(){
                 })
                 .done(function( data ) {
 	                console.log("data"+data.ip_info);
-					longitude = data.ip_info[0];
-					latitude = data.ip_info[1];
+					longitude = parseFloat(data.ip_info[1]);
+					latitude = parseFloat(data.ip_info[0]);
 					console.log("long"+longitude+"lat"+latitude);
-				    load_map();
-
-					//alert("Msg"+ret.msg);
-	                //alert("Totalpts"+ <%= totalPoints%>)
+					
+				    load_map(latitude,longitude);
 					$( "#ip" ).append( '<p id="red"> You have not allowed GPS tracking, using your IP address instead(less accurate). </p>');
                 });
                 
@@ -50,7 +49,8 @@ function get_gps(){
     }
 }
 
-function load_map(){
+function load_map(latitude, longitude){
+	alert("loadMap");
     var mapOptions = {
         center: { lat: latitude, lng: longitude},
         zoom: 8
