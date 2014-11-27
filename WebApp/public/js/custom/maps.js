@@ -27,7 +27,7 @@ function get_gps(){
                     url: "/ip",
                 })
                 .done(function( msg ) {
-
+					$( "#ip" ).append( '<p id="red"> You have not allowed GPS tracking, using your IP address instead(less accurate). </p>');
                 });
                 
             },

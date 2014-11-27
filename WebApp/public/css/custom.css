@@ -19,6 +19,9 @@
     padding:5px;
 }
 
+#red {
+	font-color:#FF0000;
+}
 
 
 .btn:active,
