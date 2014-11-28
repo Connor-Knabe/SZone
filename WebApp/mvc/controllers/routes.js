@@ -169,7 +169,8 @@ module.exports = function (app, passport, Points, User) {
 								for (var i = 0; i < pointsArr.length; i++) {
 									totalPoints += parseInt(pointsArr[i].pointAmt);
 								}
-								res.render('loggedin.ejs', {user:req.body.firstname,totalPoints:totalPoints, ipinfo:"0"});
+								res.redirect('/');
+								//res.render('loggedin.ejs', {user:req.body.firstname,totalPoints:totalPoints, ipinfo:"0"});
 
 							}
 					});
