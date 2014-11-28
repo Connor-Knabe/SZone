@@ -3,7 +3,7 @@ var util = require('util')
 
 
 
-module.exports = function (app, passport, Points) {
+module.exports = function (app, passport, Points, User) {
 	app.get('/', function(req, res) {
 		if (req.user){
 			var pointsArr;
@@ -146,6 +146,7 @@ module.exports = function (app, passport, Points) {
 		});
 
 		usr.save(function(err) {
+			var totalPoints = 0;
 			if(err) {
 				console.log("error from signup" + err);
 				if (err.message=='Validation failed'){

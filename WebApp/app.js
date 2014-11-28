@@ -6,6 +6,7 @@ var http = require('http');
 var server = http.createServer(app);
 //var bodyParser = require('body-parser');
 var sessionSecret = require('./sessionSecret.js');
+var bcrypt = require('bcrypt');
 
 var mongodb = require('mongodb')
 var mongoose = require('mongoose');
@@ -16,8 +17,6 @@ var userModel = require('./mvc/models/user.js');
 var pointModel = require('./mvc/models/point.js');
 
 
-//Include passport
-require('./mvc/controllers/passport.js')(app, passport);
 
 mongoose.connect('localhost', 'SmileZone');
 var db = mongoose.connection;
@@ -25,6 +24,19 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback() {
 	console.log('Connected to DB');
 })
+
+// Password verification
+userModel.userSchema.methods.comparePassword = function(candidatePassword, cb) {
+	bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+		if(err) return cb(err);
+		cb(null, isMatch);
+	});
+};
+var User = mongoose.model('User', userModel.userSchema);
+
+//Include passport
+require('./mvc/controllers/passport.js')(app, passport, User);
+
 
 var Points = mongoose.model('Points', pointModel.pointsSchema);
 
@@ -48,6 +60,6 @@ app.configure(function() {
 
 });
 
-require('./mvc/controllers/routes.js')(app, passport, Points);
+require('./mvc/controllers/routes.js')(app, passport, Points, User);
 
 server.listen(port);

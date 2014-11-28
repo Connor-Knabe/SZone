@@ -7,16 +7,9 @@ var mongoose = require('mongoose');
 //Models
 var userModel = require('../models/user.js');
 
-module.exports = function (app, passport) {
+module.exports = function (app, passport, User) {
 
-	// Password verification
-	userModel.userSchema.methods.comparePassword = function(candidatePassword, cb) {
-		bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-			if(err) return cb(err);
-			cb(null, isMatch);
-		});
-	};
-	var User = mongoose.model('User', userModel.userSchema);
+	
 
 	passport.serializeUser(function(user, done) {
 		done(null, user.email);
