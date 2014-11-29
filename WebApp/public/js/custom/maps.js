@@ -52,6 +52,19 @@ function load_map(latitude, longitude){
     };
     map = new google.maps.Map(document.getElementById('map'),
     mapOptions);
+    GeoMarker = new GeolocationMarker();
+    GeoMarker.setCircleOptions({fillColor: '#808080'});
+
+    google.maps.event.addListenerOnce(GeoMarker, 'position_changed', function() {
+      map.setCenter(this.getPosition());
+      map.fitBounds(this.getBounds());
+    });
+
+    google.maps.event.addListener(GeoMarker, 'geolocation_error', function(e) {
+      alert('There was an error obtaining your position. Message: ' + e.message);
+    });
+
+    GeoMarker.setMap(map);
 }
 
 function toggleBounce() {
