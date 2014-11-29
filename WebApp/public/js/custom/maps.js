@@ -46,6 +46,8 @@ function get_gps(){
 }
 
 function load_map(latitude, longitude){
+	var myLatlng = new google.maps.LatLng(latitude,longitude);
+
     var mapOptions = {
         center: { lat: latitude, lng: longitude},
         zoom: 8
@@ -56,15 +58,17 @@ function load_map(latitude, longitude){
     GeoMarker.setCircleOptions({fillColor: '#808080'});
 
     google.maps.event.addListenerOnce(GeoMarker, 'position_changed', function() {
-      map.setCenter(this.getPosition());
-      map.fitBounds(this.getBounds());
+        map.setCenter(this.getPosition());
+        map.fitBounds(this.getBounds());
     });
 
     google.maps.event.addListener(GeoMarker, 'geolocation_error', function(e) {
-      alert('There was an error obtaining your position. Message: ' + e.message);
-    });
+        alert('There was an error obtaining your position. Message: ' + e.message);
+	});
 
     GeoMarker.setMap(map);
+
+    
 }
 
 function toggleBounce() {
