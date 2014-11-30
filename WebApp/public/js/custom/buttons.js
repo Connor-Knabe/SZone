@@ -28,9 +28,11 @@ function pt5 () {
 
 
 function note () {
-	alert("Note clicked");
-	$( "#notebox" ).show();
-
+	if ($("#notebox").css("display") == "none") {
+		$( "#notebox" ).show();
+    } else {
+		$( "#notebox" ).hide();
+    }
 }
 
 function load_binds(){
