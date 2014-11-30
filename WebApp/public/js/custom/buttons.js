@@ -29,6 +29,8 @@ function pt5 () {
 
 function note () {
 	alert("Note clicked");
+	$( "#notebox" ).show();
+
 }
 
 function load_binds(){

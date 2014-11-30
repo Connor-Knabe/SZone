@@ -42,6 +42,7 @@
                 get_gps();
                 load_binds();
                 checkbox();
+
             }
             function form_send(pointAmt){
                 $.ajax({
@@ -156,6 +157,10 @@
 				<br>
                 <div class="col-xs-12 info"> 
                     <button type="submit" id="note"  class="btn1 btn2 ">Add note</button>
+                </div>
+                <div id="notebox" style="display: none;"> 
+                	<br>
+                	<textarea name="comments" cols="25" rows="5">Add notes about your smile here.</textarea>
                 </div>
 
             </div>
