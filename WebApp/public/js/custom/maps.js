@@ -26,10 +26,8 @@ function get_gps(){
                     url: "/ip",
                 })
                 .done(function( data ) {
-
 					longitude = parseFloat(data.ip_info[1]);
 					latitude = parseFloat(data.ip_info[0]);
-					
 				    load_map(latitude,longitude);
 					$( "#ip" ).append( '<p id="red"> You have not allowed GPS tracking, using your IP address instead(less accurate). </p>');
                 });

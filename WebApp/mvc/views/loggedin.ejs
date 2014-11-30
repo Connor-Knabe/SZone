@@ -44,10 +44,13 @@
                 checkbox();
 
             }
-            function form_send(pointAmt,notes){
+            function form_send(pointAmt,notes,latitude,longitude){
 	            if (notes == "Add notes about your smile here."){
 					notes = "";
 	            } 
+	            
+	            
+	            alert (longitude);
                 $.ajax({
                     type: "POST",
                     url: "/addPoint",
@@ -55,7 +58,6 @@
                 })
                 .done(function( msg ) {
 					$("#notebox_area").val('Smile logged');
-
                 });
             }
         </script>
