@@ -36,11 +36,7 @@ function note (){
 }
 
 function notebox_click (){
-	alert("Clicked");
-
 	$("#notebox_area").val('');
-
-
 }
 
 function load_binds(){
@@ -58,7 +54,6 @@ function load_binds(){
 	$( "#notebox_area" ).unbind( "click", notebox_click );
     $('#notebox_area').bind('click', notebox_click);
 
-    
     $('#pt1').bind('touchstart', function(){
         $(this).addClass('btn2');
     }).bind('touchend', function(){
