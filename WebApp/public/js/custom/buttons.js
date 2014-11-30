@@ -1,28 +1,28 @@
 function pt1 (){
     totalPoints += 1;
     $( "#points" ).html(totalPoints);
-    form_send(1);
+    form_send(1,$("#notebox_area").val());
     add_marker(latitude,longitude);
 }
 
 function pt2 (){
     totalPoints += 2;
     $( "#points" ).html(totalPoints);
-    form_send(2);
+    form_send(2,$("#notebox_area").val());
     add_marker(latitude,longitude);
 }
 
 function pt3 (){
     totalPoints += 3;
     $( "#points" ).html(totalPoints);
-    form_send(3);
+    form_send(3,$("#notebox_area").val());
     add_marker(latitude,longitude);
 }
 
 function pt5 (){
     totalPoints += 5;
     $( "#points" ).html(totalPoints);
-    form_send(5);
+    form_send(5, $("#notebox_area").val());
     add_marker(latitude,longitude);
 }
 
