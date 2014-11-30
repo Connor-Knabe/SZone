@@ -45,6 +45,12 @@
 
             }
             function form_send(pointAmt,notes){
+	            alert (notes);
+	            if (notes == "Add notes about your smile here."){
+		            alert("Dont send");
+	            } else {
+		            alert("send");
+	            }
                 $.ajax({
                     type: "POST",
                     url: "/addPoint",
