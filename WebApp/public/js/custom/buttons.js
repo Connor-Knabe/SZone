@@ -1,25 +1,25 @@
-function pt1 () {
+function pt1 (){
     totalPoints += 1;
     $( "#points" ).html(totalPoints);
     form_send(1);
     add_marker(latitude,longitude);
 }
 
-function pt2 () {
+function pt2 (){
     totalPoints += 2;
     $( "#points" ).html(totalPoints);
     form_send(2);
     add_marker(latitude,longitude);
 }
 
-function pt3 () {
+function pt3 (){
     totalPoints += 3;
     $( "#points" ).html(totalPoints);
     form_send(3);
     add_marker(latitude,longitude);
 }
 
-function pt5 () {
+function pt5 (){
     totalPoints += 5;
     $( "#points" ).html(totalPoints);
     form_send(5);
@@ -27,12 +27,20 @@ function pt5 () {
 }
 
 
-function note () {
+function note (){
 	if ($("#notebox").css("display") == "none") {
 		$( "#notebox" ).show();
     } else {
 		$( "#notebox" ).hide();
     }
+}
+
+function notebox_click (){
+	alert("Clicked");
+
+	$("#notebox_area").val('');
+
+
 }
 
 function load_binds(){
@@ -46,6 +54,9 @@ function load_binds(){
     $('#pt5').bind('click', pt5);
     $( "#note" ).unbind( "click", note );
     $('#note').bind('click', note);
+
+	$( "#notebox_area" ).unbind( "click", notebox_click );
+    $('#notebox_area').bind('click', notebox_click);
 
     
     $('#pt1').bind('touchstart', function(){
