@@ -1,4 +1,4 @@
-function getDateTime() {
+var getDateTime = function () {
 
     var date = new Date();
 
@@ -19,3 +19,5 @@ function getDateTime() {
     return year + ":" + month + ":" + day + ":" + hour + ":" + min ;
 
 }
+
+module.exports.getDateTime = getDateTime;

@@ -1,7 +1,7 @@
 var request = require('request');
 var util = require('util')
 
-
+var helper = require('./helper.js')
 
 module.exports = function (app, passport, Points, User) {
 	app.get('/', function(req, res) {
@@ -31,8 +31,9 @@ module.exports = function (app, passport, Points, User) {
 	});
 
 	app.post('/addPoint', function(req, res) {
+		console.log(req.body.longitude);
 		var point = {
-			date: getDateTime(),
+			date: helper.getDateTime(),
 			loc:req.body.longitude+','+req.body.latitude,
 			pointAmt: req.body.pointValue,
 			notes: req.body.notes
@@ -143,7 +144,7 @@ module.exports = function (app, passport, Points, User) {
 
 		var pts = new Points({
 			email: req.body.email,
-			points: [{date:getDateTime(), pointAmt:'0', loc:""}],
+			points: [{date:helper.getDateTime(), pointAmt:'0', loc:""}],
 			notes: 'signup'
 		});
 

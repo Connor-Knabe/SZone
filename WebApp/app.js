@@ -62,4 +62,5 @@ app.configure(function() {
 
 require('./mvc/controllers/routes.js')(app, passport, Points, User);
 
+
 server.listen(port);
