@@ -41,6 +41,7 @@
             function init(){
                 get_gps();
                 load_binds();
+                checkbox();
             }
             function form_send(pointAmt){
                 $.ajax({
@@ -154,8 +155,7 @@
                 </div>
 				<br>
                 <div class="col-xs-12 info"> 
-	                Add note 
-	                <input name="checkbox_name" id="checkbox_id" type="checkbox" >
+                    <button type="submit" id="note"  class="btn1 btn2 ">Add note</button>
                 </div>
 
             </div>
