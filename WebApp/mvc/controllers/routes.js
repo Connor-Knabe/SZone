@@ -32,9 +32,10 @@ module.exports = function (app, passport, Points, User) {
 
 	app.post('/addPoint', function(req, res) {
 		var point = {
-			date: 'Today1',
+			date: getDateTime(),
 			loc:req.body.longitude+','+req.body.latitude,
-			pointAmt: req.body.pointValue
+			pointAmt: req.body.pointValue,
+			notes: req.body.notes
 		};
 		Points.findOneAndUpdate(
 			{email:req.user.email},
@@ -142,7 +143,8 @@ module.exports = function (app, passport, Points, User) {
 
 		var pts = new Points({
 			email: req.body.email,
-			points: [{date:Date.now, pointAmt:'0', loc:""}, {date:'L', pointAmt:'1', loc:"asf"}]
+			points: [{date:getDateTime(), pointAmt:'0', loc:""}],
+			notes: 'signup'
 		});
 
 		usr.save(function(err) {
