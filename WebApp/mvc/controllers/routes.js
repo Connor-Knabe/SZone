@@ -12,22 +12,45 @@ module.exports = function (app, passport, Points, User) {
 			var query = Points.where({email:req.user.email});
 			//If user is logged in check to see how many points they have
 			query.findOne(function(err, points) {
-					if(err) console.log("ERR for total points " + err);
-					if(err) return handleErr(err);
-					if(points){
-						pointsArr = points.points;
-						for (var i = 0; i < pointsArr.length; i++) {
-							totalPoints += parseInt(pointsArr[i].pointAmt);
-						}
-						res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints,ipinfo:"0"});
+				if(err) console.log("ERR for total points " + err);
+				if(err) return handleErr(err);
+				if(points){
+					pointsArr = points.points;
+					for (var i = 0; i < pointsArr.length; i++) {
+						totalPoints += parseInt(pointsArr[i].pointAmt);
 					}
+					res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints,ipinfo:"0"});
+				}
 			});
 		} else {
 			res.render('index.ejs', {action:"index", user:null, message: req.session.messages });
 		}
 	});
 	
-	
+	app.post('/lastTen', function(req, res) {
+		/*if (req.user){
+			var pointsArr;
+			var totalPoints = 0;
+
+			var query = Points.where({email:req.user.email});
+			//If user is logged in check to see how many points they have
+			query.findOne(function(err, points) {
+				if(err) console.log("ERR for total points " + err);
+				if(err) return handleErr(err);
+				if(points){
+					pointsArr = points.points;
+					for (var i = 0; i < pointsArr.length; i++) {
+						totalPoints += parseInt(pointsArr[i].pointAmt);
+					}
+					res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints,ipinfo:"0"});
+				}
+			});
+		} else {
+			res.render('index.ejs', {action:"index", user:null, message: req.session.messages });
+		}*/
+		
+		
+	});
 
 	app.post('/addPoint', function(req, res) {
 		console.log(req.body.latitude);
