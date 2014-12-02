@@ -26,9 +26,8 @@ module.exports = function (app, passport, Points, User) {
 			res.render('index.ejs', {action:"index", user:null, message: req.session.messages });
 		}
 	});
-	app.get('/map', function(req, res) {
-		res.render('map.ejs', {action:"index", user:null, message: req.session.messages });
-	});
+	
+	
 
 	app.post('/addPoint', function(req, res) {
 		console.log(req.body.latitude);
