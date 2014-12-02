@@ -34,7 +34,7 @@ module.exports = function (app, passport, Points, User) {
 		console.log(req.body.latitude);
 		var point = {
 			date: helper.getDateTime(),
-			loc:req.body.longitude+','+req.body.latitude,
+			loc:req.body.latitude+','+req.body.longitude,
 			pointAmt: req.body.pointValue,
 			notes: req.body.notes
 		};
