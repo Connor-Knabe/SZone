@@ -59,14 +59,16 @@
             }
             
             function form_last10(pointAmt,notes,latitude,longitude){
-                $.ajax({
+			    $.ajax({
                     type: "POST",
-                    url: "/last10",
-                    data: { longitude: longitude, latitude: latitude, pointValue:pointAmt, total:totalPoints, notes:notes }
+                    url: "/lastTen",
                 })
-                .done(function( msg ) {
-					$("#notebox_area").val('Smile logged');
+                .done(function( data ) {
+					locationArray = data.locationArray;
+					alert("LOC ARRAY" + locationArray[1]);
+
                 });
+
             }
             
             

@@ -49,7 +49,7 @@ module.exports = function (app, passport, Points, User) {
 					}
 
 					res.type('json');
-					res.send({ip_info:latLongArr});
+					res.send({locationArray:locationArray});
 				}
 			});
 
