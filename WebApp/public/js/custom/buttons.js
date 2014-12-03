@@ -34,8 +34,6 @@ function notebox_click (){
 }
 
 function last10 (){
-	alert("last10 clicked");//for debugging
-	
 	form_last10();
 }
 
