@@ -6,11 +6,7 @@ var helper = require('./helper.js')
 module.exports = function (app, passport, Points, User) {
 	app.get('/', function(req, res) {
 		if (req.user){
-			var pointsArr;
-			var totalPoints = 0;
-			console.log("Email / "+req.user.email);
 			getTotalPts(req.user.email,function(points){
-				console.log("Pts callback"+points);
 				res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:points,ipinfo:"0"});
 			});
 		} else {
@@ -93,23 +89,10 @@ module.exports = function (app, passport, Points, User) {
 
 	app.get('/signup', function(req, res) {
 		if (req.user){
-			var pointsArr;
-			var totalPoints = 0;
-			var query = Points.where({email:req.user.email});
-			//If user is logged in check to see how many points they have
-			query.findOne(function(err, points) {
-					if(err) console.log("ERR for total points " + err);
-					if(err) return handleErr(err);
-					if(points){
-						console.log("PTS"+points);
-						pointsArr = points.points;
-						for (var i = 0; i < pointsArr.length; i++) {
-							totalPoints += parseInt(pointsArr[i].pointAmt);
-						}
-						res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints, ipinfo:"0"});
-					}
-			});
-
+			getTotalPts(req.user.email,function(points){
+				res.render('loggedin.ejs',{user:req.user.firstName,email:req.user.email, totalPoints:points,ipinfo:"0"});
+		});
+						
 		} else {
 			res.render('index.ejs', {action:"signup", error:"none"});
 		}
@@ -194,25 +177,22 @@ module.exports = function (app, passport, Points, User) {
 	    res.redirect('/')
 	}
 
-	function getTotalPts(email1,callbackyo){
+	function getTotalPts(usrEmail,callbackyo){
 		console.log("Total Points");
-		var query = Points.where({email:email1});
+		var query = Points.where({email:usrEmail});
 		console.log("email"+email1);
 		//If user is logged in check to see how many points they have
 		query.findOne(function(err, points) {
 			console.log(err);
 			console.log("in find");
 			if(err) console.log("ERR for total points " + err);
-
 			if(err) return handleErr(err);
 			if(points){
 				var totalPoints = 0;
-				console.log("In pts");
 				pointsArr = points.points;
 				for (var i = 0; i < pointsArr.length; i++) {
 					totalPoints += parseInt(pointsArr[i].pointAmt);
 				}
-				console.log("Tt");
 				callbackyo(totalPoints);
 			}
 		});
