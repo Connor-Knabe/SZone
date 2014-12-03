@@ -38,7 +38,12 @@ module.exports = function (app, passport, Points, User) {
 				if(points){
 					pointsArr = points.points;
 					var locationArray = [];
-					for (var i = pointsArr.length-1; i > pointsArr.length-11; i--) {
+					var maxLen = 11;
+					if (pointsArr.length<10){
+						maxLen = pointsArr.length;
+					}
+
+					for (var i = pointsArr.length-1; i > pointsArr.length-maxLen; i--) {
 						locationArray.push(pointsArr[i].loc);
 						console.log("Loc" + locationArray[i]);
 					}
