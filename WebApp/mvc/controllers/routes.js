@@ -45,14 +45,7 @@ module.exports = function (app, passport, Points, User) {
 
 					for (var i = pointsArr.length-1; i > pointsArr.length-maxLen; i--) {
 						locationArray.push(pointsArr[i].loc);
-						console.log("Location from JSON"+pointsArr[i].loc + "["+i+"]");
 					}
-
-					for (var i = 0; i < locationArray.length;i++){
-
-						console.log("Loc" + locationArray[i]);
-					}
-
 
 
 					res.type('json');
@@ -67,7 +60,7 @@ module.exports = function (app, passport, Points, User) {
 	});
 
 	app.post('/addPoint', function(req, res) {
-		console.log(req.body.latitude);
+		console.log("LATITUDE"+req.body.latitude);
 		var point = {
 			date: helper.getDateTime(),
 			loc:req.body.latitude+','+req.body.longitude,
