@@ -26,11 +26,9 @@ module.exports = function (app, passport, Points, User) {
 			res.render('index.ejs', {action:"index", user:null, message: req.session.messages });
 		}
 	});
-	
+
 	app.post('/lastTen', function(req, res) {
 		if (req.user){
-			var pointsArr;
-			var totalPoints = 0;
 
 			var query = Points.where({email:req.user.email});
 			//If user is logged in check to see how many points they have
@@ -39,17 +37,21 @@ module.exports = function (app, passport, Points, User) {
 				if(err) return handleErr(err);
 				if(points){
 					pointsArr = points.points;
-					for (var i = 0; i < pointsArr.length; i++) {
-						totalPoints += parseInt(pointsArr[i].pointAmt);
+					var locationArray = [];
+					for (var i = pointsArr.length-1; i > pointsArr.length-11; i--) {
+						locationArray.push(pointsArr[i].loc);
+						console.log("Loc" + locationArray[i]);
 					}
-					res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totalPoints,ipinfo:"0"});
+
+					res.type('json');
+					res.send({ip_info:latLongArr});
 				}
 			});
-		} else {
-			res.render('index.ejs', {action:"index", user:null, message: req.session.messages });
-		}*/
-		
-		
+
+
+		}
+
+
 	});
 
 	app.post('/addPoint', function(req, res) {
@@ -71,8 +73,8 @@ module.exports = function (app, passport, Points, User) {
 	});
 
 	app.post('/ip', function(req,res) {
-		console.log("POST IP");	
-	
+		console.log("POST IP");
+
 		var ip = req.connection.remoteAddress;
 		request('http://www.ipinfo.io/'+ip, function (error, response, body) {
 			if (!error && response.statusCode == 200) {
@@ -83,7 +85,7 @@ module.exports = function (app, passport, Points, User) {
 
 				var latLongArr = jsonIp.loc.split(',')
 
-				
+
 				res.type('json');
 				res.send({ip_info:latLongArr});
 
@@ -182,7 +184,7 @@ module.exports = function (app, passport, Points, User) {
 				pts.save(function(err) {
 					console.log("points error: " +err);
 					res.redirect('/');
-	
+
 				});
 			}
 		});
