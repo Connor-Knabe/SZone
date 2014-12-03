@@ -177,7 +177,7 @@ module.exports = function (app, passport, Points, User) {
 	    res.redirect('/')
 	}
 
-	function getTotalPts(usrEmail,callbackyo){
+	function getTotalPts(usrEmail,callback){
 		console.log("Total Points");
 		var query = Points.where({email:usrEmail});
 		console.log("email"+email1);
@@ -193,7 +193,7 @@ module.exports = function (app, passport, Points, User) {
 				for (var i = 0; i < pointsArr.length; i++) {
 					totalPoints += parseInt(pointsArr[i].pointAmt);
 				}
-				callbackyo(totalPoints);
+				callback(totalPoints);
 			}
 		});
 	}
