@@ -68,6 +68,37 @@ function load_map(latitude, longitude){
 
     
 }
+function form_last10(){
+    $.ajax({
+        type: "POST",
+        url: "/lastTen",
+    })
+    .done(function( data ) {
+		locationArray = data.locationArray;
+		var latLongObj = {"first": { count: 0, latLongArr: [0, 0] }};
+		
+		console.log("Loc arr"+locationArray);
+		//latLongObj["first"].latLongArr.push(locationArray);
+
+		
+		/*for (var i = 0; i<locationArray.length; i++){
+			latLongObj[i] = { count: , clusters: [cluster] };
+			
+			latLongObj[i].latLong.push(locationArray[i].split(','));
+		}*/
+		
+		
+		for (var i = 0; i<latLongObj.length; i++){
+			alert("Latlong"+latLongObj[i]);
+			console.log("Num"+i);
+		}
+
+		
+
+    });
+
+}
+
 
 function toggleBounce() {
 
