@@ -28,7 +28,7 @@ module.exports = function (app, passport, Points, User) {
 	});
 	
 	app.post('/lastTen', function(req, res) {
-		/*if (req.user){
+		if (req.user){
 			var pointsArr;
 			var totalPoints = 0;
 
@@ -82,8 +82,6 @@ module.exports = function (app, passport, Points, User) {
 				console.log("location"+ jsonIp.loc);
 
 				var latLongArr = jsonIp.loc.split(',')
-				console.log("lat split"+ latLongArr[0]);
-				console.log("long split"+ latLongArr[1]);
 
 				
 				res.type('json');
