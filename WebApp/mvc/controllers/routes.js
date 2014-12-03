@@ -15,8 +15,8 @@ module.exports = function (app, passport, Points, User) {
 	});
 
 	app.post('/lastTen', function(req, res) {
+		console.log("In last10 route");
 		if (req.user){
-
 			var query = Points.where({email:req.user.email});
 			//If user is logged in check to see how many points they have
 			query.findOne(function(err, points) {
@@ -33,7 +33,6 @@ module.exports = function (app, passport, Points, User) {
 					for (var i = pointsArr.length-1; i > pointsArr.length-maxLen; i--) {
 						locationArray.push(pointsArr[i].loc);
 					}
-
 
 					res.type('json');
 					res.send({locationArray:locationArray});
@@ -180,7 +179,6 @@ module.exports = function (app, passport, Points, User) {
 	function getTotalPts(usrEmail,callback){
 		console.log("Total Points");
 		var query = Points.where({email:usrEmail});
-		console.log("email"+email1);
 		//If user is logged in check to see how many points they have
 		query.findOne(function(err, points) {
 			console.log(err);

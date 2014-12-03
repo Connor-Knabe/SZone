@@ -58,15 +58,15 @@
                 });
             }
             
-            function form_last10(pointAmt,notes,latitude,longitude){
+            function form_last10(){
+	            alert("form_last10");
 			    $.ajax({
                     type: "POST",
                     url: "/lastTen",
                 })
                 .done(function( data ) {
 					locationArray = data.locationArray;
-					alert("LOC ARRAY" + locationArray[1]);
-
+					alert("Finished");
                 });
 
             }
