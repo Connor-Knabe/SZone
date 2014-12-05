@@ -29,7 +29,7 @@ module.exports = function (app, passport, Points, User) {
 					if (pointsArr.length<10){
 						maxLen = pointsArr.length;
 					}
-
+					
 					for (var i = pointsArr.length-1; i > pointsArr.length-maxLen; i--) {
 						locationArray.push(pointsArr[i].loc);
 					}
@@ -145,7 +145,7 @@ module.exports = function (app, passport, Points, User) {
 
 		var pts = new Points({
 			email: req.body.email,
-			points: [{date:helper.getDateTime(), pointAmt:'0', loc:""}],
+			points: [{date:helper.getDateTime(), pointAmt:'0', gps:{latitude:"",longitude:""}],
 			notes: 'signup'
 		});
 
