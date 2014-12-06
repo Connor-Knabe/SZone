@@ -29,7 +29,7 @@ module.exports = function (app, passport, Points, User) {
 					if (pointsArr.length<10){
 						maxLen = pointsArr.length;
 					}
-					
+
 					for (var i = pointsArr.length-1; i > pointsArr.length-maxLen; i--) {
 						locationArray.push(pointsArr[i].loc);
 					}
@@ -49,7 +49,7 @@ module.exports = function (app, passport, Points, User) {
 		console.log("LATITUDE"+req.body.latitude);
 		var point = {
 			date: helper.getDateTime(),
-			loc:req.body.latitude+','+req.body.longitude,
+			gps:{latitude:req.body.latitude, longitude:req.body.longitude},
 			pointAmt: req.body.pointValue,
 			notes: req.body.notes
 		};
@@ -91,7 +91,7 @@ module.exports = function (app, passport, Points, User) {
 			getTotalPts(req.user.email,function(points){
 				res.render('loggedin.ejs',{user:req.user.firstName,email:req.user.email, totalPoints:points,ipinfo:"0"});
 		});
-						
+
 		} else {
 			res.render('index.ejs', {action:"signup", error:"none"});
 		}
@@ -145,7 +145,7 @@ module.exports = function (app, passport, Points, User) {
 
 		var pts = new Points({
 			email: req.body.email,
-			points: [{date:helper.getDateTime(), pointAmt:'0', gps:{latitude:"",longitude:""}],
+			points: [{date:helper.getDateTime(), pointAmt:'0', gps:{latitude:"",longitude:""}}],
 			notes: 'signup'
 		});
 
