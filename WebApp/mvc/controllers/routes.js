@@ -60,6 +60,8 @@ module.exports = function (app, passport, Points, User) {
 				console.log("error during add point" + err);
 				res.redirect('/#profile');
 			} 
+			res.redirect('/#profile');
+
 		});
 	});
 
