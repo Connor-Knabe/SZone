@@ -47,20 +47,20 @@ module.exports = function (app, passport, Points, User) {
 
 	app.post('/addPoint', function(req, res) {
 		console.log("LATITUDE"+req.body.latitude);
-		var point = {
-			date: helper.getDateTime(),
-			gps:{latitude:req.body.latitude, longitude:req.body.longitude},
-			pointAmt: req.body.pointValue,
+	
+			
+		var pts = new Points({
+			email: req.user.email,
+			points: {date:helper.getDateTime(), pointAmt:req.body.pointValue, gps:{latitude:req.body.latitude,longitude:req.body.longitude}},
 			notes: req.body.notes
-		};
-		Points.findOneAndUpdate(
-			{email:req.user.email},
-			{$push: {points:point}},
-		    {safe: true, upsert: true},
-	    	function(err, model) {
+		});
+		
+		pts.save(function(err) {
+			if(err) {
+				console.log("error during add point" + err);
 				res.redirect('/#profile');
-			}
-		)
+			} 
+		});
 	});
 
 	app.post('/ip', function(req,res) {
@@ -145,7 +145,7 @@ module.exports = function (app, passport, Points, User) {
 
 		var pts = new Points({
 			email: req.body.email,
-			points: [{date:helper.getDateTime(), pointAmt:'0', gps:{latitude:"",longitude:""}}],
+			points: {date:helper.getDateTime(), pointAmt:'0', gps:{latitude:"",longitude:""}},
 			notes: 'signup'
 		});
 
