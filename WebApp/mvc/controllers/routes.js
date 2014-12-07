@@ -147,7 +147,9 @@ module.exports = function (app, passport, Points, User) {
 
 		var pts = new Points({
 			email: req.body.email,
-			points: {date:helper.getDateTime(), pointAmt:'0', gps:{latitude:"",longitude:""}},
+			date:helper.getDateTime(),
+			pointAmt:'0',
+			gps:{latitude:"",longitude:""},
 			notes: 'signup'
 		});
 
