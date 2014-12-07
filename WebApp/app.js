@@ -18,7 +18,7 @@ var pointModel = require('./mvc/models/point.js');
 
 
 
-mongoose.connect('localhost', 'SmileZone2');
+mongoose.connect('localhost', 'smilezone3');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback() {
