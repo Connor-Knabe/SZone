@@ -6,9 +6,9 @@ var helper = require('./helper.js')
 module.exports = function (app, passport, Points, User) {
 	app.get('/', function(req, res) {
 		if (req.user){
-			getTotalPts(req.user.email,function(points){
-				res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:points,ipinfo:"0"});
-			});
+			//getTotalPts(req.user.email,function(points){
+				res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:"0",ipinfo:"0"});
+			//});
 		} else {
 			res.render('index.ejs', {action:"index", user:null, message: req.session.messages });
 		}
