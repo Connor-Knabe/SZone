@@ -51,15 +51,19 @@ module.exports = function (app, passport, Points, User) {
 			
 		var pts = new Points({
 			email: req.user.email,
-			points: {date:helper.getDateTime(), pointAmt:req.body.pointValue, gps:{latitude:req.body.latitude,longitude:req.body.longitude}},
+			date:helper.getDateTime(),
+			pointAmt:req.body.pointValue,
+			gps:{latitude:req.body.latitude,longitude:req.body.longitude},
 			notes: req.body.notes
 		});
+		
 		
 		pts.save(function(err) {
 			if(err) {
 				console.log("error during add point" + err);
 				res.redirect('/#profile');
 			} 
+			console.log("Saving point");
 			res.redirect('/#profile');
 
 		});
