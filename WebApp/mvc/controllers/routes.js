@@ -7,12 +7,12 @@ module.exports = function (app, passport, Points, User, db) {
 	app.get('/', function(req, res) {
 		if (req.user){
 			
-			var totall = getTotalPts(req.user.email);
-			res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totall,ipinfo:"0"});
+			//var totall = getTotalPts(req.user.email);
+			//res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totall,ipinfo:"0"});
 
-			//getTotalPts(req.user.email,function(points){
+			getTotalPts(req.user.email,function(points){
 				res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:"0",ipinfo:"0"});
-			//});
+			});
 		} else {
 			res.render('index.ejs', {action:"index", user:null, message: req.session.messages });
 		}
@@ -192,16 +192,37 @@ module.exports = function (app, passport, Points, User, db) {
 		console.log("Total Points");
 		
 		
-		var results = Points.aggregate(
+		var results = Points.aggregate([
 	    { $match : {email : "con@con.com"} },
 	    { $group : { _id : "$email", totalPoints : { $sum : { $add: ["$pointAmt"] } } } 
-	    });
+	    }],{}, callback(results.totalPoints));
 	    
-	    console.log("TotalPoints"+results.totalPoints);
+	    //console.log("TotalPoints"+results.totalPoints);
 		
-		return results.totalPoints;
+		//return results.totalPoints;
 		
-		
+		 
+		/*	 example
+			 
+			 Flat.aggregate([
+        { $match: {$and: rules } },
+        {
+            $project: {
+                _id: 0, // let's remove bson id's from request's result
+                price: 1, // we need this field
+                district: '$address.district' // and let's turn the nested field into usual field (usual renaming)
+            }
+        },
+        {
+            $group: {
+                _id: '$district', // grouping key - group by field district
+                minPrice: { $min: '$price'}, // we need some stats for each group (for each district)
+                maxPrice: { $max: '$price'},
+                flatsCount: { $sum: 1 }
+            }
+        }
+    ], {}, callback);
+		*/
 		
 		
 		
