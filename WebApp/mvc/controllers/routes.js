@@ -186,7 +186,17 @@ module.exports = function (app, passport, Points, User) {
 
 	function getTotalPts(usrEmail,callback){
 		console.log("Total Points");
-		var query = Points.where({email:usrEmail});
+		
+		
+		var results = db.points.aggregate(
+	    { $match : {email : "con@con.com"} },
+	    { $group : { _id : "$email", totalPoints : { $sum : { $add: ["$pointAmt"] } } } 
+	    });
+	    
+	    console.log("TotalPoints"+totalPoints);
+		
+		return totalPoints;
+		/*var query = Points.where({email:usrEmail});
 		//If user is logged in check to see how many points they have
 		query.findOne(function(err, points) {
 			console.log(err);
@@ -201,6 +211,6 @@ module.exports = function (app, passport, Points, User) {
 				}
 				callback(totalPoints);
 			}
-		});
+		});*/
 	}
 }
