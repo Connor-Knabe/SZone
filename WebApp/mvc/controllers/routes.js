@@ -3,7 +3,7 @@ var util = require('util')
 
 var helper = require('./helper.js')
 
-module.exports = function (app, passport, Points, User) {
+module.exports = function (app, passport, Points, User, db) {
 	app.get('/', function(req, res) {
 		if (req.user){
 			
@@ -188,21 +188,26 @@ module.exports = function (app, passport, Points, User) {
 	    res.redirect('/')
 	}
 
-	function getTotalPts(usrEmail){
+	function getTotalPts(usrEmail,callback){
 		console.log("Total Points");
 		
 		
-		var results = db.points.aggregate(
+		var results = Points.aggregate(
 	    { $match : {email : "con@con.com"} },
 	    { $group : { _id : "$email", totalPoints : { $sum : { $add: ["$pointAmt"] } } } 
 	    });
 	    
-	    console.log("TotalPoints"+totalPoints);
+	    console.log("TotalPoints"+results.totalPoints);
 		
-		return totalPoints;
+		return results.totalPoints;
+		
+		
+		
+		
+		
 		/*var query = Points.where({email:usrEmail});
 		//If user is logged in check to see how many points they have
-		query.findOne(function(err, points) {
+		query.find(function(err, points) {
 			console.log(err);
 			console.log("in find");
 			if(err) console.log("ERR for total points " + err);

@@ -60,7 +60,7 @@ app.configure(function() {
 
 });
 
-require('./mvc/controllers/routes.js')(app, passport, Points, User);
+require('./mvc/controllers/routes.js')(app, passport, Points, User, db);
 
 
 server.listen(port);
