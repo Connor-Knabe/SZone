@@ -11,7 +11,7 @@ module.exports = function (app, passport, Points, User, db) {
 			//res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totall,ipinfo:"0"});
 
 			getTotalPts(req.user.email,function(points){
-				res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:"0",ipinfo:"0"});
+				res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:points,ipinfo:"0"});
 			});
 		} else {
 			res.render('index.ejs', {action:"index", user:null, message: req.session.messages });
@@ -198,7 +198,7 @@ module.exports = function (app, passport, Points, User, db) {
 	    }, function(err,res){
 		    if (err) console.log("Error"+err);
 		    
-			callback(totalPoints);
+			callback(res[0].totalPoints);
 
 		    //console.log(res[0].totalPoints);
 		    
