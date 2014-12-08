@@ -189,65 +189,15 @@ module.exports = function (app, passport, Points, User, db) {
 	}
 
 	function getTotalPts(usrEmail,callback){
-		console.log("Total Points");
-		
-		
+			
 		var results = Points.aggregate(
 	    { $match : {email : "con@con.com"} },
 	    { $group : { _id : "$email", totalPoints : { $sum : { $add: ["$pointAmt"] } } } 
 	    }, function(err,res){
 		    if (err) console.log("Error"+err);
 		    
-			callback(res[0].totalPoints);
-
-		    //console.log(res[0].totalPoints);
-		    
+			callback(res[0].totalPoints);	    
 	    });
 	    
-	    //console.log("TotalPoints"+results.totalPoints);
-		
-		//return results.totalPoints;
-		
-		 
-		/*	 example
-			 
-			 Flat.aggregate([
-        { $match: {$and: rules } },
-        {
-            $project: {
-                _id: 0, // let's remove bson id's from request's result
-                price: 1, // we need this field
-                district: '$address.district' // and let's turn the nested field into usual field (usual renaming)
-            }
-        },
-        {
-            $group: {
-                _id: '$district', // grouping key - group by field district
-                minPrice: { $min: '$price'}, // we need some stats for each group (for each district)
-                maxPrice: { $max: '$price'},
-                flatsCount: { $sum: 1 }
-            }
-        }
-    ], {}, callback);
-		*/
-		
-		
-		
-		/*var query = Points.where({email:usrEmail});
-		//If user is logged in check to see how many points they have
-		query.find(function(err, points) {
-			console.log(err);
-			console.log("in find");
-			if(err) console.log("ERR for total points " + err);
-			if(err) return handleErr(err);
-			if(points){
-				var totalPoints = 0;
-				pointsArr = points.points;
-				for (var i = 0; i < pointsArr.length; i++) {
-					totalPoints += parseInt(pointsArr[i].pointAmt);
-				}
-				callback(totalPoints);
-			}
-		});*/
 	}
 }
