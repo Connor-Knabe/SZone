@@ -198,7 +198,9 @@ module.exports = function (app, passport, Points, User, db) {
 	    }, function(err,res){
 		    if (err) console.log("Error"+err);
 		    
-		    console.log(res);
+			callback(totalPoints);
+
+		    //console.log(res[0].totalPoints);
 		    
 	    });
 	    
