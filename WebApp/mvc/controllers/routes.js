@@ -6,6 +6,10 @@ var helper = require('./helper.js')
 module.exports = function (app, passport, Points, User) {
 	app.get('/', function(req, res) {
 		if (req.user){
+			
+			var totall = getTotalPts(req.user.email);
+			res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totall,ipinfo:"0"});
+
 			//getTotalPts(req.user.email,function(points){
 				res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:"0",ipinfo:"0"});
 			//});
@@ -184,7 +188,7 @@ module.exports = function (app, passport, Points, User) {
 	    res.redirect('/')
 	}
 
-	function getTotalPts(usrEmail,callback){
+	function getTotalPts(usrEmail){
 		console.log("Total Points");
 		
 		
