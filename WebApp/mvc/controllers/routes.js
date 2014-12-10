@@ -21,29 +21,7 @@ module.exports = function (app, passport, Points, User, db) {
 	app.post('/lastTen', function(req, res) {
 		console.log("In last10 route");
 		if (req.user){
-			var query = Points.where({email:req.user.email});
-			//If user is logged in check to see how many points they have
-			query.findOne(function(err, points) {
-				if(err) console.log("ERR for total points " + err);
-				if(err) return handleErr(err);
-				if(points){
-					pointsArr = points.points;
-					var locationArray = [];
-					var maxLen = 11;
-					if (pointsArr.length<10){
-						maxLen = pointsArr.length;
-					}
-
-					for (var i = pointsArr.length-1; i > pointsArr.length-maxLen; i--) {
-						locationArray.push(pointsArr[i].loc);
-					}
-
-					res.type('json');
-					res.send({locationArray:locationArray});
-				}
-			});
-
-
+	
 		}
 
 
