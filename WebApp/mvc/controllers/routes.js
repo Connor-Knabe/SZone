@@ -21,7 +21,9 @@ module.exports = function (app, passport, Points, User, db) {
 	app.post('/lastTen', function(req, res) {
 		console.log("In last10 route");
 		if (req.user){
-	
+			getTotalPts(req.user.email,function(points){
+				//Send the JSON to the page
+			});	
 		}
 
 
@@ -31,7 +33,7 @@ module.exports = function (app, passport, Points, User, db) {
 		console.log("LATITUDE"+req.body.latitude);
 	
 			
-		var pts = new Points({
+		var pts = new Points{(
 			email: req.user.email,
 			date:helper.getDateTime(),
 			pointAmt:req.body.pointValue,
@@ -173,9 +175,24 @@ module.exports = function (app, passport, Points, User, db) {
 	    { $group : { _id : "$email", totalPoints : { $sum : { $add: ["$pointAmt"] } } } 
 	    }, function(err,res){
 		    if (err) console.log("Error"+err);
-		    
 			callback(res[0].totalPoints);	    
 	    });
 	    
+	}
+	
+	
+	function findLastTen(usrEmail,callback){
+		var results = Points.aggregate(
+	   	{ $sort: {_id:-1}},
+	    { $match : {email : "con@con.com"} },
+	    { $limit : 5  } 
+	    }, function(err,res){
+		    if (err) console.log("Error"+err);
+			callback(res[0].totalPoints);	    
+	    });
+	    
+	    
+			
+
 	}
 }
