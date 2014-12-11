@@ -26,7 +26,7 @@ module.exports = function (app, passport, Points, User, db) {
 				console.log("Results"+results);
 				
 				res.type('json');
-				res.send(results);
+				res.send({resp:results});
 				
 			});	
 		}

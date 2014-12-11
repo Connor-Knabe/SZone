@@ -74,25 +74,9 @@ function form_last10(){
         url: "/lastTen",
     })
     .done(function( data ) {
-		locationArray = data.locationArray;
-		var latLongObj = {"first": { count: 0, latLongArr: [0, 0] }};
+		resultsArray = data.results;
 		
-		console.log("Loc arr"+locationArray);
-		//latLongObj["first"].latLongArr.push(locationArray);
-
-		
-		/*for (var i = 0; i<locationArray.length; i++){
-			latLongObj[i] = { count: , clusters: [cluster] };
-			
-			latLongObj[i].latLong.push(locationArray[i].split(','));
-		}*/
-		
-		
-		for (var i = 0; i<latLongObj.length; i++){
-			alert("Latlong"+latLongObj[i]);
-			console.log("Num"+i);
-		}
-
+		alert (data.resp);
 		
 
     });
