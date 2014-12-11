@@ -21,7 +21,7 @@ module.exports = function (app, passport, Points, User, db) {
 	app.post('/lastTen', function(req, res) {
 		console.log("In last10 route");
 		if (req.user){
-			getTotalPts(req.user.email,function(results){
+			findLastTen(req.user.email,function(results){
 				//Send the JSON to the page
 				console.log("Results"+results);
 				
@@ -188,7 +188,7 @@ module.exports = function (app, passport, Points, User, db) {
 	   	{ $sort: {_id:-1}},
 	    { $match : {email : "con@con.com"} },
 	    { $limit : 5  } 
-	    }, function(err,res){
+	    , function(err,res){
 		    if (err) console.log("Error"+err);
 			callback(res);	    
 	    });
