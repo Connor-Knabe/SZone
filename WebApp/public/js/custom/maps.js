@@ -74,9 +74,15 @@ function form_last10(){
         url: "/lastTen",
     })
     .done(function( data ) {
-		resultsArray = data.results;
+		var resultsArray = data.queryResults;
 		
-		alert (data.resp);
+
+		for(var i=0;i<resultsArray.length;i++){
+		    add_marker(resultsArray[i].gps.latitude, resultsArray[i].gps.longitude)
+		alert("Marker added");
+		    
+		}
+		
 		
 
     });
