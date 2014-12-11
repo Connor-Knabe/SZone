@@ -23,7 +23,7 @@ module.exports = function (app, passport, Points, User, db) {
 		if (req.user){
 			findLastTen(req.user.email,function(results){
 				//Send the JSON to the page
-				console.log("Results"+results);
+				console.log("Results"+results[1].gps.latitude);
 				
 			});	
 		}
