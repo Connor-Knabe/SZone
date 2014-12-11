@@ -23,7 +23,10 @@ module.exports = function (app, passport, Points, User, db) {
 		if (req.user){
 			findLastTen(req.user.email,function(results){
 				//Send the JSON to the page
-				console.log("Results"+results[1].gps.latitude);
+				console.log("Results"+results);
+				
+				res.type('json');
+				res.send(results);
 				
 			});	
 		}
@@ -187,7 +190,7 @@ module.exports = function (app, passport, Points, User, db) {
 		var results = Points.aggregate(
 	   	{ $sort: {_id:-1}},
 	    { $match : {email : "con@con.com"} },
-	    { $limit : 5  } 
+	    { $limit : 10  } 
 	    , function(err,res){
 		    if (err) console.log("Error"+err);
 			callback(res);	    
