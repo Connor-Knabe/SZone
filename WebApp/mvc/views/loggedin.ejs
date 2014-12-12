@@ -45,7 +45,7 @@
 
             }
             function form_send(pointAmt,notes,latitude,longitude){
-	            if (notes == "Add notes about your smile here." || "Smile logged"){
+	            if (notes == "Add notes about your smile here."){
 					notes = "";
 	            } 
                 $.ajax({
@@ -54,7 +54,7 @@
                     data: { longitude: longitude, latitude: latitude, pointValue:pointAmt, total:totalPoints, notes:notes }
                 })
                 .done(function( msg ) {
-					$("#notebox_area").val('Smile logged');
+					//$("#notebox_area").val('Smile logged');
                 });
             }
             
