@@ -55,7 +55,12 @@
                 })
                 .done(function( msg ) {
 					$("#notebox_area").val("");
-					$("#note_submitted").append('Successfully submitted');
+
+					 $("#note_submitted")
+					 .hide()
+					 .html("<h6>Successfully submitted</h6>")
+					 .prependTo("#note_submitted")
+					 .fadeIn(1500);
                 });
             }
             
