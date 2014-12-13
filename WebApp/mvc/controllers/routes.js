@@ -6,7 +6,7 @@ var helper = require('./helper.js')
 module.exports = function (app, passport, Points, User, db) {
 	app.get('/', function(req, res) {
 		if (req.user){
-			
+
 			//var totall = getTotalPts(req.user.email);
 			//res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totall,ipinfo:"0"});
 
@@ -19,25 +19,35 @@ module.exports = function (app, passport, Points, User, db) {
 	});
 
 	app.post('/lastTen', function(req, res) {
+		if (req.user){
+			findLastTen(req.user.email,function(results){
+				//Send the JSON to the page
+				console.log("Results"+results);
+
+				res.type('json');
+				res.send({queryResults:results});
+
+			});
+		}
+	});
+
+	app.post('/loadNotes', function(req, res) {
 		console.log("In last10 route");
 		if (req.user){
 			findLastTen(req.user.email,function(results){
 				//Send the JSON to the page
 				console.log("Results"+results);
-				
 				res.type('json');
 				res.send({queryResults:results});
-				
-			});	
+
+			});
 		}
-
-
 	});
 
 	app.post('/addPoint', function(req, res) {
 		console.log("LATITUDE"+req.body.latitude);
-	
-			
+
+
 		var pts = new Points({
 			email: req.user.email,
 			date:helper.getDateTime(),
@@ -45,13 +55,13 @@ module.exports = function (app, passport, Points, User, db) {
 			gps:{latitude:req.body.latitude,longitude:req.body.longitude},
 			notes: req.body.notes
 		});
-		
-		
+
+
 		pts.save(function(err) {
 			if(err) {
 				console.log("error during add point" + err);
 				res.redirect('/#profile');
-			} 
+			}
 			console.log("Saving point");
 			res.redirect('/#profile');
 
@@ -174,27 +184,27 @@ module.exports = function (app, passport, Points, User, db) {
 	}
 
 	function getTotalPts(usrEmail,callback){
-			
+
 		var results = Points.aggregate(
 	    { $match : {email : usrEmail} },
-	    { $group : { _id : "$email", totalPoints : { $sum : { $add: ["$pointAmt"] } } } 
+	    { $group : { _id : "$email", totalPoints : { $sum : { $add: ["$pointAmt"] } } }
 	    }, function(err,res){
 		    if (err) console.log("Error"+err);
-			callback(res[0].totalPoints);	    
+			callback(res[0].totalPoints);
 	    });
-	    
+
 	}
-	
-	
+
+
 	function findLastTen(usrEmail,callback){
 		var results = Points.aggregate(
 	   	{ $sort: {_id:-1}},
 	    { $match : {email : "con@con.com"} },
-	    { $limit : 10  } 
+	    { $limit : 10  }
 	    , function(err,res){
 		    if (err) console.log("Error"+err);
-			callback(res);	    
+			callback(res);
 	    });
-	
+
 	}
 }
