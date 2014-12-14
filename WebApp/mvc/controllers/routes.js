@@ -20,7 +20,7 @@ module.exports = function (app, passport, Points, User, db) {
 
 	app.post('/lastTen', function(req, res) {
 		if (req.user){
-			findLastTen(req.user.email,function(results){
+			findLastTen(req.user.email,10,function(results){
 				//Send the JSON to the page
 				console.log("Results"+results);
 
@@ -34,7 +34,7 @@ module.exports = function (app, passport, Points, User, db) {
 	app.post('/loadNotes', function(req, res) {
 		console.log("In last10 route");
 		if (req.user){
-			findLastTen(req.user.email,function(results){
+			findLastTen(req.user.email,10,function(results){
 				//Send the JSON to the page
 				console.log("Results"+results);
 				res.type('json');
@@ -196,11 +196,11 @@ module.exports = function (app, passport, Points, User, db) {
 	}
 
 
-	function findLastTen(usrEmail,callback){
+	function findLastTen(usrEmail,resultNum,callback){
 		var results = Points.aggregate(
 	   	{ $sort: {_id:-1}},
 	    { $match : {email : "con@con.com"} },
-	    { $limit : 10  }
+	    { $limit : resultNum  }
 	    , function(err,res){
 		    if (err) console.log("Error"+err);
 			callback(res);
