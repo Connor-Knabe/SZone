@@ -1,7 +1,7 @@
 var request = require('request');
-var util = require('util')
-
-var helper = require('./helper.js')
+var util = require('util');
+var sanitizer = require('sanitizer');
+var helper = require('./helper.js');
 
 module.exports = function (app, passport, Points, User, db) {
 	app.get('/', function(req, res) {
@@ -53,7 +53,7 @@ module.exports = function (app, passport, Points, User, db) {
 			date:helper.getDateTime(),
 			pointAmt:req.body.pointValue,
 			gps:{latitude:req.body.latitude,longitude:req.body.longitude},
-			notes: req.body.notes
+			notes: sanitizer.escape(req.body.notes)
 		});
 
 
