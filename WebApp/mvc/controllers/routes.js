@@ -32,7 +32,7 @@ module.exports = function (app, passport, Points, User, db) {
 	});
 
 	app.post('/loadNotes', function(req, res) {
-		console.log("In last10 route");
+		console.log("In loadNotes route");
 		if (req.user){
 			findPointLog(req.user.email,10,function(results){
 				//Send the JSON to the page
