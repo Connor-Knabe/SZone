@@ -14,6 +14,7 @@
 	    "mongodb": "latest",
 	    "body-parser": "1.9.2",
 	    "require": "latest",
-	    "util":"latest"
+	    "util":"latest",
+	    "sanitizer":"latest"
 	}
 }
