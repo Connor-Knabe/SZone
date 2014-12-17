@@ -37,7 +37,7 @@ function get_gps(){
             },
             {
                 enableHighAccuracy : true,
-                timeout : 2000,
+                timeout : 10000,
                 maximumAge : 1000
             });
 	} else {
