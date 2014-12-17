@@ -10,6 +10,8 @@ function load_notes(){
                 //add note that is blank			    
 			} else {
 				$( "#notes" ).append( "<p>"+resultsArray[i].notes+"</p>" );
+				//    var parsedDate = $.format.parseDate(resultsArray[i].date);
+				
 			}
 			
 		}

@@ -20,7 +20,9 @@ function get_gps(){
                 latitude = position.coords.latitude;
 				load_map(latitude,longitude);
             }, function (error) {
-                
+                alert("Get_gps error"+error.code);
+				alert("Get_gps error"+error.message);
+
                  $.ajax({
                     type: "POST",
                     url: "/ip",
@@ -35,7 +37,7 @@ function get_gps(){
             },
             {
                 enableHighAccuracy : true,
-                timeout : 10000,
+                timeout : 2000,
                 maximumAge : 1000
             });
 	} else {
