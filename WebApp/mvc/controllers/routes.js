@@ -1,7 +1,7 @@
 var request = require('request');
 var util = require('util');
 var sanitizer = require('sanitizer');
-var helper = require('./helper.js');
+var moment = require('moment');
 
 module.exports = function (app, passport, Points, User, db) {
 	app.get('/', function(req, res) {
@@ -49,7 +49,7 @@ module.exports = function (app, passport, Points, User, db) {
 
 		var pts = new Points({
 			email: req.user.email,
-			date:helper.moment(),
+			date:moment(),
 			pointAmt:req.body.pointValue,
 			gps:{latitude:req.body.latitude,longitude:req.body.longitude},
 			notes: sanitizer.escape(req.body.notes)
@@ -149,7 +149,7 @@ module.exports = function (app, passport, Points, User, db) {
 
 		var pts = new Points({
 			email: req.body.email,
-			date:helper.moment(),
+			date:moment(),
 			pointAmt:'0',
 			gps:{latitude:"",longitude:""},
 			notes: 'signup'
