@@ -16,6 +16,7 @@
 	    "require": "latest",
 	    "util":"latest",
 	    "sanitizer":"latest",
-	    "moment":"latest"
+	    "moment":"latest",
+		"moment-timezone":"latest"
 	}
 }
