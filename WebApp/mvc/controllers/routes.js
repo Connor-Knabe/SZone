@@ -49,7 +49,7 @@ module.exports = function (app, passport, Points, User, db) {
 
 		var pts = new Points({
 			email: req.user.email,
-			date:helper.getDateTime(),
+			date:helper.moment(),
 			pointAmt:req.body.pointValue,
 			gps:{latitude:req.body.latitude,longitude:req.body.longitude},
 			notes: sanitizer.escape(req.body.notes)
@@ -149,7 +149,7 @@ module.exports = function (app, passport, Points, User, db) {
 
 		var pts = new Points({
 			email: req.body.email,
-			date:helper.getDateTime(),
+			date:helper.moment(),
 			pointAmt:'0',
 			gps:{latitude:"",longitude:""},
 			notes: 'signup'
