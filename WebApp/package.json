@@ -1,22 +1,22 @@
 {
-	"name": "SmileZone",
-	"description": "App that tracks your smiles :)",
-	"version": "0.0.1",
-	"main": "server.js",
-	"dependencies" : {
-	    "express" : "3.4.8", 
-	    "ejs" : "0.8.5",
-	    "mongoose" : "3.8.8", 			
-	    "passport" : "0.2.0", 	
-	    "passport-local" : "0.1.6",	
-	    "bcrypt" : "latest",
-	    "now":  ">=0.0.1",
-	    "mongodb": "latest",
-	    "body-parser": "1.9.2",
-	    "require": "latest",
-	    "util":"latest",
-	    "sanitizer":"latest",
-	    "moment":"latest",
-		"moment-timezone":"latest"
-	}
+  "name": "SmileZone",
+  "description": "App that tracks your smiles :)",
+  "version": "0.0.1",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt": "latest",
+    "body-parser": "1.9.2",
+    "ejs": "0.8.5",
+    "express": "3.4.8",
+    "moment": "latest",
+    "moment-timezone": "^0.2.5",
+    "mongodb": "latest",
+    "mongoose": "3.8.8",
+    "now": ">=0.0.1",
+    "passport": "0.2.0",
+    "passport-local": "0.1.6",
+    "require": "latest",
+    "sanitizer": "latest",
+    "util": "latest"
+  }
 }
