@@ -152,7 +152,7 @@ module.exports = function (app, passport, Points, User, db) {
 			date:moment(),
 			pointAmt:'0',
 			gps:{latitude:"",longitude:""},
-			notes: 'signup'
+			notes: ''
 		});
 
 		usr.save(function(err) {
