@@ -198,7 +198,7 @@ module.exports = function (app, passport, Points, User, db) {
 	function findPointLog(usrEmail,resultNum,callback){
 		var results = Points.aggregate(
 	   	{ $sort: {_id:-1}},
-	    { $match : {email : "con@con.com"} },
+	    { $match : {email : usrEmail} },
 	    { $limit : resultNum  }
 	    , function(err,res){
 		    if (err) console.log("Error"+err);
