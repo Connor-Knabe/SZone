@@ -168,7 +168,7 @@ module.exports = function (app, passport, Points, User, db) {
 			} else {
 				pts.save(function(err) {
 					console.log("points error: " +err);
-					res.redirect('/');
+					res.render('index.ejs', {action:"success", error:"blank"});
 
 				});
 			}
