@@ -1,3 +1,4 @@
+
 function load_notes(){
 	$.ajax({
         type: "POST",
@@ -9,7 +10,8 @@ function load_notes(){
 			if(resultsArray[i].notes == ""){
                 //add note that is blank	
 			} else {
-				$( "#notes" ).append( "<p>"+resultsArray[i].notes+resultsArray[i].date+"</p>" );
+				//var a = moment.tz("2013-11-18 11:55", "America/Toronto");
+				$( "#notes" ).append( "<p>"+"<b>Date:</b> "+resultsArray[i].date+"<br> <b>Note:</b> "+resultsArray[i].notes+"</p>" );
 
 			}
 		}
