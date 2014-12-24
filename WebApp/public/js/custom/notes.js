@@ -9,7 +9,8 @@ function load_notes(){
 			if(resultsArray[i].notes == ""){
                 //add note that is blank	
 			} else {
-				$( "#notes" ).append( "<p>"+resultsArray[i].notes+"</p>" );
+				$( "#notes" ).append( "<p>"+resultsArray[i].notes+resultsArray[i].date+"</p>" );
+
 			}
 		}
 
