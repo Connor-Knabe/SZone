@@ -10,13 +10,13 @@ function load_notes(){
 			if(resultsArray[i].notes == ""){
                 //add note that is blank	
 			} else {
-				//var a = moment.tz(resultsArray[i].date, "America/Toronto");
+				var a = moment.tz(resultsArray[i].date, "America/New_York");
 				//alert("Date"+a.format());
-				var newYork = moment.tz("2014-06-01 12:00", "America/New_York");
-				alert(newYork.format());
-				alert("Notes");
+				//var newYork = moment.tz("2014-06-01 12:00", "America/New_York");
+				//alert(newYork.format());
+				//alert("Notes");
 								
-				$( "#notes" ).append( "<p>"+"<b>Date:</b> "+resultsArray[i].date+"<br> <b>Note:</b> "+resultsArray[i].notes+"</p>" );
+				$( "#notes" ).append( "<p>"+"<b>Date:</b> "+a.format('MMMM Do YYYY, h:mm:ss a')+"<br> <b>Note:</b> "+resultsArray[i].notes+"</p>" );
 
 			}
 		}

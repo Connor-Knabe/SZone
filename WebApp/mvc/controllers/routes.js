@@ -1,7 +1,7 @@
 var request = require('request');
 var util = require('util');
 var sanitizer = require('sanitizer');
-var moment = require('moment');
+var moment = require('moment-timezone');
 
 module.exports = function (app, passport, Points, User, db) {
 	app.get('/', function(req, res) {
@@ -45,7 +45,8 @@ module.exports = function (app, passport, Points, User, db) {
 
 	app.post('/addPoint', function(req, res) {
 		console.log("LATITUDE"+req.body.latitude);
-
+		
+		console.log("Date is "+ moment().format('MMMM Do YYYY, h:mm:ss a'));
 
 		var pts = new Points({
 			email: req.user.email,
