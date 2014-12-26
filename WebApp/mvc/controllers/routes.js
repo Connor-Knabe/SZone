@@ -46,11 +46,9 @@ module.exports = function (app, passport, Points, User, db) {
 	app.post('/addPoint', function(req, res) {
 		console.log("LATITUDE"+req.body.latitude);
 		
-		console.log("Date is "+ moment().format('MMMM Do YYYY, h:mm:ss a'));
-
 		var pts = new Points({
 			email: req.user.email,
-			date:moment(),
+			date:moment().tz("America/Chicago"),
 			pointAmt:req.body.pointValue,
 			gps:{latitude:req.body.latitude,longitude:req.body.longitude},
 			notes: sanitizer.escape(req.body.notes)
@@ -150,7 +148,7 @@ module.exports = function (app, passport, Points, User, db) {
 
 		var pts = new Points({
 			email: req.body.email,
-			date:moment(),
+			date:moment().tz("America/Chicago"),
 			pointAmt:'0',
 			gps:{latitude:"",longitude:""},
 			notes: ''
