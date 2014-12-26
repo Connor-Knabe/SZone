@@ -12,8 +12,9 @@ function load_notes(){
 			} else {
 				//var a = moment.tz(resultsArray[i].date, "America/Toronto");
 				//alert("Date"+a.format());
-				var newYork    = moment.tz("2014-06-01 12:00", "America/New_York");
+				var newYork = moment.tz("2014-06-01 12:00", "America/New_York");
 				alert(newYork.format());
+				alert("Notes");
 								
 				$( "#notes" ).append( "<p>"+"<b>Date:</b> "+resultsArray[i].date+"<br> <b>Note:</b> "+resultsArray[i].notes+"</p>" );
 
