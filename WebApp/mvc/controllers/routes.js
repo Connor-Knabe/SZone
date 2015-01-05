@@ -46,6 +46,23 @@ module.exports = function (app, passport, Points, User, db) {
 	app.post('/addPoint', function(req, res) {
 		console.log("LATITUDE"+req.body.latitude);
 		
+		
+		request('https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyB_pbaf11tD5KFZ454nhaR7jC99sC4_JMM', function (error, response, body) {
+			if (!error && response.statusCode == 200) {
+				console.log(body) // Print the google web page.
+
+				var jsonIp = JSON.parse(body);
+				console.log("location"+ jsonIp.loc);
+
+				var latLongArr = jsonIp.loc.split(',')
+				res.type('json');
+				res.send({ip_info:latLongArr});
+			}
+		}
+
+
+
+		
 		var pts = new Points({
 			email: req.user.email,
 			date:moment().tz("America/Chicago"),
