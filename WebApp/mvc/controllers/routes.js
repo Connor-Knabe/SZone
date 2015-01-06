@@ -47,12 +47,21 @@ module.exports = function (app, passport, Points, User, db) {
 		console.log("LATITUDE"+req.body.latitude);
 		
 		
-		request('https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyBNR7EnIw78027wE8rF6Ki4Y-UnSLMfjss', function (error, response, body) {
+		request('https://maps.googleapis.com/maps/api/geocode/json?latlng='+req.body.latitude+','+req.body.longitude+'&key=AIzaSyBNR7EnIw78027wE8rF6Ki4Y-UnSLMfjss', function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				console.log(body) // Print the google web page.
 
 				var jsonIp = JSON.parse(body);
-				console.log("location"+ jsonIp.loc);
+				
+				try {
+					console.log("location"+ jsonIp.results[2].formatted_address);
+					
+				}
+				catch(e){
+					console.log('An error has occurred: '+e.message)
+				}
+
+				
 
 				//var latLongArr = jsonIp.loc.split(',');
 				//res.type('json');
