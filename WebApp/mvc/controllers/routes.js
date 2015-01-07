@@ -51,21 +51,17 @@ module.exports = function (app, passport, Points, User, db) {
 			if (!error && response.statusCode == 200) {
 				console.log(body) // Print the google web page.
 
-				var jsonIp = JSON.parse(body);
-				
+				var jsonInfo = JSON.parse(body);
+				var cityName = "";
 				try {
-					console.log("location"+ jsonIp.results[2].formatted_address);
-					
+					console.log("location"+ jsonInfo.results[2].formatted_address);
+					cityName = jsonInfo.results[2].formatted_address;
 				}
 				catch(e){
 					console.log('An error has occurred: '+e.message)
 				}
+				console.log("cityname is " +cityName);
 
-				
-
-				//var latLongArr = jsonIp.loc.split(',');
-				//res.type('json');
-				//res.send({ip_info:latLongArr});
 			}
 		});
 
