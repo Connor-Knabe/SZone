@@ -5,6 +5,7 @@ exports.pointsSchema = mongoose.Schema({
 	date: { type: String, required: false, unique: false },
 	pointAmt:{ type: Number, required: false, unique: false },
 	gps: { latitude: { type: String, required:false, unique: false }, longitude: { type: String, required:false, unique: false }},
+	city: { type: String, required: false, unique: false },
     notes: { type: String, required: false, unique: false }
 });
 

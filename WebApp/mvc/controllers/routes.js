@@ -73,6 +73,7 @@ module.exports = function (app, passport, Points, User, db) {
 			date:moment().tz("America/Chicago"),
 			pointAmt:req.body.pointValue,
 			gps:{latitude:req.body.latitude,longitude:req.body.longitude},
+			city: cityName,
 			notes: sanitizer.escape(req.body.notes)
 		});
 
