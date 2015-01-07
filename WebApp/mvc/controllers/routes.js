@@ -45,14 +45,13 @@ module.exports = function (app, passport, Points, User, db) {
 
 	app.post('/addPoint', function(req, res) {
 		console.log("LATITUDE"+req.body.latitude);
-		
+		var cityName = "";
+
 		
 		request('https://maps.googleapis.com/maps/api/geocode/json?latlng='+req.body.latitude+','+req.body.longitude+'&key=AIzaSyBNR7EnIw78027wE8rF6Ki4Y-UnSLMfjss', function (error, response, body) {
 			if (!error && response.statusCode == 200) {
-				console.log(body) // Print the google web page.
 
 				var jsonInfo = JSON.parse(body);
-				var cityName = "";
 				try {
 					console.log("location"+ jsonInfo.results[2].formatted_address);
 					cityName = jsonInfo.results[2].formatted_address;
@@ -61,6 +60,47 @@ module.exports = function (app, passport, Points, User, db) {
 					console.log('An error has occurred: '+e.message)
 				}
 				console.log("cityname is " +cityName);
+				var pts = new Points({
+					email: req.user.email,
+					date:moment().tz("America/Chicago"),
+					pointAmt:req.body.pointValue,
+					gps:{latitude:req.body.latitude,longitude:req.body.longitude},
+					city: cityName,
+					notes: sanitizer.escape(req.body.notes)
+				});
+
+
+				pts.save(function(err) {
+					if(err) {
+						console.log("error during add point" + err);
+						res.redirect('/#profile');
+					}
+					console.log("Saving point");
+					res.redirect('/#profile');
+		
+				});
+
+
+			} else {
+				var pts = new Points({
+					email: req.user.email,
+					date:moment().tz("America/Chicago"),
+					pointAmt:req.body.pointValue,
+					gps:{latitude:req.body.latitude,longitude:req.body.longitude},
+					city: "error",
+					notes: sanitizer.escape(req.body.notes)
+				});
+
+
+				pts.save(function(err) {
+					if(err) {
+						console.log("error during add point" + err);
+						res.redirect('/#profile');
+					}
+					console.log("Saving point");
+					res.redirect('/#profile');
+		
+				});
 
 			}
 		});
@@ -68,25 +108,6 @@ module.exports = function (app, passport, Points, User, db) {
 
 
 		
-		var pts = new Points({
-			email: req.user.email,
-			date:moment().tz("America/Chicago"),
-			pointAmt:req.body.pointValue,
-			gps:{latitude:req.body.latitude,longitude:req.body.longitude},
-			city: cityName,
-			notes: sanitizer.escape(req.body.notes)
-		});
-
-
-		pts.save(function(err) {
-			if(err) {
-				console.log("error during add point" + err);
-				res.redirect('/#profile');
-			}
-			console.log("Saving point");
-			res.redirect('/#profile');
-
-		});
 	});
 
 	app.post('/ip', function(req,res) {
