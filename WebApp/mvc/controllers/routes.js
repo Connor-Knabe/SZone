@@ -32,11 +32,9 @@ module.exports = function (app, passport, Points, User, db) {
 	});
 
 	app.post('/loadNotes', function(req, res) {
-		console.log("In loadNotes route");
 		if (req.user){
 			findPointLog(req.user.email,10,function(results){
 				//Send the JSON to the page
-				console.log("Results"+results);
 				res.type('json');
 				res.send({queryResults:results});
 			});
@@ -44,10 +42,7 @@ module.exports = function (app, passport, Points, User, db) {
 	});
 
 	app.post('/addPoint', function(req, res) {
-		console.log("LATITUDE"+req.body.latitude);
 		var cityName = "";
-
-		
 		request('https://maps.googleapis.com/maps/api/geocode/json?latlng='+req.body.latitude+','+req.body.longitude+'&key=AIzaSyBNR7EnIw78027wE8rF6Ki4Y-UnSLMfjss', function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 
@@ -97,7 +92,6 @@ module.exports = function (app, passport, Points, User, db) {
 						console.log("error during add point" + err);
 						res.redirect('/#profile');
 					}
-					console.log("Saving point");
 					res.redirect('/#profile');
 		
 				});
@@ -111,15 +105,12 @@ module.exports = function (app, passport, Points, User, db) {
 	});
 
 	app.post('/ip', function(req,res) {
-		console.log("POST IP");
-
 		var ip = req.connection.remoteAddress;
 		request('http://www.ipinfo.io/'+ip, function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				console.log(body) // Print the google web page.
 
 				var jsonIp = JSON.parse(body);
-				console.log("location"+ jsonIp.loc);
 
 				var latLongArr = jsonIp.loc.split(',')
 
