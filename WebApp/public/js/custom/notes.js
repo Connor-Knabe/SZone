@@ -5,6 +5,7 @@ function load_notes(){
         url: "/loadNotes",
 	})
 	.done(function( data ) {
+		$("#notes").empty();
         var resultsArray = data.queryResults;
 		for(var i=0;i<resultsArray.length;i++){
 			if(resultsArray[i].notes == ""){
