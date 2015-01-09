@@ -6,10 +6,6 @@ var moment = require('moment-timezone');
 module.exports = function (app, passport, Points, User, db) {
 	app.get('/', function(req, res) {
 		if (req.user){
-
-			//var totall = getTotalPts(req.user.email);
-			//res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:totall,ipinfo:"0"});
-
 			getTotalPts(req.user.email,function(points){
 				res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:points,ipinfo:"0"});
 			});
