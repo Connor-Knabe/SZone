@@ -76,19 +76,31 @@ function form_last10(){
         url: "/lastTen",
     })
     .done(function( data ) {
+	    var zoomArray = new Array();
 		var resultsArray = data.queryResults;
-		
-
 		for(var i=0;i<resultsArray.length;i++){
 			if(resultsArray[i].gps.latitude!=0){
 				add_marker(resultsArray[i].gps.latitude, resultsArray[i].gps.longitude);
+				zoomArray.push(new google.maps.LatLng (resultsArray[i].gps.latitude,resultsArray[i].gps.longitude));
 			}
-		    
 		}
-		
-		
-
+		add_zoom(zoomArray);
     });
+
+}
+
+
+function add_zoom(LatLngList){
+	
+	//  Create a new viewpoint bound
+	var bounds = new google.maps.LatLngBounds ();
+	//  Go through each...
+	for (var i = 0, LtLgLen = LatLngList.length; i < LtLgLen; i++) {
+	  //  And increase the bounds to take this point
+	  bounds.extend (LatLngList[i]);
+	}
+	//  Fit these bounds to the map
+	map.fitBounds (bounds);
 
 }
 

@@ -34,6 +34,7 @@ function notebox_click (){
 }
 
 function last10 (){
+	//Call function in maps.js
 	form_last10();
 }
 
