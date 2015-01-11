@@ -1,5 +1,11 @@
 function add_marker(lat, long){
+    var contentString = 'test';
+
     var myLatlng = new google.maps.LatLng(lat,long);
+	var infowindow = new google.maps.InfoWindow({
+    	content: contentString
+  	});
+
     var marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
@@ -7,20 +13,14 @@ function add_marker(lat, long){
         title:"Your smile location"
     });
     
-      var contentString = 'test';
-
-    
-	var infowindow = new google.maps.InfoWindow({
-    	content: contentString
-  	});
-
+	
     google.maps.event.addListener(marker, 'click', function() {
 		toggleBounce();
 		infowindow.open(map,marker);
 	});
 
 	
-    google.maps.event.addListener(marker, 'click', toggleBounce);
+    //google.maps.event.addListener(marker, 'click', toggleBounce);
 
     marker.setMap(map);
     map.setCenter(myLatlng);
