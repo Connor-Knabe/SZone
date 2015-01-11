@@ -15,9 +15,8 @@ function add_marker(lat, long){
     
 	
     google.maps.event.addListener(marker, 'click', function() {
-		toggleBounce();
 		infowindow.open(map,marker);
-	});
+	});	
 
 	
     //google.maps.event.addListener(marker, 'click', toggleBounce);
