@@ -6,6 +6,20 @@ function add_marker(lat, long){
         animation: google.maps.Animation.DROP,
         title:"Your smile location"
     });
+    
+      var contentString = 'test';
+
+    
+	var infowindow = new google.maps.InfoWindow({
+    	content: contentString
+  	});
+
+    google.maps.event.addListener(marker, 'click', function() {
+		toggleBounce();
+		infowindow.open(map,marker);
+	});
+
+	
     google.maps.event.addListener(marker, 'click', toggleBounce);
 
     marker.setMap(map);
@@ -80,7 +94,7 @@ function form_last10(){
 		var resultsArray = data.queryResults;
 		for(var i=0;i<resultsArray.length;i++){
 			if(resultsArray[i].gps.latitude!=0){
-				add_marker(resultsArray[i].gps.latitude, resultsArray[i].gps.longitude);
+				add_marker(resultsArray[i].gps.latitude, resultsArray[i].gps.longitude, resultsArray[i].notes);
 				zoomArray.push(new google.maps.LatLng (resultsArray[i].gps.latitude,resultsArray[i].gps.longitude));
 			}
 		}
