@@ -146,7 +146,9 @@ module.exports = function (app, passport, Points, User, db) {
 			if (err) { return next(err) }
 				if (!user) {
 					req.session.messages =  [info.message];
-					return res.redirect('/#login')
+					//return res.redirect('/#login')
+					return res.render('index.ejs', {action:"failed", error:""});
+
 				}
 				req.logIn(user, function(err) {
 					if (err) { return next(err); }

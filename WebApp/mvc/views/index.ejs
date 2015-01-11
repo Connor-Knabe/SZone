@@ -158,12 +158,17 @@
                                                     </div>
                                                 </form>
 
-                                                <%} else {%>
+                                                
+	                                            <%} else  {%>
+
                                                     <%if (action=="success") { %>
-	                                                	<div class="success">Registration Successful! Please login! </div>
-  
-	                                                    
-	                                                <%} %> 
+	                                                	<div class="success">Registration Successful! Please login! </div>	                                                    
+	                                                <%} else if(action=="failed")  {%>
+	                                                
+	                                            		<div class="success">Login failed invalid email or password </div>
+
+	                                                <% } %>
+	                                                
                                                     <form action="/login" method="post" role="form">
                                                         <div class="form-group col-md-6">
                                                             <label for="exampleInputEmail1">Email address</label>
