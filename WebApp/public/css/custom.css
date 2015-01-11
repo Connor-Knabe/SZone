@@ -111,4 +111,8 @@
     padding-top: 10px;
 }
 
+.failed {
+    color:#ff0000;
+    padding-top: 10px;
+}
 
