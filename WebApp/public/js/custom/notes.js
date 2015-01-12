@@ -13,7 +13,7 @@ function load_notes(){
 			} else {
 				var a = moment(resultsArray[i].date);
 												
-				$( "#notes" ).append( "<p>"+"<b>Date:</b> "+a.format('MMMM Do YYYY, h:mm:ss a')+"<br> <b>Note:</b> "+resultsArray[i].notes +"<br> <b>Location:</b> "+resultsArray[i].city+"</p>" );
+				$( "#notes" ).append( "<p>"+"<b>Date:</b> "+a.format('MMMM Do YYYY, h:mm:ss a')+"<br> <b>Location:</b> "+resultsArray[i].city+"<br> <b>Note:</b> "+resultsArray[i].notes +"</p>" );
 
 			}
 		}
