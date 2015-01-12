@@ -1,5 +1,5 @@
 function add_marker(lat, long, city, note){
-    var contentString = '<div> </div>';
+    var contentString = '<div> City:'+city+'</div>';
 
     var myLatlng = new google.maps.LatLng(lat,long);
 	var infowindow = new google.maps.InfoWindow({
@@ -20,6 +20,21 @@ function add_marker(lat, long, city, note){
 
 	
     //google.maps.event.addListener(marker, 'click', toggleBounce);
+
+    marker.setMap(map);
+    map.setCenter(myLatlng);
+}
+
+//overload method
+function add_marker(lat, long){
+    var myLatlng = new google.maps.LatLng(lat,long);
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        animation: google.maps.Animation.DROP,
+        title:"Your smile location"
+    });
+    google.maps.event.addListener(marker, 'click', toggleBounce);
 
     marker.setMap(map);
     map.setCenter(myLatlng);
@@ -93,7 +108,7 @@ function form_last10(){
 		var resultsArray = data.queryResults;
 		for(var i=0;i<resultsArray.length;i++){
 			if(resultsArray[i].gps.latitude!=0){
-				add_marker(resultsArray[i].gps.latitude, resultsArray[i].gps.longitude, resultsArray[i].notes);
+				add_marker(resultsArray[i].gps.latitude, resultsArray[i].gps.longitude,resultsArray[i].city, resultsArray[i].notes);
 				zoomArray.push(new google.maps.LatLng (resultsArray[i].gps.latitude,resultsArray[i].gps.longitude));
 			}
 		}
