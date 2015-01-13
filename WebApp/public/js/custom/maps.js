@@ -1,5 +1,5 @@
 function add_marker(lat, long, city, note){
-    var contentString = '<div> City:'+city+'</div>';
+    var contentString = 'test';
 
     var myLatlng = new google.maps.LatLng(lat,long);
 	var infowindow = new google.maps.InfoWindow({
@@ -26,7 +26,7 @@ function add_marker(lat, long, city, note){
 }
 
 //overload method
-function add_marker(lat, long){
+/*function add_marker(lat, long){
     var myLatlng = new google.maps.LatLng(lat,long);
     var marker = new google.maps.Marker({
         position: myLatlng,
@@ -38,7 +38,7 @@ function add_marker(lat, long){
 
     marker.setMap(map);
     map.setCenter(myLatlng);
-}
+}*/
 
 function get_gps(){
     if (navigator.geolocation) {
