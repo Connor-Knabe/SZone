@@ -44,8 +44,16 @@ module.exports = function (app, passport, Points, User, db) {
 
 				var jsonInfo = JSON.parse(body);
 				try {
-					console.log("location"+ jsonInfo.results[2].formatted_address);
-					cityName = jsonInfo.results[2].formatted_address;
+					
+					console.log("two" + jsonInfo.results[2].formatted_address);
+					console.log("three" +jsonInfo.results[3].formatted_address);
+				    if (hasNumber(jsonInfo.results[2].formatted_address)==false){
+					    cityName = jsonInfo.results[2].formatted_address;   
+				    } else {
+					    cityName = jsonInfo.results[3].formatted_address;   
+
+				    }
+					console.log("location"+ cityName);					
 				}
 				catch(e){
 					console.log('An error has occurred: '+e.message)
@@ -224,6 +232,10 @@ module.exports = function (app, passport, Points, User, db) {
 			callback(res[0].totalPoints);
 	    });
 
+	}
+	
+	function hasNumber(str){
+		return /\d/.test(str);
 	}
 
 
