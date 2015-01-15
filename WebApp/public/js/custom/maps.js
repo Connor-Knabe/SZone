@@ -1,5 +1,12 @@
 function add_marker(lat, long, city, note){
-    var contentString = '<div> <b>City:</b>'+city+'</div>';
+//    var contentString = '<div> <b>City:</b>'+city+'</div>';
+    var contentString;
+    if (city==''||note==''){
+		contentString == 'No info';
+    }
+    
+    contentString = '<div> <p> <b>City:</b>'+city+'</p> <p><b>Note:</b>'+note+' </p></div>';
+
 
     var myLatlng = new google.maps.LatLng(lat,long);
 	var infowindow = new google.maps.InfoWindow({
