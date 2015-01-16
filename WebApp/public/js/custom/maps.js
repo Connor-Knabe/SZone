@@ -1,5 +1,4 @@
 function add_marker(lat, long, city, note){
-//    var contentString = '<div> <b>City:</b>'+city+'</div>';
     var contentString;
     if (city==''||note==''){
 		contentString == 'No info';
@@ -26,26 +25,9 @@ function add_marker(lat, long, city, note){
 	});	
 
 	
-    //google.maps.event.addListener(marker, 'click', toggleBounce);
-
     marker.setMap(map);
     map.setCenter(myLatlng);
 }
-
-//overload method
-/*function add_marker(lat, long){
-    var myLatlng = new google.maps.LatLng(lat,long);
-    var marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map,
-        animation: google.maps.Animation.DROP,
-        title:"Your smile location"
-    });
-    google.maps.event.addListener(marker, 'click', toggleBounce);
-
-    marker.setMap(map);
-    map.setCenter(myLatlng);
-}*/
 
 function get_gps(){
     if (navigator.geolocation) {
