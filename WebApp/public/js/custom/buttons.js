@@ -38,6 +38,11 @@ function last10 (){
 	form_last10();
 }
 
+function setLoc(){
+	//set location for map manually
+	
+}
+
 
 
 function load_binds(){
@@ -57,6 +62,10 @@ function load_binds(){
     $('#notebox_area').bind('click', notebox_click);
     $( '#last10' ).unbind( 'click', last10);
     $('#last10').bind('click', last10);
+	$( '#setLoc' ).unbind( 'click', setLoc);
+    $('#setLoc').bind('click', setLoc);
+
+
 
 
 
@@ -91,4 +100,10 @@ function load_binds(){
     }).bind('touchend', function(){
         $(this).removeClass('btn2');
     });
+     $('#setLoc').bind('touchstart', function(){
+        $(this).addClass('btn2');
+    }).bind('touchend', function(){
+        $(this).removeClass('btn2');
+    });
+    
 }
