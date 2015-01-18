@@ -46,7 +46,7 @@ module.exports = function (app, passport, Points, User, db) {
 				try {
 					
 					console.log("two" + jsonInfo.results[2].formatted_address);
-					console.log("three" +jsonInfo.results[3].formatted_address);
+					console.log("three" +jsonInfo.results[3	].formatted_address);
 				    if (hasNumber(jsonInfo.results[2].formatted_address)==false){
 					    cityName = jsonInfo.results[2].formatted_address;   
 				    } else {
