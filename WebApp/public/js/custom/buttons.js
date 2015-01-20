@@ -40,7 +40,7 @@ function last10 (){
 
 function setLoc(){
 	//set location for map manually
-	
+	set_loc();
 }
 
 

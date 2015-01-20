@@ -87,7 +87,6 @@ function load_map(latitude, longitude){
 
     
 }
-
 function set_loc(){
 	//manually set location using google maps api
 }
