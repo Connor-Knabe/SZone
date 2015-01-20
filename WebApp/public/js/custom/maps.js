@@ -87,6 +87,11 @@ function load_map(latitude, longitude){
 
     
 }
+
+function set_loc(){
+	//manually set location using google maps api
+}
+
 function form_last10(){
     $.ajax({
         type: "POST",
