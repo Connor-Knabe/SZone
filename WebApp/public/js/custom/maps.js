@@ -94,9 +94,14 @@ function load_map(latitude, longitude){
 
     
 }
-function set_loc(lat,long){
+function set_loc(lat,long, allowCustomFlag){
 	//manually set location using google maps api
-	add_marker(lat, long, "", "", true);
+	if (allowCustomFlag){
+		add_marker(lat, long, "", "", true);	
+	} else {
+		alert("You must click add point to confirm location before setting new custom location");
+	}
+	
 
 }
 

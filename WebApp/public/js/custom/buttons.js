@@ -1,22 +1,37 @@
+//setting a flag to make sure only one marker can be placed for custom locations
+var allowCustomFlag = true;
+
 function pt1 (){
-    totalPoints += 1;
-    $( '#points' ).html(totalPoints);
-    form_send(1,$('#notebox_area').val(),latitude,longitude);
-    add_marker(latitude,longitude);
+	if (!allowCustomFlag){
+		//add marker
+		totalPoints += 1;
+	    $( '#points' ).html(totalPoints);
+	    form_send(1,$('#notebox_area').val(),latitude,longitude);
+	    add_marker(latitude,longitude,true);
+		allowCustomFlag = true;
+	} else {
+		totalPoints += 1;
+	    $( '#points' ).html(totalPoints);
+	    form_send(1,$('#notebox_area').val(),latitude,longitude);
+	    add_marker(latitude,longitude);		
+	}
 }
 function pt2 (){
+	if (!allowCustomFlag){allowCustomFlag = true;}
     totalPoints += 2;
     $( '#points' ).html(totalPoints);
     form_send(2,$('#notebox_area').val(),latitude,longitude);
     add_marker(latitude,longitude);
 }
 function pt3 (){
+	if (!allowCustomFlag){allowCustomFlag = true;}
     totalPoints += 3;
     $( '#points' ).html(totalPoints);
     form_send(3,$('#notebox_area').val(),latitude,longitude);
     add_marker(latitude,longitude);
 }
 function pt5 (){
+	if (!allowCustomFlag){allowCustomFlag = true;}
     totalPoints += 5;
     $( '#points' ).html(totalPoints);
     form_send(5, $('#notebox_area').val(),latitude,longitude);
@@ -40,7 +55,8 @@ function last10 (){
 
 function setLoc(){
 	//set location for map manually
-	set_loc(latitude,longitude);
+	set_loc(latitude,longitude, allowCustomFlag);
+	allowCustomFlag = false;
 }
 
 
