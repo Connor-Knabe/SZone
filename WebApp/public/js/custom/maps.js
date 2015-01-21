@@ -1,5 +1,6 @@
-function add_marker(lat, long, city, note){
+function add_marker(lat, long, city, note, dragBool){
     var contentString;
+    var isDraggable = false;
     if (city==''||note==''){
 		contentString == 'No info';
     }
@@ -11,10 +12,16 @@ function add_marker(lat, long, city, note){
 	var infowindow = new google.maps.InfoWindow({
     	content: contentString
   	});
+  	
+  	if (dragBool!=null && dragBool == true){
+  		isDraggable = true;
+  	}
+  	
 
     var marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
+		draggable:isDraggable,
         animation: google.maps.Animation.DROP,
         title:"Your smile location"
     });
@@ -89,6 +96,8 @@ function load_map(latitude, longitude){
 }
 function set_loc(){
 	//manually set location using google maps api
+	add_marker(lat, long, city, note, dragBool);
+
 }
 
 function form_last10(){
