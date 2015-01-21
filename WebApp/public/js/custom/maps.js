@@ -94,9 +94,9 @@ function load_map(latitude, longitude){
 
     
 }
-function set_loc(){
+function set_loc(lat,long){
 	//manually set location using google maps api
-	add_marker(lat, long, city, note, dragBool);
+	add_marker(lat, long, "", "", true);
 
 }
 
