@@ -6,6 +6,7 @@ function pt1 (){
 		//add marker
 		totalPoints += 1;
 	    $( '#points' ).html(totalPoints);
+	    alert("Lat"+latitude+"Long"+longitude);
 	    form_send(1,$('#notebox_area').val(),latitude,longitude);
 		allowCustomFlag = true;
 	} else {

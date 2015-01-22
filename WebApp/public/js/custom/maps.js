@@ -25,7 +25,11 @@ function add_marker(lat, long, city, note, dragBool, custom){
         title:"Your smile location"
     });
     
-	
+    google.maps.event.addListener(marker, 'dragend', function (event) {
+        latitude = this.getPosition().lat();
+        longitude = this.getPosition().lng();
+    });
+    	
     google.maps.event.addListener(marker, 'click', function() {
 		infowindow.open(map,marker);
 	});	
