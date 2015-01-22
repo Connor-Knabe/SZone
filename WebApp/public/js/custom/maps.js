@@ -1,3 +1,9 @@
+var marker;
+
+function dragFalse(){
+    marker.setOptions({draggable: false});
+}
+
 function add_marker(lat, long, city, note, dragBool, custom){
     var contentString;
     var isDraggable = false;
@@ -17,7 +23,8 @@ function add_marker(lat, long, city, note, dragBool, custom){
   		isDraggable = true;
   	}
 
-    var marker = new google.maps.Marker({
+
+    marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
 		draggable:isDraggable,
