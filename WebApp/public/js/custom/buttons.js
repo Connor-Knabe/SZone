@@ -7,7 +7,6 @@ function pt1 (){
 		totalPoints += 1;
 	    $( '#points' ).html(totalPoints);
 	    form_send(1,$('#notebox_area').val(),latitude,longitude);
-	    add_marker(latitude,longitude,true);
 		allowCustomFlag = true;
 	} else {
 		totalPoints += 1;
@@ -17,25 +16,46 @@ function pt1 (){
 	}
 }
 function pt2 (){
-	if (!allowCustomFlag){allowCustomFlag = true;}
-    totalPoints += 2;
-    $( '#points' ).html(totalPoints);
-    form_send(2,$('#notebox_area').val(),latitude,longitude);
-    add_marker(latitude,longitude);
+	if (!allowCustomFlag){
+		//add marker
+		totalPoints += 2;
+	    $( '#points' ).html(totalPoints);
+	    form_send(2,$('#notebox_area').val(),latitude,longitude);
+		allowCustomFlag = true;
+	} else {
+		totalPoints += 2;
+	    $( '#points' ).html(totalPoints);
+	    form_send(2,$('#notebox_area').val(),latitude,longitude);
+	    add_marker(latitude,longitude);		
+	}
 }
 function pt3 (){
-	if (!allowCustomFlag){allowCustomFlag = true;}
-    totalPoints += 3;
-    $( '#points' ).html(totalPoints);
-    form_send(3,$('#notebox_area').val(),latitude,longitude);
-    add_marker(latitude,longitude);
+	if (!allowCustomFlag){
+		//add marker
+		totalPoints += 3;
+	    $( '#points' ).html(totalPoints);
+	    form_send(1,$('#notebox_area').val(),latitude,longitude);
+		allowCustomFlag = true;
+	} else {
+		totalPoints += 3;
+	    $( '#points' ).html(totalPoints);
+	    form_send(3,$('#notebox_area').val(),latitude,longitude);
+	    add_marker(latitude,longitude);		
+	}
 }
 function pt5 (){
-	if (!allowCustomFlag){allowCustomFlag = true;}
-    totalPoints += 5;
-    $( '#points' ).html(totalPoints);
-    form_send(5, $('#notebox_area').val(),latitude,longitude);
-    add_marker(latitude,longitude);
+	if (!allowCustomFlag){
+		//add marker
+		totalPoints += 5;
+	    $( '#points' ).html(totalPoints);
+	    form_send(5,$('#notebox_area').val(),latitude,longitude);
+		allowCustomFlag = true;
+	} else {
+		totalPoints += 5;
+	    $( '#points' ).html(totalPoints);
+	    form_send(5,$('#notebox_area').val(),latitude,longitude);
+	    add_marker(latitude,longitude);		
+	}
 }
 function note (){
 	if ($('#notebox').css('display') == 'none') {
