@@ -1,9 +1,16 @@
+var fs = require('fs');
+var options = {
+    key: fs.readFileSync('config/ssl/key.pem'),
+    cert: fs.readFileSync('config/ssl/cert.pem')
+};
+
 var express = require('express');
 var app = express();
 var port = process.env.PORT || 80;
 var path = require('path');
+var https = require('https');
 var http = require('http');
-var server = http.createServer(app);
+
 //var bodyParser = require('body-parser');
 var sessionSecret = require('./sessionSecret.js');
 var bcrypt = require('bcrypt');
@@ -15,6 +22,8 @@ var passport = require('passport');
 //Models
 var userModel = require('./mvc/models/user.js');
 var pointModel = require('./mvc/models/point.js');
+
+
 
 
 
@@ -62,5 +71,6 @@ app.configure(function() {
 
 require('./mvc/controllers/routes.js')(app, passport, Points, User, db);
 
+http.createServer(app).listen(port);
+https.createServer(options, app).listen(433);
 
-server.listen(port);
