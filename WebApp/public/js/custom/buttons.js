@@ -9,7 +9,6 @@ function pt1 (){
 	    form_send(1,$('#notebox_area').val(),latitude,longitude);
 		allowCustomFlag = true;
 		console.log(marker);
-		alert("about to set to false");
 		dragFalse();
 	} else {
 		totalPoints += 1;
@@ -25,6 +24,7 @@ function pt2 (){
 	    $( '#points' ).html(totalPoints);
 	    form_send(2,$('#notebox_area').val(),latitude,longitude);
 		allowCustomFlag = true;
+		dragFalse();
 	} else {
 		totalPoints += 2;
 	    $( '#points' ).html(totalPoints);
@@ -39,6 +39,8 @@ function pt3 (){
 	    $( '#points' ).html(totalPoints);
 	    form_send(1,$('#notebox_area').val(),latitude,longitude);
 		allowCustomFlag = true;
+        dragFalse();
+
 	} else {
 		totalPoints += 3;
 	    $( '#points' ).html(totalPoints);
@@ -53,6 +55,7 @@ function pt5 (){
 	    $( '#points' ).html(totalPoints);
 	    form_send(5,$('#notebox_area').val(),latitude,longitude);
 		allowCustomFlag = true;
+		dragFalse();
 	} else {
 		totalPoints += 5;
 	    $( '#points' ).html(totalPoints);
