@@ -72,5 +72,5 @@ app.configure(function() {
 require('./mvc/controllers/routes.js')(app, passport, Points, User, db);
 
 http.createServer(app).listen(port);
-https.createServer(options, app).listen(433);
+https.createServer(options, app).listen(443);
 
