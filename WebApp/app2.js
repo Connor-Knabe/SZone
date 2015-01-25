@@ -1,4 +1,4 @@
-var https = require('https');
+var http = require('http');
 var fs = require('fs');
 
 var options = {
@@ -6,7 +6,7 @@ var options = {
   cert: fs.readFileSync('config/ssl/cert.pem')
 };
 
-https.createServer(options, function (req, res) {
+http.createServer(function (req, res) {
     res.writeHead(200);
     res.end("hello world\n");
 }).listen(8000);
