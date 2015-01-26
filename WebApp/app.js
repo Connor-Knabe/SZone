@@ -58,6 +58,12 @@ app.configure(function() {
 	app.set('views', __dirname + '/mvc/views');
     app.set('view engine', 'ejs');
 	app.use(express.session({ secret: sessionSecret.secret }));
+	app.use(function(req, res, next) {
+		if(!req.secure) {
+			return res.redirect(['https://', req.get('Host'), req.url].join(''));
+  		}
+    	next();
+	});
 	// Remember Me middleware
 	app.use( function (req, res, next) {
 		if ( req.method == 'POST' && req.url == '/login' ) {
@@ -71,6 +77,8 @@ app.configure(function() {
 });
 
 require('./mvc/controllers/routes.js')(app, passport, Points, User, db);
+
+
 
 http.createServer(app).listen(port);
 https.createServer(options, app).listen(443);

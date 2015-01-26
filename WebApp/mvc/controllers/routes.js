@@ -4,6 +4,7 @@ var sanitizer = require('sanitizer');
 var moment = require('moment-timezone');
 
 module.exports = function (app, passport, Points, User, db) {
+		
 	app.get('/', function(req, res) {
 		if (req.user){
 			getTotalPts(req.user.email,function(points){
@@ -171,6 +172,7 @@ module.exports = function (app, passport, Points, User, db) {
 		req.logout();
 		res.redirect('/');
 	});
+
 
 	app.post('/signup', function(req, res) {
 		//Seed a user
