@@ -1,8 +1,10 @@
 var fs = require('fs');
 var options = {
-    key: fs.readFileSync('config/ssl/key.pem'),
-    cert: fs.readFileSync('config/ssl/cert.pem')
+    ca: fs.readFileSync("config/ssl/ca.crt"),
+    key: fs.readFileSync("config/ssl/key.pem"),
+    cert: fs.readFileSync("config/ssl/cert.pem")
 };
+
 
 var express = require('express');
 var app = express();
@@ -22,7 +24,6 @@ var passport = require('passport');
 //Models
 var userModel = require('./mvc/models/user.js');
 var pointModel = require('./mvc/models/point.js');
-
 
 
 
