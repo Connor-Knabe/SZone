@@ -19,8 +19,6 @@ module.exports = function (app, passport, Points, User, db) {
 		if (req.user){
 			findPointLog(req.user.email,10,function(results){
 				//Send the JSON to the page
-				console.log("Results"+results);
-
 				res.type('json');
 				res.send({queryResults:results});
 
@@ -49,14 +47,11 @@ module.exports = function (app, passport, Points, User, db) {
 					    cityName = jsonInfo.results[2].formatted_address;   
 				    } else {
 					    cityName = jsonInfo.results[3].formatted_address;   
-
 				    }
-					console.log("location"+ cityName);					
 				}
 				catch(e){
 					console.log('An error has occurred: '+e.message)
 				}
-				console.log("cityname is " +cityName);
 				var pts = new Points({
 					email: req.user.email,
 					date:moment().tz("America/Chicago"),
@@ -76,26 +71,21 @@ module.exports = function (app, passport, Points, User, db) {
 					res.redirect('/#profile');
 		
 				});
-
-
 			} else {
 				var pts = new Points({
 					email: req.user.email,
 					date:moment().tz("America/Chicago"),
 					pointAmt:req.body.pointValue,
 					gps:{latitude:req.body.latitude,longitude:req.body.longitude},
-					city: "error",
+					city: "",
 					notes: sanitizer.escape(req.body.notes)
 				});
-
-
 				pts.save(function(err) {
 					if(err) {
 						console.log("error during add point" + err);
 						res.redirect('/#profile');
 					}
 					res.redirect('/#profile');
-		
 				});
 
 			}
