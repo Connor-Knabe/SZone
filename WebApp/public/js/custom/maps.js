@@ -54,8 +54,8 @@ function get_gps(){
                 latitude = position.coords.latitude;
 				load_map(latitude,longitude);
             }, function (error) {
-                alert("Get_gps error"+error.code);
-				alert("Get_gps error"+error.message);
+                //alert("Get_gps error"+error.code);
+				//alert("Get_gps error"+error.message);
 
                  $.ajax({
                     type: "POST",
