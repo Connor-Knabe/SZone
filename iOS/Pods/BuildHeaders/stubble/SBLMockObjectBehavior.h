@@ -1,1 +1,0 @@
-../../stubble/Stubble/SBLMockObjectBehavior.h
