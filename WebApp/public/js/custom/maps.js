@@ -134,27 +134,32 @@ function load_map(latitude, longitude){
 }
 var gpsLoc;
 
+
 function createLast10Marker(lat,lng,city,note) {
 	
 	console.log("lat"+lat+"long+"+lng+"city"+city+"note"+note);
 	
 	gpsLoc = new google.maps.LatLng(lat, lng);
 	
+	var contentString2;
 	if (city==''||note==''){
-		contentString == 'No info';
+		contentString2 == 'No info';
     }
     
-    contentString = '<div> <p> <b>City:</b>'+city+'</p> <p><b>Note:</b>'+note+' </p></div>';
+    contentString2 = '<div> <p> <b>City:</b>'+city+'</p> <p><b>Note:</b>'+note+' </p></div>';
+    
+    
 
+	console.log(contentString2);
 
-    var marker = new google.maps.Marker({
+    var marker2 = new google.maps.Marker({
         position: gpsLoc,
         map: map
     });
 
-    google.maps.event.addListener(marker, 'click', function () {
-        infowindow.setContent(contentString);
-        infowindow.open(map, marker);
+    google.maps.event.addListener(marker2, 'click', function () {
+        infowindow.setContent(contentString2);
+        infowindow.open(map, marker2);
     });
 }
 
