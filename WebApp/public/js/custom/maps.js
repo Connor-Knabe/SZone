@@ -1,10 +1,17 @@
 var marker;
+var infowindow = new google.maps.InfoWindow();
+
+google.maps.event.addListener(map, 'click', function () {
+        infowindow.close();
+});
+
 
 function dragFalse(){
     marker.setOptions({draggable: false});
 }
 
-function add_marker(lat, long, city, note, dragBool, custom){
+
+function add_marker(lat, long, city, note, dragBool){
 	
 	console.log("Marker placed");
     var contentString;
@@ -17,9 +24,6 @@ function add_marker(lat, long, city, note, dragBool, custom){
 
 
     var myLatlng = new google.maps.LatLng(lat,long);
-	var infowindow = new google.maps.InfoWindow({
-    	content: contentString
-  	});
   	
   	
   	if (dragBool!=null && dragBool == true){
@@ -37,9 +41,7 @@ function add_marker(lat, long, city, note, dragBool, custom){
     
     console.log("Marker info"+marker);
     
-    google.maps.event.addListener(map, 'click', function () {
-        infowindow.close();
-    });
+    
     google.maps.event.addListener(marker, 'dragend', function (event) {
         latitude = this.getPosition().lat();
         longitude = this.getPosition().lng();
@@ -47,12 +49,13 @@ function add_marker(lat, long, city, note, dragBool, custom){
     	
     google.maps.event.addListener(marker, 'click', function() {
 	    console.log("Marker clicked")
+	    infowindow.setContent(contentString);
 		infowindow.open(map,marker);
 	});	
 
 	
-    marker.setMap(map);
-    map.setCenter(myLatlng);
+   // marker.setMap(map);
+    //map.setCenter(myLatlng);
 }
 
 function get_gps(){
@@ -63,9 +66,6 @@ function get_gps(){
                 latitude = position.coords.latitude;
 				load_map(latitude,longitude);
             }, function (error) {
-                //alert("Get_gps error"+error.code);
-				//alert("Get_gps error"+error.message);
-
                  $.ajax({
                     type: "POST",
                     url: "/ip",
@@ -110,9 +110,56 @@ function load_map(latitude, longitude){
 	});
 
     GeoMarker.setMap(map);
-
+    
+    
+    
+    
+    
+    var point;
+    
+    point = new google.maps.LatLng(38.9218717, -92.3145218);
+    createMarker(point, 'This is point 1');
+    
+    point = new google.maps.LatLng(38.9238717, -92.3145218);
+    createMarker(point, 'This is point 1');
+    
+    point = new google.maps.LatLng(38.9258717, -92.3145218);
+    createMarker(point, 'This is point 1');
+    
+    console.log("test");
+	//add_marker(38.9218717, -92.3145218, "CoMo", "BLah", false);
+	//add_marker(38.9238717, -92.3145218, "CoMo2", "BLah2", false);
+	//add_marker(38.9258717, -92.3145218, "CoMo3", "BLah3", false);
     
 }
+var gpsLoc;
+
+function createLast10Marker(lat,lng,city,note) {
+	
+	console.log("lat"+lat+"long+"+lng+"city"+city+"note"+note);
+	
+	gpsLoc = new google.maps.LatLng(lat, lng);
+	
+	if (city==''||note==''){
+		contentString == 'No info';
+    }
+    
+    contentString = '<div> <p> <b>City:</b>'+city+'</p> <p><b>Note:</b>'+note+' </p></div>';
+
+
+    var marker = new google.maps.Marker({
+        position: gpsLoc,
+        map: map
+    });
+
+    google.maps.event.addListener(marker, 'click', function () {
+        infowindow.setContent(contentString);
+        infowindow.open(map, marker);
+    });
+}
+
+
+
 function set_loc(lat,long, allowCustomFlag){
 	//manually set location using google maps api
 	if (allowCustomFlag){
@@ -133,8 +180,8 @@ function form_last10(){
 	    var zoomArray = new Array();
 		var resultsArray = data.queryResults;
 		for(var i=0;i<resultsArray.length;i++){
-			if(resultsArray[i].gps.latitude!=0){
-				add_marker(resultsArray[i].gps.latitude, resultsArray[i].gps.longitude,resultsArray[i].city, resultsArray[i].notes);
+			if(resultsArray[i].gps.latitude!=0){				
+				createLast10Marker(resultsArray[i].gps.latitude, resultsArray[i].gps.longitude,resultsArray[i].city, resultsArray[i].notes);
 				zoomArray.push(new google.maps.LatLng (resultsArray[i].gps.latitude,resultsArray[i].gps.longitude));
 			}
 		}
