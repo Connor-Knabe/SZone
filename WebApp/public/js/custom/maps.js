@@ -1,35 +1,17 @@
 var marker;
 var infowindow = new google.maps.InfoWindow();
 
-google.maps.event.addListener(map, 'click', function () {
-        infowindow.close();
-});
-
-
 function dragFalse(){
     marker.setOptions({draggable: false});
 }
 
 
 function add_marker(lat, long, city, note, dragBool){
-	
-	console.log("Marker placed");
-    var contentString;
-    var isDraggable = false;
-    if (city==''||note==''){
-		contentString == 'No info';
-    }
-    
-    contentString = '<div> <p> <b>City:</b>'+city+'</p> <p><b>Note:</b>'+note+' </p></div>';
-
-
+    var isDraggable = false;    
     var myLatlng = new google.maps.LatLng(lat,long);
-  	
-  	
   	if (dragBool!=null && dragBool == true){
   		isDraggable = true;
   	}
-
 
     marker = new google.maps.Marker({
         position: myLatlng,
@@ -37,25 +19,15 @@ function add_marker(lat, long, city, note, dragBool){
 		draggable:isDraggable,
         animation: google.maps.Animation.DROP,
         title:"Your smile location"
-    });
-    
-    console.log("Marker info"+marker);
-    
+    });    
     
     google.maps.event.addListener(marker, 'dragend', function (event) {
         latitude = this.getPosition().lat();
         longitude = this.getPosition().lng();
     });
     	
-    google.maps.event.addListener(marker, 'click', function() {
-	    console.log("Marker clicked")
-	    infowindow.setContent(contentString);
-		infowindow.open(map,marker);
-	});	
-
-	
-   // marker.setMap(map);
-    //map.setCenter(myLatlng);
+    marker.setMap(map);
+    map.setCenter(myLatlng);
 }
 
 function get_gps(){
@@ -109,49 +81,17 @@ function load_map(latitude, longitude){
         alert('There was an error obtaining your position. Message: ' + e.message);
 	});
 
-    GeoMarker.setMap(map);
-    
-    
-    
-    
-    
-    var point;
-    
-    point = new google.maps.LatLng(38.9218717, -92.3145218);
-    createMarker(point, 'This is point 1');
-    
-    point = new google.maps.LatLng(38.9238717, -92.3145218);
-    createMarker(point, 'This is point 1');
-    
-    point = new google.maps.LatLng(38.9258717, -92.3145218);
-    createMarker(point, 'This is point 1');
-    
-    console.log("test");
-	//add_marker(38.9218717, -92.3145218, "CoMo", "BLah", false);
-	//add_marker(38.9238717, -92.3145218, "CoMo2", "BLah2", false);
-	//add_marker(38.9258717, -92.3145218, "CoMo3", "BLah3", false);
-    
+    GeoMarker.setMap(map);    
 }
-var gpsLoc;
 
 
 function createLast10Marker(lat,lng,city,note) {
-	
-	console.log("lat"+lat+"long+"+lng+"city"+city+"note"+note);
-	
-	gpsLoc = new google.maps.LatLng(lat, lng);
-	
+	var gpsLoc = new google.maps.LatLng(lat, lng);
 	var contentString2;
 	if (city==''||note==''){
 		contentString2 == 'No info';
     }
-    
     contentString2 = '<div> <p> <b>City:</b>'+city+'</p> <p><b>Note:</b>'+note+' </p></div>';
-    
-    
-
-	console.log(contentString2);
-
     var marker2 = new google.maps.Marker({
         position: gpsLoc,
         map: map
@@ -161,6 +101,10 @@ function createLast10Marker(lat,lng,city,note) {
         infowindow.setContent(contentString2);
         infowindow.open(map, marker2);
     });
+    
+    google.maps.event.addListener(map, 'click', function () {
+   		infowindow.close();
+	});
 }
 
 
