@@ -5,6 +5,8 @@ function dragFalse(){
 }
 
 function add_marker(lat, long, city, note, dragBool, custom){
+	
+	console.log("Marker placed");
     var contentString;
     var isDraggable = false;
     if (city==''||note==''){
@@ -18,6 +20,7 @@ function add_marker(lat, long, city, note, dragBool, custom){
 	var infowindow = new google.maps.InfoWindow({
     	content: contentString
   	});
+  	
   	
   	if (dragBool!=null && dragBool == true){
   		isDraggable = true;
@@ -34,12 +37,16 @@ function add_marker(lat, long, city, note, dragBool, custom){
     
     console.log("Marker info"+marker);
     
+    google.maps.event.addListener(map, 'click', function () {
+        infowindow.close();
+    });
     google.maps.event.addListener(marker, 'dragend', function (event) {
         latitude = this.getPosition().lat();
         longitude = this.getPosition().lng();
     });
     	
     google.maps.event.addListener(marker, 'click', function() {
+	    console.log("Marker clicked")
 		infowindow.open(map,marker);
 	});	
 
