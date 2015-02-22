@@ -12,11 +12,8 @@ var port = process.env.PORT || 80;
 var path = require('path');
 var https = require('https');
 var http = require('http');
-
-//var bodyParser = require('body-parser');
 var sessionSecret = require('./sessionSecret.js');
 var bcrypt = require('bcrypt');
-
 var mongodb = require('mongodb')
 var mongoose = require('mongoose');
 var passport = require('passport');

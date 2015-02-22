@@ -5,14 +5,12 @@ function dragFalse(){
     marker.setOptions({draggable: false});
 }
 
-
 function add_marker(lat, long, city, note, dragBool){
     var isDraggable = false;    
     var myLatlng = new google.maps.LatLng(lat,long);
   	if (dragBool!=null && dragBool == true){
   		isDraggable = true;
   	}
-
     marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
@@ -20,12 +18,10 @@ function add_marker(lat, long, city, note, dragBool){
         animation: google.maps.Animation.DROP,
         title:"Your smile location"
     });    
-    
     google.maps.event.addListener(marker, 'dragend', function (event) {
         latitude = this.getPosition().lat();
         longitude = this.getPosition().lng();
     });
-    	
     marker.setMap(map);
     map.setCenter(myLatlng);
 }
@@ -47,8 +43,7 @@ function get_gps(){
 					latitude = parseFloat(data.ip_info[0]);
 				    load_map(latitude,longitude);
 					$( "#ip" ).append( '<p id="red"> You have not allowed GPS tracking, using your IP address instead(less accurate). </p>');
-                });
-                
+                });  
             },
             {
                 enableHighAccuracy : true,
@@ -71,19 +66,15 @@ function load_map(latitude, longitude){
     mapOptions);
     GeoMarker = new GeolocationMarker();
     GeoMarker.setCircleOptions({fillColor: '#808080'});
-
     google.maps.event.addListenerOnce(GeoMarker, 'position_changed', function() {
         map.setCenter(this.getPosition());
         map.fitBounds(this.getBounds());
     });
-
     google.maps.event.addListener(GeoMarker, 'geolocation_error', function(e) {
         alert('There was an error obtaining your position. Message: ' + e.message);
 	});
-
     GeoMarker.setMap(map);    
 }
-
 
 function createLast10Marker(lat,lng,city,note) {
 	var gpsLoc = new google.maps.LatLng(lat, lng);
@@ -96,12 +87,10 @@ function createLast10Marker(lat,lng,city,note) {
         position: gpsLoc,
         map: map
     });
-
     google.maps.event.addListener(marker2, 'click', function () {
         infowindow.setContent(contentString2);
         infowindow.open(map, marker2);
     });
-    
     google.maps.event.addListener(map, 'click', function () {
    		infowindow.close();
 	});
@@ -116,8 +105,6 @@ function set_loc(lat,long, allowCustomFlag){
 	} else {
 		alert("You must click add point to confirm location before setting new custom location");
 	}
-	
-
 }
 
 function form_last10(){
@@ -136,9 +123,7 @@ function form_last10(){
 		}
 		add_zoom(zoomArray);
     });
-
 }
-
 
 function add_zoom(LatLngList){
 	
@@ -153,7 +138,6 @@ function add_zoom(LatLngList){
 	map.fitBounds (bounds);
 
 }
-
 
 function toggleBounce() {
 

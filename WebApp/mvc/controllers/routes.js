@@ -183,6 +183,8 @@ module.exports = function (app, passport, Points, User, db) {
 			gps:{latitude:"",longitude:""},
 			notes: ''
 		});
+		
+		
 
 		usr.save(function(err) {
 			var totalPoints = 0;
@@ -212,7 +214,6 @@ module.exports = function (app, passport, Points, User, db) {
 	}
 
 	function getTotalPts(usrEmail,callback){
-
 		var results = Points.aggregate(
 	    { $match : {email : usrEmail} },
 	    { $group : { _id : "$email", totalPoints : { $sum : { $add: ["$pointAmt"] } } }
@@ -220,7 +221,16 @@ module.exports = function (app, passport, Points, User, db) {
 		    if (err) console.log("Error"+err);
 			callback(res[0].totalPoints);
 	    });
-
+	}
+	
+	function getTotalPts(usrEmail,callback){
+		var results = Points.aggregate(
+	    { $match : {email : usrEmail} },
+	    { $group : { _id : "$email", totalPoints : { $sum : { $add: ["$pointAmt"] } } }
+	    }, function(err,res){
+		    if (err) console.log("Error"+err);
+			callback(res[0].totalPoints);
+	    });
 	}
 	
 	function hasNumber(str){
