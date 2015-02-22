@@ -18,6 +18,7 @@
     "passport-local": "0.1.6",
     "require": "latest",
     "sanitizer": "latest",
-    "util": "latest"
+    "util": "latest",
+	"favicon":"latest"
   }
 }
