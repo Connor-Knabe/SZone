@@ -1,7 +1,14 @@
 $("#notebox_area").click(function(){
     // Select input field contents
-	alert("Notebox selected");    
+	$(".navbar").hide();
 });
+$("#profile").click(function(){
+    // Select input field contents
+	$(".navbar").show();
+});
+
+
+
 
 function load_notes(){
 	$.ajax({
