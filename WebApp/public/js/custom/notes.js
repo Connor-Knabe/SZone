@@ -1,14 +1,11 @@
-$("#notebox_area").click(function(){
-    // Select input field contents
-	$(".navbar").hide();
-});
-$("#profile").click(function(){
-    // Select input field contents
+
+$("#profile").click(function (event) {
 	$(".navbar").show();
+    var target = $(event.target);
+    if (target.is($("#notebox_area"))) {
+        $(".navbar").hide();
+    }
 });
-
-
-
 
 function load_notes(){
 	$.ajax({
