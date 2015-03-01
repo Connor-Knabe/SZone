@@ -22,6 +22,13 @@ $(window).scroll(function() {
 });
 
 
+$( "#notebox_area" ).focus(function() {
+	
+    if ($('.navbar').css('display') != 'none') {
+		$(".navbar").hide();
+	}	
+
+});
 
 
 
