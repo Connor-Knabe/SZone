@@ -1,11 +1,23 @@
-
+/*
 $("#profile").click(function (event) {
 	$(".navbar").show();
     var target = $(event.target);
     if (target.is($("#notebox_area"))) {
         $(".navbar").hide();
     }
+});*/
+
+$("#notebox_area").click(function () {
+    $(".navbar").hide();
 });
+
+$( window ).scroll(function() {
+	$(".navbar").show();
+});
+
+
+
+
 
 function load_notes(){
 	$.ajax({
