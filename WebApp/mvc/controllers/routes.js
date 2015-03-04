@@ -212,16 +212,47 @@ module.exports = function (app, passport, Points, User, db) {
 	    if (req.isAuthenticated()) { return next(); }
 	    res.redirect('/')
 	}
-
+/*
 	function getTotalPts(usrEmail,callback){
+		
+		
 		var results = Points.aggregate(
-	    { $match : {email : usrEmail} },
-	    { $group : { _id : "$email", totalPoints : { $sum : { $add: ["$pointAmt"] } } }
+		{ $match:{date: {$gte: "2014 02 20", $lt: "2014 04 01"}}},
+	    { $group : { _id : usrEmail, totalPoints : { $sum : { $add: ["$pointAmt"] } } }
 	    }, function(err,res){
 		    if (err) console.log("Error"+err);
 			callback(res[0].totalPoints);
 	    });
+	    
+	    }
+
+	   var results = Points.aggregate([
+            {$match: {$and: [{created_date: {$gte: "2014 02 20"}}, {created_date: {$lte: "2014 04 01"}}]}},
+            {$group: {
+                _id: usrEmail,
+                count: { $sum : { $add: ["$pointAmt"] } }
+            }},
+            {$project: {
+                date: {
+                        year: "$_id.year",
+                        month:"$_id.month",
+                        day:"$_id.day"
+                },
+                count: 1,
+                _id: 0
+            }}
+        ], function(err,res){
+		    if (err) console.log("Error"+err);
+			callback(res[0].count);
+	    }); 
 	}
+	
+	    
+	    
+	    
+	    
+
+	}*/
 	
 	function getTotalPts(usrEmail,callback){
 		var results = Points.aggregate(
