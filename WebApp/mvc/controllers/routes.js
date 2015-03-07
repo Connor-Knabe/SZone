@@ -256,8 +256,8 @@ module.exports = function (app, passport, Points, User, db) {
 	
 	function getTotalPts(usrEmail,callback){
 		var results = Points.aggregate(
-	    { $match : {email : usrEmail} },
-	    { $group : { _id : "$email", totalPoints : { $sum : { $add: ["$pointAmt"] } } }
+	    //{ $match : {email : usrEmail} },
+	    { $group : { _id : usrEmail, totalPoints : { $sum : { $add: ["$pointAmt"] } } }
 	    }, function(err,res){
 		    if (err) console.log("Error"+err);
 			callback(res[0].totalPoints);
