@@ -52,6 +52,7 @@ module.exports = function (app, passport, Points, User, db) {
 				catch(e){
 					console.log('An error has occurred: '+e.message)
 				}
+				console.log(moment().tz("America/Chicago"));
 				var pts = new Points({
 					email: req.user.email,
 					date:moment().tz("America/Chicago"),
@@ -249,14 +250,24 @@ module.exports = function (app, passport, Points, User, db) {
 	
 	    
 	    
-	    
+		{ $match : {notes :"f"} },
+	    { $group : { _id : "con@con.com", totalPoints : { $sum : { $add: ["$pointAmt"] } } } }
+
 	    
 
 	}*/
+	var fromDate;
+	var toDate;
 	
 	function getTotalPts(usrEmail,callback){
+		
+	
+		toDate = moment().tz("America/Chicago");
+		fromDate = moment().tz("America/Chicago").subtract(1,'days')
+		
+		
 		var results = Points.aggregate(
-	    //{ $match : {email : usrEmail} },
+		//{ $match : {date:{$gte: fromDate, $lt:toDate}} },
 	    { $group : { _id : usrEmail, totalPoints : { $sum : { $add: ["$pointAmt"] } } }
 	    }, function(err,res){
 		    if (err) console.log("Error"+err);
