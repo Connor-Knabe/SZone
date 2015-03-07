@@ -267,7 +267,7 @@ module.exports = function (app, passport, Points, User, db) {
 		
 		
 		var results = Points.aggregate(
-		//{ $match : {date:{$gte: fromDate, $lt:toDate}} },
+		//{ $match : {date:{$gte: "Sun Mar 01 2015 13:27:45 GMT-0600", $lt:"Sat Mar 07 2015 15:24:17 GMT-0600"}} },
 	    { $group : { _id : usrEmail, totalPoints : { $sum : { $add: ["$pointAmt"] } } }
 	    }, function(err,res){
 		    if (err) console.log("Error"+err);
