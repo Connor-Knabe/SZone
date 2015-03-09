@@ -5,14 +5,23 @@ function pt1 (){
 	if (!allowCustomFlag){
 		//add marker
 		totalPoints += 1;
-	    $( '#points' ).html(totalPoints);
+		weeklyPoints += 1;
+		dailyPoints += 1;
+	    $( '#totalPoints' ).html(totalPoints);
+		$( '#weeklyPoints' ).html(weeklyPoints);
+	    $( '#dailyPoints' ).html(dailyPoints);
+
 	    form_send(1,$('#notebox_area').val(),latitude,longitude);
 		allowCustomFlag = true;
 		console.log(marker);
 		dragFalse();
 	} else {
 		totalPoints += 1;
-	    $( '#points' ).html(totalPoints);
+		weeklyPoints += 1;
+		dailyPoints += 1;
+	    $( '#totalPoints' ).html(totalPoints);
+		$( '#weeklyPoints' ).html(weeklyPoints);
+	    $( '#dailyPoints' ).html(dailyPoints);
 	    form_send(1,$('#notebox_area').val(),latitude,longitude);
 	    add_marker(latitude,longitude);		
 	}
@@ -21,13 +30,22 @@ function pt2 (){
 	if (!allowCustomFlag){
 		//add marker
 		totalPoints += 2;
-	    $( '#points' ).html(totalPoints);
+		weeklyPoints += 2;		
+		dailyPoints += 2;
+	    $( '#totalPoints' ).html(totalPoints);
+		$( '#weeklyPoints' ).html(weeklyPoints);
+	    $( '#dailyPoints' ).html(dailyPoints);
+
 	    form_send(2,$('#notebox_area').val(),latitude,longitude);
 		allowCustomFlag = true;
 		dragFalse();
 	} else {
 		totalPoints += 2;
-	    $( '#points' ).html(totalPoints);
+		weeklyPoints += 2;
+		dailyPoints += 2;
+	    $( '#totalPoints' ).html(totalPoints);
+		$( '#weeklyPoints' ).html(weeklyPoints);
+	    $( '#dailyPoints' ).html(dailyPoints);
 	    form_send(2,$('#notebox_area').val(),latitude,longitude);
 	    add_marker(latitude,longitude);		
 	}
@@ -36,14 +54,22 @@ function pt3 (){
 	if (!allowCustomFlag){
 		//add marker
 		totalPoints += 3;
-	    $( '#points' ).html(totalPoints);
+		weeklyPoints += 3;
+		dailyPoints += 3;
+	    $( '#totalPoints' ).html(totalPoints);
+		$( '#weeklyPoints' ).html(weeklyPoints);
+	    $( '#dailyPoints' ).html(dailyPoints);
 	    form_send(1,$('#notebox_area').val(),latitude,longitude);
 		allowCustomFlag = true;
         dragFalse();
 
 	} else {
 		totalPoints += 3;
-	    $( '#points' ).html(totalPoints);
+		weeklyPoints += 3;
+		dailyPoints += 3;
+	    $( '#totalPoints' ).html(totalPoints);
+		$( '#weeklyPoints' ).html(weeklyPoints);
+	    $( '#dailyPoints' ).html(dailyPoints);
 	    form_send(3,$('#notebox_area').val(),latitude,longitude);
 	    add_marker(latitude,longitude);		
 	}
@@ -52,13 +78,21 @@ function pt5 (){
 	if (!allowCustomFlag){
 		//add marker
 		totalPoints += 5;
-	    $( '#points' ).html(totalPoints);
+		weeklyPoints += 5;
+		dailyPoints += 5;
+	    $( '#totalPoints' ).html(totalPoints);
+		$( '#weeklyPoints' ).html(weeklyPoints);
+	    $( '#dailyPoints' ).html(dailyPoints);
 	    form_send(5,$('#notebox_area').val(),latitude,longitude);
 		allowCustomFlag = true;
 		dragFalse();
 	} else {
 		totalPoints += 5;
-	    $( '#points' ).html(totalPoints);
+		weeklyPoints += 5;
+		dailyPoints += 5;
+	    $( '#totalPoints' ).html(totalPoints);
+		$( '#weeklyPoints' ).html(weeklyPoints);
+	    $( '#dailyPoints' ).html(dailyPoints);
 	    form_send(5,$('#notebox_area').val(),latitude,longitude);
 	    add_marker(latitude,longitude);		
 	}

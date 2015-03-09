@@ -9,8 +9,10 @@ module.exports = function (app, passport, Points, User, db) {
 		if (req.user){
 			getTotalPts(req.user.email,function(tPoints){
 				getWeeklyPts(req.user.email,function(wPoints){
-					console.log("weeklypts"+wPoints);
-					res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, weeklyPoints:wPoints, totalPoints:tPoints,ipinfo:"0"});
+					getDailyPts(req.user.email,function(dPoints){
+						res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, dailyPoints: dPoints,weeklyPoints:wPoints, totalPoints:tPoints,ipinfo:"0"});
+
+					});
 				});			
 
 			});
