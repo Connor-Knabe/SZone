@@ -216,87 +216,17 @@ module.exports = function (app, passport, Points, User, db) {
 	    if (req.isAuthenticated()) { return next(); }
 	    res.redirect('/')
 	}
-/*
-	function getTotalPts(usrEmail,callback){
-		
-		
-		var results = Points.aggregate(
-		{ $match:{date: {$gte: "2014 02 20", $lt: "2014 04 01"}}},
-	    { $group : { _id : usrEmail, totalPoints : { $sum : { $add: ["$pointAmt"] } } }
-	    }, function(err,res){
-		    if (err) console.log("Error"+err);
-			callback(res[0].totalPoints);
-	    });
-	    
-	    }
-
-	   var results = Points.aggregate([
-            {$match: {$and: [{created_date: {$gte: "2014 02 20"}}, {created_date: {$lte: "2014 04 01"}}]}},
-            {$group: {
-                _id: usrEmail,
-                count: { $sum : { $add: ["$pointAmt"] } }
-            }},
-            {$project: {
-                date: {
-                        year: "$_id.year",
-                        month:"$_id.month",
-                        day:"$_id.day"
-                },
-                count: 1,
-                _id: 0
-            }}
-        ], function(err,res){
-		    if (err) console.log("Error"+err);
-			callback(res[0].count);
-	    }); 
-	}
-	
-	    
-	    
-		{ $match : {notes :"f"} },
-	    { $group : { _id : "con@con.com", totalPoints : { $sum : { $add: ["$pointAmt"] } } } }
-
-	    
-
-	}*/
-	var fromDate;
-	var toDate;
-	/*
-	// Find the max balance of all accounts
-Users.aggregate(
-    { $group: { _id: null, maxBalance: { $max: '$balance' }}}
-  , { $project: { _id: 0, maxBalance: 1 }}
-  , function (err, res) {
-  if (err) return handleError(err);
-  console.log(res); // [ { maxBalance: 98000 } ]
-});
-
-// Or use the aggregation pipeline builder.
-Users.aggregate()
-  .group({ _id: null, maxBalance: { $max: '$balance' } })
-  .select('-id maxBalance')
-  .exec(function (err, res) {
-    if (err) return handleError(err);
-    console.log(res); // [ { maxBalance: 98 } ]
-});*/
-
 
 	
 	function getTotalPts(usrEmail,callback){
 		var weekAgo = new Date();
 		weekAgo.setDate(weekAgo.getDate()-7);
-
-	
-		toDate = moment().tz("America/Chicago");
-		fromDate = moment().tz("America/Chicago").subtract(1,'days')
-		
 		console.log(new Date());
 		console.log(weekAgo);
 		console.log("email"+usrEmail);
 		var results = Points.aggregate(
 			{ $match: { dateAdded:{$gte: weekAgo, $lt: new Date()}}},
 			{ $match : {email : usrEmail} },
-			//{ $project: {_id:1, dateAdded:1 }},
 		    { $group: { _id : "$email", totalPoints : { $sum : { $add: ["$pointAmt"] } } }}
 		  , function (err, res) {
 				if (err) console.log("Error"+err);
@@ -304,23 +234,6 @@ Users.aggregate()
 		});
 		
 		
-		/*
-		var results = Points.aggregate( 
-			{ $group : { _id : usrEmail, totalPoints : { $sum : { $add: ["$pointAmt"] } } },
-			{	$match: { note: "f" } } }
-			, function(err,res){
-				if (err) console.log("Error"+err);
-				callback(res[0].totalPoints);
-			}
-		);*/
-		
-		/*var results = Points.aggregate(
-//		{ $match : {dateAdded:{$gte:weekAgo , $lt:new Date()}}},
-	    { $group : { _id : usrEmail, totalPoints : { $sum : { $add: ["$pointAmt"] } } }
-	    }, function(err,res){
-		    if (err) console.log("Error"+err);
-			callback(res[0].totalPoints);
-	    });*/
 	}
 	
 	function hasNumber(str){
