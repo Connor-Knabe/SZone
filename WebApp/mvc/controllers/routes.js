@@ -56,7 +56,7 @@ module.exports = function (app, passport, Points, User, db) {
 				var pts = new Points({
 					email: req.user.email,
 					date:moment().tz("America/Chicago"),
-					//dateAdded:,
+					dateAdded:new Date(),
 					pointAmt:req.body.pointValue,
 					gps:{latitude:req.body.latitude,longitude:req.body.longitude},
 					city: cityName,
@@ -77,6 +77,7 @@ module.exports = function (app, passport, Points, User, db) {
 				var pts = new Points({
 					email: req.user.email,
 					date:moment().tz("America/Chicago"),
+					dateAdded:new Date(),
 					pointAmt:req.body.pointValue,
 					gps:{latitude:req.body.latitude,longitude:req.body.longitude},
 					city: "",
@@ -181,6 +182,7 @@ module.exports = function (app, passport, Points, User, db) {
 		var pts = new Points({
 			email: req.body.email,
 			date:moment().tz("America/Chicago"),
+			dateAdded:new Date(),
 			pointAmt:'0',
 			gps:{latitude:"",longitude:""},
 			notes: ''
@@ -261,14 +263,18 @@ module.exports = function (app, passport, Points, User, db) {
 	var toDate;
 	
 	function getTotalPts(usrEmail,callback){
-		
+		var weekAgo = new Date();
+		weekAgo.setDate(weekAgo.getDate()-7);
+
 	
 		toDate = moment().tz("America/Chicago");
 		fromDate = moment().tz("America/Chicago").subtract(1,'days')
 		
+		console.log(new Date());
+		console.log(weekAgo);
 		
 		var results = Points.aggregate(
-		{ $match : {dateAdded:{$gte: "Sun Mar 01 2015 13:27:45 GMT-0600", $lt:"Sat Mar 07 2015 15:24:17 GMT-0600"}} },
+		{ $match : {dateAdded:{$gte:weekAgo , $lt:new Date()}}},
 	    { $group : { _id : usrEmail, totalPoints : { $sum : { $add: ["$pointAmt"] } } }
 	    }, function(err,res){
 		    if (err) console.log("Error"+err);
