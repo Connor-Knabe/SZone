@@ -36,6 +36,7 @@
         var latitude = 0;
         var longitude = 0;
         var totalPoints = <%= totalPoints%>
+
         var map;
         document.addEventListener('DOMContentLoaded', init, false);
             function init(){
@@ -143,7 +144,8 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <h1>Log a smile below:</h1>
                 <h3>Total Points:<div id="points"><%=totalPoints%></div></h3>
-				
+				<h3>Weekly Points:<div id="points"><%=weeklyPoints%></div></h3>
+
 				
 				 <div class="col-xs-12 info"> 
                     <button type="submit" id="note"  class="btn1 btn2 ">Add note</button>

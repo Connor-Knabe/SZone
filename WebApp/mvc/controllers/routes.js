@@ -7,8 +7,12 @@ module.exports = function (app, passport, Points, User, db) {
 		
 	app.get('/', function(req, res) {
 		if (req.user){
-			getTotalPts(req.user.email,function(points){
-				res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, totalPoints:points,ipinfo:"0"});
+			getTotalPts(req.user.email,function(tPoints){
+				getWeeklyPts(req.user.email,function(wPoints){
+					console.log("weeklypts"+wPoints);
+					res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, weeklyPoints:wPoints, totalPoints:tPoints,ipinfo:"0"});
+				});			
+
 			});
 		} else {
 			res.render('index.ejs', {action:"index", user:null, message: req.session.messages });
@@ -219,21 +223,42 @@ module.exports = function (app, passport, Points, User, db) {
 
 	
 	function getTotalPts(usrEmail,callback){
-		var weekAgo = new Date();
-		weekAgo.setDate(weekAgo.getDate()-7);
-		console.log(new Date());
-		console.log(weekAgo);
-		console.log("email"+usrEmail);
 		var results = Points.aggregate(
-			{ $match: { dateAdded:{$gte: weekAgo, $lt: new Date()}}},
 			{ $match : {email : usrEmail} },
 		    { $group: { _id : "$email", totalPoints : { $sum : { $add: ["$pointAmt"] } } }}
 		  , function (err, res) {
 				if (err) console.log("Error"+err);
 				callback(res[0].totalPoints);
-		});
-		
-		
+		});		
+	}
+	
+	function getWeeklyPts(usrEmail,callback){
+		var weekAgo = new Date();
+		weekAgo.setDate(weekAgo.getDate()-7);
+		console.log(new Date());
+		console.log(weekAgo);
+		var results = Points.aggregate(
+			{ $match: { dateAdded:{$gte: weekAgo, $lt: new Date()}}},
+			{ $match : {email : usrEmail} },
+		    { $group: { _id : "$email", weeklyPoints : { $sum : { $add: ["$pointAmt"] } } }}
+		  , function (err, res) {
+				if (err) console.log("Error"+err);
+				callback(res[0].weeklyPoints);
+		});		
+	}
+	function getDailyPts(usrEmail,callback){
+		var weekAgo = new Date();
+		weekAgo.setDate(weekAgo.getDate()-1);
+		console.log(new Date());
+		console.log(weekAgo);
+		var results = Points.aggregate(
+			{ $match: { dateAdded:{$gte: weekAgo, $lt: new Date()}}},
+			{ $match : {email : usrEmail} },
+		    { $group: { _id : "$email", dailyPoints : { $sum : { $add: ["$pointAmt"] } } }}
+		  , function (err, res) {
+				if (err) console.log("Error"+err);
+				callback(res[0].dailyPoints);
+		});		
 	}
 	
 	function hasNumber(str){
