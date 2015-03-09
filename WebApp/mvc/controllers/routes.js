@@ -261,6 +261,26 @@ module.exports = function (app, passport, Points, User, db) {
 	}*/
 	var fromDate;
 	var toDate;
+	/*
+	// Find the max balance of all accounts
+Users.aggregate(
+    { $group: { _id: null, maxBalance: { $max: '$balance' }}}
+  , { $project: { _id: 0, maxBalance: 1 }}
+  , function (err, res) {
+  if (err) return handleError(err);
+  console.log(res); // [ { maxBalance: 98000 } ]
+});
+
+// Or use the aggregation pipeline builder.
+Users.aggregate()
+  .group({ _id: null, maxBalance: { $max: '$balance' } })
+  .select('-id maxBalance')
+  .exec(function (err, res) {
+    if (err) return handleError(err);
+    console.log(res); // [ { maxBalance: 98 } ]
+});*/
+
+
 	
 	function getTotalPts(usrEmail,callback){
 		var weekAgo = new Date();
@@ -274,12 +294,32 @@ module.exports = function (app, passport, Points, User, db) {
 		console.log(weekAgo);
 		
 		var results = Points.aggregate(
-		{ $match : {dateAdded:{$gte:weekAgo , $lt:new Date()}}},
+			{ $match: { dateAdded:{$gte: weekAgo, $lt: new Date()}}},
+			//{ $match: { notes:"f"}},
+		    { $group: { _id : usrEmail, totalPoints : { $sum : { $add: ["$pointAmt"] } } }}
+		  , function (err, res) {
+				if (err) console.log("Error"+err);
+				callback(res[0].totalPoints);
+		});
+		
+		
+		/*
+		var results = Points.aggregate( 
+			{ $group : { _id : usrEmail, totalPoints : { $sum : { $add: ["$pointAmt"] } } },
+			{	$match: { note: "f" } } }
+			, function(err,res){
+				if (err) console.log("Error"+err);
+				callback(res[0].totalPoints);
+			}
+		);*/
+		
+		/*var results = Points.aggregate(
+//		{ $match : {dateAdded:{$gte:weekAgo , $lt:new Date()}}},
 	    { $group : { _id : usrEmail, totalPoints : { $sum : { $add: ["$pointAmt"] } } }
 	    }, function(err,res){
 		    if (err) console.log("Error"+err);
 			callback(res[0].totalPoints);
-	    });
+	    });*/
 	}
 	
 	function hasNumber(str){
