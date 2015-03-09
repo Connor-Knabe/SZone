@@ -292,11 +292,12 @@ Users.aggregate()
 		
 		console.log(new Date());
 		console.log(weekAgo);
-		
+		console.log("email"+usrEmail);
 		var results = Points.aggregate(
 			{ $match: { dateAdded:{$gte: weekAgo, $lt: new Date()}}},
-			//{ $match: { notes:"f"}},
-		    { $group: { _id : usrEmail, totalPoints : { $sum : { $add: ["$pointAmt"] } } }}
+			{ $match : {email : usrEmail} },
+			//{ $project: {_id:1, dateAdded:1 }},
+		    { $group: { _id : "$email", totalPoints : { $sum : { $add: ["$pointAmt"] } } }}
 		  , function (err, res) {
 				if (err) console.log("Error"+err);
 				callback(res[0].totalPoints);
