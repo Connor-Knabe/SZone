@@ -58,7 +58,6 @@ module.exports = function (app, passport, Points, User, db) {
 				catch(e){
 					console.log('An error has occurred: '+e.message)
 				}
-				console.log(moment().tz("America/Chicago"));
 				var pts = new Points({
 					email: req.user.email,
 					date:moment().tz("America/Chicago"),
@@ -127,10 +126,16 @@ module.exports = function (app, passport, Points, User, db) {
 
 	app.get('/signup', function(req, res) {
 		if (req.user){
-			getTotalPts(req.user.email,function(points){
-				res.render('loggedin.ejs',{user:req.user.firstName,email:req.user.email, totalPoints:points,ipinfo:"0"});
-		});
+			console.log("hit signup when loggedin");
+			getTotalPts(req.user.email,function(tPoints){
+				getWeeklyPts(req.user.email,function(wPoints){
+					getDailyPts(req.user.email,function(dPoints){
+						res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, dailyPoints: dPoints,weeklyPoints:wPoints, totalPoints:tPoints,ipinfo:"0"});
 
+					});
+				});			
+
+			});
 		} else {
 			res.render('index.ejs', {action:"signup", error:"none"});
 		}
@@ -237,8 +242,6 @@ module.exports = function (app, passport, Points, User, db) {
 	function getWeeklyPts(usrEmail,callback){
 		var weekAgo = new Date();
 		weekAgo.setDate(weekAgo.getDate()-7);
-		console.log(new Date());
-		console.log(weekAgo);
 		var results = Points.aggregate(
 			{ $match: { dateAdded:{$gte: weekAgo, $lt: new Date()}}},
 			{ $match : {email : usrEmail} },
@@ -251,8 +254,6 @@ module.exports = function (app, passport, Points, User, db) {
 	function getDailyPts(usrEmail,callback){
 		var weekAgo = new Date();
 		weekAgo.setDate(weekAgo.getDate()-1);
-		console.log(new Date());
-		console.log(weekAgo);
 		var results = Points.aggregate(
 			{ $match: { dateAdded:{$gte: weekAgo, $lt: new Date()}}},
 			{ $match : {email : usrEmail} },
