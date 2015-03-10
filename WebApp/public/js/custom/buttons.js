@@ -113,6 +113,11 @@ function last10 (){
 	form_last10();
 }
 
+function lastAll (){
+	//Call function in maps.js
+	form_lastAll();
+}
+
 function setLoc(){
 	//set location for map manually
 	set_loc(latitude,longitude, allowCustomFlag);
@@ -138,6 +143,8 @@ function load_binds(){
     $('#notebox_area').bind('click', notebox_click);
     $( '#last10' ).unbind( 'click', last10);
     $('#last10').bind('click', last10);
+    $( '#lastAll' ).unbind( 'click', lastAll);
+    $('#lastAll').bind('click', lastAll);
 	$( '#setLoc' ).unbind( 'click', setLoc);
     $('#setLoc').bind('click', setLoc);
 
@@ -172,6 +179,11 @@ function load_binds(){
         $(this).removeClass('btn2');
     });
     $('#last10').bind('touchstart', function(){
+        $(this).addClass('btn2');
+    }).bind('touchend', function(){
+        $(this).removeClass('btn2');
+    });
+    $('#lastAll').bind('touchstart', function(){
         $(this).addClass('btn2');
     }).bind('touchend', function(){
         $(this).removeClass('btn2');

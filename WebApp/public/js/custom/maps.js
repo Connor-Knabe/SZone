@@ -125,6 +125,24 @@ function form_last10(){
     });
 }
 
+function form_lastAll(){
+    $.ajax({
+        type: "POST",
+        url: "/lastAll",
+    })
+    .done(function( data ) {
+	    var zoomArray = new Array();
+		var resultsArray = data.queryResults;
+		for(var i=0;i<resultsArray.length;i++){
+			if(resultsArray[i].gps.latitude!=0){				
+				createLast10Marker(resultsArray[i].gps.latitude, resultsArray[i].gps.longitude,resultsArray[i].city, resultsArray[i].notes);
+				zoomArray.push(new google.maps.LatLng (resultsArray[i].gps.latitude,resultsArray[i].gps.longitude));
+			}
+		}
+		add_zoom(zoomArray);
+    });
+}
+
 function add_zoom(LatLngList){
 	
 	//  Create a new viewpoint bound

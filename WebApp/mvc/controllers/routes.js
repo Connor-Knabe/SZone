@@ -31,6 +31,18 @@ module.exports = function (app, passport, Points, User, db) {
 			});
 		}
 	});
+	
+	app.post('/lastAll', function(req, res) {
+		if (req.user){
+			findPointLog(req.user.email,-1,function(results){
+				//Send the JSON to the page
+				res.type('json');
+				res.send({queryResults:results});
+
+			});
+		}
+	});
+	
 
 	app.post('/loadNotes', function(req, res) {
 		if (req.user){
@@ -270,14 +282,25 @@ module.exports = function (app, passport, Points, User, db) {
 
 
 	function findPointLog(usrEmail,resultNum,callback){
-		var results = Points.aggregate(
-	   	{ $sort: {_id:-1}},
-	    { $match : {email : usrEmail} },
-	    { $limit : resultNum  }
-	    , function(err,res){
-		    if (err) console.log("Error"+err);
-			callback(res);
-	    });
+		if (resultNum == -1){
+			var results = Points.aggregate(
+		   	{ $sort: {_id:-1}},
+		    { $match : {email : usrEmail} }
+		    , function(err,res){
+			    if (err) console.log("Error"+err);
+				callback(res);
+		    });
+		} else {
+			var results = Points.aggregate(
+		   	{ $sort: {_id:-1}},
+		    { $match : {email : usrEmail} },
+		    { $limit : resultNum  }
+		    , function(err,res){
+			    if (err) console.log("Error"+err);
+				callback(res);
+		    });
+	    
+		}	    
 
 	}
 }
