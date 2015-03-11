@@ -1,4 +1,5 @@
 var marker;
+var markers = [];
 var infowindow = new google.maps.InfoWindow();
 
 function dragFalse(){
@@ -57,7 +58,6 @@ function get_gps(){
 
 function load_map(latitude, longitude){
 	var myLatlng = new google.maps.LatLng(latitude,longitude);
-
     var mapOptions = {
         center: { lat: latitude, lng: longitude},
         zoom: 8
@@ -94,6 +94,7 @@ function createLast10Marker(lat,lng,city,note) {
     google.maps.event.addListener(map, 'click', function () {
    		infowindow.close();
 	});
+    markers.push(marker2);
 }
 
 
@@ -113,6 +114,7 @@ function form_last10(){
         url: "/lastTen",
     })
     .done(function( data ) {
+	    setAllMap(null);
 	    var zoomArray = new Array();
 		var resultsArray = data.queryResults;
 		for(var i=0;i<resultsArray.length;i++){
@@ -131,6 +133,7 @@ function form_lastAll(){
         url: "/lastAll",
     })
     .done(function( data ) {
+	    //setAllMap(null);
 	    var zoomArray = new Array();
 		var resultsArray = data.queryResults;
 		for(var i=0;i<resultsArray.length;i++){
@@ -164,4 +167,12 @@ function toggleBounce() {
   	} else {
     	marker.setAnimation(google.maps.Animation.BOUNCE);
   	}
+}
+
+
+// Sets the map on all markers in the array.
+function setAllMap(map) {
+    for (var i = 0; i < markers.length; i++) {
+      markers[i].setMap(map);
+    }
 }
