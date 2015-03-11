@@ -15,7 +15,7 @@
 }
 
 .info {
-      font-size:20px;
+    font-size:20px;
     padding:5px;
 }
 
@@ -109,10 +109,15 @@
 .success {
     color:#00ff00;
     padding-top: 10px;
+    padding-bottom: 10px;
+    font-size:18px;
 }
 
 .failed {
     color:#ff0000;
     padding-top: 10px;
+    padding-bottom: 10px;
+    font-size:18px;
+
 }
 
