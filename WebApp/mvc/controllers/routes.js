@@ -246,7 +246,11 @@ module.exports = function (app, passport, Points, User, db) {
 		    { $group: { _id : "$email", totalPoints : { $sum : { $add: ["$pointAmt"] } } }}
 		  , function (err, res) {
 				if (err) console.log("Error"+err);
-				callback(res[0].totalPoints);
+				if (typeof res[0] == 'undefined'){
+					callback(0);
+				} else {
+					callback(res[0].totalPoints);
+				}		
 		});		
 	}
 	
@@ -259,7 +263,11 @@ module.exports = function (app, passport, Points, User, db) {
 		    { $group: { _id : "$email", weeklyPoints : { $sum : { $add: ["$pointAmt"] } } }}
 		  , function (err, res) {
 				if (err) console.log("Error"+err);
-				callback(res[0].weeklyPoints);
+				if (typeof res[0] == 'undefined'){
+					callback(0);
+				} else {
+					callback(res[0].weeklyPoints);
+				}
 		});		
 	}
 	function getDailyPts(usrEmail,callback){
