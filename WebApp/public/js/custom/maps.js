@@ -115,6 +115,7 @@ function form_last10(){
     })
     .done(function( data ) {
 	    setAllMap(null);
+	    markers = [];
 	    var zoomArray = new Array();
 		var resultsArray = data.queryResults;
 		for(var i=0;i<resultsArray.length;i++){
