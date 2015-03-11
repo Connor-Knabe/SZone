@@ -38,6 +38,8 @@
         var totalPoints = <%= totalPoints %>
         var weeklyPoints = <%= weeklyPoints %>
         var dailyPoints = <%= dailyPoints %>
+        
+     
 
         var map;
         document.addEventListener('DOMContentLoaded', init, false);
@@ -145,7 +147,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h1>Log a smile below:</h1>
-           			<h3>Daily Points:<div id="dailyPoints"><%=weeklyPoints%></div></h3>
+           			<h3>Daily Points:<div id="dailyPoints"><%=dailyPoints%></div></h3>
 		   			<h3>Weekly Points:<div id="weeklyPoints"><%=weeklyPoints%></div></h3>
 		   			<h3>Total Points:<div id="totalPoints"><%=totalPoints%></div></h3>
 

@@ -11,7 +11,6 @@ module.exports = function (app, passport, Points, User, db) {
 				getWeeklyPts(req.user.email,function(wPoints){
 					getDailyPts(req.user.email,function(dPoints){
 						res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, dailyPoints: dPoints,weeklyPoints:wPoints, totalPoints:tPoints,ipinfo:"0"});
-
 					});
 				});			
 
@@ -272,7 +271,11 @@ module.exports = function (app, passport, Points, User, db) {
 		    { $group: { _id : "$email", dailyPoints : { $sum : { $add: ["$pointAmt"] } } }}
 		  , function (err, res) {
 				if (err) console.log("Error"+err);
-				callback(res[0].dailyPoints);
+				if (typeof res[0] == 'undefined'){
+					callback(0);
+				} else {
+					callback(res[0].dailyPoints);
+				}
 		});		
 	}
 	
