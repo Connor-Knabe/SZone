@@ -45,6 +45,37 @@ function load_notes(){
                 //add note that is blank	
 			} else {
 				var a = moment(resultsArray[i].date);
+				var pointType = "";				
+				switch (resultsArray[i].pointAmt) {
+				   case 1:
+				      // fall through
+				      pointType = "Eye Contact";
+				      break;
+				   case 2:
+				      pointType = "Head Nod";
+					  break;
+				   case 3:
+   				      pointType = "Smile Back";
+   					  break;
+				   case 4:
+				      // fall through
+				   case 5:
+				      // fall through
+				   case 6:
+				      break;
+				
+				   case 7:
+				      break;
+				
+				   case 8:
+				      // fall through
+				   default:
+				      break;
+				}
+				
+				
+				
+
 				$( "#notes" ).append( "<p>"+"<b>Date:</b> "+a.format('MMMM Do YYYY, h:mm:ss a')+"<br> <b>Location:</b> "+resultsArray[i].city+"<br> <b>Note:</b> "+resultsArray[i].notes +"</p>" );
 
 			}
