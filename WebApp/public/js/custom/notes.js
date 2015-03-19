@@ -57,26 +57,15 @@ function load_notes(){
 				   case 3:
    				      pointType = "Smile Back";
    					  break;
-				   case 4:
-				      // fall through
 				   case 5:
-				      // fall through
-				   case 6:
-				      break;
-				
-				   case 7:
-				      break;
-				
-				   case 8:
-				      // fall through
-				   default:
-				      break;
+				      pointType = "Verbal Greeting";
+					  break;
 				}
 				
 				
 				
 
-				$( "#notes" ).append( "<p>"+"<b>Date:</b> "+a.format('MMMM Do YYYY, h:mm:ss a')+"<br> <b>Location:</b> "+resultsArray[i].city+"<br> <b>Note:</b> "+resultsArray[i].notes +"</p>" );
+				$( "#notes" ).append( "<p>"+"<b>Date:</b> "+a.format('MMMM Do YYYY, h:mm:ss a')+"<br> <b>Location:</b> "+resultsArray[i].city+"<br> <b>Point Type:</b> "+pointType+"<br> <b>Note:</b> "+resultsArray[i].notes +"</p>" );
 
 			}
 		}
