@@ -65,7 +65,7 @@ function load_notes(){
 				
 				
 
-				$( "#notes" ).append( "<p>"+"<b>Date:</b> "+a.format('MMMM Do YYYY, h:mm:ss a')+"<br> <b>Location:</b> "+resultsArray[i].city+"<br> <b>Point Type:</b> "+pointType+"<br> <b>Note:</b> "+resultsArray[i].notes +"</p>" );
+				$( "#notes" ).append( "<p>"+"<b>Date:</b> "+a.format('MMMM Do YYYY, h:mm:ss a')+"<br> <b>Location:</b> "+resultsArray[i].city+"<br> <b>Point Amount:</b> "+resultsArray[i].pointAmt + "<br> <b>Point Type:</b> "+pointType+"<br> <b>Note:</b> "+resultsArray[i].notes +"</p>" );
 
 			}
 		}
