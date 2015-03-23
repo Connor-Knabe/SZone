@@ -76,13 +76,30 @@ function load_map(latitude, longitude){
     GeoMarker.setMap(map);    
 }
 
-function createLast10Marker(lat,lng,city,note) {
+function createLast10Marker(lat,lng,city,note, pointAmt) {
 	var gpsLoc = new google.maps.LatLng(lat, lng);
 	var contentString2;
 	if (city==''||note==''){
 		contentString2 == 'No info';
     }
-    contentString2 = '<div> <p> <b>City:</b>'+city+'</p> <p><b>Note:</b>'+note+' </p></div>';
+    var pointType = "";				
+				switch (pointAmt) {
+				   case 1:
+				      // fall through
+				      pointType = "Eye Contact";
+				      break;
+				   case 2:
+				      pointType = "Head Nod";
+					  break;
+				   case 3:
+   				      pointType = "Smile Back";
+   					  break;
+				   case 5:
+				      pointType = "Verbal Greeting";
+					  break;
+	}
+				
+    contentString2 = '<div> <p> <b>City:</b>'+city+'<br> <b>Point Amount:</b> '+pointAmt + '<br> <b>Point Type:</b> '+pointType+'<br><b>Note:</b>'+note+' </p></div>';
     var marker2 = new google.maps.Marker({
         position: gpsLoc,
         map: map
@@ -120,7 +137,7 @@ function form_last10(){
 		var resultsArray = data.queryResults;
 		for(var i=0;i<resultsArray.length;i++){
 			if(resultsArray[i].gps.latitude!=0){				
-				createLast10Marker(resultsArray[i].gps.latitude, resultsArray[i].gps.longitude,resultsArray[i].city, resultsArray[i].notes);
+				createLast10Marker(resultsArray[i].gps.latitude, resultsArray[i].gps.longitude,resultsArray[i].city, resultsArray[i].notes, resultsArray[i].pointAmt);
 				zoomArray.push(new google.maps.LatLng (resultsArray[i].gps.latitude,resultsArray[i].gps.longitude));
 			}
 		}
@@ -139,7 +156,7 @@ function form_lastAll(){
 		var resultsArray = data.queryResults;
 		for(var i=0;i<resultsArray.length;i++){
 			if(resultsArray[i].gps.latitude!=0){				
-				createLast10Marker(resultsArray[i].gps.latitude, resultsArray[i].gps.longitude,resultsArray[i].city, resultsArray[i].notes);
+				createLast10Marker(resultsArray[i].gps.latitude, resultsArray[i].gps.longitude,resultsArray[i].city, resultsArray[i].notes, resultsArray[i].pointAmt);
 				zoomArray.push(new google.maps.LatLng (resultsArray[i].gps.latitude,resultsArray[i].gps.longitude));
 			}
 		}
