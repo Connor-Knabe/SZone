@@ -1,16 +1,3 @@
-/*
-$("#profile").click(function (event) {
-	
-	if ($('.navbar').css('display') == 'none') {
-		$(".navbar").show();	
-		alert("Show");
-	}
-    var target = $(event.target);
-    if (target.is($("#notebox_area"))) {
-        $(".navbar").hide();
-    }
-});*/
-
 $("#notebox_area").click(function () {
     $(".navbar").hide();
 });
