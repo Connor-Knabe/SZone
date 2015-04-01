@@ -273,6 +273,8 @@ module.exports = function (app, passport, Points, User, db) {
 	function getDailyPts(usrEmail,callback){
 		var weekAgo = new Date();
 		weekAgo.setDate(weekAgo.getDate()-1);
+		console.log(weekAgo);
+		
 		var results = Points.aggregate(
 			{ $match: { dateAdded:{$gte: weekAgo, $lt: new Date()}}},
 			{ $match : {email : usrEmail} },
@@ -286,6 +288,7 @@ module.exports = function (app, passport, Points, User, db) {
 				}
 		});		
 	}
+	
 	
 	function hasNumber(str){
 		return /\d/.test(str);
