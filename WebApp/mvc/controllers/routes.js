@@ -271,12 +271,13 @@ module.exports = function (app, passport, Points, User, db) {
 		});		
 	}
 	function getDailyPts(usrEmail,callback){
-		var weekAgo = new Date();
-		weekAgo.setDate(weekAgo.getDate()-1);
-		console.log(weekAgo);
+		var dayAgo = new Date();
+		//dayAgo.setDate(weekAgo.getDate()-1);
+		dayAgo.setHours(0,0,0,0);
+		console.log(dayAgo);
 		
 		var results = Points.aggregate(
-			{ $match: { dateAdded:{$gte: weekAgo, $lt: new Date()}}},
+			{ $match: { dateAdded:{$gte: dayAgo, $lt: new Date()}}},
 			{ $match : {email : usrEmail} },
 		    { $group: { _id : "$email", dailyPoints : { $sum : { $add: ["$pointAmt"] } } }}
 		  , function (err, res) {
