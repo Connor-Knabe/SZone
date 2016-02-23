@@ -8,7 +8,7 @@ var https = require('https');
 var http = require('http');
 var sessionSecret = require('./sessionSecret.js');
 var bcrypt = require('bcrypt');
-var mongodb = require('mongodb')
+var mongodb = require('mongodb');
 var mongoose = require('mongoose');
 var passport = require('passport');
 
@@ -83,4 +83,3 @@ require('./mvc/controllers/routes.js')(app, passport, Points, User, db);
 
 http.createServer(app).listen(port);
 https.createServer(options, app).listen(443);
-
