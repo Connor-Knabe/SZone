@@ -17,9 +17,9 @@ var userModel = require('./mvc/models/user.js');
 var pointModel = require('./mvc/models/point.js');
 
 var options = {
-    ca: fs.readFileSync("config/ssl/ca.crt"),
-    key: fs.readFileSync("config/ssl/key.pem"),
-    cert: fs.readFileSync("config/ssl/cert.pem"),
+    ca: fs.readFileSync("config/ssl/smiiles.ca-bundle"),
+    key: fs.readFileSync("config/ssl/server.key"),
+    cert: fs.readFileSync("config/ssl/smiiles.crt"),
     secureProtocol: 'SSLv23_method',
 	secureOptions: constants.SSL_OP_NO_SSLv3
 
@@ -33,7 +33,7 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback() {
 	console.log('Connected to DB');
-})
+});
 
 // Password verification
 userModel.userSchema.methods.comparePassword = function(candidatePassword, cb) {
