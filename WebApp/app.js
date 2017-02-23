@@ -1,3 +1,5 @@
+// forever -e /root/SmileZone/WebApp/log.err -a -o /root/SmileZone/WebApp/log.log start /root/SmileZone/WebApp/app.js
+
 var fs = require('fs');
 var constants = require('constants');
 var express = require('express');
@@ -20,13 +22,13 @@ var options = {
     ca: fs.readFileSync("config/ssl/smiiles.ca-bundle"),
     key: fs.readFileSync("config/ssl/server.key"),
     cert: fs.readFileSync("config/ssl/smiiles.crt"),
-    secureProtocol: 'SSLv23_method',
+    secureProtocol: 'TLSv1_2_method',
 	secureOptions: constants.SSL_OP_NO_SSLv3
 
 };
 
 
-
+console.log("Starting app ",new Date());
 
 mongoose.connect('localhost', 'smilezone5');
 var db = mongoose.connection;
