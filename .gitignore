@@ -8,3 +8,4 @@ WebApp/config/ssl
 WebApp/public/float
 log.txt
 log.err
+WebApp/log.*

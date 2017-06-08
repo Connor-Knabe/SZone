@@ -19,9 +19,9 @@ var userModel = require('./mvc/models/user.js');
 var pointModel = require('./mvc/models/point.js');
 
 var options = {
-    ca: fs.readFileSync("config/ssl/smiiles.ca-bundle"),
-    key: fs.readFileSync("config/ssl/server.key"),
-    cert: fs.readFileSync("config/ssl/smiiles.crt"),
+    ca: fs.readFileSync("/root/SmileZone/WebApp/config/ssl/smiiles.ca-bundle"),
+    key: fs.readFileSync("/root/SmileZone/WebApp/config/ssl/server.key"),
+    cert: fs.readFileSync("/root/SmileZone/WebApp/config/ssl/smiiles.crt"),
     secureProtocol: 'TLSv1_2_method',
 	secureOptions: constants.SSL_OP_NO_SSLv3
 
