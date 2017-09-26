@@ -4,12 +4,12 @@ var fs = require('fs');
 var constants = require('constants');
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 80;
+var port = process.env.PORT || 8080;
 var path = require('path');
 var https = require('https');
 var http = require('http');
 var sessionSecret = require('./sessionSecret.js');
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt-nodejs');
 var mongodb = require('mongodb');
 var mongoose = require('mongoose');
 var passport = require('passport');
@@ -61,12 +61,12 @@ app.configure(function() {
 	app.set('views', __dirname + '/mvc/views');
     app.set('view engine', 'ejs');
 	app.use(express.session({ secret: sessionSecret.secret }));
-	app.use(function(req, res, next) {
-		if(!req.secure) {
-			return res.redirect(['https://', req.get('Host'), req.url].join(''));
-  		}
-    	next();
-	});
+	// app.use(function(req, res, next) {
+	// 	if(!req.secure) {
+	// 		return res.redirect(['https://', req.get('Host'), req.url].join(''));
+ //  		}
+    // 	next();
+	// });
 	// Remember Me middleware
 	app.use( function (req, res, next) {
 		if ( req.method == 'POST' && req.url == '/login' ) {
@@ -84,4 +84,4 @@ require('./mvc/controllers/routes.js')(app, passport, Points, User, db);
 
 
 http.createServer(app).listen(port);
-https.createServer(options, app).listen(443);
+// https.createServer(options, app).listen(443);

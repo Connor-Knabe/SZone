@@ -2,9 +2,16 @@ var request = require('request');
 var util = require('util');
 var sanitizer = require('sanitizer');
 var moment = require('moment-timezone');
+var express  = require('express');
+var httpProxy = require('http-proxy');
+var http = require('http');
+var proxy = httpProxy.createProxyServer({});
+var proxyMiddle = require('proxy-middleware');
+var bodyParser = require('body-parser');
 
 module.exports = function (app, passport, Points, User, db) {
-		
+
+	// app.use(bodyParser.json());
 	app.get('/', function(req, res) {
 		if (req.user){
 			getTotalPts(req.user.email,function(tPoints){
@@ -12,7 +19,7 @@ module.exports = function (app, passport, Points, User, db) {
 					getDailyPts(req.user.email,function(dPoints){
 						res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, dailyPoints: dPoints,weeklyPoints:wPoints, totalPoints:tPoints,ipinfo:"0"});
 					});
-				});			
+				});
 
 			});
 		} else {
@@ -30,7 +37,7 @@ module.exports = function (app, passport, Points, User, db) {
 			});
 		}
 	});
-	
+
 	app.post('/lastAll', function(req, res) {
 		if (req.user){
 			findPointLog(req.user.email,-1,function(results){
@@ -41,7 +48,7 @@ module.exports = function (app, passport, Points, User, db) {
 			});
 		}
 	});
-	
+
 
 	app.post('/loadNotes', function(req, res) {
 		if (req.user){
@@ -61,9 +68,9 @@ module.exports = function (app, passport, Points, User, db) {
 				var jsonInfo = JSON.parse(body);
 				try {
 				    if (hasNumber(jsonInfo.results[2].formatted_address)==false){
-					    cityName = jsonInfo.results[2].formatted_address;   
+					    cityName = jsonInfo.results[2].formatted_address;
 				    } else {
-					    cityName = jsonInfo.results[3].formatted_address;   
+					    cityName = jsonInfo.results[3].formatted_address;
 				    }
 				}
 				catch(e){
@@ -87,7 +94,7 @@ module.exports = function (app, passport, Points, User, db) {
 					}
 					console.log("Saving point");
 					res.redirect('/#profile');
-		
+
 				});
 			} else {
 				var pts = new Points({
@@ -112,7 +119,7 @@ module.exports = function (app, passport, Points, User, db) {
 
 
 
-		
+
 	});
 
 	app.post('/ip', function(req,res) {
@@ -144,16 +151,18 @@ module.exports = function (app, passport, Points, User, db) {
 						res.render('loggedin.ejs', {user:req.user.firstName,email:req.user.email, dailyPoints: dPoints,weeklyPoints:wPoints, totalPoints:tPoints,ipinfo:"0"});
 
 					});
-				});			
+				});
 
 			});
 		} else {
 			res.render('index.ejs', {action:"signup", error:"none"});
 		}
 	});
+
 	app.get('/login',ensureAuthenticated, function(req, res){
 		res.render('index.ejs', { action:"loggedin"});
 	});
+
 
 	app.get('/logout', function(req, res){
 		req.logout();
@@ -164,7 +173,7 @@ module.exports = function (app, passport, Points, User, db) {
 	//   acheive the same functionality.
 	app.post('/login', function(req, res, next) {
 		passport.authenticate('local', function(err, user, info) {
-			if (err) { return next(err) }
+			if (err) { return next(err); }
 				if (!user) {
 					req.session.messages =  [info.message];
 					//return res.redirect('/#login')
@@ -209,8 +218,8 @@ module.exports = function (app, passport, Points, User, db) {
 			gps:{latitude:"",longitude:""},
 			notes: ''
 		});
-		
-		
+
+
 
 		usr.save(function(err) {
 			var totalPoints = 0;
@@ -239,7 +248,7 @@ module.exports = function (app, passport, Points, User, db) {
 	    res.redirect('/')
 	}
 
-	
+
 	function getTotalPts(usrEmail,callback){
 		var results = Points.aggregate(
 			{ $match : {email : usrEmail} },
@@ -250,10 +259,10 @@ module.exports = function (app, passport, Points, User, db) {
 					callback(0);
 				} else {
 					callback(res[0].totalPoints);
-				}		
-		});		
+				}
+		});
 	}
-	
+
 	function getWeeklyPts(usrEmail,callback){
 		var weekAgo = new Date();
 		weekAgo.setDate(weekAgo.getDate()-7);
@@ -268,14 +277,14 @@ module.exports = function (app, passport, Points, User, db) {
 				} else {
 					callback(res[0].weeklyPoints);
 				}
-		});		
+		});
 	}
 	function getDailyPts(usrEmail,callback){
 		var dayAgo = new Date();
 		//dayAgo.setDate(weekAgo.getDate()-1);
 		dayAgo.setHours(0,0,0,0);
 		console.log(dayAgo);
-		
+
 		var results = Points.aggregate(
 			{ $match: { dateAdded:{$gte: dayAgo, $lt: new Date()}}},
 			{ $match : {email : usrEmail} },
@@ -287,10 +296,10 @@ module.exports = function (app, passport, Points, User, db) {
 				} else {
 					callback(res[0].dailyPoints);
 				}
-		});		
+		});
 	}
-	
-	
+
+
 	function hasNumber(str){
 		return /\d/.test(str);
 	}
@@ -314,8 +323,8 @@ module.exports = function (app, passport, Points, User, db) {
 			    if (err) console.log("Error"+err);
 				callback(res);
 		    });
-	    
-		}	    
+
+		}
 
 	}
 }

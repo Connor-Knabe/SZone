@@ -31,11 +31,11 @@
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        
+
         ga('create', 'UA-57555816-1', 'auto');
         ga('send', 'pageview');
-        
-    
+
+
     </script>
 </head>
 
@@ -88,7 +88,7 @@
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">Smiiles</h1>
 							<!--<video width="100%"  height="100%" id="sampleMovie" src="smiiles.mp4" muted autoplay></video>-->
-							<img src="smiiles.gif" alt="Smile" width="100%" height="100%" />
+							<!-- <img src="smiiles.gif" alt="Smile" width="100%" height="100%" /> -->
 							<br> <br>
                             <p class="intro-text">Welcome! Please <a href="https://smiil.es/signup#login">sign up</a> to get started!</p>
 
@@ -162,19 +162,19 @@
                                                     </div>
                                                 </form>
 
-                                                
+
 	                                            <%} else  {%>
 
                                                     <%if (action=="success") { %>
-	                                                	<div class="success">Registration Successful! Please login! </div>	                                                    
+	                                                	<div class="success">Registration Successful! Please login! </div>
 	                                                <%} else if(action=="failed")  {%>
-	                                                
+
 	                                            		<div class="failed">Login failed invalid email or password </div>
-	                                            		
+
 
 
 	                                                <% } %>
-	                                                
+
                                                     <form action="/login" method="post" role="form">
                                                         <div class="form-group col-md-6">
                                                             <label for="exampleInputEmail1">Email address</label>
@@ -185,14 +185,14 @@
                                                             <input type="password" class="form-control" name="password" placeholder="Password">
                                                         </div>
                                                         <div class="form-group col-md-12 btn_pad">
-                                                            
+
                                                                 <button type="submit" class="btn btn-default ">Login</button>
                                                                 or <a href="/signup#login"> Sign up</a>
                                                             </div>
 
                                                         </form>
                                                         <% } %>
-                                                        
+
                                                     </div>
                                                 </div>
                                             </div>
