@@ -9,13 +9,13 @@ var proxy = httpProxy.createProxyServer({});
 var proxyMiddle = require('proxy-middleware');
 var bodyParser = require('body-parser');
 
-module.exports = function(app, passport, Points, User, db) {
+module.exports = function (app, passport, Points, User, db) {
     // app.use(bodyParser.json());
-    app.get('/', function(req, res) {
+    app.get('/', function (req, res) {
         if (req.user) {
-            getTotalPts(req.user.email, function(tPoints) {
-                getWeeklyPts(req.user.email, function(wPoints) {
-                    getDailyPts(req.user.email, function(dPoints) {
+            getTotalPts(req.user.email, function (tPoints) {
+                getWeeklyPts(req.user.email, function (wPoints) {
+                    getDailyPts(req.user.email, function (dPoints) {
                         res.render('loggedin.ejs', {
                             user: req.user.firstName,
                             email: req.user.email,
@@ -36,13 +36,23 @@ module.exports = function(app, passport, Points, User, db) {
         }
     });
 
-    app.get('/twitter', function(req, res) {
+    app.get('/twitter', function (req, res) {
         res.render('twitter.ejs');
     });
 
-    app.post('/lastTen', function(req, res) {
+
+    //for ssl cert
+    app.get('/.well-known/acme-challenge/v2pjz_sWaq92V-iX-8ZrmCJTpAcrLMpmx5G3SnSe8iA', function (req, res) {
+        res.send('v2pjz_sWaq92V-iX-8ZrmCJTpAcrLMpmx5G3SnSe8iA.aNi2888JKcNhovGmg1kXqVQMRFKUa2vJip-OLjJfQ7M');
+    });
+
+    app.get('/.well-known/acme-challenge/SWbqZMbhHttLeGUDA3ytSdovtXbuJBPo2UPeueMckiY', function (req, res) {
+        res.send('SWbqZMbhHttLeGUDA3ytSdovtXbuJBPo2UPeueMckiY.aNi2888JKcNhovGmg1kXqVQMRFKUa2vJip-OLjJfQ7M');
+    });
+
+    app.post('/lastTen', function (req, res) {
         if (req.user) {
-            findPointLog(req.user.email, 10, function(results) {
+            findPointLog(req.user.email, 10, function (results) {
                 //Send the JSON to the page
                 res.type('json');
                 res.send({ queryResults: results });
@@ -50,9 +60,9 @@ module.exports = function(app, passport, Points, User, db) {
         }
     });
 
-    app.post('/lastAll', function(req, res) {
+    app.post('/lastAll', function (req, res) {
         if (req.user) {
-            findPointLog(req.user.email, -1, function(results) {
+            findPointLog(req.user.email, -1, function (results) {
                 //Send the JSON to the page
                 res.type('json');
                 res.send({ queryResults: results });
@@ -60,9 +70,9 @@ module.exports = function(app, passport, Points, User, db) {
         }
     });
 
-    app.post('/loadNotes', function(req, res) {
+    app.post('/loadNotes', function (req, res) {
         if (req.user) {
-            findPointLog(req.user.email, 10, function(results) {
+            findPointLog(req.user.email, 10, function (results) {
                 //Send the JSON to the page
                 res.type('json');
                 res.send({ queryResults: results });
@@ -70,15 +80,15 @@ module.exports = function(app, passport, Points, User, db) {
         }
     });
 
-    app.post('/addPoint', function(req, res) {
+    app.post('/addPoint', function (req, res) {
         var cityName = '';
         request(
             'https://maps.googleapis.com/maps/api/geocode/json?latlng=' +
-                req.body.latitude +
-                ',' +
-                req.body.longitude +
-                '&key=AIzaSyBNR7EnIw78027wE8rF6Ki4Y-UnSLMfjss',
-            function(error, response, body) {
+            req.body.latitude +
+            ',' +
+            req.body.longitude +
+            '&key=AIzaSyBNR7EnIw78027wE8rF6Ki4Y-UnSLMfjss',
+            function (error, response, body) {
                 if (!error && response.statusCode == 200) {
                     var jsonInfo = JSON.parse(body);
                     try {
@@ -106,7 +116,7 @@ module.exports = function(app, passport, Points, User, db) {
                         notes: sanitizer.escape(req.body.notes)
                     });
 
-                    pts.save(function(err) {
+                    pts.save(function (err) {
                         if (err) {
                             console.log('error during add point' + err);
                             res.redirect('/#profile');
@@ -127,7 +137,7 @@ module.exports = function(app, passport, Points, User, db) {
                         city: '',
                         notes: sanitizer.escape(req.body.notes)
                     });
-                    pts.save(function(err) {
+                    pts.save(function (err) {
                         if (err) {
                             console.log('error during add point' + err);
                             res.redirect('/#profile');
@@ -139,9 +149,9 @@ module.exports = function(app, passport, Points, User, db) {
         );
     });
 
-    app.post('/ip', function(req, res) {
+    app.post('/ip', function (req, res) {
         var ip = req.connection.remoteAddress;
-        request('http://www.ipinfo.io/' + ip, function(error, response, body) {
+        request('http://www.ipinfo.io/' + ip, function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 console.log(body); // Print the google web page.
 
@@ -155,12 +165,12 @@ module.exports = function(app, passport, Points, User, db) {
         });
     });
 
-    app.get('/signup', function(req, res) {
+    app.get('/signup', function (req, res) {
         if (req.user) {
             console.log('hit signup when loggedin');
-            getTotalPts(req.user.email, function(tPoints) {
-                getWeeklyPts(req.user.email, function(wPoints) {
-                    getDailyPts(req.user.email, function(dPoints) {
+            getTotalPts(req.user.email, function (tPoints) {
+                getWeeklyPts(req.user.email, function (wPoints) {
+                    getDailyPts(req.user.email, function (dPoints) {
                         res.render('loggedin.ejs', {
                             user: req.user.firstName,
                             email: req.user.email,
@@ -177,94 +187,97 @@ module.exports = function(app, passport, Points, User, db) {
         }
     });
     console.log('yee');
-    app.get('/login', ensureAuthenticated, function(req, res) {
+    app.get('/login', ensureAuthenticated, function (req, res) {
         console.log('yes');
         res.render('index.ejs', { action: 'loggedin' });
     });
 
-    app.get('/logout', function(req, res) {
+    app.get('/logout', function (req, res) {
         req.logout();
         res.redirect('/');
     });
     // POST /login
     //   This is an alternative implementation that uses a custom callback to
     //   acheive the same functionality.
-    app.post('/login', function(req, res, next) {
-        passport.authenticate('local', function(err, user, info) {
-            if (err) {
-                return next(err);
-            }
-            if (!user) {
-                req.session.messages = [info.message];
-                //return res.redirect('/#login')
-                return res.render('index.ejs', { action: 'failed', error: '' });
-            }
-            req.logIn(user, function(err) {
-                if (err) {
-                    return next(err);
-                }
-                return res.redirect('/#profile');
-            });
-        })(req, res, next);
+    app.post('/login', function (req, res, next) {
+
+        res.send("Login is currently disabled");
+        // passport.authenticate('local', function (err, user, info) {
+        //     if (err) {
+        //         return next(err);
+        //     }
+        //     if (!user) {
+        //         req.session.messages = [info.message];
+        //         //return res.redirect('/#login')
+        //         return res.render('index.ejs', { action: 'failed', error: '' });
+        //     }
+        //     req.logIn(user, function (err) {
+        //         if (err) {
+        //             return next(err);
+        //         }
+        //         return res.redirect('/#profile');
+        //     });
+        // })(req, res, next);
     });
 
     function session(req, res) {
         res.redirect('/');
     }
 
-    app.get('/logout', function(req, res) {
+    app.get('/logout', function (req, res) {
         req.logout();
         res.redirect('/');
     });
 
-    app.post('/signup', function(req, res) {
+    app.post('/signup', function (req, res) {
         //Seed a user
 
-        if (req.body.password1 != req.body.password2) {
-            res.render('index.ejs', { action: 'signup', error: 'password' });
-        }
-        var usr = new User({
-            firstName: req.body.firstname,
-            lastName: req.body.lastname,
-            email: req.body.email,
-            password: req.body.password1
-        });
+        res.send('Sign up is currently disabled');
+        // if (req.body.password1 != req.body.password2) {
+        //     res.render('index.ejs', { action: 'signup', error: 'password' });
+        // }
+        // var usr = new User({
+        //     firstName: req.body.firstname,
+        //     lastName: req.body.lastname,
+        //     email: req.body.email,
+        //     password: req.body.password1
+        // });
 
-        var pts = new Points({
-            email: req.body.email,
-            date: moment().tz('America/Chicago'),
-            dateAdded: new Date(),
-            pointAmt: '0',
-            gps: { latitude: '', longitude: '' },
-            notes: ''
-        });
+        // var pts = new Points({
+        //     email: req.body.email,
+        //     date: moment().tz('America/Chicago'),
+        //     dateAdded: new Date(),
+        //     pointAmt: '0',
+        //     gps: { latitude: '', longitude: '' },
+        //     notes: ''
+        // });
 
-        usr.save(function(err) {
-            var totalPoints = 0;
-            if (err) {
-                console.log('error from signup' + err);
-                if (err.message == 'Validation failed') {
-                    res.render('index.ejs', {
-                        action: 'signup',
-                        error: 'blank'
-                    });
-                } else {
-                    res.render('index.ejs', {
-                        action: 'signup',
-                        error: 'duplicate'
-                    });
-                }
-                console.log(err);
-            } else {
-                pts.save(function(err) {
-                    console.log('points error: ' + err);
-                    res.render('index.ejs', {
-                        action: 'success',
-                        error: 'blank'
-                    });
-                });
-            }
-        });
+        // usr.save(function (err) {
+        //     var totalPoints = 0;
+        //     if (err) {
+        //         console.log('error from signup' + err);
+        //         if (err.message == 'Validation failed') {
+        //             res.render('index.ejs', {
+        //                 action: 'signup',
+        //                 error: 'blank'
+        //             });
+        //         } else {
+        //             res.render('index.ejs', {
+        //                 action: 'signup',
+        //                 error: 'duplicate'
+        //             });
+        //         }
+        //         console.log(err);
+        //     } else {
+        //         pts.save(function (err) {
+        //             console.log('points error: ' + err);
+        //             res.render('index.ejs', {
+        //                 action: 'success',
+        //                 error: 'blank'
+        //             });
+        //         });
+        //     }
+        // });
     });
 
     function ensureAuthenticated(req, res, next) {
@@ -284,7 +297,7 @@ module.exports = function(app, passport, Points, User, db) {
                     totalPoints: { $sum: { $add: ['$pointAmt'] } }
                 }
             },
-            function(err, res) {
+            function (err, res) {
                 if (err) console.log('Error' + err);
                 if (typeof res[0] == 'undefined') {
                     callback(0);
@@ -307,7 +320,7 @@ module.exports = function(app, passport, Points, User, db) {
                     weeklyPoints: { $sum: { $add: ['$pointAmt'] } }
                 }
             },
-            function(err, res) {
+            function (err, res) {
                 if (err) console.log('Error' + err);
                 if (typeof res[0] == 'undefined') {
                     callback(0);
@@ -332,7 +345,7 @@ module.exports = function(app, passport, Points, User, db) {
                     dailyPoints: { $sum: { $add: ['$pointAmt'] } }
                 }
             },
-            function(err, res) {
+            function (err, res) {
                 if (err) console.log('Error' + err);
                 if (typeof res[0] == 'undefined') {
                     callback(0);
@@ -352,7 +365,7 @@ module.exports = function(app, passport, Points, User, db) {
             var results = Points.aggregate(
                 { $sort: { _id: -1 } },
                 { $match: { email: usrEmail } },
-                function(err, res) {
+                function (err, res) {
                     if (err) console.log('Error' + err);
                     callback(res);
                 }
@@ -362,7 +375,7 @@ module.exports = function(app, passport, Points, User, db) {
                 { $sort: { _id: -1 } },
                 { $match: { email: usrEmail } },
                 { $limit: resultNum },
-                function(err, res) {
+                function (err, res) {
                     if (err) console.log('Error' + err);
                     callback(res);
                 }

@@ -7,7 +7,7 @@
         "bcryptjs": "2.4.3",
         "body-parser": "1.9.2",
         "constants": "latest",
-        "ejs": "0.8.5",
+        "ejs": "2.5.7",
         "express": "3.4.8",
         "favicon": "latest",
         "fs": "latest",
