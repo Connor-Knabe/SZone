@@ -1,2 +1,4 @@
-log.log
+ssl
+sessionSecret.js
 node_modules
+log.log
