@@ -1,4 +1,7 @@
 ssl
+core
+*stripe*
+
 sessionSecret.js
 node_modules
 log.log

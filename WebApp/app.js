@@ -18,9 +18,7 @@ var passport = require('passport');
 var userModel = require('./mvc/models/user.js');
 var pointModel = require('./mvc/models/point.js');
 
-
-
-console.log("Starting app ", new Date());
+console.log('Starting app ', new Date());
 
 mongoose.connect('localhost', 'smilezone5');
 var db = mongoose.connection;
@@ -30,8 +28,8 @@ db.once('open', function callback() {
 });
 
 // Password verification
-userModel.userSchema.methods.comparePassword = function (candidatePassword, cb) {
-	bcrypt.compare(candidatePassword, this.password, function (err, isMatch) {
+userModel.userSchema.methods.comparePassword = function(candidatePassword, cb) {
+	bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
 		if (err) return cb(err);
 		cb(null, isMatch);
 	});
@@ -41,10 +39,9 @@ var User = mongoose.model('User', userModel.userSchema);
 //Include passport
 require('./mvc/controllers/passport.js')(app, passport, User);
 
-
 var Points = mongoose.model('Points', pointModel.pointsSchema);
 
-app.configure(function () {
+app.configure(function() {
 	// app.use(express.json());
 	app.use(express.urlencoded());
 	app.use(express.cookieParser());
@@ -55,7 +52,7 @@ app.configure(function () {
 	app.use(express.session({ secret: sessionSecret.secret }));
 
 	// Remember Me middleware
-	app.use(function (req, res, next) {
+	app.use(function(req, res, next) {
 		if (req.method == 'POST' && req.url == '/login') {
 			req.session.cookie.maxAge = 2592000000; // 30*24*60*60*1000 Rememeber 'me' for 30 days
 		}
@@ -63,11 +60,8 @@ app.configure(function () {
 	});
 	app.use(passport.initialize());
 	app.use(passport.session());
-
 });
 
 require('./mvc/controllers/routes.js')(app, passport, Points, User, db);
-
-
 
 http.createServer(app).listen(port);
