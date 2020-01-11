@@ -2,6 +2,7 @@ var request = require('request');
 var util = require('util');
 var sanitizer = require('sanitizer');
 var moment = require('moment-timezone');
+var sessionSecret = require('../../sessionSecret.js');
 
 module.exports = function(app, passport, Points, User, db) {
 	app.get('/', function(req, res) {
@@ -50,11 +51,7 @@ module.exports = function(app, passport, Points, User, db) {
 
 	app.post('/addPoint', function(req, res) {
 		var cityName = '';
-		request('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + req.body.latitude + ',' + req.body.longitude + '&key=AIzaSyBNR7EnIw78027wE8rF6Ki4Y-UnSLMfjss', function(
-			error,
-			response,
-			body
-		) {
+		request('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + req.body.latitude + ',' + req.body.longitude + '&key=' + sessionSecret.googleApi, function(error, response, body) {
 			if (!error && response.statusCode == 200) {
 				var jsonInfo = JSON.parse(body);
 				try {
