@@ -13,6 +13,10 @@ var bcrypt = require('bcrypt');
 var mongodb = require('mongodb');
 var mongoose = require('mongoose');
 var passport = require('passport');
+var cookieParser = require('cookie-parser')
+var session = require('express-session')
+var favicon = require('serve-favicon')
+var serveStatic = require('serve-static')
 
 //Models
 var userModel = require('./mvc/models/user.js');
@@ -20,7 +24,10 @@ var pointModel = require('./mvc/models/point.js');
 
 console.log('Starting app ', new Date());
 
-mongoose.connect('localhost', 'smilezone5');
+
+mongoose.connect('mongodb://localhost:27017/smilezone5', {useNewUrlParser: true});
+
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback() {
@@ -41,26 +48,24 @@ require('./mvc/controllers/passport.js')(app, passport, User);
 
 var Points = mongoose.model('Points', pointModel.pointsSchema);
 
-app.configure(function() {
-	// app.use(express.json());
-	app.use(express.urlencoded());
-	app.use(express.cookieParser());
-	app.use(express.static(__dirname + '/public'));
-	app.use(express.favicon(__dirname + '/public/img/favicon.ico'));
-	app.set('views', __dirname + '/mvc/views');
-	app.set('view engine', 'ejs');
-	app.use(express.session({ secret: sessionSecret.secret }));
+// app.use(express.json());
+app.use(express.urlencoded());
+app.use(cookieParser());
+app.use(serveStatic(__dirname + '/public'));
+app.use(favicon(__dirname + '/public/img/favicon.ico'));
+app.set('views', __dirname + '/mvc/views');
+app.set('view engine', 'ejs');
+app.use(session({ secret: sessionSecret.secret }));
 
-	// Remember Me middleware
-	app.use(function(req, res, next) {
-		if (req.method == 'POST' && req.url == '/login') {
-			req.session.cookie.maxAge = 2592000000; // 30*24*60*60*1000 Rememeber 'me' for 30 days
-		}
-		next();
-	});
-	app.use(passport.initialize());
-	app.use(passport.session());
+// Remember Me middleware
+app.use(function(req, res, next) {
+	if (req.method == 'POST' && req.url == '/login') {
+		req.session.cookie.maxAge = 2592000000; // 30*24*60*60*1000 Rememeber 'me' for 30 days
+	}
+	next();
 });
+app.use(passport.initialize());
+app.use(passport.session());
 
 require('./mvc/controllers/routes.js')(app, passport, Points, User, db);
 
