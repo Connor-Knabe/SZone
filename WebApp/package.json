@@ -4,8 +4,8 @@
   "version": "0.0.1",
   "main": "server.js",
   "dependencies": {
-    "bcrypt": "^1.0.3",
-    "body-parser": "^1.9.2",
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.17.1",
     "constants": "0.0.2",
     "cookie-parser": "^1.4.4",
     "ejs": "^2.5.7",
@@ -13,17 +13,28 @@
     "express-session": "^1.17.0",
     "favicon": "0.0.2",
     "fs": "0.0.1-security",
-    "moment": "^2.21.0",
+    "moment": "^2.27.0",
     "moment-timezone": "^0.2.5",
     "mongodb": "^3.1.13",
     "mongoose": "5.8.7",
     "passport": "0.2.0",
     "passport-local": "0.1.6",
+<<<<<<< HEAD
     "request": "2.88.2",
     "require": "2.88.2",
+=======
+    "request": "^2.88.0",
+    "require": "^2.4.20",
+>>>>>>> ed63fd2b7fb4efbc9bad06a2802e34e91933fa2d
     "sanitizer": "^0.1.3",
     "serve-favicon": "^2.5.0",
     "serve-static": "^1.14.1",
-    "util": "^0.10.3"
-  }
+    "util": "^0.10.3",
+    "snyk": "^*"
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }

@@ -1,0 +1,22 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.19.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:extend:20180424':
+    - request > extend:
+        patched: '2020-09-16T20:28:40.090Z'
+    - favicon > request > extend:
+        patched: '2020-09-16T20:28:40.090Z'
+    - bcrypt > node-pre-gyp > request > extend:
+        patched: '2020-09-16T20:28:40.090Z'
+  'npm:stringstream:20180511':
+    - request > stringstream:
+        patched: '2020-09-16T20:28:40.090Z'
+    - favicon > request > stringstream:
+        patched: '2020-09-16T20:28:40.090Z'
+    - bcrypt > node-pre-gyp > request > stringstream:
+        patched: '2020-09-16T20:28:40.090Z'
+  'npm:uglify-js:20151024':
+    - require > uglify-js:
+        patched: '2020-09-16T20:28:40.090Z'
